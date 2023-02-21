@@ -15,7 +15,7 @@ return {
   plugins = {
     {
       "AstroNvim/astrocommunity",
-      { import = "astrocommunity.themes.catppuccin" }
+      { import = "astrocommunity.catppuccin" }
       -- ... import any community contributed plugins here
     }
   }
@@ -30,7 +30,7 @@ Put the following in the file `user/plugins/community.lua`
 return {
   {
     "AstroNvim/astrocommunity",
-    { import = "astrocommunity.themes.catppuccin" }
+    { import = "astrocommunity.catppuccin" }
     -- ... import any community contributed plugins here
   }
 }
