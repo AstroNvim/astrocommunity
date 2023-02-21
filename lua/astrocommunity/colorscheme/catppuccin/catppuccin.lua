@@ -15,5 +15,7 @@ return {
       telescope = true,
       which_key = true,
     },
+    priority = 1000,
+    lazy = false,
   },
 }
