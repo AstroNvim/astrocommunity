@@ -1,3 +1,1 @@
-return {
-  "sainnhe/everforest",
-}
+return { "sainnhe/everforest" }

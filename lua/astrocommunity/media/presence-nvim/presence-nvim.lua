@@ -1,3 +1,1 @@
-return {
-  { "andweeb/presence.nvim", event = "VeryLazy" },
-}
+return { "andweeb/presence.nvim", event = "VeryLazy" }
