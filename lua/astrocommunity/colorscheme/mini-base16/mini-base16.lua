@@ -1,4 +1,1 @@
-return { {
-  "echasnovski/mini.base16",
-  version = false,
-} }
+return { "echasnovski/mini.base16" }
