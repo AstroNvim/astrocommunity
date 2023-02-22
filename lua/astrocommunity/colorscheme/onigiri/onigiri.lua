@@ -1,0 +1,1 @@
+return { "kaiuri/onigiri.nvim" }
