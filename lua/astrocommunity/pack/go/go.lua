@@ -15,7 +15,7 @@ return {
   },
 
   {
-    "williamboman/mason.nvim",
+    "jay-babu/mason-null-ls.nvim",
     opts = function(_, opts)
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
