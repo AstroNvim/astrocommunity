@@ -3,18 +3,11 @@ return {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     init = function() table.insert(astronvim.file_plugins, "copilot.lua") end,
-    opts = {
-      suggestion = {
-        auto_trigger = true,
-        debounce = 150,
-      },
-    },
+    opts = { suggestion = { auto_trigger = true, debounce = 150 } },
   },
   {
     "hrsh7th/nvim-cmp",
-    dependencies = {
-      "zbirenbaum/copilot.lua",
-    },
+    dependencies = { "zbirenbaum/copilot.lua" },
     opts = function(_, opts)
       local cmp, copilot = require "cmp", require "copilot.suggestion"
       local snip_status_ok, luasnip = pcall(require, "luasnip")
