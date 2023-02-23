@@ -50,6 +50,9 @@
     <a href="lua/astrocommunity/scrolling">
       <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/scrolling?label=Scrolling Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f5bde6"/>
     </a>
+    <a href="lua/astrocommunity/utility">
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/utility?label=Utility Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=c6a0f6"/>
+    </a>
     <a href="lua/astrocommunity/pack">
       <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/pack?label=Plugin Packs&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=b7bdf8"/>
     </a>
@@ -73,7 +76,7 @@ Category Colors:
 #f4dbd6: note-taking
 #f0c6c6: project
 #f5bde6: scrolling
-#c6a0f6:
+#c6a0f6: utility
 #ee99a0:
 #f5a97f:
 #eed49f:
