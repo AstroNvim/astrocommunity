@@ -87,7 +87,7 @@ Category Colors:
 #b7bdf8: pack
 -->
 
-This is a community repository easily adding common plugins to AstroNvim.
+This repository contains plugin configuration specifications, a collection of community-contributed plugins for AstroNvim, a neovim configuration by AstroNvim. The configuration specs are used to manage the various plugins that are used in AstroNvim.
 
 ## 📦 Setup
 
@@ -100,25 +100,69 @@ Put the following in your `user/init.lua` file:
 ```lua
 return {
   plugins = {
-    {
       "AstroNvim/astrocommunity",
       { import = "astrocommunity.colorscheme.catppuccin" }
       -- ... import any community contributed plugins here
-    }
   }
 }
 ```
 
 ### `user/plugins/community.lua` example
 
-Put the following in the file `user/plugins/community.lua`
+If you prefer to organize your plugins in the user/plugins folder, you can create a file named community.lua (any Lua file in this folder will be loaded). Here’s an full example of what the file could look like:
 
 ```lua
 return {
-  {
     "AstroNvim/astrocommunity",
+  { import = "astrocommunity.pack.rust" },
+      { import = "astrocommunity.colorscheme.nightfox", enabled = false },
+  { import = "astrocommunity.colorscheme.kanagawa", enabled = true },
+  { import = "astrocommunity.colorscheme.rose-pine"},
     { import = "astrocommunity.colorscheme.catppuccin" }
-    -- ... import any community contributed plugins here
-  }
+      {
+    "catppuccin",
+    opts = {
+      integrations = {
+        sandwich = false,
+        noice = true,
+        mini = true,
+        leap = true,
+        markdown = true,
+        neotest = true,
+        cmp = true,
+        overseer = true,
+        lsp_trouble = true,
+        ts_rainbow2 = true,
+      },
+    },
+  },
+    { import = "astrocommunity.completion.copilot-lua"},
+  {
+    "copilot.lua",
+    opts = {
+      suggestion = {
+        keymap = {
+          accept = "<C-l>",
+          accept_word = false,
+          accept_line = false,
+          next = "<C-.>",
+          prev = "<C-,>",
+          dismiss = "<C/>",
+        },
+      },
+    },
+  },
+    { import = "astrocommunity.bars-and-lines.smartcolumn-nvim"},
+    { "m4xshen/smartcolumn.nvim", opts = { colorcolumn = 120, disabled_filetypes = { "help" } } },
 }
 ```
+
+Note that you can disable imports by setting the enabled option to false. Also, you have two options to modify an existing plugin: you can use the full repository name, like "m4xshen/smartcolumn.nvim", or the module name, like "catppuccin". Keep in mind that the module name may differ from the folder name.
+
+## Contributing
+
+If you have a community-contributed plugin that you would like to add to the AstroCommunity repository, please create a pull request on the AstroCommunity repository with your changes. Be sure to test your changes thoroughly before submitting the pull request.
+
+## License
+
+This plugin configuration spec is licensed under t
