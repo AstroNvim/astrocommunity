@@ -1,3 +1,8 @@
+# tokyonight.nvim
+
+**Repository:** https://github.com/folke/tokyonight.nvim
+
+```
 " Vim Script
 colorscheme tokyonight
 
@@ -6,4 +11,4 @@ colorscheme tokyonight-night
 colorscheme tokyonight-storm
 colorscheme tokyonight-day
 colorscheme tokyonight-moon
-https://github.com/folke/tokyonight.nvim
+```
