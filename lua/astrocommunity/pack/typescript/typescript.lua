@@ -59,7 +59,7 @@ return {
   },
   {
     "jose-elias-alvarez/typescript.nvim",
-    ft = { "ts", "js", "tsx", "jsx" },
+    ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
     opts = function() return { server = require("astronvim.utils.lsp").config "tsserver" } end,
   },
 }
