@@ -1,6 +1,6 @@
 return {
   "levouh/tint.nvim",
-  init = function() table.insert(astronvim.file_plugins, "tint.nvim") end,
+  event = "User AstroFile",
   opts = {
     highlight_ignore_patterns = { "WinSeparator", "neo-tree", "Status.*" },
     tint = -45, -- Darken colors, use a positive value to brighten

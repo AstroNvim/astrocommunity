@@ -1,5 +1,5 @@
 return {
   "echasnovski/mini.bracketed",
-  init = function() table.insert(astronvim.file_plugins, "mini.bracketed") end,
+  event = "User AstroFile",
   config = function(_, opts) require("mini.bracketed").setup(opts) end,
 }

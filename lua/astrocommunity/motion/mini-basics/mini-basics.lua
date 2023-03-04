@@ -1,7 +1,7 @@
 return {
   "echasnovski/mini.basics",
   version = false,
-  init = function() table.insert(astronvim.file_plugins, "mini.basics") end,
+  event = "User AstroFile",
   config = function(_, opts) require("mini.basics").setup(opts) end,
   opts = {
     mappings = {
