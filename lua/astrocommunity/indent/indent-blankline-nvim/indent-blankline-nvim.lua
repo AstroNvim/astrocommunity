@@ -1,6 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  init = function() table.insert(astronvim.file_plugins, "indent-blankline.nvim") end,
+  event = "User AstroFile",
   opts = {
     char = "│",
     filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },

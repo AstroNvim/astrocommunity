@@ -1,5 +1,5 @@
 return { -- scrollbar
   "lewis6991/satellite.nvim",
-  init = function() table.insert(astronvim.file_plugins, "satellite.nvim") end,
+  event = "User AstroFile",
   opts = { excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "neo-tree" } },
 }
