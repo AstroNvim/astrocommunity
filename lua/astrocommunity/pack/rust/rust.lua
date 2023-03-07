@@ -15,6 +15,7 @@ return {
   {
     "simrat39/rust-tools.nvim",
     ft = { "rust" },
+    init = function() table.insert(astronvim.lsp.skip_setup, "rust_analyzer") end,
     opts = function() return { server = require("astronvim.utils.lsp").config "rust_analyzer" } end,
     dependencies = {
       {

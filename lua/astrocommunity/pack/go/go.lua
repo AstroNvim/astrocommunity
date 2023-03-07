@@ -49,6 +49,7 @@ return {
   },
   {
     "olexsmir/gopher.nvim",
+    init = function() table.insert(astronvim.lsp.skip_setup, "gopls") end,
     opts = function() return { server = require("astronvim.utils.lsp").config "gopls" } end,
     ft = "go",
     dependencies = {
