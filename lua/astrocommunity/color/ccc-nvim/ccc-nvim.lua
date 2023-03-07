@@ -7,7 +7,7 @@ return {
     opts = { highlighter = { auto_enable = true } },
     config = function(_, opts)
       require("ccc").setup(opts)
-      require("ccc:highlighter"):enable()
+      require("ccc.highlighter"):enable()
     end,
   },
 }
