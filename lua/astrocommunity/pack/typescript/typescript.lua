@@ -1,5 +1,45 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      -- Ensure that opts.ensure_installed exists and is a table or string "all".
+      if not opts.ensure_installed then
+        opts.ensure_installed = {}
+      elseif opts.ensure_installed == "all" then
+        return
+      end
+      -- Add the "rust" and "toml" language to opts.ensure_installed.
+      vim.list_extend(opts.ensure_installed, { "javascript", "json", "typescript" })
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = function(_, opts)
+      -- Ensure that opts.ensure_installed exists and is a table.
+      if not opts.ensure_installed then opts.ensure_installed = {} end
+      -- Add rust and taplo lsps to opts.ensure_installed using vim.list_extend.
+      table.insert(opts.ensure_installed, "tsserver")
+    end,
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    opts = function(_, opts)
+      -- Ensure that opts.ensure_installed exists and is a table.
+      if not opts.ensure_installed then opts.ensure_installed = {} end
+      -- Add to opts.ensure_installed using vim.list_extend.
+      table.insert(opts.ensure_installed, "prettier")
+    end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts)
+      -- Ensure that opts.ensure_installed exists and is a table.
+      if not opts.ensure_installed then opts.ensure_installed = {} end
+      -- Add to opts.ensure_installed using table.insert.
+      table.insert(opts.ensure_installed, "js")
+    end,
+  },
+  {
     "vuki656/package-info.nvim",
     requires = "MunifTanjim/nui.nvim",
     config = true,
