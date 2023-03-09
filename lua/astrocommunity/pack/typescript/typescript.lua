@@ -8,8 +8,8 @@ return {
       elseif opts.ensure_installed == "all" then
         return
       end
-      -- Add the "rust" and "toml" language to opts.ensure_installed.
-      vim.list_extend(opts.ensure_installed, { "javascript", "json", "typescript" })
+      -- Add the required file types to opts.ensure_installed.
+      vim.list_extend(opts.ensure_installed, { "javascript", "json", "typescript", "tsx" })
     end,
   },
   {
@@ -17,7 +17,7 @@ return {
     opts = function(_, opts)
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
-      -- Add rust and taplo lsps to opts.ensure_installed using vim.list_extend.
+      -- Add tsserver to opts.ensure_installed using vim.list_extend.
       table.insert(opts.ensure_installed, "tsserver")
     end,
   },
@@ -49,11 +49,13 @@ return {
     "mfussenegger/nvim-dap",
     ft = { "ts", "js", "tsx", "jsx" },
     enabled = true,
-
     dependencies = {
-      { "mxsdev/nvim-dap-vscode-js", opts = { debugger_cmd = { "js-debug-adapter" }, adapters = { "pwa-node" } } },
+      {
+        "mxsdev/nvim-dap-vscode-js",
+        opts = { debugger_cmd = { "js-debug-adapter" }, adapters = { "pwa-node" } },
+      },
       { "theHamsta/nvim-dap-virtual-text", config = true },
-      { "rcarriga/nvim-dap-ui", config = true },
+      { "rcarriga/nvim-dap-ui",            config = true },
     },
     config = function()
       local dap = require "dap"
