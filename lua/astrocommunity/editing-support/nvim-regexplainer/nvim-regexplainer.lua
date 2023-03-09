@@ -1,3 +1,4 @@
+local utils = require "astrocommunity.utils"
 return {
   {
     "bennypowers/nvim-regexplainer",
@@ -15,7 +16,7 @@ return {
         return
       end
       -- Add the "regex" parser to opts.ensure_installed.
-      table.insert(opts.ensure_installed, "regex")
+      utils.list_insert_unique(opts.ensure_installed, "regex")
     end,
   },
 }

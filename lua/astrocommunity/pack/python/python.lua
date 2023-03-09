@@ -1,3 +1,4 @@
+local utils = require "astrocommunity.utils"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -9,7 +10,7 @@ return {
         return
       end
       -- Add the "python" and "toml" language to opts.ensure_installed.
-      vim.list_extend(opts.ensure_installed, { "python", "toml" })
+      utils.list_insert_unique(opts.ensure_installed, { "python", "toml" })
     end,
   },
   {
@@ -18,7 +19,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add pyright lsp to opts.ensure_installed using table.insert.
-      vim.list_extend(opts.ensure_installed, { "pyright", "ruff_lsp" })
+      utils.list_insert_unique(opts.ensure_installed, { "pyright", "ruff_lsp" })
     end,
   },
   {
@@ -27,7 +28,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add to opts.ensure_installed using vim.list_extend.
-      vim.list_extend(opts.ensure_installed, { "isort", "black" })
+      utils.list_insert_unique(opts.ensure_installed, { "isort", "black" })
     end,
   },
   {
@@ -36,7 +37,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add to opts.ensure_installed using table.insert.
-      table.insert(opts.ensure_installed, "python")
+      utils.list_insert_unique(opts.ensure_installed, "python")
     end,
   },
   {

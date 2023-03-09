@@ -1,3 +1,4 @@
+local utils = require "astrocommunity.utils"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -8,7 +9,7 @@ return {
       elseif opts.ensure_installed == "all" then
         return
       end
-      vim.list_extend(opts.ensure_installed, { "lua", "luap" })
+      utils.list_insert_unique(opts.ensure_installed, { "lua", "luap" })
     end,
   },
   {
@@ -16,7 +17,7 @@ return {
     opts = function(_, opts)
       -- Ensure that opts.ensure_installed exists and is a table
       if not opts.ensure_installed then opts.ensure_installed = {} end
-      table.insert(opts.ensure_installed, "lua_ls")
+      utils.list_insert_unique(opts.ensure_installed, "lua_ls")
     end,
   },
   {
@@ -24,7 +25,7 @@ return {
     opts = function(_, opts)
       -- Ensure that opts.ensure_installed exists and is a table
       if not opts.ensure_installed then opts.ensure_installed = {} end
-      table.insert(opts.ensure_installed, "stylua")
+      utils.list_insert_unique(opts.ensure_installed, "stylua")
     end,
   },
 }

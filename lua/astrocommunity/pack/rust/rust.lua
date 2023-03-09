@@ -1,3 +1,4 @@
+local utils = require "astrocommunity.utils"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -9,13 +10,13 @@ return {
         return
       end
       -- Add the "rust" and "toml" language to opts.ensure_installed.
-      table.insert(opts.ensure_installed, { "rust", "toml" })
+      utils.list_insert_unique(opts.ensure_installed, { "rust", "toml" })
     end,
   },
   {
     "simrat39/rust-tools.nvim",
     ft = { "rust" },
-    init = function() table.insert(astronvim.lsp.skip_setup, "rust_analyzer") end,
+    init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
     opts = function() return { server = require("astronvim.utils.lsp").config "rust_analyzer" } end,
     dependencies = {
       {
@@ -23,7 +24,7 @@ return {
         opts = function(_, opts)
           -- Ensure that opts.ensure_installed exists and is a table.
           if not opts.ensure_installed then opts.ensure_installed = {} end
-          table.insert(opts.ensure_installed, "codelldb")
+          utils.list_insert_unique(opts.ensure_installed, "codelldb")
         end,
       },
     },
@@ -34,7 +35,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add rust and taplo lsps to opts.ensure_installed using vim.list_extend.
-      vim.list_extend(opts.ensure_installed, { "rust_analyzer", "taplo" })
+      utils.list_insert_unique(opts.ensure_installed, { "rust_analyzer", "taplo" })
     end,
   },
   {
