@@ -10,4 +10,4 @@ This plugin pack does the following:
   - [black](https://pypi.org/project/black/)
   - [isort](https://pypi.org/project/isort/)
 - Adds `debugpy` for debugging
-- Adds [swenv.nvim](https://github.com/AckslD/swenv.nvim) for virtual environment management
+- Adds [venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim) for virtual environment management
