@@ -41,9 +41,8 @@ return {
     end,
   },
   {
-    "AckslD/swenv.nvim",
+    "linux-cultist/venv-selector.nvim",
     opts = {},
-    ft = "python",
-    keys = { { "<leader>lv", function() require("swenv.api").pick_venv() end, desc = "Select VirtualEnv" } },
+    keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
 }
