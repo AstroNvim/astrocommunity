@@ -1,10 +1,11 @@
+local utils = require "astrocommunity.utils"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if not opts.ensure_installed then opts.ensure_installed = {} end
       if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "bash", "markdown", "markdown_inline", "regex", "vim" })
+        utils.list_insert_unique(opts.ensure_installed, { "bash", "markdown", "markdown_inline", "regex", "vim" })
       end
       return opts
     end,

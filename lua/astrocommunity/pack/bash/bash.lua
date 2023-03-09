@@ -1,3 +1,4 @@
+local utils = require "astrocommunity.utils"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -9,7 +10,7 @@ return {
         return
       end
       -- Add the "julia" and "toml" language to opts.ensure_installed.
-      table.insert(opts.ensure_installed, "bash")
+      utils.list_insert_unique(opts.ensure_installed, "bash")
     end,
   },
   {
@@ -18,7 +19,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add julia lsp and toml lsp to ensure_installed
-      table.insert(opts.ensure_installed, "bashls")
+      utils.list_insert_unique(opts.ensure_installed, "bashls")
     end,
   },
   {
@@ -27,7 +28,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add julia lsp and toml lsp to ensure_installed
-      vim.list_extend(opts.ensure_installed, { "shellcheck", "shfmt" })
+      utils.list_insert_unique(opts.ensure_installed, { "shellcheck", "shfmt" })
     end,
   },
   {
@@ -36,7 +37,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add julia lsp and toml lsp to ensure_installed
-      table.insert(opts.ensure_installed, "bash")
+      utils.list_insert_unique(opts.ensure_installed, "bash")
     end,
   },
 }

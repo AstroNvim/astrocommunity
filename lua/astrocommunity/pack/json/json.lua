@@ -1,3 +1,4 @@
+local utils = require "astrocommunity.utils"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -8,7 +9,7 @@ return {
       elseif opts.ensure_installed == "all" then
         return
       end
-      vim.list_extend(opts.ensure_installed, { "json", "jsonc" })
+      utils.list_insert_unique(opts.ensure_installed, { "json", "jsonc" })
     end,
   },
   {
@@ -16,7 +17,16 @@ return {
     opts = function(_, opts)
       -- Ensure that opts.ensure_installed exists and is a table
       if not opts.ensure_installed then opts.ensure_installed = {} end
-      table.insert(opts.ensure_installed, "jsonls")
+      utils.list_insert_unique(opts.ensure_installed, "jsonls")
+    end,
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    opts = function(_, opts)
+      -- Ensure that opts.ensure_installed exists and is a table.
+      if not opts.ensure_installed then opts.ensure_installed = {} end
+      -- Add go lsps to opts.ensure_installed using vim.list_extend.
+      utils.list_insert_unique(opts.ensure_installed, "prettier")
     end,
   },
 }

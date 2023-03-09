@@ -1,3 +1,4 @@
+local utils = require "astrocommunity.utils"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -9,7 +10,7 @@ return {
         return
       end
       -- Add the required file types to opts.ensure_installed.
-      vim.list_extend(opts.ensure_installed, { "javascript", "json", "typescript", "tsx" })
+      utils.list_insert_unique(opts.ensure_installed, { "javascript", "json", "typescript", "tsx" })
     end,
   },
   {
@@ -18,7 +19,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add tsserver to opts.ensure_installed using vim.list_extend.
-      table.insert(opts.ensure_installed, "tsserver")
+      utils.list_insert_unique(opts.ensure_installed, "tsserver")
     end,
   },
   {
@@ -27,7 +28,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add to opts.ensure_installed using vim.list_extend.
-      table.insert(opts.ensure_installed, "prettier")
+      utils.list_insert_unique(opts.ensure_installed, "prettier")
     end,
   },
   {
@@ -36,7 +37,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add to opts.ensure_installed using table.insert.
-      table.insert(opts.ensure_installed, "js")
+      utils.list_insert_unique(opts.ensure_installed, "js")
     end,
   },
   {
@@ -50,12 +51,9 @@ return {
     ft = { "ts", "js", "tsx", "jsx" },
     enabled = true,
     dependencies = {
-      {
-        "mxsdev/nvim-dap-vscode-js",
-        opts = { debugger_cmd = { "js-debug-adapter" }, adapters = { "pwa-node" } },
-      },
+      { "mxsdev/nvim-dap-vscode-js", opts = { debugger_cmd = { "js-debug-adapter" }, adapters = { "pwa-node" } } },
       { "theHamsta/nvim-dap-virtual-text", config = true },
-      { "rcarriga/nvim-dap-ui",            config = true },
+      { "rcarriga/nvim-dap-ui", config = true },
     },
     config = function()
       local dap = require "dap"
@@ -101,7 +99,7 @@ return {
   },
   {
     "jose-elias-alvarez/typescript.nvim",
-    init = function() table.insert(astronvim.lsp.skip_setup, "tsserver") end,
+    init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "tsserver") end,
     ft = {
       "typescript",
       "typescriptreact",

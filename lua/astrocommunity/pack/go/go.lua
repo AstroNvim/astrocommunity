@@ -1,3 +1,4 @@
+local utils = require "astrocommunity.utils"
 return {
   -- Golang support
   {
@@ -10,7 +11,7 @@ return {
         return
       end
       -- Add the "go" language to opts.ensure_installed.
-      table.insert(opts.ensure_installed, "go")
+      utils.list_insert_unique(opts.ensure_installed, "go")
     end,
   },
 
@@ -20,7 +21,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add go lsps to opts.ensure_installed using vim.list_extend.
-      vim.list_extend(opts.ensure_installed, { "gomodifytags", "gofumpt", "iferr", "impl", "goimports" })
+      utils.list_insert_unique(opts.ensure_installed, { "gomodifytags", "gofumpt", "iferr", "impl", "goimports" })
     end,
   },
   {
@@ -28,7 +29,7 @@ return {
     opts = function(_, opts)
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
-      table.insert(opts.ensure_installed, "gopls")
+      utils.list_insert_unique(opts.ensure_installed, "gopls")
     end,
   },
   {
@@ -42,14 +43,14 @@ return {
         opts = function(_, opts)
           -- Ensure that opts.ensure_installed exists and is a table.
           if not opts.ensure_installed then opts.ensure_installed = {} end
-          table.insert(opts.ensure_installed, "delve")
+          utils.list_insert_unique(opts.ensure_installed, "delve")
         end,
       },
     },
   },
   {
     "olexsmir/gopher.nvim",
-    init = function() table.insert(astronvim.lsp.skip_setup, "gopls") end,
+    init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "gopls") end,
     opts = function() return { server = require("astronvim.utils.lsp").config "gopls" } end,
     ft = "go",
     dependencies = {
