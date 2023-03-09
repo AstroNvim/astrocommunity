@@ -35,26 +35,32 @@
     <a href="lua/astrocommunity/file-explorer">
       <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/file-explorer?label=File Explorer Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=91d7e3"/>
     </a>
+    <a href="lua/astrocommunity/indent">
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/indent?label=Indentation Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=7dc4e4"/>
+    </a>
     <a href="lua/astrocommunity/markdown-and-latex">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/markdown-and-latex?label=Markdown/LaTeX Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=7dc4e4"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/markdown-and-latex?label=Markdown/LaTeX Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=b7bdf8"/>
     </a>
     <a href="lua/astrocommunity/media">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/media?label=Media Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=b7bdf8"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/media?label=Media Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f4dbd6"/>
     </a>
     <a href="lua/astrocommunity/motion">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/motion?label=Motion Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f4dbd6"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/motion?label=Motion Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f0c6c6"/>
     </a>
     <a href="lua/astrocommunity/note-taking">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/note-taking?label=Note Taking Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f0c6c6"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/note-taking?label=Note Taking Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f5bde6"/>
     </a>
     <a href="lua/astrocommunity/project">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/project?label=Project Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f5bde6"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/project?label=Project Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=c6a0f6"/>
     </a>
     <a href="lua/astrocommunity/scrolling">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/scrolling?label=Scrolling Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=c6a0f6"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/scrolling?label=Scrolling Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=ee99a0"/>
+    </a>
+    <a href="lua/astrocommunity/test">
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/test?label=Testing Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f5a97f"/>
     </a>
     <a href="lua/astrocommunity/utility">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/utility?label=Utility Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=ee99a0"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/utility?label=Utility Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=eed49f"/>
     </a>
     <a href="lua/astrocommunity/pack">
       <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/pack?label=Plugin Packs&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=b7bdf8"/>
@@ -74,15 +80,15 @@ Category Colors:
 #a6da95: diagnostics
 #8bd5ca: editing-support
 #91d7e3: file-expolorer
-#7dc4e4: markdown-and-latex
-#b7bdf8: media
-#f4dbd6: motion
-#f0c6c6: note-taking
-#f5bde6: project
-#c6a0f6: scrolling
-#ee99a0: utility
-#f5a97f:
-#eed49f:
+#7dc4e4: indent
+#b7bdf8: markdown-and-latex
+#f4dbd6: media
+#f0c6c6: motion
+#f5bde6: note-taking
+#c6a0f6: project
+#ee99a0: scrolling
+#f5a97f: test
+#eed49f: utility
 #a6da95:
 #8bd5ca:
 #91d7e3:
