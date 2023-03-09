@@ -2,7 +2,7 @@
 
 This plugin pack does the following:
 
-- Adds `typescript`, `javascript` and `json` Treesitter parsers
+- Adds `typescript`, `javascript`, `tsx`, and `json` Treesitter parsers
 - Adds `tsserver` language server
 - Adds `prettier` formatter
 - Adds [nvim-dap-vscode-js](https://github.com/mxsdev/nvim-dap-vscode-js) for debugging
