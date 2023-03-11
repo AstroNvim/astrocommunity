@@ -1,1 +1,1 @@
-return { "willothy/flatten.nvim", opts = {} }
+return { "willothy/flatten.nvim", opts = {}, lazy = false }
