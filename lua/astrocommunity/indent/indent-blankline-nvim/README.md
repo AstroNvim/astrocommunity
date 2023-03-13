@@ -2,4 +2,4 @@
 
 **Repository:** https://github.com/lukas-reineke/indent-blankline.nvim
 
-Adds indentation guides to all lines (including empty lines), looks cool with mini-identscope together
+Adds indentation guides to all lines (including empty lines), looks cool together with mini-identscope
