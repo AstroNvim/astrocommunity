@@ -34,7 +34,6 @@ return {
   },
   {
     "leoluz/nvim-dap-go",
-    config = true,
     ft = "go",
     dependencies = {
       "mfussenegger/nvim-dap",
@@ -47,16 +46,12 @@ return {
         end,
       },
     },
+    opts = {},
   },
   {
     "olexsmir/gopher.nvim",
-    init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "gopls") end,
-    opts = function() return { server = require("astronvim.utils.lsp").config "gopls" } end,
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
     ft = "go",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = true,
+    opts = {},
   },
 }
