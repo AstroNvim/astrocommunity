@@ -42,9 +42,9 @@ return {
     "mfussenegger/nvim-jdtls",
     -- ft = { "java" },
     init = function()
-      -- utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
+      utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
-    -- opts = function() return require("astronvim.utils.lsp").config "jdtls" end,
+    opts = function() return require("astronvim.utils.lsp").config "jdtls" end,
     -- opts = function()
     --   local ut = require "astronvim.utils"
     --   -- use this function notation to build some variables
@@ -116,19 +116,19 @@ return {
     --     -- end,
     --   }
     -- end,
-    config = function(_, opts)
-      local ut = require "astronvim.utils"
-      ut.notify("doing config")
-      vim.api.nvim_create_autocmd("Filetype", {
-        pattern = "java", -- autocmd to start jdtls
-        callback = function()
-          ut.notify("in callback")
-          -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
-          require("jdtls").start_or_attach(opts)
-        end,
-      })
-      -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
-    end
+    -- config = function(_, opts)
+    --   local ut = require "astronvim.utils"
+    --   ut.notify("doing config")
+    --   vim.api.nvim_create_autocmd("Filetype", {
+    --     pattern = "java", -- autocmd to start jdtls
+    --     callback = function()
+    --       ut.notify("in callback")
+    --       -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+    --       require("jdtls").start_or_attach(opts)
+    --     end,
+    --   })
+    --   -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+    -- end
   }
 
 }
