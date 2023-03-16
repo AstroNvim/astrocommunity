@@ -70,50 +70,53 @@ return {
       --   os = "linux"
       -- end
 
-      -- print(dump(require("astronvim.utils.lsp").config "jdtls"))
+      print(dump((require("astronvim.utils.lsp").config "jdtls")['commands']))
       -- ut.notify(dump(require("astronvim.utils.lsp").config "jdtls"))
 
       -- return the server config
-      return require("astronvim.utils.lsp").config "jdtls"
-      --   return {
-      --     cmd = {
-      --       "java",
-      --       "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-      --       "-Dosgi.bundles.defaultStartLevel=4",
-      --       "-Declipse.product=org.eclipse.jdt.ls.core.product",
-      --       "-Dlog.protocol=true",
-      --       "-Dlog.level=ALL",
-      --       "-javaagent:" .. install_path .. "/lombok.jar",
-      --       "-Xms1g",
-      --       "--add-modules=ALL-SYSTEM",
-      --       "--add-opens",
-      --       "java.base/java.util=ALL-UNNAMED",
-      --       "--add-opens",
-      --       "java.base/java.lang=ALL-UNNAMED",
-      --       "-jar",
-      --       vim.fn.glob(install_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
-      --       "-configuration",
-      --       install_path .. "/config_" .. "linux",
-      --       "-data",
-      --       workspace_dir,
-      --     },
-      --     root_dir = root_dir,
-      --     settings = {
-      --       java = {},
-      --     },
-      --     init_options = {
-      --       bundles = {},
-      --     },
-      --     handlers = {
-      --       ["language/status"] = function(_, result)
-      --         -- print(result)
-      --       end,
-      --       ["$/progress"] = function(_, result, ctx)
-      --         -- disable progress updates.
-      --       end,
-      --     },
-      --     filetypes = { "java" }
-      --   }
+      -- return require("astronvim.utils.lsp").config "jdtls"
+      return {
+        cmd = {
+          "java",
+          "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+          "-Dosgi.bundles.defaultStartLevel=4",
+          "-Declipse.product=org.eclipse.jdt.ls.core.product",
+          "-Dlog.protocol=true",
+          "-Dlog.level=ALL",
+          "-javaagent:" .. install_path .. "/lombok.jar",
+          "-Xms1g",
+          "--add-modules=ALL-SYSTEM",
+          "--add-opens",
+          "java.base/java.util=ALL-UNNAMED",
+          "--add-opens",
+          "java.base/java.lang=ALL-UNNAMED",
+          "-jar",
+          vim.fn.glob(install_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
+          "-configuration",
+          install_path .. "/config_" .. "linux",
+          "-data",
+          workspace_dir,
+        },
+        root_dir = root_dir,
+        settings = {
+          java = {},
+        },
+        init_options = {
+          bundles = {},
+        },
+        handlers = {
+          ["language/status"] = function(_, result)
+            -- print(result)
+          end,
+          ["$/progress"] = function(_, result, ctx)
+            -- disable progress updates.
+          end,
+        },
+        filetypes = { "java" },
+        -- on_error = function(e)
+        -- print(e)
+        -- end,
+      }
     end,
     config = function(_, opts)
       -- local ut = require "astronvim.utils"
