@@ -48,7 +48,7 @@ return {
     opts = function()
       local ut = require "astronvim.utils"
       -- use this function notation to build some variables
-      local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+      local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
       local root_dir = require("jdtls.setup").find_root(root_markers)
 
       -- calculate workspace dir
@@ -68,9 +68,6 @@ return {
       else
         os = "linux"
       end
-
-      ut.notify("Java Info:" ..
-        "\nroot: " .. "\nworkspace: " .. workspace_dir .. "\njdtls-path: " .. install_path .. "\nOS: " .. os)
 
       -- return the server config
       return {
