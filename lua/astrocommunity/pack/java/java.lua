@@ -41,7 +41,7 @@ return {
 
   {
     "mfussenegger/nvim-jdtls",
-    ft = { "java" },
+    -- ft = { "java" },
     init = function()
       utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
@@ -96,7 +96,7 @@ return {
     end,
     config = function(_, opts)
       local ut = require "astronvim.utils"
-      require("jdtls").start_or_attach(opts)
+      if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
     end
     -- opts = {
     --   server = require("astronvim.utils.lsp").config "jdtls"
