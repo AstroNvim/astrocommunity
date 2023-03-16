@@ -59,7 +59,7 @@ return {
 
       -- return the server config
       return {
-        server = require("astronvim.utils.lsp").config "jdtls",
+        -- server = require("astronvim.utils.lsp").config "jdtls",
         -- cmd = {
         --   "java",
         --   "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -92,8 +92,13 @@ return {
     end,
     config = function(_, opts)
       -- local ut = require "astronvim.utils"
-
-      if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+      vim.api.nvim_create_autocmd("Filetype", {
+        pattern = "java",   -- autocmd to start jdtls
+        callback = function()
+          if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+        end,
+      })
+      -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
     end
   }
 
