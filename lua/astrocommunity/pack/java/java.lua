@@ -29,7 +29,7 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     init = function()
-      utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
+      -- utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
     opts = function()
       local ut = require "astronvim.utils"
@@ -59,27 +59,27 @@ return {
 
       -- return the server config
       return {
-        -- cmd = {
-        --   "java",
-        --   "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-        --   "-Dosgi.bundles.defaultStartLevel=4",
-        --   "-Declipse.product=org.eclipse.jdt.ls.core.product",
-        --   "-Dlog.protocol=true",
-        --   "-Dlog.level=ALL",
-        --   "-javaagent:" .. install_path .. "/lombok.jar",
-        --   "-Xms1g",
-        --   "--add-modules=ALL-SYSTEM",
-        --   "--add-opens",
-        --   "java.base/java.util=ALL-UNNAMED",
-        --   "--add-opens",
-        --   "java.base/java.lang=ALL-UNNAMED",
-        --   "-jar",
-        --   vim.fn.glob(install_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
-        --   "-configuration",
-        --   install_path .. "/config_" .. "linux",
-        --   "-data",
-        --   workspace_dir,
-        -- },
+        cmd = {
+          "java",
+          "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+          "-Dosgi.bundles.defaultStartLevel=4",
+          "-Declipse.product=org.eclipse.jdt.ls.core.product",
+          "-Dlog.protocol=true",
+          "-Dlog.level=ALL",
+          "-javaagent:" .. install_path .. "/lombok.jar",
+          "-Xms1g",
+          "--add-modules=ALL-SYSTEM",
+          "--add-opens",
+          "java.base/java.util=ALL-UNNAMED",
+          "--add-opens",
+          "java.base/java.lang=ALL-UNNAMED",
+          "-jar",
+          vim.fn.glob(install_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
+          "-configuration",
+          install_path .. "/config_" .. "linux",
+          "-data",
+          workspace_dir,
+        },
         root_dir = root_dir,
         settings = {
           java = {},
@@ -98,7 +98,7 @@ return {
       --     if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
       --   end,
       -- })
-      if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+      -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
     end
   }
 
