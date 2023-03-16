@@ -48,14 +48,14 @@ return {
       local install_path = require("mason-registry").get_package("jdtls"):get_install_path()
 
       -- get the current OS
-      local os
-      if vim.fn.has "macunix" then
-        os = "mac"
-      elseif vim.fn.has "win32" then
-        os = "win"
-      else
-        os = "linux"
-      end
+      -- local os
+      -- if vim.fn.has "macunix" then
+      --   os = "mac"
+      -- elseif vim.fn.has "win32" then
+      --   os = "win"
+      -- else
+      --   os = "linux"
+      -- end
 
       -- return the server config
       return {
@@ -77,7 +77,7 @@ return {
           "-jar",
           vim.fn.glob(install_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
           "-configuration",
-          install_path .. "/config_" .. os,
+          install_path .. "/config_" .. "linux",
           "-data",
           workspace_dir,
         },
@@ -87,7 +87,7 @@ return {
     config = function(_, opts)
       -- local ut = require "astronvim.utils"
 
-      -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+      if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
     end
     -- opts = {
     --   server = require("astronvim.utils.lsp").config "jdtls"
