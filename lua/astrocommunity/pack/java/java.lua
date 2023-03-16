@@ -42,6 +42,8 @@ return {
       local workspace_dir = vim.fn.stdpath "data" .. "/site/java/workspace-root/" .. project_name
       os.execute("mkdir " .. workspace_dir)
 
+      ut.notify("" .. workspace_dir)
+
       -- get the mason install path
       local install_path = require("mason-registry").get_package("jdtls"):get_install_path()
 
