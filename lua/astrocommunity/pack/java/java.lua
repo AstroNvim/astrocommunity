@@ -117,11 +117,14 @@ return {
     --   }
     -- end,
     config = function(_, opts)
-      -- local ut = require "astronvim.utils"
+      local ut = require "astronvim.utils"
+      ut.notify("doing config")
       vim.api.nvim_create_autocmd("Filetype", {
         pattern = "java", -- autocmd to start jdtls
         callback = function()
-          if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+          ut.notify("in callback")
+          -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+          require("jdtls").start_or_attach(opts)
         end,
       })
       -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
