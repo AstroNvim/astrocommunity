@@ -59,7 +59,7 @@ return {
 
       -- return the server config
       return {
-        server = require("astronvim.utils.lsp").config "jdtls",
+        -- server = require("astronvim.utils.lsp").config "jdtls",
         cmd = {
           "java",
           "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -89,49 +89,6 @@ return {
 
       if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
     end
-    -- opts = {
-    --   server = require("astronvim.utils.lsp").config "jdtls"
-    -- }
-    -- opts = {
-    --   config = {
-    --     cmd = "java"
-    --   }
-    -- }
-    -- opts = function()
-    --   return {
-    --     setup = {
-    --       jdtls = function(_, opts)
-    --         vim.api.nvim_create_autocmd("FileType", {
-    --           pattern = "java",
-    --           callback = function()
-    --             -- use this function notation to build some variables
-    --           end,
-    --         })
-    --
-    --         local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
-    --         local root_dir = require("jdtls.setup").find_root(root_markers)
-    --
-    --         -- calculate workspace dir
-    --         local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-    --         local workspace_dir = vim.fn.stdpath "data" .. "/site/java/workspace-root/" .. project_name
-    --         os.execute("mkdir " .. workspace_dir)
-    --
-    --         -- get the mason install path
-    --         local install_path = require("mason-registry").get_package("jdtls"):get_install_path()
-    --
-    --         -- get the current OS
-    --         local os
-    --         if vim.fn.has "macunix" then
-    --           os = "mac"
-    --         elseif vim.fn.has "win32" then
-    --           os = "win"
-    --         else
-    --           os = "linux"
-    --         end
-    --       end,
-    --     }
-    --   }
-    -- end,
   }
 
 }
