@@ -46,8 +46,15 @@ return {
       utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
     opts = {
-      server = require("astronvim.utils.lsp").config "jdtls"
-    }
+      test = "stinky poopy"
+    },
+    config = function(_, opts)
+      local ut = require "astronvim.utils"
+      ut.notify("test")
+    end
+    -- opts = {
+    --   server = require("astronvim.utils.lsp").config "jdtls"
+    -- }
     -- opts = {
     --   config = {
     --     cmd = "java"
