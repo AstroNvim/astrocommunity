@@ -17,7 +17,7 @@ return {
     "simrat39/rust-tools.nvim",
     ft = { "rust" },
     init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
-    opts = function() return require("astronvim.utils.lsp").config "rust_analyzer" end,
+    opts = function() return { server = require("astronvim.utils.lsp").config "rust_analyzer" } end,
     dependencies = {
       {
         "jay-babu/mason-nvim-dap.nvim",
