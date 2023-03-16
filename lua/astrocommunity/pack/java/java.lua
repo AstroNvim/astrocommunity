@@ -34,6 +34,7 @@ return {
           vim.api.nvim_create_autocmd("FileType", {
             pattern = "java",
             callback = function()
+              local ut = require "astronvim.utils"
               -- use this function notation to build some variables
               local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
               local root_dir = require("jdtls.setup").find_root(root_markers)
@@ -43,7 +44,7 @@ return {
               local workspace_dir = vim.fn.stdpath "data" .. "/site/java/workspace-root/" .. project_name
               os.execute("mkdir " .. workspace_dir)
 
-              -- ut.notify("" .. workspace_dir)
+              ut.notify("" .. "test test test test")
 
               -- get the mason install path
               local install_path = require("mason-registry").get_package("jdtls"):get_install_path()
