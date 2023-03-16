@@ -70,7 +70,7 @@ return {
       end
 
       ut.notify("Java Info:" ..
-      "\nroot: " .. root_dir .. "\nworkspace: " .. workspace_dir .. "\njdtls-path: " .. install_path .. "\nOS: " .. os)
+        "\nroot: " .. "\nworkspace: " .. workspace_dir .. "\njdtls-path: " .. install_path .. "\nOS: " .. os)
 
       -- return the server config
       return {
