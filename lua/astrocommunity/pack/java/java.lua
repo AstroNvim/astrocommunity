@@ -41,11 +41,12 @@ return {
 
   {
     "mfussenegger/nvim-jdtls",
-    -- ft = { "java" },
+    ft = { "java" },
     init = function()
       utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
     opts = function()
+      local ut = require "astronvim.utils"
       -- use this function notation to build some variables
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
       local root_dir = require("jdtls.setup").find_root(root_markers)
@@ -67,6 +68,9 @@ return {
       else
         os = "linux"
       end
+
+      ut.notify("Java Info:" ..
+      "\nroot: " .. root_dir .. "\nworkspace: " .. workspace_dir .. "\njdtls-path: " .. install_path .. "\nOS: " .. os)
 
       -- return the server config
       return {
@@ -96,6 +100,7 @@ return {
     end,
     config = function(_, opts)
       local ut = require "astronvim.utils"
+
       if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
     end
     -- opts = {
