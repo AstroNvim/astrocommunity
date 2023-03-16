@@ -44,7 +44,7 @@ return {
     init = function()
       utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
-    opts = function() return { server = require("astronvim.utils.lsp").config "jdtls" } end,
+    opts = function() return require("astronvim.utils.lsp").config "jdtls" end,
     -- opts = function()
     --   local ut = require "astronvim.utils"
     --   -- use this function notation to build some variables
