@@ -71,6 +71,7 @@ return {
 
       -- return the server config
       return {
+        server = require("astronvim.utils.lsp").config "jdtls",
         cmd = {
           "java",
           "-Declipse.application=org.eclipse.jdt.ls.core.id1",
