@@ -1,5 +1,18 @@
 local utils = require "astrocommunity.utils"
 
+local function dump(o)
+  if type(o) == 'table' then
+    local s = '{ '
+    for k, v in pairs(o) do
+      if type(k) ~= 'number' then k = '"' .. k .. '"' end
+      s = s .. '[' .. k .. '] = ' .. dump(v) .. ','
+    end
+    return s .. '} '
+  else
+    return tostring(o)
+  end
+end
+
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -56,6 +69,9 @@ return {
       -- else
       --   os = "linux"
       -- end
+
+      print(dump(require("astronvim.utils.lsp").config "jdtls"))
+      ut.notify(dump(require("astronvim.utils.lsp").config "jdtls"))
 
       -- return the server config
       return {
