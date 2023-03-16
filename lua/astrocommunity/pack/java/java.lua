@@ -29,7 +29,7 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     init = function()
-      -- utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
+      utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
     opts = function()
       local ut = require "astronvim.utils"
