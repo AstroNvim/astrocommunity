@@ -71,7 +71,7 @@ return {
       -- end
 
       print(dump(require("astronvim.utils.lsp").config "jdtls"))
-      ut.notify(dump(require("astronvim.utils.lsp").config "jdtls"))
+      -- ut.notify(dump(require("astronvim.utils.lsp").config "jdtls"))
 
       -- return the server config
       return {
