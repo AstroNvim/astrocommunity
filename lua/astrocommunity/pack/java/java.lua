@@ -87,17 +87,18 @@ return {
         init_options = {
           bundles = {},
         },
+        filetypes = { "java" }
       }
     end,
     config = function(_, opts)
       -- local ut = require "astronvim.utils"
-      vim.api.nvim_create_autocmd("Filetype", {
-        pattern = "java", -- autocmd to start jdtls
-        callback = function()
-          if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
-        end,
-      })
-      -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+      -- vim.api.nvim_create_autocmd("Filetype", {
+      --   pattern = "java", -- autocmd to start jdtls
+      --   callback = function()
+      --     if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+      --   end,
+      -- })
+      if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
     end
   }
 
