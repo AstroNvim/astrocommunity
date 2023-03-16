@@ -1,19 +1,5 @@
 local utils = require "astrocommunity.utils"
 
-
-local function dump(o)
-  if type(o) == 'table' then
-    local s = '{ '
-    for k, v in pairs(o) do
-      if type(k) ~= 'number' then k = '"' .. k .. '"' end
-      s = s .. '[' .. k .. '] = ' .. dump(v) .. ','
-    end
-    return s .. '} '
-  else
-    return tostring(o)
-  end
-end
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -43,7 +29,7 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     init = function()
-      utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
+      -- utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
     opts = function()
       local ut = require "astronvim.utils"
@@ -97,9 +83,9 @@ return {
       }
     end,
     config = function(_, opts)
-      local ut = require "astronvim.utils"
+      -- local ut = require "astronvim.utils"
 
-      if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+      -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
     end
     -- opts = {
     --   server = require("astronvim.utils.lsp").config "jdtls"
