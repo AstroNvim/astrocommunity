@@ -50,7 +50,7 @@ return {
     },
     config = function(_, opts)
       local ut = require "astronvim.utils"
-      ut.notify("test")
+      ut.notify(opts.test)
     end
     -- opts = {
     --   server = require("astronvim.utils.lsp").config "jdtls"
