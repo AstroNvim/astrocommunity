@@ -95,7 +95,8 @@ return {
         },
         filetypes = { "java" },
         on_attach = function(client, _)
-          require("astronvim.utils.lsp").on_attach(client)
+          print(vim.inspect(client.server_capabilities))
+          -- require("astronvim.utils.lsp").on_attach(client)
         end,
       }
     end,
