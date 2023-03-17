@@ -122,7 +122,8 @@ return {
       utils.list_insert_unique(opts, { defaults })
 
       print(vim.inspect(opts))
-      return opts
+      print(vim.inspect(opts.root_dir))
+      -- return opts
     end,
     config = function(_, opts)
       vim.api.nvim_create_autocmd("Filetype", {
