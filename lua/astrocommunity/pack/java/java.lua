@@ -41,7 +41,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add javadgb to required
-      utils.list_insert_unique(opts.ensure_installed, "javadbg", "javatest")
+      utils.list_insert_unique(opts.ensure_installed, { "javadbg", "javatest" })
     end,
   },
 
