@@ -119,7 +119,7 @@ return {
 
       print(vim.inspect(opts))
 
-      utils.list_insert_unique(opts, { defaults })
+      -- utils.list_insert_unique(opts,  defaults )
 
       print(vim.inspect(opts))
       print(vim.inspect(opts.root_dir))
@@ -130,6 +130,10 @@ return {
         pattern = "java", -- autocmd to start jdtls
         callback = function()
           print(vim.inspect(opts))
+          print("opts[1] root_dir")
+          print(vim.inspect(opts[1].root_dir))
+          print("opts root_dir")
+          print(vim.inspect(opts.root_dir))
           if opts.root_dir and opts.root_dir ~= "" then
             require("jdtls").start_or_attach(opts)
           else
