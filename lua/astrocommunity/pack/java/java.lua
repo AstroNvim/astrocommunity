@@ -120,6 +120,8 @@ return {
       print(vim.inspect(opts))
 
       utils.list_insert_unique(opts, defaults)
+
+      print(vim.inspect(opts))
       return opts
     end,
     config = function(_, opts)
