@@ -115,13 +115,11 @@ return {
 
       if not opts then opts = {} end
 
-      print("before vim inspect")
-
       opts = vim.tbl_deep_extend("force", defaults, opts)
 
       print(vim.inspect(opts))
       print(vim.inspect(opts.root_dir))
-      -- return opts
+      return opts
     end,
     config = function(_, opts)
       vim.api.nvim_create_autocmd("Filetype", {
