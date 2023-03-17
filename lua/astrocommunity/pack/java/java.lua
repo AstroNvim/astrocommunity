@@ -44,7 +44,7 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     init = function()
-      -- utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
+      utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
     --   opts = function() return require("astronvim.utils.lsp").config "jdtls" end,
     opts = function()
@@ -114,7 +114,7 @@ return {
     config = function(_, opts)
       require("mason-lspconfig").setup_handlers {
         ["jdtls"] = function()
-          print("jdtls_mason_handler")
+
         end
       }
       -- local ut = require "astronvim.utils"
