@@ -113,8 +113,16 @@ return {
     end,
     config = function(_, opts)
       require("mason-lspconfig").setup_handlers {
-        ["jdtls"] = function()
-
+        ["jdtls"] = function(_, opts_)
+          vim.api.nvim_create_autocmd("Filetype", {
+            pattern = "java", -- autocmd to start jdtls
+            callback = function()
+              -- util.notify(dump(opts.root_dir))
+              print(dump(opts_.cmd))
+              -- vim.api.nvim_echo({ { dump(opts.cmd), 'None' } }, false, {})
+              -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+            end,
+          })
         end
       }
       -- local ut = require "astronvim.utils"
