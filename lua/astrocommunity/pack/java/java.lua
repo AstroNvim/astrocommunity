@@ -47,14 +47,18 @@ return {
       local install_path = require("mason-registry").get_package("jdtls"):get_install_path()
 
       -- get the current OS
-      -- local os
-      -- if vim.fn.has "macunix" then
-      --   os = "mac"
-      -- elseif vim.fn.has "win32" then
-      --   os = "win"
-      -- else
-      --   os = "linux"
-      -- end
+      local os
+      if vim.fn.has("mac") == 1 then
+        os = "mac"
+      elseif vim.fn.has("unix") == 1 then
+        os = "linux"
+      elseif vim.fn.has("win32") == 1 then
+        os = "win"
+      end
+
+      if (not os and os ~= "") then
+        require("astronvim.utils").notify("jdtls: Unsupported system", vim.log.levels.ERROR)
+      end
 
       return {
         cmd = {
@@ -74,7 +78,7 @@ return {
           "-jar",
           vim.fn.glob(install_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
           "-configuration",
-          install_path .. "/config_" .. "linux",
+          install_path .. "/config_" .. os,
           "-data",
           workspace_dir,
         },
@@ -95,7 +99,6 @@ return {
         },
         filetypes = { "java" },
         on_attach = function(client, bufnr)
-          -- print(vim.inspect(client.server_capabilities))
           require("astronvim.utils.lsp").on_attach(client, bufnr)
         end,
       }
@@ -104,7 +107,13 @@ return {
       vim.api.nvim_create_autocmd("Filetype", {
         pattern = "java", -- autocmd to start jdtls
         callback = function()
-          if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+          if opts.root_dir and opts.root_dir ~= "" then
+            require("jdtls").start_or_attach(opts)
+          else
+            require("astronvim.utils").notify("jdtls: root_dir not found. Please specify a root marker",
+            vim.log.levels.ERROR)
+          end
+          -- optional: add message here?
         end,
       })
     end
