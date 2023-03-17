@@ -93,9 +93,10 @@ return {
               end,
             },
             filetypes = { "java" },
-            on_attach = function(client, bufnr)
-              print("This is the on_attach function")
-              print(vim.inspect(client))
+            on_attach = function(client, _)
+              -- print("This is the on_attach function")
+              -- print(vim.inspect(client))
+              require("astronvim.utils.lsp").on_attach(client)
             end,
           }
         end,
