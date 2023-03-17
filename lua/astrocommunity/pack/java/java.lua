@@ -115,7 +115,11 @@ return {
 
       if not opts then opts = {} end
 
-      utils.list_insert_unique(defaults, opts)
+      print("before vim inspect")
+
+      print(vim.inspect(opts))
+
+      utils.list_insert_unique(opts, defaults)
       return opts
     end,
     config = function(_, opts)
