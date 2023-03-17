@@ -36,6 +36,16 @@ return {
   },
 
   {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts)
+      -- Ensure that opts.ensure_installed exists and is a table.
+      if not opts.ensure_installed then opts.ensure_installed = {} end
+      -- Add javadgb to required
+      utils.list_insert_unique(opts.ensure_installed, "javadbg")
+    end,
+  },
+
+  {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     init = function()
@@ -112,6 +122,8 @@ return {
         end,
       }
 
+      -- TODO: add overwrite for on_attach
+
       -- ensure that table is valid
       if not opts then opts = {} end
 
@@ -134,6 +146,10 @@ return {
             require("astronvim.utils").notify("jdtls: root_dir not found. Please specify a root marker",
               vim.log.levels.ERROR)
           end
+
+          local install_path = require("mason-registry").get_package("java-debug-adapter"):get_install_path()
+
+          print(vim.inspect(install_path))
         end,
       })
     end
