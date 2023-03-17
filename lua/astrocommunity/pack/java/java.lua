@@ -56,8 +56,8 @@ return {
         os = "win"
       end
 
-      if (not os and os ~= "") then
-        require("astronvim.utils").notify("jdtls: Unsupported system", vim.log.levels.ERROR)
+      if (not os or os == "") then
+        require("astronvim.utils").notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
       end
 
       return {
@@ -111,7 +111,7 @@ return {
             require("jdtls").start_or_attach(opts)
           else
             require("astronvim.utils").notify("jdtls: root_dir not found. Please specify a root marker",
-            vim.log.levels.ERROR)
+              vim.log.levels.ERROR)
           end
           -- optional: add message here?
         end,
