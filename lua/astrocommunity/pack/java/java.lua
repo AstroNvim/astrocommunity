@@ -119,7 +119,7 @@ return {
 
       print(vim.inspect(opts))
 
-      -- utils.list_insert_unique(opts,  defaults )
+      utils.list_insert_unique(opts, defaults)
 
       print(vim.inspect(opts))
       print(vim.inspect(opts.root_dir))
