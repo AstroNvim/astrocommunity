@@ -1,18 +1,5 @@
 local utils = require "astrocommunity.utils"
 
-local function dump(o)
-  if type(o) == 'table' then
-    local s = '{ '
-    for k, v in pairs(o) do
-      if type(k) ~= 'number' then k = '"' .. k .. '"' end
-      s = s .. '[' .. k .. '] = ' .. dump(v) .. ','
-    end
-    return s .. '} '
-  else
-    return tostring(o)
-  end
-end
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -106,19 +93,18 @@ return {
               end,
             },
             filetypes = { "java" },
+            on_attach = function(client, bufnr)
+              print("This is the on_attach function")
+              print(vim.inspect(client))
+            end,
           }
         end,
         config = function(_, opts)
           require("mason-lspconfig").setup_handlers {
             ["jdtls"] = function(_, opts_)
-              if not opts_ then opts_ = {} end
               vim.api.nvim_create_autocmd("Filetype", {
                 pattern = "java", -- autocmd to start jdtls
                 callback = function()
-                  -- util.notify(dump(opts.root_dir))
-                  print(dump(opts_.cmd))
-                  -- print(dump(opts_.cmd))
-                  -- vim.api.nvim_echo({ { dump(opts.cmd), 'None' } }, false, {})
                   if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
                 end,
               })
