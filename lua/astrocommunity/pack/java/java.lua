@@ -36,22 +36,22 @@ return {
       -- Add java and lemminx lsps to opts.ensure_installed using vim.list_extend.
       utils.list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
     end,
-    setup_handlers = function(handlers)
-      if not handlers then handlers = {} end
+    -- setup_handlers = function(handlers)
+    -- if not handlers then handlers = {} end
 
-      -- local jdtls_handler = function(_, opts)
-      --   vim.api.nvim_create_autocmd("Filetype", {
-      --     pattern = "java", -- autocmd to start jdtls
-      --     callback = function()
-      --       -- util.notify(dump(opts.root_dir))
-      --       -- print(dump(opts.cmd))
-      --       if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
-      --     end,
-      --   })
-      -- end
+    -- local jdtls_handler = function(_, opts)
+    --   vim.api.nvim_create_autocmd("Filetype", {
+    --     pattern = "java", -- autocmd to start jdtls
+    --     callback = function()
+    --       -- util.notify(dump(opts.root_dir))
+    --       -- print(dump(opts.cmd))
+    --       if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+    --     end,
+    --   })
+    -- end
 
-      -- utils.list_insert_unique(handlers, { jdtls = jdtls_handler })
-    end,
+    -- utils.list_insert_unique(handlers, { jdtls = jdtls_handler })
+    -- end,
   },
 
   {
@@ -152,6 +152,7 @@ return {
           vim.api.nvim_create_autocmd("Filetype", {
             pattern = "java", -- autocmd to start jdtls
             callback = function()
+              print("ft callback")
               -- util.notify(dump(opts.root_dir))
               -- print(dump(opts.cmd))
               -- vim.api.nvim_echo({ { dump(opts.cmd), 'None' } }, false, {})
