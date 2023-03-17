@@ -41,7 +41,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add javadgb to required
-      utils.list_insert_unique(opts.ensure_installed, "javadbg")
+      utils.list_insert_unique(opts.ensure_installed, "javadbg", "javatest")
     end,
   },
 
@@ -79,6 +79,9 @@ return {
         require("astronvim.utils").notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
       end
 
+      -- local javadbg = require("mason-registry").get_package("java-debug-adapter"):get_install_path()
+      -- local javatest = require("mason-registry").get_package("java-test"):get_install_path()
+
       local defaults = {
         cmd = {
           "java",
@@ -106,7 +109,10 @@ return {
           java = {},
         },
         init_options = {
-          bundles = {},
+          bundles = {
+            vim.fn.glob(require("mason-registry").get_package("java-debug-adapter"):get_install_path() ..
+              "/extension/server/com.microsoft.java.debug.plugin-*.jar"),
+          },
         },
         handlers = {
           ["language/status"] = function(_, result)
@@ -146,10 +152,6 @@ return {
             require("astronvim.utils").notify("jdtls: root_dir not found. Please specify a root marker",
               vim.log.levels.ERROR)
           end
-
-          local install_path = require("mason-registry").get_package("java-debug-adapter"):get_install_path()
-
-          print(vim.inspect(install_path))
         end,
       })
     end
