@@ -109,7 +109,7 @@ return {
               "-data",
               workspace_dir,
             },
-            root_dir = root_dir,
+            root_dir = function() return root_dir end,
             settings = {
               java = {},
             },
