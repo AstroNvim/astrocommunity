@@ -20,7 +20,7 @@ return {
     opts = function(_, opts)
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
-      -- Add java and lemminx lsps to opts.ensure_installed using vim.list_extend.
+      -- Add jdtls and lemminx lsps to opts.ensure_installed using vim.list_extend.
       utils.list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
     end,
   },
@@ -30,7 +30,7 @@ return {
     opts = function(_, opts)
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
-      -- Add to opts.ensure_installed using vim.list_extend.
+      -- Add clang_format to opts.ensure_installed
       utils.list_insert_unique(opts.ensure_installed, { "clang_format" })
     end,
   },
@@ -41,7 +41,6 @@ return {
     init = function()
       utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
-    --   opts = function() return require("astronvim.utils.lsp").config "jdtls" end,
     opts = function(_, opts)
       -- use this function notation to build some variables
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
@@ -113,13 +112,19 @@ return {
         end,
       }
 
+      -- ensure that table is valid
       if not opts then opts = {} end
 
+      -- extend the current table with the defaults keeping options in the user opts
+      -- this allows users to pass opts through an opts table in community.lua
       opts = vim.tbl_deep_extend("keep", opts, defaults)
 
+      -- send table to config
       return opts
     end,
     config = function(_, opts)
+      -- setup autocmd on filetype detect java.
+      -- we ensure this works by also loading this plugin on ft = java
       vim.api.nvim_create_autocmd("Filetype", {
         pattern = "java", -- autocmd to start jdtls
         callback = function()
