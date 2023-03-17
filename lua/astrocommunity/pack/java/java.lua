@@ -113,6 +113,8 @@ return {
         end,
       }
 
+      if not opts then opts = {} end
+
       utils.list_insert_unique(defaults, opts)
     end,
     config = function(_, opts)
