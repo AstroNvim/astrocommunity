@@ -42,8 +42,7 @@ return {
       utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
     --   opts = function() return require("astronvim.utils.lsp").config "jdtls" end,
-    opts = function()
-      -- local ut = require "astronvim.utils"
+    opts = function(_, opts)
       -- use this function notation to build some variables
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
       local root_dir = require("jdtls.setup").find_root(root_markers)
@@ -66,11 +65,12 @@ return {
         os = "win"
       end
 
+      -- ensure that OS is valid
       if (not os or os == "") then
         require("astronvim.utils").notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
       end
 
-      return {
+      local defaults = {
         cmd = {
           "java",
           "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -112,6 +112,8 @@ return {
           require("astronvim.utils.lsp").on_attach(client, bufnr)
         end,
       }
+
+      utils.list_insert_unique(opts, defaults)
     end,
     config = function(_, opts)
       vim.api.nvim_create_autocmd("Filetype", {
