@@ -116,6 +116,7 @@ return {
       if not opts then opts = {} end
 
       utils.list_insert_unique(defaults, opts)
+      return opts
     end,
     config = function(_, opts)
       vim.api.nvim_create_autocmd("Filetype", {
