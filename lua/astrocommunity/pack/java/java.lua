@@ -58,7 +58,7 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     init = function()
-      utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
+      -- utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
     --   opts = function() return require("astronvim.utils.lsp").config "jdtls" end,
     opts = function()
@@ -130,39 +130,48 @@ return {
         -- end,
       }
     end,
-    dependencies = function(self)
-      print("in dependencies func")
-      print(dump(self))
-
-      return {
-        {
-          "williamboman/mason-lspconfig.nvim",
-          setup_handlers = function(handlers)
-            if not handlers then handlers = {} end
-
-            utils.list_insert_unique(handlers, {})
-          end,
-          -- opts = function(_, opts)
-          --   -- Ensure that opts.ensure_installed exists and is a table.
-          --   if not opts.ensure_installed then opts.ensure_installed = {} end
-          --   -- Add rust and taplo lsps to opts.ensure_installed using vim.list_extend.
-          --   utils.list_insert_unique(opts.ensure_installed, { "rust_analyzer", "taplo" })
-          -- end,
-        },
-      }
-    end,
+    -- dependencies = {
+    --   {
+    --     "williamboman/mason-lspconfig.nvim",
+    --     setup_handlers = function(handlers)
+    --       if not handlers then handlers = {} end
+    --
+    --       utils.list_insert_unique(handlers, {})
+    --     end,
+    --     -- opts = function(_, opts)
+    --     --   -- Ensure that opts.ensure_installed exists and is a table.
+    --     --   if not opts.ensure_installed then opts.ensure_installed = {} end
+    --     --   -- Add rust and taplo lsps to opts.ensure_installed using vim.list_extend.
+    --     --   utils.list_insert_unique(opts.ensure_installed, { "rust_analyzer", "taplo" })
+    --     -- end,
+    --   },
+    -- },
     config = function(_, opts)
-      local ut = require "astronvim.utils"
-      --   --   ut.notify("doing config")
-      vim.api.nvim_create_autocmd("Filetype", {
-        pattern = "java", -- autocmd to start jdtls
-        callback = function()
-          -- ut.notify(dump(self.opts))
-          -- print(dump())
-          if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
-          -- require("jdtls").start_or_attach(opts)
-        end,
+      require("mason-lspconfig").setup_handlers({
+        jdtls = function()
+          vim.api.nvim_create_autocmd("Filetype", {
+            pattern = "java", -- autocmd to start jdtls
+            callback = function()
+              -- util.notify(dump(opts.root_dir))
+              -- print(dump(opts.cmd))
+              -- vim.api.nvim_echo({ { dump(opts.cmd), 'None' } }, false, {})
+              if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+            end,
+          })
+        end
       })
+      -- local ut = require "astronvim.utils"
+      -- --   ut.notify("doing config")
+      -- vim.api.nvim_create_autocmd("Filetype", {
+      --   pattern = "java", -- autocmd to start jdtls
+      --   callback = function()
+      --     -- ut.notify(dump(self.opts))
+      --     -- print(dump())
+      --
+      --     if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+      --     -- require("jdtls").start_or_attach(opts)
+      --   end,
+      -- })
       --   --   -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
     end
   }
