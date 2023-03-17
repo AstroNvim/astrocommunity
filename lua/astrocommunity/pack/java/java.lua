@@ -147,7 +147,7 @@ return {
               vim.log.levels.ERROR)
           end
 
-          local install_path = require("mason-registry").get_package("java-debug-adapter"):get_install_path()
+          local install_path = require("mason-registry").get_package("javadbg"):get_install_path()
 
           print(vim.inspect(install_path))
         end,
