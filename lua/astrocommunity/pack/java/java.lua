@@ -123,11 +123,6 @@ return {
       vim.api.nvim_create_autocmd("Filetype", {
         pattern = "java", -- autocmd to start jdtls
         callback = function()
-          print(vim.inspect(opts))
-          -- print("opts[1] root_dir")
-          -- print(vim.inspect(opts[1].root_dir))
-          print("opts root_dir")
-          print(vim.inspect(opts.root_dir))
           if opts.root_dir and opts.root_dir ~= "" then
             require("jdtls").start_or_attach(opts)
           else
