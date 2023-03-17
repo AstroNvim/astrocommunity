@@ -114,6 +114,7 @@ return {
     config = function(_, opts)
       require("mason-lspconfig").setup_handlers {
         ["jdtls"] = function(_, opts_)
+          if not opts_ then opts_ = {} end
           vim.api.nvim_create_autocmd("Filetype", {
             pattern = "java", -- autocmd to start jdtls
             callback = function()
