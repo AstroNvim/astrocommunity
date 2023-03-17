@@ -26,6 +26,16 @@ return {
   },
 
   {
+    "jay-babu/mason-null-ls.nvim",
+    opts = function(_, opts)
+      -- Ensure that opts.ensure_installed exists and is a table.
+      if not opts.ensure_installed then opts.ensure_installed = {} end
+      -- Add to opts.ensure_installed using vim.list_extend.
+      utils.list_insert_unique(opts.ensure_installed, { "clang_format" })
+    end,
+  },
+
+  {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     init = function()
@@ -113,7 +123,6 @@ return {
             require("astronvim.utils").notify("jdtls: root_dir not found. Please specify a root marker",
               vim.log.levels.ERROR)
           end
-          -- optional: add message here?
         end,
       })
     end
