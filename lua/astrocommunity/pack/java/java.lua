@@ -44,14 +44,14 @@ return {
           pattern = "java", -- autocmd to start jdtls
           callback = function()
             -- util.notify(dump(opts.root_dir))
-            print(dump(require("jdtls").opts))
+            -- print(dump(require("jdtls").opts))
             print("jdtls_handler callbackFn")
             if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
           end,
         })
       end
 
-      utils.list_insert_unique(handlers, { jdtls = jdtls_handler })
+      utils.list_insert_unique(handlers, { ["jdtls"] = jdtls_handler })
     end,
     dependencies = {
       {
