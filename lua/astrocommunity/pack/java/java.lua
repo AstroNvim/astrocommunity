@@ -37,6 +37,7 @@ return {
       utils.list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
     end,
     dependencies = {
+      "mfussenegger/nvim-jdtls"
     }
   },
 
@@ -121,7 +122,7 @@ return {
               -- util.notify(dump(opts.root_dir))
               -- print(dump(opts_.cmd))
               -- vim.api.nvim_echo({ { dump(opts.cmd), 'None' } }, false, {})
-              if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+              -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
             end,
           })
         end
