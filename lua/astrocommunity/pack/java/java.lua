@@ -117,9 +117,7 @@ return {
 
       print("before vim inspect")
 
-      print(vim.inspect(opts))
-
-      vim.tbl_deep_extend("keep", opts, defaults)
+      opts = vim.tbl_deep_extend("force", defaults, opts)
 
       print(vim.inspect(opts))
       print(vim.inspect(opts.root_dir))
