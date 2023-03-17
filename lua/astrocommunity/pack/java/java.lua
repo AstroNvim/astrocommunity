@@ -113,7 +113,7 @@ return {
         end,
       }
 
-      utils.list_insert_unique(opts, defaults)
+      utils.list_insert_unique(defaults, opts)
     end,
     config = function(_, opts)
       vim.api.nvim_create_autocmd("Filetype", {
