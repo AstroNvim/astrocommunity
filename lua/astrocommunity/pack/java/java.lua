@@ -26,18 +26,18 @@ return {
     setup_handlers = function(handlers)
       if not handlers then handlers = {} end
 
-      local jdtls_handler = function(_, opts)
-        vim.api.nvim_create_autocmd("Filetype", {
-          pattern = "java", -- autocmd to start jdtls
-          callback = function()
-            -- util.notify(dump(opts.root_dir))
-            -- print(dump(opts.cmd))
-            if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
-          end,
-        })
-      end
+      -- local jdtls_handler = function(_, opts)
+      --   vim.api.nvim_create_autocmd("Filetype", {
+      --     pattern = "java", -- autocmd to start jdtls
+      --     callback = function()
+      --       -- util.notify(dump(opts.root_dir))
+      --       -- print(dump(opts.cmd))
+      --       if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+      --     end,
+      --   })
+      -- end
 
-      utils.list_insert_unique(handlers, { jdtls = jdtls_handler })
+      -- utils.list_insert_unique(handlers, { jdtls = jdtls_handler })
     end,
   },
 
@@ -45,11 +45,11 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     init = function()
-      -- utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
+      utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
     end,
     --   opts = function() return require("astronvim.utils.lsp").config "jdtls" end,
     opts = function()
-      local ut = require "astronvim.utils"
+      -- local ut = require "astronvim.utils"
       -- use this function notation to build some variables
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
       local root_dir = require("jdtls.setup").find_root(root_markers)
@@ -59,7 +59,7 @@ return {
       local workspace_dir = vim.fn.stdpath "data" .. "/site/java/workspace-root/" .. project_name
       os.execute("mkdir " .. workspace_dir)
 
-      ut.notify("" .. workspace_dir)
+      -- ut.notify("" .. workspace_dir)
 
       -- get the mason install path
       local install_path = require("mason-registry").get_package("jdtls"):get_install_path()
@@ -73,8 +73,6 @@ return {
       -- else
       --   os = "linux"
       -- end
-
-      -- ut.notify(dump(require("astronvim.utils.lsp").config "jdtls"))
 
       return {
         cmd = {
@@ -122,14 +120,14 @@ return {
     config = function(_, opts)
       --   --   local ut = require "astronvim.utils"
       --   --   ut.notify("doing config")
-      --   --   vim.api.nvim_create_autocmd("Filetype", {
-      --   --     pattern = "java", -- autocmd to start jdtls
-      --   --     callback = function()
-      --   --       ut.notify("in callback")
-      --   --       -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
-      --   --       require("jdtls").start_or_attach(opts)
-      --   --     end,
-      --   --   })
+      vim.api.nvim_create_autocmd("Filetype", {
+        pattern = "java", -- autocmd to start jdtls
+        callback = function()
+          -- ut.notify("in callback")
+          -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
+          require("jdtls").start_or_attach(opts)
+        end,
+      })
       --   --   -- if opts.root_dir and opts.root_dir ~= "" then require("jdtls").start_or_attach(opts) end
     end
   }
