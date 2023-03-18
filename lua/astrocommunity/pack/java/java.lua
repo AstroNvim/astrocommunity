@@ -179,9 +179,11 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         -- pattern = bufnr,
         callback = function(args)
-          -- ut.notify("pattern match for buffer jdtls")
+          local ut = require("astronvim.util")
+          ut.notify("pattern match for buffer jdtls")
+          ut.notify(vim.inspect(arg))
           -- print(vim.inspect(bufnr))
-          print(vim.inspect(args.buf))
+          -- print(vim.inspect(args.buf))
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if client.name == "jdtls" then
             require('jdtls.dap').setup_dap_main_class_configs()
