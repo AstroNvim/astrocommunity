@@ -167,6 +167,7 @@ return {
         pattern = "*.java",
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
+          -- ensure that only the jdtls client is activated
           if (client.name == "jdtls") then
             require('jdtls.dap').setup_dap_main_class_configs()
           end
