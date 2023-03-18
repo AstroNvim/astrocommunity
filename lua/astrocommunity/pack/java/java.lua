@@ -179,7 +179,7 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         -- pattern = bufnr,
         callback = function(args)
-          local ut = require("astronvim.util")
+          local ut = require("astronvim.utils")
           ut.notify("pattern match for buffer jdtls")
           ut.notify(vim.inspect(arg))
           -- print(vim.inspect(bufnr))
