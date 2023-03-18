@@ -133,21 +133,6 @@ return {
 
           require('jdtls').setup_dap()
           require("astronvim.utils.lsp").on_attach(client, bufnr)
-
-          ut.notify(vim.inspect(vim.api.nvim_buf_get_name(bufnr)))
-
-          vim.api.nvim_create_autocmd("LspAttach", {
-            pattern = "*.java",
-            callback = function(args)
-              ut.notify("pattern match for buffer jdtls")
-              -- print(vim.inspect(bufnr))
-              -- print(vim.inspect(args.buf))
-              -- local c = vim.lsp.get_client_by_id(args.data.client_id)
-              -- if c.name == "jdtls" then
-              require('jdtls.dap').setup_dap_main_class_configs()
-              -- end
-            end,
-          })
         end,
       }
 
@@ -178,19 +163,19 @@ return {
         end,
       })
 
-      -- vim.api.nvim_create_autocmd("LspAttach", {
-      --   pattern = bufnr,
-      --   callback = function(args)
-      --     local ut = require("astronvim.utils")
-      --     ut.notify(vim.inspect(vim.api.nvim_buf_get_name(args.buf)))
-      --     -- print(vim.inspect(bufnr))
-      --     -- print(vim.inspect(args.buf))
-      --     local client = vim.lsp.get_client_by_id(args.data.client_id)
-      --     if client.name == "jdtls" then
-      --       require('jdtls.dap').setup_dap_main_class_configs()
-      --     end
-      --   end,
-      -- })
+      vim.api.nvim_create_autocmd("LspAttach", {
+        pattern = "*.java",
+        callback = function(args)
+          local ut = require("astronvim.utils")
+          ut.notify(vim.inspect(vim.api.nvim_buf_get_name(args.buf)))
+          -- print(vim.inspect(bufnr))
+          -- print(vim.inspect(args.buf))
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client.name == "jdtls" then
+            require('jdtls.dap').setup_dap_main_class_configs()
+          end
+        end,
+      })
     end
   }
 
