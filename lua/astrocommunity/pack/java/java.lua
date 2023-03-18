@@ -139,11 +139,13 @@ return {
         on_attach = function(client, bufnr)
           require("astronvim.utils.lsp").on_attach(client, bufnr)
           -- setup DAP with current settings
+          local dap = require('dap')
+          if dap.adapters.java then
+            print(vim.inspect(dap.adapters.java))
+          end
           require('jdtls').setup_dap()
         end,
       }
-
-      print(vim.inspect(defaults.init_options.bundles))
 
       -- TODO: add overwrite for on_attach
 
