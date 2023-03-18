@@ -120,10 +120,10 @@ return {
           },
         },
         handlers = {
-          ["language/status"] = function(_, result)
+          ["language/status"] = function()
             -- print(result)
           end,
-          ["$/progress"] = function(_, result, ctx)
+          ["$/progress"] = function()
             -- disable progress updates.
           end,
         },
