@@ -181,7 +181,7 @@ return {
         callback = function(args)
           local ut = require("astronvim.utils")
           ut.notify("pattern match for buffer jdtls")
-          ut.notify(vim.inspect(arg))
+          ut.notify(vim.inspect(args.buf))
           -- print(vim.inspect(bufnr))
           -- print(vim.inspect(args.buf))
           local client = vim.lsp.get_client_by_id(args.data.client_id)
