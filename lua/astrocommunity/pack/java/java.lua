@@ -132,7 +132,6 @@ return {
           local ut = require("astronvim.utils")
 
           require('jdtls').setup_dap()
-          require('jdtls').setup_dap_main_class_configs()
           require("astronvim.utils.lsp").on_attach(client, bufnr)
         end,
       }
@@ -159,6 +158,15 @@ return {
           else
             require("astronvim.utils").notify("jdtls: root_dir not found. Please specify a root marker",
               vim.log.levels.ERROR)
+          end
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client.name == "jdtls" then
+            require("jdtls").setup_dap_main_class_configs()
           end
         end,
       })
