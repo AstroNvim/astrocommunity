@@ -142,6 +142,8 @@ return {
           local dap = require('dap')
           if dap.adapters.java then
             print(vim.inspect(dap.adapters.java))
+          else
+            print("no dap adapter")
           end
           require('jdtls').setup_dap()
         end,
