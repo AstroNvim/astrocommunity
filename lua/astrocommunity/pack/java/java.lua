@@ -79,6 +79,11 @@ return {
         require("astronvim.utils").notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
       end
 
+      local bundles = {
+        vim.fn.glob(require("mason-registry").get_package("java-debug-adapter"):get_install_path() ..
+          "/extension/server/com.microsoft.java.debug.plugin-*.jar"),
+      }
+
       -- local javadbg = require("mason-registry").get_package("java-debug-adapter"):get_install_path()
       -- local javatest = require("mason-registry").get_package("java-test"):get_install_path()
 
@@ -112,6 +117,9 @@ return {
           bundles = {
             vim.fn.glob(require("mason-registry").get_package("java-debug-adapter"):get_install_path() ..
               "/extension/server/com.microsoft.java.debug.plugin-*.jar"),
+            -- vim.split(vim.fn.glob("/path/to/microsoft/vscode-java-test/server/*.jar", 1), "\n"))
+            vim.fn.glob(require("mason-registry").get_package("java-test"):get_install_path() ..
+              "/extension/server/*.jar"),
           },
         },
         handlers = {
@@ -128,6 +136,8 @@ return {
         end,
       }
 
+      print(vim.inspect(defaults.init_options.bundles))
+
       -- TODO: add overwrite for on_attach
 
       -- ensure that table is valid
@@ -141,8 +151,7 @@ return {
       return opts
     end,
     config = function(_, opts)
-      -- setup autocmd on filetype detect java.
-      -- we ensure this works by also loading this plugin on ft = java
+      -- setup autocmd on filetype detect java
       vim.api.nvim_create_autocmd("Filetype", {
         pattern = "java", -- autocmd to start jdtls
         callback = function()
