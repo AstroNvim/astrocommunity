@@ -139,12 +139,7 @@ return {
         on_attach = function(client, bufnr)
           require("astronvim.utils.lsp").on_attach(client, bufnr)
           -- setup DAP with current settings
-          local dap = require('dap')
-          if dap.adapters.java then
-            print(vim.inspect(dap.adapters.java))
-          else
-            print("no dap adapter")
-          end
+          print("astro test")
           require('jdtls').setup_dap()
         end,
       }
