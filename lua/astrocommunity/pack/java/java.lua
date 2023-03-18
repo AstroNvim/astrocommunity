@@ -138,9 +138,11 @@ return {
         filetypes = { "java" },
         on_attach = function(client, bufnr)
           local ut = require("astronvim.utils")
+
+          ut.notify("1 test test test")
           require("astronvim.utils.lsp").on_attach(client, bufnr)
           -- setup DAP with current settings
-          ut.notify("test test test")
+          ut.notify("2 test test test")
           require('jdtls').setup_dap()
         end,
       }
