@@ -117,16 +117,14 @@ return {
           bundles = {
             vim.fn.glob(require("mason-registry").get_package("java-debug-adapter"):get_install_path() ..
               "/extension/server/com.microsoft.java.debug.plugin-*.jar"),
-            -- unpack rest of array
-            table.unpack(vim.split(
-              vim.fn.glob(require("mason-registry").get_package("java-test"):get_install_path() ..
-                "/extension/server/*.jar"),
-              "\n", {}))
-            -- vim.fn.glob(require("mason-registry").get_package("java-debug-adapter"):get_install_path() ..
-            --   "/extension/server/com.microsoft.java.debug.plugin-*.jar"),
-            -- -- vim.split(vim.fn.glob("/path/to/microsoft/vscode-java-test/server/*.jar", 1), "\n"))
-            -- vim.fn.glob(require("mason-registry").get_package("java-test"):get_install_path() ..
-            --   "/extension/server/*.jar"),
+            -- unpack remaining bundles
+            table.unpack(
+              vim.split(
+                vim.fn.glob(
+                  require("mason-registry").get_package("java-test"):get_install_path()
+                  .. "/extension/server/*.jar"
+                ),
+                "\n", {}))
           },
         },
         handlers = {
@@ -140,6 +138,8 @@ return {
         filetypes = { "java" },
         on_attach = function(client, bufnr)
           require("astronvim.utils.lsp").on_attach(client, bufnr)
+          -- setup DAP with current settings
+          require('jdtls').setup_dap({ hotcodereplace = 'auto' })
         end,
       }
 
