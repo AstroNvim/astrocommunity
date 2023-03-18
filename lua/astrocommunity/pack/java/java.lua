@@ -139,7 +139,7 @@ return {
         on_attach = function(client, bufnr)
           require("astronvim.utils.lsp").on_attach(client, bufnr)
           -- setup DAP with current settings
-          require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+          require('jdtls').setup_dap()
         end,
       }
 
