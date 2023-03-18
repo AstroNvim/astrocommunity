@@ -4,11 +4,12 @@
 Requires: 
 - `JDK-17` or higher to function.
 
-Optionally requires `clang-format` and therefore `clang` in your `PATH` for better formatting.
-
 This plugin pack does the following:
 
-- Adds `java` Treesitter parsers
+- Adds `java` treesitter parsers
+- Adds `html` treesitter parsers (XML)
 - Adds `jdtls` language server
 - Adds `lemminx` language server (XML)
-- Adds [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls) for language specific tooling 
+- Adds [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls) for language specific tooling
+- Adds `clang_format` through null-ls
+- Adds `javadbg` and `javatest` debug adapters for nvim-dap 
