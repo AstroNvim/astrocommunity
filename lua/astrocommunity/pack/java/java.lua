@@ -137,7 +137,7 @@ return {
           ut.notify(vim.inspect(vim.api.nvim_buf_get_name(bufnr)))
 
           vim.api.nvim_create_autocmd("LspAttach", {
-            pattern = { vim.api.nvim_buf_get_name(bufnr) },
+            pattern = "*.java",
             callback = function(args)
               ut.notify("pattern match for buffer jdtls")
               -- print(vim.inspect(bufnr))
