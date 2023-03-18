@@ -131,11 +131,8 @@ return {
         on_attach = function(client, bufnr)
           local ut = require("astronvim.utils")
 
-          -- require('jdtls').setup_dap()
-          -- ut.notify("1 test test test")
+          require('jdtls').setup_dap()
           require("astronvim.utils.lsp").on_attach(client, bufnr)
-          -- setup DAP with current settings
-          -- ut.notify("2 test test test")
         end,
       }
 
@@ -148,7 +145,7 @@ return {
       -- this allows users to pass opts through an opts table in community.lua
       opts = vim.tbl_deep_extend("keep", opts, defaults)
 
-      -- send table to config
+      -- send opts to config
       return opts
     end,
     config = function(_, opts)
@@ -158,7 +155,7 @@ return {
         callback = function()
           if opts.root_dir and opts.root_dir ~= "" then
             require("jdtls").start_or_attach(opts)
-            require('jdtls').setup_dap()
+            require('jdtls').setup_dap_main_class_configs()
           else
             require("astronvim.utils").notify("jdtls: root_dir not found. Please specify a root marker",
               vim.log.levels.ERROR)
