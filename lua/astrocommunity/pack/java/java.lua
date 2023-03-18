@@ -48,9 +48,7 @@ return {
   {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
-    init = function()
-      utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls")
-    end,
+    init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls") end,
     opts = function(_, opts)
       -- use this function notation to build some variables
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
@@ -66,16 +64,16 @@ return {
 
       -- get the current OS
       local os
-      if vim.fn.has("mac") == 1 then
+      if vim.fn.has "mac" == 1 then
         os = "mac"
-      elseif vim.fn.has("unix") == 1 then
+      elseif vim.fn.has "unix" == 1 then
         os = "linux"
-      elseif vim.fn.has("win32") == 1 then
+      elseif vim.fn.has "win32" == 1 then
         os = "win"
       end
 
       -- ensure that OS is valid
-      if (not os or os == "") then
+      if not os or os == "" then
         require("astronvim.utils").notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
       end
 
@@ -107,16 +105,20 @@ return {
         },
         init_options = {
           bundles = {
-            vim.fn.glob(require("mason-registry").get_package("java-debug-adapter"):get_install_path() ..
-              "/extension/server/com.microsoft.java.debug.plugin-*.jar"),
+            vim.fn.glob(
+              require("mason-registry").get_package("java-debug-adapter"):get_install_path()
+                .. "/extension/server/com.microsoft.java.debug.plugin-*.jar"
+            ),
             -- unpack remaining bundles
             table.unpack(
               vim.split(
                 vim.fn.glob(
-                  require("mason-registry").get_package("java-test"):get_install_path()
-                  .. "/extension/server/*.jar"
+                  require("mason-registry").get_package("java-test"):get_install_path() .. "/extension/server/*.jar"
                 ),
-                "\n", {}))
+                "\n",
+                {}
+              )
+            ),
           },
         },
         handlers = {
@@ -129,7 +131,7 @@ return {
         },
         filetypes = { "java" },
         on_attach = function(client, bufnr)
-          require('jdtls').setup_dap()
+          require("jdtls").setup_dap()
           require("astronvim.utils.lsp").on_attach(client, bufnr)
         end,
       }
@@ -155,8 +157,10 @@ return {
             require("jdtls").start_or_attach(opts)
             -- require('jdtls.dap').setup_dap_main_class_configs()
           else
-            require("astronvim.utils").notify("jdtls: root_dir not found. Please specify a root marker",
-              vim.log.levels.ERROR)
+            require("astronvim.utils").notify(
+              "jdtls: root_dir not found. Please specify a root marker",
+              vim.log.levels.ERROR
+            )
           end
         end,
       })
@@ -168,12 +172,9 @@ return {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           -- ensure that only the jdtls client is activated
-          if (client.name == "jdtls") then
-            require('jdtls.dap').setup_dap_main_class_configs()
-          end
+          if client.name == "jdtls" then require("jdtls.dap").setup_dap_main_class_configs() end
         end,
       })
-    end
-  }
-
+    end,
+  },
 }
