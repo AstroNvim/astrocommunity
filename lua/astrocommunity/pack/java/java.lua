@@ -166,7 +166,7 @@ return {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if client.name == "jdtls" then
-            require("jdtls").setup_dap_main_class_configs()
+            require('jdtls.dap').setup_dap_main_class_configs()
           end
         end,
       })
