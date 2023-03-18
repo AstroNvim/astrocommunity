@@ -131,12 +131,11 @@ return {
         on_attach = function(client, bufnr)
           local ut = require("astronvim.utils")
 
-          require('jdtls').setup_dap()
-          ut.notify("1 test test test")
+          -- require('jdtls').setup_dap()
+          -- ut.notify("1 test test test")
           require("astronvim.utils.lsp").on_attach(client, bufnr)
           -- setup DAP with current settings
-          ut.notify("2 test test test")
-          require('jdtls').setup_dap()
+          -- ut.notify("2 test test test")
         end,
       }
 
@@ -159,6 +158,7 @@ return {
         callback = function()
           if opts.root_dir and opts.root_dir ~= "" then
             require("jdtls").start_or_attach(opts)
+            require('jdtls').setup_dap()
           else
             require("astronvim.utils").notify("jdtls: root_dir not found. Please specify a root marker",
               vim.log.levels.ERROR)
