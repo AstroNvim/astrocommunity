@@ -79,14 +79,6 @@ return {
         require("astronvim.utils").notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
       end
 
-      local bundles = {
-        vim.fn.glob(require("mason-registry").get_package("java-debug-adapter"):get_install_path() ..
-          "/extension/server/com.microsoft.java.debug.plugin-*.jar"),
-      }
-
-      -- local javadbg = require("mason-registry").get_package("java-debug-adapter"):get_install_path()
-      -- local javatest = require("mason-registry").get_package("java-test"):get_install_path()
-
       local defaults = {
         cmd = {
           "java",
@@ -139,6 +131,7 @@ return {
         on_attach = function(client, bufnr)
           local ut = require("astronvim.utils")
 
+          require('jdtls').setup_dap()
           ut.notify("1 test test test")
           require("astronvim.utils.lsp").on_attach(client, bufnr)
           -- setup DAP with current settings
