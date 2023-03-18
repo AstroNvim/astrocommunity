@@ -134,18 +134,18 @@ return {
           require('jdtls').setup_dap()
           require("astronvim.utils.lsp").on_attach(client, bufnr)
 
-          vim.api.nvim_create_autocmd("LspAttach", {
-            -- pattern = bufnr,
-            callback = function(args)
-              ut.notify("pattern match for buffer jdtls")
-              print(vim.inspect(bufnr))
-              print(vim.inspect(args.buf))
-              local client = vim.lsp.get_client_by_id(args.data.client_id)
-              if client.name == "jdtls" then
-                require('jdtls.dap').setup_dap_main_class_configs()
-              end
-            end,
-          })
+          -- vim.api.nvim_create_autocmd("LspAttach", {
+          --   -- pattern = bufnr,
+          --   callback = function(args)
+          --     ut.notify("pattern match for buffer jdtls")
+          --     print(vim.inspect(bufnr))
+          --     print(vim.inspect(args.buf))
+          --     local client = vim.lsp.get_client_by_id(args.data.client_id)
+          --     if client.name == "jdtls" then
+          --       require('jdtls.dap').setup_dap_main_class_configs()
+          --     end
+          --   end,
+          -- })
         end,
       }
 
@@ -172,6 +172,19 @@ return {
           else
             require("astronvim.utils").notify("jdtls: root_dir not found. Please specify a root marker",
               vim.log.levels.ERROR)
+          end
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("LspAttach", {
+        -- pattern = bufnr,
+        callback = function(args)
+          ut.notify("pattern match for buffer jdtls")
+          print(vim.inspect(bufnr))
+          print(vim.inspect(args.buf))
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client.name == "jdtls" then
+            require('jdtls.dap').setup_dap_main_class_configs()
           end
         end,
       })
