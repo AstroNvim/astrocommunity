@@ -134,6 +134,8 @@ return {
           require('jdtls').setup_dap()
           require("astronvim.utils.lsp").on_attach(client, bufnr)
 
+          ut.notify(vim.inspect(vim.api.nvim_buf_get_name(bufnr)))
+
           vim.api.nvim_create_autocmd("LspAttach", {
             pattern = vim.api.nvim_buf_get_name(bufnr),
             callback = function(args)
