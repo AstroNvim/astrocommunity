@@ -16,6 +16,7 @@ local function on_file_remove(args)
 end
 
 return {
+  { import = "astrocommunity.pack.json" },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -26,7 +27,7 @@ return {
         return
       end
       -- Add the required file types to opts.ensure_installed.
-      utils.list_insert_unique(opts.ensure_installed, { "javascript", "json", "typescript", "tsx" })
+      utils.list_insert_unique(opts.ensure_installed, { "javascript", "typescript", "tsx" })
     end,
   },
   {
