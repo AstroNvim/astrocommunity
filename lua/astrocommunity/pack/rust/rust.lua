@@ -1,5 +1,6 @@
 local utils = require "astrocommunity.utils"
 return {
+  { import = "astrocommunity.pack.toml" },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -10,7 +11,7 @@ return {
         return
       end
       -- Add the "rust" and "toml" language to opts.ensure_installed.
-      utils.list_insert_unique(opts.ensure_installed, { "rust", "toml" })
+      utils.list_insert_unique(opts.ensure_installed, "rust")
     end,
   },
   {
@@ -35,7 +36,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add rust and taplo lsps to opts.ensure_installed using vim.list_extend.
-      utils.list_insert_unique(opts.ensure_installed, { "rust_analyzer", "taplo" })
+      utils.list_insert_unique(opts.ensure_installed, "rust_analyzer")
     end,
   },
   {

@@ -1,5 +1,6 @@
 local utils = require "astrocommunity.utils"
 return {
+  { import = "astrocommunity.pack.toml" },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -10,7 +11,7 @@ return {
         return
       end
       -- Add the "julia" and "toml" language to opts.ensure_installed.
-      utils.list_insert_unique(opts.ensure_installed, { "julia", "toml" })
+      utils.list_insert_unique(opts.ensure_installed, "julia")
     end,
   },
   {
@@ -19,7 +20,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add julia lsp and toml lsp to ensure_installed
-      utils.list_insert_unique(opts.ensure_installed, { "julials", "taplo" })
+      utils.list_insert_unique(opts.ensure_installed, "julials")
     end,
   },
   {
