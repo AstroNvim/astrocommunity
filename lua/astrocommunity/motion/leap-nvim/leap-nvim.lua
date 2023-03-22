@@ -24,6 +24,9 @@ return {
         end
         leap.add_default_mappings(true)
       end,
+      dependencies = {
+        "tpope/vim-repeat",
+      },
     },
   },
 }
