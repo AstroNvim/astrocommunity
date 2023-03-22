@@ -26,7 +26,7 @@ return {
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
       -- Add go lsps to opts.ensure_installed using vim.list_extend.
-      utils.list_insert_unique(opts.ensure_installed, "prettier")
+      utils.list_insert_unique(opts.ensure_installed, "prettierd")
     end,
   },
 }
