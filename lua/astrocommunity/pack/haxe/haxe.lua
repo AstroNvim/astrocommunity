@@ -9,6 +9,7 @@ return {
       vim.filetype.add { extension = { hx = "haxe" } }
       require("nvim-treesitter.parsers").get_parser_configs().haxe =
         { install_info = { url = vim.fn.stdpath "data" .. "/lazy/tree-sitter-haxe", files = { "src/parser.c" } } }
+      vim.cmd.TSInstall "haxe"
     end,
   },
   {
