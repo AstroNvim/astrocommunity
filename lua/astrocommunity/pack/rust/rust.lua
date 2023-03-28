@@ -19,9 +19,9 @@ return {
     ft = { "rust" },
     init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
     opts = function()
-      local extension_path = vim.fn.stdpath "data" .. "/mason/packages/codelldb/extension/"
-      local codelldb_path = extension_path .. "adapter/codelldb"
-      local liblldb_path = extension_path .. "lldb/lib/liblldb"
+      local package_path = require("mason-registry.index.codelldb"):get_install_path()
+      local codelldb_path = package_path .. "/codelldb"
+      local liblldb_path = package_path .. "/extension/lldb/lib/liblldb"
 
       if vim.loop.os_uname().sysname == "Linux" then
         liblldb_path = liblldb_path .. ".so"
