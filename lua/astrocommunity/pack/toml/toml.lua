@@ -20,4 +20,12 @@ return {
       utils.list_insert_unique(opts.ensure_installed, "taplo")
     end,
   },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    opts = function(_, opts)
+      -- Ensure that opts.handlers exists and is a table
+      if not opts.handlers then opts.handlers = {} end
+      opts.handlers.taplo = function() end
+    end,
+  },
 }
