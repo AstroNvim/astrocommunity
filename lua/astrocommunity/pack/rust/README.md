@@ -1,7 +1,5 @@
 # Rust Language Pack
 
-Requires `lldb-vscode` in your `PATH`
-
 This plugin pack does the following:
 
 - Adds `rust` Treesitter parsers

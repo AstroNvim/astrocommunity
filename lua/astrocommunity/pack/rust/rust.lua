@@ -18,7 +18,22 @@ return {
     "simrat39/rust-tools.nvim",
     ft = { "rust" },
     init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
-    opts = function() return { server = require("astronvim.utils.lsp").config "rust_analyzer" } end,
+    opts = function()
+      local extension_path = vim.fn.stdpath "data" .. "/mason/packages/codelldb/extension/"
+      local codelldb_path = extension_path .. "adapter/codelldb"
+      local liblldb_path = extension_path .. "lldb/lib/liblldb"
+
+      if vim.loop.os_uname().sysname == "Linux" then
+        liblldb_path = liblldb_path .. ".so"
+      else
+        liblldb_path = liblldb_path .. ".dylib"
+      end
+
+      return {
+        server = require("astronvim.utils.lsp").config "rust_analyzer",
+        dap = { adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path) },
+      }
+    end,
     dependencies = {
       {
         "jay-babu/mason-nvim-dap.nvim",
