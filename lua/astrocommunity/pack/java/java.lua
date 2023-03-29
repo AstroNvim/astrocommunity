@@ -110,7 +110,7 @@ return {
                 .. "/extension/server/com.microsoft.java.debug.plugin-*.jar"
             ),
             -- unpack remaining bundles
-            table.unpack(
+            (table.unpack or unpack)(
               vim.split(
                 vim.fn.glob(
                   require("mason-registry").get_package("java-test"):get_install_path() .. "/extension/server/*.jar"
