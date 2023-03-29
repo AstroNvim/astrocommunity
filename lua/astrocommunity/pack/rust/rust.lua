@@ -19,7 +19,7 @@ return {
     ft = { "rust" },
     init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
     opts = function()
-      local package_path = require("mason-registry.index.codelldb"):get_install_path()
+      local package_path = require("mason-registry").get_package("codelldb"):get_install_path()
       local codelldb_path = package_path .. "/codelldb"
       local liblldb_path = package_path .. "/extension/lldb/lib/liblldb"
 
