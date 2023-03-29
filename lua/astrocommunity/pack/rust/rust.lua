@@ -23,15 +23,14 @@ return {
       local codelldb_path = package_path .. "/codelldb"
       local liblldb_path = package_path .. "/extension/lldb/lib/liblldb"
 
-      if vim.loop.os_uname().sysname == "Linux" then
-        liblldb_path = liblldb_path .. ".so"
-      else
-        liblldb_path = liblldb_path .. ".dylib"
-      end
-
       return {
         server = require("astronvim.utils.lsp").config "rust_analyzer",
-        dap = { adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path) },
+        dap = {
+          adapter = require("rust-tools.dap").get_codelldb_adapter(
+            codelldb_path,
+            liblldb_path .. (vim.loop.os_uname().sysname == "Linux" and ".so" or ".dylib")
+          ),
+        },
       }
     end,
     dependencies = {
