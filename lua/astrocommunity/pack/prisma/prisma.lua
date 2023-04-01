@@ -9,7 +9,7 @@ return {
       elseif opts.ensure_installed == "all" then
         return
       end
-      utils.list_insert_unique(opts.ensure_installed, { "prisma" })
+      utils.list_insert_unique(opts.ensure_installed, "prisma")
     end,
   },
   {
