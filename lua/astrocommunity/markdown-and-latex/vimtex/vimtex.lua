@@ -1,1 +1,1 @@
-return {"lervag/vimtex", lazy = false}
+return { "lervag/vimtex", lazy = false }
