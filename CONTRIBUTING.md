@@ -61,7 +61,7 @@ If you wish to contribute to AstroCommunity, you should:
 
 - PRs should follow the pull request formats where applicable
 
-- When adding a new plugin, we are trying our best to use categories as used by [NeovimCraft](neovimcraft.com/). Please check there to see if your plugin exists and use the category they use. If there the plugin isn't available use the best fit category and we can discuss the organization on the pull request.
+- When adding a new plugin, we are trying our best to use categories as used by [NeovimCraft](https://neovimcraft.com/). Please check there to see if your plugin exists and use the category they use. If there the plugin isn't available use the best fit category and we can discuss the organization on the pull request.
 
 ## How to remove, squash, or edit commits from your PR
 
