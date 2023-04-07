@@ -53,7 +53,9 @@ If you wish to contribute to AstroCommunity, you should:
 
 - When making a PR (pull request), please be very descriptive about what you've done!
 
-- Commit messages must follow [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/)
+- Pull request titles must follow [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/)
+
+  - We use an only squash and merge development cycle here, so please open PRs that make sense to be represented in the git history in a single commit message
 
   - PR titles and commit messages should be formatted with 'fix', 'feat', 'docs', 'refactor', or 'chore'. ex: `feat: add new plugin`
 
