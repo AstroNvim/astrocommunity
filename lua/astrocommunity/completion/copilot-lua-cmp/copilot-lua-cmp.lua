@@ -30,22 +30,14 @@ return {
           fallback()
         end
       end, { "i", "s" })
-      opts.mapping["<C-e>"] = cmp.mapping {
-        i = function(fallback)
-          if copilot.is_visible() then
-            copilot.dismiss()
-          elseif not cmp.abort() then
-            fallback()
-          end
-        end,
-        c = function(fallback)
-          if copilot.is_visible() then
-            copilot.dismiss()
-          elseif not cmp.close() then
-            fallback()
-          end
-        end,
-      }
+
+      opts.mapping["<C-x>"] = cmp.mapping(function()
+        if copilot.is_visible() then copilot.next() end
+      end)
+
+      opts.mapping["<C-z>"] = cmp.mapping(function()
+        if copilot.is_visible() then copilot.prev() end
+      end)
 
       return opts
     end,
