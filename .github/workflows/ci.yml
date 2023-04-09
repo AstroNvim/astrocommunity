@@ -43,3 +43,4 @@ jobs:
           tag: stable
           message: "Current stable release: ${{ steps.release.outputs.tag_name }}"
           tag_exists_error: false
+          force_push_tag: true
