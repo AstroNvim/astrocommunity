@@ -69,8 +69,15 @@ return {
     enabled = true,
     dependencies = {
       {
+        "microsoft/vscode-js-debug",
+        cmd = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+      },
+      {
         "mxsdev/nvim-dap-vscode-js",
-        opts = { debugger_cmd = { "js-debug-adapter" }, adapters = { "pwa-node" } },
+        opts = {
+          debugger_path = vim.fn.stdpath('data') .. '/lazy/vscode-js-debug',
+          adapters = { "pwa-node" }
+        },
       },
       { "theHamsta/nvim-dap-virtual-text", config = true },
       { "rcarriga/nvim-dap-ui", config = true },
