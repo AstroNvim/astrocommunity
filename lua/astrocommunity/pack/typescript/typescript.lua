@@ -70,7 +70,7 @@ return {
     dependencies = {
       {
         "microsoft/vscode-js-debug",
-        cmd = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+        build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
       },
       {
         "mxsdev/nvim-dap-vscode-js",
