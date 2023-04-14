@@ -82,6 +82,6 @@ return {
     { prefix .. "sd", "<cmd> Octo review discard<CR>", desc = "Deletes a pending review for current PR" },
     { prefix .. "sc", "<cmd> Octo review comments<CR>", desc = "View pending review comments" },
     { prefix .. "sp", "<cmd> Octo review commit<CR>", desc = "Pick a specific commit to review" },
-    { prefix .. "sc", "<cmd> Octo review comments<CR>", desc = "Close the review window and return to the PR" },
+    { prefix .. "sc", "<cmd> Octo review close<CR>", desc = "Close the review window and return to the PR" },
   },
 }
