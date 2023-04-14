@@ -1,4 +1,4 @@
-local prefix = "<leader>O"
+local prefix = "<leader>G"
 return {
   "pwntester/octo.nvim",
   dependencies = { 
@@ -20,15 +20,15 @@ return {
     { prefix .. "cd", "<cmd>Octo comment delete<CR>", desc = "Delete a comment" },
 
     { prefix .. "t", desc = "Threads" },
-    { prefix .. "ta", "<cmd>Octo thread resolve<CR>", desc = "Mark a review thread as resolved" },
-    { prefix .. "td", "<cmd>Octo thread unresolve<CR>", desc = "Mark a review thread as unresolved" },
+    { prefix .. "ta", "<cmd>Octo thread resolve<CR>", desc = "Mark thread as resolved" },
+    { prefix .. "td", "<cmd>Octo thread unresolve<CR>", desc = "Mark thread as unresolved" },
 
     { prefix .. "i", desc = "Issues" },
-    { prefix .. "ic", "<cmd>Octo issue close<CR>", desc = "Close the current issue" },
-    { prefix .. "ir", "<cmd>Octo issue reopen<CR>", desc = "Reopen the current issue" },
+    { prefix .. "ic", "<cmd>Octo issue close<CR>", desc = "Close current issue" },
+    { prefix .. "ir", "<cmd>Octo issue reopen<CR>", desc = "Reopen current issue" },
     { prefix .. "il", "<cmd>Octo issue list<CR>", desc = "List open issues" },
-    { prefix .. "iu", "<cmd>Octo issue url<CR>", desc = "Copies the URL of the current issue" },
-    { prefix .. "io", "<cmd>Octo issue browser<CR>", desc = "Open current issue in the browser" },
+    { prefix .. "iu", "<cmd>Octo issue url<CR>", desc = "Copies URL of current issue" },
+    { prefix .. "io", "<cmd>Octo issue browser<CR>", desc = "Open current issue in browser" },
 
     { prefix .. "p", desc = "Pull requests" },
     { prefix .. "pp", "<cmd>Octo pr checkout<CR>", desc = "Checkout PR" },
@@ -41,17 +41,17 @@ return {
     { prefix .. "pn", "<cmd>Octo pr create<CR>", desc = "Create PR for current branch" },
     { prefix .. "pd", "<cmd>Octo pr diff<CR>", desc = "Show PR diff" },
     { prefix .. "ps", "<cmd>Octo pr list<CR>", desc = "List open PRs" },
-    { prefix .. "pr", "<cmd>Octo pr ready<CR>", desc = "Mark a draft PR as ready for review" },
-    { prefix .. "po", "<cmd>Octo pr browser<CR>", desc = "Open current PR in the browser" },
-    { prefix .. "pu", "<cmd>Octo pr url<CR>", desc = "Copies the URL of the current PR" },
+    { prefix .. "pr", "<cmd>Octo pr ready<CR>", desc = "Mark draft as ready for review" },
+    { prefix .. "po", "<cmd>Octo pr browser<CR>", desc = "Open current PR in browser" },
+    { prefix .. "pu", "<cmd>Octo pr url<CR>", desc = "Copies URL of current PR" },
     { prefix .. "pt", "<cmd>Octo pr commits<CR>", desc = "List PR commits" },
     { prefix .. "pl", "<cmd>Octo pr commits<CR>", desc = "List changed files in PR" },
 
     { prefix .. "r", desc = "Repo" },
-    { prefix .. "rl", "<cmd>Octo repo list<CR>", desc = "List repo user owns, contributes, or belongs to" },
+    { prefix .. "rl", "<cmd>Octo repo list<CR>", desc = "List repo user stats" },
     { prefix .. "rf", "<cmd>Octo repo fork<CR>", desc = "Fork repo" },
-    { prefix .. "ro", "<cmd>Octo repo open<CR>", desc = "Open current repo in the browser" },
-    { prefix .. "ru", "<cmd>Octo repo url<CR>", desc = "Copies the URL of the current repo" },
+    { prefix .. "ro", "<cmd>Octo repo open<CR>", desc = "Open current repo in browser" },
+    { prefix .. "ru", "<cmd>Octo repo url<CR>", desc = "Copies URL of current repo" },
 
     { prefix .. "a", desc = "Assignee/Reviewer" },
     { prefix .. "aa", "<cmd> Octo assignee add<CR>", desc = "Assign a user" },
@@ -73,15 +73,15 @@ return {
     { prefix .. "e7", "<cmd>Octo reaction heart<CR>", desc = "Add ❤️ reaction" },
     { prefix .. "e8", "<cmd>Octo reaction party<CR>", desc = "Add 🎉 reaction" },
 
-    { prefix .. "x", "<cmd>Octo actions<CR>", desc= "List and run a action" },
+    { prefix .. "x", "<cmd>Octo actions<CR>", desc= "Run an action" },
 
     { prefix .. "s", desc = "Review" },
     { prefix .. "ss", "<cmd> Octo review start<CR>", desc = "Start review" },
     { prefix .. "sf", "<cmd> Octo review submit<CR>", desc = "Submit review" },
     { prefix .. "sr", "<cmd> Octo review resume<CR>", desc = "Submit resume" },
-    { prefix .. "sd", "<cmd> Octo review discard<CR>", desc = "Deletes a pending review for current PR" },
-    { prefix .. "sc", "<cmd> Octo review comments<CR>", desc = "View pending review comments" },
-    { prefix .. "sp", "<cmd> Octo review commit<CR>", desc = "Pick a specific commit to review" },
-    { prefix .. "sc", "<cmd> Octo review comments<CR>", desc = "Close the review window and return to the PR" },
+    { prefix .. "sd", "<cmd> Octo review discard<CR>", desc = "Delete pending review" },
+    { prefix .. "sc", "<cmd> Octo review comments<CR>", desc = "View pending comments" },
+    { prefix .. "sp", "<cmd> Octo review commit<CR>", desc = "Select commit to review" },
+    { prefix .. "sc", "<cmd> Octo review comments<CR>", desc = "Return to PR" },
   },
 }
