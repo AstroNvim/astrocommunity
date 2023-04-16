@@ -13,7 +13,7 @@ return {
     { prefix .. "h", function() require("harpoon.ui").nav_next() end, desc = "Goto previous mark" },
     { prefix .. "l", function() require("harpoon.ui").nav_prev() end, desc = "Goto next mark" },
     { prefix .. "m", "<cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" },
-    { 
+    {
       prefix .. "t",
       function()
         local num = tonumber(vim.fn.input "GoTo terminal window number: ")
@@ -21,7 +21,7 @@ return {
       end,
       desc = "Goto to terminal window",
     },
-    { 
+    {
       prefix .. "j",
       function()
         local num = tonumber(vim.fn.input "GoTo Tmux window number: ")
