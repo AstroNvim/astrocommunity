@@ -77,15 +77,20 @@ return {
     },
     config = function()
       local dap = require "dap"
-
-      local attach_node = {
-        type = "pwa-node",
-        request = "attach",
-        name = "Attach",
-        processId = function(...) return require("dap.utils").pick_process(...) end,
-        cwd = "${workspaceFolder}",
+      local dap_debug_server_js = vim.fn.stdpath "data"
+        .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js"
+      dap.adapters["pwa-node"] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = "node",
+          args = {
+            dap_debug_server_js,
+            "${port}",
+          },
+        },
       }
-
       dap.configurations.javascript = {
         {
           type = "pwa-node",
@@ -94,26 +99,22 @@ return {
           program = "${file}",
           cwd = "${workspaceFolder}",
         },
-        attach_node,
       }
       dap.configurations.typescript = {
         {
           type = "pwa-node",
           request = "launch",
           name = "Launch file",
+          runtimeExecutable = "deno",
+          runtimeArgs = {
+            "run",
+            "--inspect-wait",
+            "--allow-all",
+          },
           program = "${file}",
           cwd = "${workspaceFolder}",
-          runtimeExecutable = "ts-node",
-          sourceMaps = true,
-          protocol = "inspector",
-          console = "integratedTerminal",
-          resolveSourceMapLocations = {
-            "${workspaceFolder}/dist/**/*.js",
-            "${workspaceFolder}/**",
-            "!**/node_modules/**",
-          },
+          attachSimplePort = 9229,
         },
-        attach_node,
       }
     end,
   },
