@@ -4,7 +4,7 @@ return {
     require("monokai-pro").setup {
         terminal_colors = true,
         devicons = true, -- highlight the icons of `nvim-web-devicons`
-        filter = "machine", -- classic | octagon | pro | machine | ristretto | spectrum
+        filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
         plugins = {
         indent_blankline = {
             context_highlight = "pro", -- default | pro

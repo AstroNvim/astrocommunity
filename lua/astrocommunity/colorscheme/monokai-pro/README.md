@@ -2,23 +2,23 @@
 
 **Repository:** https://github.com/loctvl842/monokai-pro.nvim
 
-Monokai pro theme for neovim. The following filters are available:
+A professional theme for neovim. The following filters are available:
 
-- `classic`
-- `octagon`
 - `pro`
+- `classic`
 - `machine`
+- `octagon`
 - `ristretto`
 - `spectrum`
 
-By default, it is set to `machine`. To change the filter, you can add the following to your `user.lua`
+By default, it is set to `pro`. To change the filter to, e.g., `machine`, you can add the following to your `user.lua`
 
 ```lua
 {
     "loctvl842/monokai-pro.nvim",
     config = function()
         require("monokai-pro").setup {
-        filter = "classic", -- classic | octagon | pro | machine | ristretto | spectrum
+        filter = "machine", -- classic | octagon | pro | machine | ristretto | spectrum
     }
     end
 },
