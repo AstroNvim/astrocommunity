@@ -1,5 +1,7 @@
 # TypeScript Language Pack
 
+**Note**: The current version of TS debugging uses Deno!
+
 This plugin pack does the following:
 
 - Adds `typescript`, `javascript`, and `tsx` Treesitter parsers
