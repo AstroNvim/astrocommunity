@@ -17,6 +17,7 @@ return {
   },
   {
     "mrcjkb/haskell-tools.nvim",
+    ft = { "haskell" },
     branch = "1.x.x", -- reccomended by haskell-tools
     init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "hls") end,
     opts = {
