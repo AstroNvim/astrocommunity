@@ -1,5 +1,7 @@
 # Rust Language Pack
-
+this pack is not approved by the rust foundation
+nobody from the rust foundation is involved to create this
+this pack is not officially supported by the rust foundation
 This plugin pack does the following:
 
 - Adds `rust` Treesitter parsers
