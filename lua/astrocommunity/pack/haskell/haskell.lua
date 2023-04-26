@@ -20,12 +20,14 @@ return {
     branch = "1.x.x", -- reccomended by haskell-tools
     init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "hls") end,
     opts = {
-      hls = {},
+      hls = {
+        on_attach = function() end,
+      },
     },
     config = function(_, opts)
       vim.api.nvim_create_autocmd("Filetype", {
         pattern = "haskell", -- autocmd to start haskell-tools
-        callback = function()
+        callback = function(_)
           require("haskell-tools").start_or_attach(opts)
           vim.print(vim.inspect(opts))
         end,
