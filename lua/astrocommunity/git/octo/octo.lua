@@ -1,16 +1,16 @@
 local prefix = "<leader>G"
 return {
-  "pwntester/octo.nvim", 
+  "pwntester/octo.nvim",
   dependencies = {
-    "nvim-lua/plenary.nvim", 
-    "nvim-telescope/telescope.nvim", 
-    "nvim-tree/nvim-web-devicons", 
-  }, 
-  cmd = { "Octo" }, 
-  config = function() require("octo").setup() end, 
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope.nvim",
+    "nvim-tree/nvim-web-devicons",
+  },
+  cmd = { "Octo" },
+  config = function() require("octo").setup() end,
   opts = {
-    use_diagnostic_signs = true, 
-  }, 
+    use_diagnostic_signs = true,
+  },
   keys = {
     { prefix, desc = "Octo" },
     { prefix .. "c", desc = "Comments" },
@@ -81,5 +81,5 @@ return {
     { prefix .. "sc", "<cmd> Octo review comments<CR>", desc = "View pending comments" },
     { prefix .. "sp", "<cmd> Octo review commit<CR>", desc = "Select commit to review" },
     { prefix .. "sc", "<cmd> Octo review close<CR>", desc = "Return to PR" },
-  }, 
+  },
 }
