@@ -1,20 +1,18 @@
 local prefix = "<leader>G"
 return {
-  "pwntester/octo.nvim",
-  dependencies = { 
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
-    "nvim-tree/nvim-web-devicons",
-  },
-  cmd = { "Octo" },
-  config = function ()
-    require("octo").setup()
-  end,
+  "pwntester/octo.nvim", 
+  dependencies = {
+    "nvim-lua/plenary.nvim", 
+    "nvim-telescope/telescope.nvim", 
+    "nvim-tree/nvim-web-devicons", 
+  }, 
+  cmd = { "Octo" }, 
+  config = function() require("octo").setup() end, 
   opts = {
-    use_diagnostic_signs = true,
-  },
+    use_diagnostic_signs = true, 
+  }, 
   keys = {
-    { prefix , desc = "Octo" },
+    { prefix, desc = "Octo" },
     { prefix .. "c", desc = "Comments" },
     { prefix .. "ca", "<cmd>Octo comment add<CR>", desc = "Add a new comment" },
     { prefix .. "cd", "<cmd>Octo comment delete<CR>", desc = "Delete a comment" },
@@ -73,7 +71,7 @@ return {
     { prefix .. "e7", "<cmd>Octo reaction heart<CR>", desc = "Add ❤️ reaction" },
     { prefix .. "e8", "<cmd>Octo reaction party<CR>", desc = "Add 🎉 reaction" },
 
-    { prefix .. "x", "<cmd>Octo actions<CR>", desc= "Run an action" },
+    { prefix .. "x", "<cmd>Octo actions<CR>", desc = "Run an action" },
 
     { prefix .. "s", desc = "Review" },
     { prefix .. "ss", "<cmd> Octo review start<CR>", desc = "Start review" },
@@ -83,5 +81,5 @@ return {
     { prefix .. "sc", "<cmd> Octo review comments<CR>", desc = "View pending comments" },
     { prefix .. "sp", "<cmd> Octo review commit<CR>", desc = "Select commit to review" },
     { prefix .. "sc", "<cmd> Octo review close<CR>", desc = "Return to PR" },
-  },
+  }, 
 }
