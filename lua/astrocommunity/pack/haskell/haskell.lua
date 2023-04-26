@@ -22,7 +22,18 @@ return {
     init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "hls") end,
     opts = {
       hls = {
-        on_attach = function() end,
+        on_attach = function(client, bufnr)
+          -- if true then
+          -- require("astronvim.utils").set_mappings()
+
+          -- end
+          vim.print(vim.inspect(client.server_capabilities))
+
+          -- lsp_mappings.n["K"] = {
+          --   function() vim.lsp.buf.hover() end,
+          --   desc = "Hover symbol details",
+          -- }
+        end,
       },
     },
     config = function(_, opts)
@@ -34,7 +45,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim", -- optional
-      -- TODO: Need haskell to be pulled into mason-nvim-dap (haskell coming soon)
+      -- TODO: Need haskell to be pulled into mason-nvim-dap (haskell hopefully coming soon)
       -- {
       --   "jay-babu/mason-nvim-dap.nvim",
       --   opts = function(_, opts)
