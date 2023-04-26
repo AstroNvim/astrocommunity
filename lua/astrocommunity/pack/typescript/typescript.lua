@@ -70,7 +70,19 @@ return {
     dependencies = {
       {
         "mxsdev/nvim-dap-vscode-js",
-        opts = { debugger_cmd = { "js-debug-adapter" }, adapters = { "pwa-node" } },
+        dependencies = {
+          {
+            "microsoft/vscode-js-debug",
+            -- FIXME: lua module not found for vscode-js-debug. use config func instead...
+            config = function() end,
+            build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+          },
+        },
+        opts = {
+          debugger_path = vim.fn.stdpath "data" .. "/lazy/vscode-js-debug",
+          -- adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+          adapters = { "pwa-node" },
+        },
       },
       { "theHamsta/nvim-dap-virtual-text", config = true },
       { "rcarriga/nvim-dap-ui", config = true },
@@ -78,29 +90,44 @@ return {
     config = function()
       local dap = require "dap"
 
-      local attach_node = {
+      local attach_process = {
         type = "pwa-node",
         request = "attach",
-        name = "Attach",
+        name = "attach to process",
         processId = function(...) return require("dap.utils").pick_process(...) end,
         cwd = "${workspaceFolder}",
       }
 
+      local attach_port = {
+        name = "attach to port",
+        type = "pwa-node",
+        request = "attach",
+        port = function() return vim.fn.input("Port: ", "9229") end,
+        localRoot = function() return vim.fn.input("Local Root: ", vim.fn.getcwd()) end,
+        remoteRoot = function() return vim.fn.input("Remote root: ", "/application") end,
+        cwd = "${workspaceFolder}",
+        envFile = "${workspaceFolder}/.env",
+      }
+
       dap.configurations.javascript = {
+        attach_port,
+        attach_process,
         {
           type = "pwa-node",
           request = "launch",
-          name = "Launch file",
+          name = "launch file",
           program = "${file}",
           cwd = "${workspaceFolder}",
         },
-        attach_node,
       }
+
       dap.configurations.typescript = {
+        attach_port,
+        attach_process,
         {
           type = "pwa-node",
           request = "launch",
-          name = "Launch file",
+          name = "launch file",
           program = "${file}",
           cwd = "${workspaceFolder}",
           runtimeExecutable = "ts-node",
@@ -113,7 +140,6 @@ return {
             "!**/node_modules/**",
           },
         },
-        attach_node,
       }
     end,
   },
