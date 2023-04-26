@@ -22,18 +22,7 @@ return {
     init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "hls") end,
     opts = {
       hls = {
-        on_attach = function(client, bufnr)
-          -- if true then
-          -- require("astronvim.utils").set_mappings()
-
-          -- end
-          vim.print(vim.inspect(client.server_capabilities))
-
-          -- lsp_mappings.n["K"] = {
-          --   function() vim.lsp.buf.hover() end,
-          --   desc = "Hover symbol details",
-          -- }
-        end,
+        on_attach = function(client, bufnr) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
       },
     },
     config = function(_, opts)
