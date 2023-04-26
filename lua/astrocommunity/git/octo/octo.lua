@@ -1,4 +1,4 @@
-local prefix = "<leader>G"
+local prefix = "<leader>O"
 return {
   "pwntester/octo.nvim",
   dependencies = {
