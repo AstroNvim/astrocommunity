@@ -26,15 +26,9 @@ return {
       },
     },
     config = function(_, opts)
-      vim.notify "in haskell config"
       vim.api.nvim_create_autocmd("Filetype", {
         pattern = "haskell", -- autocmd to start haskell-tools
-        callback = function(_)
-          vim.notify "in haskell filetype callback"
-          -- vim.notify "This is a test this should load"
-          -- require("haskell-tools").start_or_attach(opts)
-          -- vim.print(vim.inspect(opts))
-        end,
+        callback = function(_) require("haskell-tools").start_or_attach(opts) end,
       })
     end,
     dependencies = {
