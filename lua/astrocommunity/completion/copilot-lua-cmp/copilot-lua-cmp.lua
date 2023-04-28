@@ -38,7 +38,7 @@ return {
       opts.mapping["<C-z>"] = cmp.mapping(function()
         if copilot.is_visible() then copilot.prev() end
       end)
-      
+
       opts.mapping["<C-right>"] = cmp.mapping(function()
         if copilot.is_visible() then copilot.accept_word() end
       end)
