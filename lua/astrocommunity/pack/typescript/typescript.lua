@@ -1,4 +1,4 @@
-local utils = require "astrocommunity.utils"
+local utils = require "astronvim.utils"
 local events = require "neo-tree.events"
 
 local function on_file_remove(args)
