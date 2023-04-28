@@ -1,5 +1,6 @@
 local utils = require "astronvim.utils"
 local events = require "neo-tree.events"
+
 local function on_file_remove(args)
   local ts_clients = vim.lsp.get_active_clients { name = "tsserver" }
   for _, ts_client in ipairs(ts_clients) do
@@ -44,8 +45,34 @@ return {
     opts = function(_, opts)
       -- Ensure that opts.ensure_installed exists and is a table.
       if not opts.ensure_installed then opts.ensure_installed = {} end
-      -- Add to opts.ensure_installed using vim.list_extend.
+      -- Add prettierd & eslint_d to opts.ensure_installed using vim.list_extend.
       utils.list_insert_unique(opts.ensure_installed, "prettierd")
+      utils.list_insert_unique(opts.ensure_installed, "eslint_d")
+
+      if not opts.handlers then opts.handlers = {} end
+
+      opts.handlers.prettierd = function()
+        local null_ls = require "null-ls"
+        null_ls.register(null_ls.builtins.formatting.prettierd.with {
+          condition = function(util)
+            return util.root_has_file "package.json"
+              or util.root_has_file ".prettierrc"
+              or util.root_has_file ".prettierrc.json"
+              or util.root_has_file ".prettierrc.js"
+          end,
+        })
+      end
+
+      opts.handlers.eslint_d = function()
+        local null_ls = require "null-ls"
+        null_ls.register(null_ls.builtins.diagnostics.eslint_d.with {
+          condition = function(util)
+            return util.root_has_file "package.json"
+              or util.root_has_file ".eslintrc.json"
+              or util.root_has_file ".eslintrc.js"
+          end,
+        })
+      end
     end,
   },
   {
@@ -62,60 +89,6 @@ return {
     requires = "MunifTanjim/nui.nvim",
     config = true,
     event = "BufRead package.json",
-  },
-  {
-    "mfussenegger/nvim-dap",
-    ft = { "ts", "js", "tsx", "jsx" },
-    enabled = true,
-    dependencies = {
-      {
-        "mxsdev/nvim-dap-vscode-js",
-        opts = { debugger_cmd = { "js-debug-adapter" }, adapters = { "pwa-node" } },
-      },
-      { "theHamsta/nvim-dap-virtual-text", config = true },
-      { "rcarriga/nvim-dap-ui", config = true },
-    },
-    config = function()
-      local dap = require "dap"
-
-      local attach_node = {
-        type = "pwa-node",
-        request = "attach",
-        name = "Attach",
-        processId = function(...) return require("dap.utils").pick_process(...) end,
-        cwd = "${workspaceFolder}",
-      }
-
-      dap.configurations.javascript = {
-        {
-          type = "pwa-node",
-          request = "launch",
-          name = "Launch file",
-          program = "${file}",
-          cwd = "${workspaceFolder}",
-        },
-        attach_node,
-      }
-      dap.configurations.typescript = {
-        {
-          type = "pwa-node",
-          request = "launch",
-          name = "Launch file",
-          program = "${file}",
-          cwd = "${workspaceFolder}",
-          runtimeExecutable = "ts-node",
-          sourceMaps = true,
-          protocol = "inspector",
-          console = "integratedTerminal",
-          resolveSourceMapLocations = {
-            "${workspaceFolder}/dist/**/*.js",
-            "${workspaceFolder}/**",
-            "!**/node_modules/**",
-          },
-        },
-        attach_node,
-      }
-    end,
   },
   {
     "jose-elias-alvarez/typescript.nvim",
