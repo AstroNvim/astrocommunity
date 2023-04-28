@@ -22,10 +22,10 @@ return {
       local package_path = require("mason-registry").get_package("codelldb"):get_install_path()
       local codelldb_path = package_path .. "/codelldb"
       local liblldb_path = package_path .. "/extension/lldb/lib/liblldb"
-      local this_os = vim.loop.os_uname().sysname;
+      local this_os = vim.loop.os_uname().sysname
 
       -- The path in windows is different
-      if this_os:find 'Windows' then
+      if this_os:find "Windows" then
         codelldb_path = package_path .. "\\extension\\adapter\\codelldb.exe"
         liblldb_path = package_path .. "\\extension\\lldb\\bin\\liblldb.dll"
       else
@@ -36,10 +36,7 @@ return {
       return {
         server = require("astronvim.utils.lsp").config "rust_analyzer",
         dap = {
-          adapter = require("rust-tools.dap").get_codelldb_adapter(
-            codelldb_path,
-            liblldb_path
-          ),
+          adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
         },
       }
     end,
