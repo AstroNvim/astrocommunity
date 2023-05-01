@@ -5,21 +5,16 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table or string "all".
-      if not opts.ensure_installed then
-        opts.ensure_installed = {}
-      elseif opts.ensure_installed == "all" then
-        return
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haskell")
       end
-      -- ensure haskell treesitter installed
-      utils.list_insert_unique(opts.ensure_installed, "haskell")
     end,
   },
   {
     "mrcjkb/haskell-tools.nvim",
     ft = { "haskell" },
     branch = "1.x.x", -- reccomended by haskell-tools
-    init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "hls") end,
+    init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "hls") end,
     opts = {
       hls = {
         on_attach = function(client, bufnr) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
@@ -37,20 +32,12 @@ return {
       -- TODO: Need haskell to be pulled into mason-nvim-dap (haskell hopefully coming soon)
       -- {
       --   "jay-babu/mason-nvim-dap.nvim",
-      --   opts = function(_, opts)
-      --     -- Ensure that opts.ensure_installed exists and is a table.
-      --     if not opts.ensure_installed then opts.ensure_installed = {} end
-      --     utils.list_insert_unique(opts.ensure_installed, "haskell-dap")
-      --   end,
+      --   opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haskell") end,
       -- },
     },
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table.
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      utils.list_insert_unique(opts.ensure_installed, "hls")
-    end,
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "hls") end,
   },
 }

@@ -4,51 +4,34 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table or string "all".
-      if not opts.ensure_installed then
-        opts.ensure_installed = {}
-      elseif opts.ensure_installed == "all" then
-        return
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "java", "html" })
       end
-      -- Add the "java" and "html" language to opts.ensure_installed.
-      -- XML does not have it's own treesitter plugin so HTML can take over if necessary
-      utils.list_insert_unique(opts.ensure_installed, { "java", "html" })
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table.
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      -- Add jdtls and lemminx lsps to opts.ensure_installed using vim.list_extend.
-      utils.list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
     end,
   },
 
   {
     "jay-babu/mason-null-ls.nvim",
-    opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table.
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      -- Add clang_format to opts.ensure_installed
-      utils.list_insert_unique(opts.ensure_installed, { "clang_format" })
-    end,
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "clang_format") end,
   },
 
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table.
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      -- Add javadgb to required
-      utils.list_insert_unique(opts.ensure_installed, { "javadbg", "javatest" })
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "javadbg", "javatest" })
     end,
   },
 
   {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
-    init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls") end,
+    init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls") end,
     opts = function(_, opts)
       -- use this function notation to build some variables
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
