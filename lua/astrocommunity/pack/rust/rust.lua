@@ -4,20 +4,15 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table or string "all".
-      if not opts.ensure_installed then
-        opts.ensure_installed = {}
-      elseif opts.ensure_installed == "all" then
-        return
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "rust")
       end
-      -- Add the "rust" and "toml" language to opts.ensure_installed.
-      utils.list_insert_unique(opts.ensure_installed, "rust")
     end,
   },
   {
     "simrat39/rust-tools.nvim",
     ft = { "rust" },
-    init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
+    init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
     opts = function()
       local package_path = require("mason-registry").get_package("codelldb"):get_install_path()
       local codelldb_path = package_path .. "/codelldb"
@@ -43,22 +38,13 @@ return {
     dependencies = {
       {
         "jay-babu/mason-nvim-dap.nvim",
-        opts = function(_, opts)
-          -- Ensure that opts.ensure_installed exists and is a table.
-          if not opts.ensure_installed then opts.ensure_installed = {} end
-          utils.list_insert_unique(opts.ensure_installed, "codelldb")
-        end,
+        opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,
       },
     },
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table.
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      -- Add rust and taplo lsps to opts.ensure_installed using vim.list_extend.
-      utils.list_insert_unique(opts.ensure_installed, "rust_analyzer")
-    end,
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "rust_analyzer") end,
   },
   {
     "Saecki/crates.nvim",
