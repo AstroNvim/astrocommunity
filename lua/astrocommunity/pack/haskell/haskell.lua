@@ -29,11 +29,10 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim", -- optional
-      -- TODO: Need haskell to be pulled into mason-nvim-dap (haskell hopefully coming soon)
-      -- {
-      --   "jay-babu/mason-nvim-dap.nvim",
-      --   opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haskell") end,
-      -- },
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haskell") end,
+      },
     },
   },
   {
