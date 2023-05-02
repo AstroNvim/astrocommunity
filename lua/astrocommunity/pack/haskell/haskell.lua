@@ -23,10 +23,7 @@ return {
     init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "hls") end,
     opts = {
       hls = {
-        on_attach = function(client, bufnr)
-          local ht = require "haskell-tools"
-          require("astronvim.utils.lsp").on_attach(client, bufnr)
-        end,
+        on_attach = function(client, bufnr) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
       },
     },
     config = function(_, opts)
