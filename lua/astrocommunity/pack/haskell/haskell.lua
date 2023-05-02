@@ -38,9 +38,8 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         pattern = "*.hs", -- autocmd to start haskell-tools
         callback = function(args)
-          local ht = require "haskell-tools"
           local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if client.name == "haskell-tools.nvim" then ht.dap.discover_configurations(args.buf) end
+          if client.name == "haskell-tools.nvim" then require("haskell-tools").dap.discover_configurations(args.buf) end
         end,
       })
     end,
