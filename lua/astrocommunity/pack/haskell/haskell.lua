@@ -38,14 +38,14 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim", -- optional
-      {
-        "jay-babu/mason-nvim-dap.nvim",
-        opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haskell") end,
-      },
     },
   },
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "hls") end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haskell") end,
   },
 }
