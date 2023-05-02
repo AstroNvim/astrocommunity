@@ -29,7 +29,10 @@ return {
       "EndOfBuffer",
     },
     -- table: additional groups that should be cleared
-    extra_groups = {},
+    extra_groups = {
+      "NormalFloat",
+      "NvimTreeNormal",
+    },
     -- table: groups you don't want to clear
     exclude_groups = {},
   },
