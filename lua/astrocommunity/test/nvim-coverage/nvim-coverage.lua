@@ -1,6 +1,6 @@
 return {
   "andythigpen/nvim-coverage",
-  lazy = false,
+  event = "User AstroFile",
   requires = { "nvim-lua/plenary.nvim" },
   -- Optional: needed for PHP when using the cobertura parser
   rocks = { "lua-xmlreader" },
