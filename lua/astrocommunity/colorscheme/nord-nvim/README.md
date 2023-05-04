@@ -35,7 +35,7 @@ To support [BufferLine](https://github.com/akinsho/nvim-bufferline.lua), you can
 ```lua
 local utils = require("astronvim.utils")
 {
-  "akinsho/nvim-bufferline",
+  "akinsho/bufferline.nvim",
   opts = function(_, opts)
     if not options then options = {} end
     opts.options = utils.list_insert_unique(opts.options, {
