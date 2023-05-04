@@ -8,7 +8,5 @@ return {
     vim.g.nord_uniform_diff_background = true
     vim.g.nord_bold = false
   end,
-  config = function()
-    require("nord").set()
-  end,
+  config = function() require("nord").set() end,
 }
