@@ -13,7 +13,7 @@ local utils = require("astronvim.utils")
 {
   "lukas-reineke/headlines.nvim",
   opts = function(_, opts)
-    if not markdown then markdown = {} end
+    if not opts.markdown then opts.markdown = {} end
     opts.markdown.headline_highlights = utils.list_insert_unique(opts.markdown.headline_highlights, {
       "Headline1",
       "Headline2",
@@ -37,7 +37,7 @@ local utils = require("astronvim.utils")
 {
   "akinsho/bufferline.nvim",
   opts = function(_, opts)
-    if not options then options = {} end
+    if not opts.options then opts.options = {} end
     opts.options = utils.list_insert_unique(opts.options, {
       separator_style = "thin",
     })
