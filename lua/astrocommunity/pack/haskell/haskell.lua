@@ -13,7 +13,7 @@ return {
   {
     "mrcjkb/haskell-tools.nvim",
     ft = { "haskell" },
-    branch = "1.x.x", -- reccomended by haskell-tools
+    branch = "1.x.x", -- recommended by haskell-tools
     init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "hls") end,
     opts = {
       hls = {
@@ -21,23 +21,31 @@ return {
       },
     },
     config = function(_, opts)
+      local tools = require "haskell-tools"
       vim.api.nvim_create_autocmd("Filetype", {
         pattern = "haskell", -- autocmd to start haskell-tools
-        callback = function(_) require("haskell-tools").start_or_attach(opts) end,
+        callback = function() tools.start_or_attach(opts) end,
+      })
+
+      vim.api.nvim_create_autocmd("LspAttach", {
+        pattern = "*.hs", -- autocmd to start haskell-tools
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client.name == "haskell-tools.nvim" then tools.dap.discover_configurations(args.buf) end
+        end,
       })
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim", -- optional
-      -- TODO: Need haskell to be pulled into mason-nvim-dap (haskell hopefully coming soon)
-      -- {
-      --   "jay-babu/mason-nvim-dap.nvim",
-      --   opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haskell") end,
-      -- },
     },
   },
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "hls") end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haskell") end,
   },
 }
