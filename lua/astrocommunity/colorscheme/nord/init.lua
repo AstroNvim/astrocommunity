@@ -16,14 +16,4 @@ return {
     }
     return opts
   end,
-  
-  vim.g = {
-    nord_contrast = true,
-    nord_borders = false,
-    nord_disable_background = false,
-    nord_italic = true,
-    nord_uniform_diff_background = true,
-    nord_bold = false,
-   }
-  
 }
