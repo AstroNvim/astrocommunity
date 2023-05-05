@@ -13,8 +13,8 @@ return {
         codeblock_highlight = "CodeBlock",
         dash_highlight = "Dash",
         quote_highlight = "Quote",
-    },
-  return opts
+    }
+    return opts
   end
   vim.g = {
     nord_contrast = true,
