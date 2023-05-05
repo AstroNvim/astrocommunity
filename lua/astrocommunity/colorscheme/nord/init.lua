@@ -15,7 +15,8 @@ return {
         quote_highlight = "Quote",
     }
     return opts
-  end
+  end,
+  
   vim.g = {
     nord_contrast = true,
     nord_borders = false,
