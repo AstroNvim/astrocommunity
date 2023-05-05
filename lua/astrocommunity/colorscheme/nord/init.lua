@@ -1,0 +1,1 @@
+'shaunsingh/nord.nvim'
