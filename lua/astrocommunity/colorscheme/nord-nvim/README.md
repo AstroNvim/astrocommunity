@@ -22,9 +22,9 @@ local utils = require("astronvim.utils")
       "Headline5",
       "Headline6",
     })
-    opts.markdown.codeblock_highlight = utils.list_insert_unique(opts.markdown.codeblock_highlight, "CodeBlock")
-    opts.markdown.dash_highlight = utils.list_insert_unique(opts.markdown.dash_highlight, "Dash")
-    opts.markdown.quote_highlight = utils.list_insert_unique(opts.markdown.quote_highlight, "Quote")
+    opts.markdown.codeblock_highlight = "CodeBlock"
+    opts.markdown.dash_highlight = "Dash"
+    opts.markdown.quote_highlight = "Quote"
   end,
 },
 
@@ -33,21 +33,18 @@ local utils = require("astronvim.utils")
 To support [BufferLine](https://github.com/akinsho/nvim-bufferline.lua), you can add this code to your config:
 
 ```lua
-local utils = require("astronvim.utils")
 {
   "akinsho/bufferline.nvim",
   opts = function(_, opts)
     if not opts.options then opts.options = {} end
-    opts.options = utils.list_insert_unique(opts.options, {
-      separator_style = "thin",
-    })
+    opts.options.seperator_style = "thin"
   
     local highlights = require("nord").bufferline.highlights({
       italic = true,
       bold = true,
     })
   
-    opts.highlights = utils.list_insert_unique(opts.highlights, highlights)
+    opts.highlights = highlights
   end,
 }
 ```
