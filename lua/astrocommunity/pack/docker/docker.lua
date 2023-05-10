@@ -11,10 +11,8 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(
-        opts.ensure_installed,
-        { "docker-compose-language-service", "dockerfile-language-server" }
-      )
+      opts.ensure_installed =
+        utils.list_insert_unique(opts.ensure_installed, { "docker_compose_language_service", "dockerls" })
     end,
   },
   {
