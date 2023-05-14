@@ -17,6 +17,5 @@ return {
         update_n_lines = prefix .. "n", -- Update `n_lines`
       },
     },
-    config = function(_, opts) require("mini.surround").setup(opts) end,
   },
 }
