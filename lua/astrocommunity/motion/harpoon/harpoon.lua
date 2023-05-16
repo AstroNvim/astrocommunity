@@ -10,8 +10,8 @@ return {
     { prefix, desc = "Harpoon" },
     { prefix .. "a", function() require("harpoon.mark").add_file() end, desc = "Add file" },
     { prefix .. "e", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle quick menu" },
-    { "<C-j>", function() require("harpoon.ui").nav_prev() end, desc = "Goto previous mark" },
-    { "<C-k>", function() require("harpoon.ui").nav_next() end, desc = "Goto next mark" },
+    { "<C-p>", function() require("harpoon.ui").nav_prev() end, desc = "Goto previous mark" },
+    { "<C-n>", function() require("harpoon.ui").nav_next() end, desc = "Goto next mark" },
     { prefix .. "m", "<cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" },
     {
       prefix .. "t",
