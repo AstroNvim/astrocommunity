@@ -24,4 +24,10 @@ return {
     ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
     opts = function() return { server = require("astronvim.utils.lsp").config "denols" } end,
   },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = function(_, opts)
+      opts.sources = utils.list_insert_unique(opts.sources, require "typescript.extensions.null-ls.code-actions")
+    end,
+  },
 }
