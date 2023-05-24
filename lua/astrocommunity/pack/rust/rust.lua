@@ -14,7 +14,17 @@ return {
     ft = { "rust" },
     init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
     opts = function()
-      local package_path = require("mason-registry").get_package("codelldb"):get_install_path()
+      local success, package = pcall(function() return require("mason-registry").get_package("codelldb") end)
+      if not success then
+        -- gracefully degrade when the platform is not supported by mason
+        return {
+          server = require("astronvim.utils.lsp").config "rust_analyzer",
+          dap = {
+            adapter = require("rust-tools.dap").get_codelldb_adapter(),
+          },
+        }
+      end
+      local package_path = package:get_install_path()
       local codelldb_path = package_path .. "/codelldb"
       local liblldb_path = package_path .. "/extension/lldb/lib/liblldb"
       local this_os = vim.loop.os_uname().sysname
