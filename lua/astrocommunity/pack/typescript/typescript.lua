@@ -103,4 +103,10 @@ return {
       }
     end,
   },
+  {
+    "dmmulroy/tsc.nvim",
+    filetype = "typescript",
+    event = "User AstroFile",
+    config = function() require("tsc").setup() end,
+  },
 }
