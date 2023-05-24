@@ -17,7 +17,7 @@ return {
     {
       "s",
       function() require("hop").hint_words { extend_visual = true } end,
-      mode = { "n" },
+      mode = { "v" },
       desc = "Hop hint words",
     },
     {
