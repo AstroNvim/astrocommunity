@@ -7,7 +7,15 @@ return {
         callback = function(args)
           if not (args.data and args.data.client_id) then return end
           local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if client.server_capabilities.inlayHintProvider then require("lsp-inlayhints").on_attach(client, args.buf) end
+          if client.server_capabilities.inlayHintProvider then
+            local inlayhints = require "lsp-inlayhints"
+            inlayhints.on_attach(client, args.buf)
+            require("astronvim.utils").set_mappings({
+              n = {
+                ["<leader>uH"] = { inlayhints.toggle, desc = "Toggle inlay hints" },
+              },
+            }, { buffer = args.buf })
+          end
         end,
       })
     end,
