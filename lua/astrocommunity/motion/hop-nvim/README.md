@@ -1,4 +1,4 @@
-# Hop
+# hop.nvim
 
 **Repository:** <https://github.com/phaazon/hop.nvim>
 
