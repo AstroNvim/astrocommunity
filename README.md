@@ -101,7 +101,7 @@ This repository contains plugin configuration specifications, a collection of co
 ## 📦 Setup
 
 Add the following to your `plugins` configuration, either in your `user/init.lua` file or in a file in `user/plugins/` folder such as `user/plugins/community.lua`
-If you not sure what folders we are talking about it is recommended to read [AstroNvim Readme](https://astronvim.com/Configuration/manage_user_config).
+If you're not sure what folders we are talking about it is recommended to read [AstroNvim Readme](https://astronvim.com/Configuration/manage_user_config).
 
 ### `user/init.lua` example
 
