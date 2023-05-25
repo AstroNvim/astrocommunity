@@ -119,7 +119,7 @@ return {
 
 ### `user/plugins/community.lua` example
 
-If you prefer to organize your plugins in the user/plugins folder, you can create a file named community.lua (any Lua file in this folder will be loaded). Here’s an full example of what the file could look like:
+If you prefer to organize your plugins in the `user/plugins` folder, you can create a file named `community.lua` (any Lua file in this folder will be loaded). Here’s an full example of what the file could look like:
 
 ```lua
 return {
