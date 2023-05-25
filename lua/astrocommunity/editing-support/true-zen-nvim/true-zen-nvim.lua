@@ -1,12 +1,14 @@
 local utils = require "astronvim.utils"
 return {
   "Pocco81/true-zen.nvim",
-  opts = {
-    integrations = {
-      tmux = os.getenv "TMUX" ~= nil, -- hide tmux status bar in (minimalist, ataraxis)
-      twilight = utils.is_available "twilight.nvim", -- enable twilight (ataraxis)
-    },
-  },
+  opts = function(_, opts)
+    return utils.extend_tbl(opts, {
+      integrations = {
+        tmux = os.getenv "TMUX" ~= nil, -- hide tmux status bar in (minimalist, ataraxis)
+        twilight = utils.is_available "twilight.nvim", -- enable twilight (ataraxis)
+      },
+    })
+  end,
   keys = {
     { "<leader>zf", require("true-zen").focus },
     { "<leader>zm", require("true-zen").minimalist },
