@@ -36,25 +36,23 @@ return {
 
       if not opts.handlers then opts.handlers = {} end
 
+      local has_prettier = function(util)
+        return util.root_has_file ".prettierrc"
+          or util.root_has_file ".prettierrc.json"
+          or util.root_has_file ".prettierrc.js"
+      end
+      local has_eslint = function(util) return util.root_has_file ".eslintrc.json" or util.root_has_file ".eslintrc.js" end
+
       opts.handlers.prettierd = function()
         local null_ls = require "null-ls"
-        null_ls.register(null_ls.builtins.formatting.prettierd.with {
-          condition = function(util)
-            return util.root_has_file "package.json"
-              or util.root_has_file ".prettierrc"
-              or util.root_has_file ".prettierrc.json"
-              or util.root_has_file ".prettierrc.js"
-          end,
-        })
+        null_ls.register(null_ls.builtins.formatting.prettierd.with { condition = has_prettier })
       end
 
       opts.handlers.eslint_d = function()
         local null_ls = require "null-ls"
         null_ls.register(null_ls.builtins.diagnostics.eslint_d.with {
           condition = function(util)
-            return util.root_has_file "package.json"
-              or util.root_has_file ".eslintrc.json"
-              or util.root_has_file ".eslintrc.js"
+            return (util.root_has_file "package.json" and not has_prettier(util)) or has_eslint(util)
           end,
         })
       end
