@@ -35,4 +35,5 @@ return {
       },
     },
   },
+  { "stevearc/resession.nvim", optional = true, opts = { extensions = { fsplash = {} } } },
 }
