@@ -1,6 +1,7 @@
 return {
   "echasnovski/mini.animate",
   event = "VeryLazy",
+  cond = not vim.g.neovide,
   -- enabled = false,
   opts = function()
     -- don't use animate when scrolling with the mouse
