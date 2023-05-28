@@ -11,7 +11,6 @@ print(require 'onigiri'.presets)
 --- > kaolin
 --- > solarized
 --- > moonlight
-
 vim.g.onigiri = {
 theme = require 'onigiri'.presets.mariana
 }
