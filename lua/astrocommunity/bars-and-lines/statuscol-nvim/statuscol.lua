@@ -3,6 +3,6 @@ return {
   {
     "rebelot/heirline.nvim",
     optional = true,
-    opts = function(opts) opts.statuscolumn = nil end,
+    opts = function(_, opts) opts.statuscolumn = nil end,
   },
 }
