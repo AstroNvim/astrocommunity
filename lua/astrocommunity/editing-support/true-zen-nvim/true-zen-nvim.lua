@@ -10,9 +10,18 @@ return {
     })
   end,
   keys = {
-    { "<leader>zf", require("true-zen").focus },
-    { "<leader>zm", require("true-zen").minimalist },
-    { "<leader>za", require("true-zen").ataraxis },
+    {
+      "<leader>zf",
+      function() require("true-zen").focus() end,
+    },
+    {
+      "<leader>zm",
+      function() require("true-zen").minimalist() end,
+    },
+    {
+      "<leader>za",
+      function() require("true-zen").ataraxis() end,
+    },
     {
       "<leader>zn",
       function()
