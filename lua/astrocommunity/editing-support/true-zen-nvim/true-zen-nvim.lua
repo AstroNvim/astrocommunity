@@ -4,7 +4,7 @@ return {
   opts = function(_, opts)
     return utils.extend_tbl(opts, {
       integrations = {
-        tmux = os.getenv "TMUX" ~= nil,                -- hide tmux status bar in (minimalist, ataraxis)
+        tmux = os.getenv "TMUX" ~= nil, -- hide tmux status bar in (minimalist, ataraxis)
         twilight = utils.is_available "twilight.nvim", -- enable twilight (ataraxis)
       },
     })
