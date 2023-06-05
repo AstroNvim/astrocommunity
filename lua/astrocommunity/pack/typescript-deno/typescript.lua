@@ -1,6 +1,7 @@
 local utils = require "astronvim.utils"
 
 return {
+  { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
   {
     "nvim-treesitter/nvim-treesitter",

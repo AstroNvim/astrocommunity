@@ -6,6 +6,7 @@ This plugin pack does the following:
 - Adds `tsserver` language server
 - Adds `prettierd` formatter
 - Adds `eslint_d` linter
+- Adds [HTML & CSS support](../html-css)
 - Adds [JSON language support](../json)
 - ~~Adds [nvim-dap-vscode-js](https://github.com/mxsdev/nvim-dap-vscode-js) for debugging~~ Currently broken
 - Adds [typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim) for language specific tooling
