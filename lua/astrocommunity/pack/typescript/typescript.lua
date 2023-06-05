@@ -16,7 +16,6 @@ local function on_file_remove(args)
 end
 
 return {
-  { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
   {
     "nvim-treesitter/nvim-treesitter",
