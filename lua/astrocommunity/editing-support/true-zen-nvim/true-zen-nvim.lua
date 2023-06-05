@@ -13,14 +13,17 @@ return {
     {
       "<leader>zf",
       function() require("true-zen").focus() end,
+      desc = "Focus (True Zen)",
     },
     {
       "<leader>zm",
       function() require("true-zen").minimalist() end,
+      desc = "Minimalist (True Zen)",
     },
     {
       "<leader>za",
       function() require("true-zen").ataraxis() end,
+      desc = "Ataraxis (True Zen)",
     },
     {
       "<leader>zn",
@@ -30,6 +33,7 @@ return {
         local last = vim.api.nvim_buf_line_count(0)
         truezen.narrow(first, last)
       end,
+      desc = "Narrow (True Zen)",
     },
     {
       "<leader>zn",
@@ -39,6 +43,7 @@ return {
         local last = vim.fn.line "."
         truezen.narrow(first, last)
       end,
+      desc = "Narrow (True Zen)",
       mode = { "v" },
     },
   },
