@@ -1,3 +1,4 @@
+local prefix = "<leader>z"
 local utils = require "astronvim.utils"
 return {
   "Pocco81/true-zen.nvim",
@@ -11,22 +12,26 @@ return {
   end,
   keys = {
     {
-      "<leader>zf",
+      prefix,
+      desc = "True Zen",
+    },
+    {
+      prefix .. "f",
       function() require("true-zen").focus() end,
       desc = "Focus (True Zen)",
     },
     {
-      "<leader>zm",
+      prefix .. "m",
       function() require("true-zen").minimalist() end,
       desc = "Minimalist (True Zen)",
     },
     {
-      "<leader>za",
+      prefix .. "a",
       function() require("true-zen").ataraxis() end,
       desc = "Ataraxis (True Zen)",
     },
     {
-      "<leader>zn",
+      prefix .. "n",
       function()
         local truezen = require "true-zen"
         local first = 0
@@ -36,7 +41,7 @@ return {
       desc = "Narrow (True Zen)",
     },
     {
-      "<leader>zn",
+      prefix .. "n",
       function()
         local truezen = require "true-zen"
         local first = vim.fn.line "v"
