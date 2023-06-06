@@ -1,54 +1,37 @@
-local utils = require "astrocommunity.utils"
+local utils = require "astronvim.utils"
 
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table or string "all".
-      if not opts.ensure_installed then
-        opts.ensure_installed = {}
-      elseif opts.ensure_installed == "all" then
-        return
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "java", "html" })
       end
-      -- Add the "java" and "html" language to opts.ensure_installed.
-      -- XML does not have it's own treesitter plugin so HTML can take over if necessary
-      utils.list_insert_unique(opts.ensure_installed, { "java", "html" })
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table.
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      -- Add jdtls and lemminx lsps to opts.ensure_installed using vim.list_extend.
-      utils.list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
     end,
   },
 
   {
     "jay-babu/mason-null-ls.nvim",
-    opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table.
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      -- Add clang_format to opts.ensure_installed
-      utils.list_insert_unique(opts.ensure_installed, { "clang_format" })
-    end,
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "clang_format") end,
   },
 
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table.
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      -- Add javadgb to required
-      utils.list_insert_unique(opts.ensure_installed, { "javadbg", "javatest" })
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "javadbg", "javatest" })
     end,
   },
 
   {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
-    init = function() utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls") end,
+    init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls") end,
     opts = function(_, opts)
       -- use this function notation to build some variables
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
@@ -58,9 +41,6 @@ return {
       local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
       local workspace_dir = vim.fn.stdpath "data" .. "/site/java/workspace-root/" .. project_name
       os.execute("mkdir " .. workspace_dir)
-
-      -- get the mason install path
-      local install_path = require("mason-registry").get_package("jdtls"):get_install_path()
 
       -- get the current OS
       local os
@@ -85,7 +65,7 @@ return {
           "-Declipse.product=org.eclipse.jdt.ls.core.product",
           "-Dlog.protocol=true",
           "-Dlog.level=ALL",
-          "-javaagent:" .. install_path .. "/lombok.jar",
+          "-javaagent:" .. vim.fn.expand "$MASON/share/jdtls/lombok.jar",
           "-Xms1g",
           "--add-modules=ALL-SYSTEM",
           "--add-opens",
@@ -93,9 +73,9 @@ return {
           "--add-opens",
           "java.base/java.lang=ALL-UNNAMED",
           "-jar",
-          vim.fn.glob(install_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
+          vim.fn.expand "$MASON/share/jdtls/plugins/org.eclipse.equinox.launcher.jar",
           "-configuration",
-          install_path .. "/config_" .. os,
+          vim.fn.expand "$MASON/share/jdtls/config",
           "-data",
           workspace_dir,
         },
@@ -105,20 +85,9 @@ return {
         },
         init_options = {
           bundles = {
-            vim.fn.glob(
-              require("mason-registry").get_package("java-debug-adapter"):get_install_path()
-                .. "/extension/server/com.microsoft.java.debug.plugin-*.jar"
-            ),
+            vim.fn.expand "$MASON/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar",
             -- unpack remaining bundles
-            (table.unpack or unpack)(
-              vim.split(
-                vim.fn.glob(
-                  require("mason-registry").get_package("java-test"):get_install_path() .. "/extension/server/*.jar"
-                ),
-                "\n",
-                {}
-              )
-            ),
+            (table.unpack or unpack)(vim.split(vim.fn.glob "$MASON/share/java-test/*.jar", "\n", {})),
           },
         },
         handlers = {

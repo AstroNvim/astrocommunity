@@ -1,4 +1,4 @@
-local utils = require "astrocommunity.utils"
+local utils = require "astronvim.utils"
 return {
   {
     "vantreeseba/tree-sitter-haxe",
@@ -15,9 +15,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      utils.list_insert_unique(opts.ensure_installed, "haxe_language_server")
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haxe_language_server")
     end,
   },
 }

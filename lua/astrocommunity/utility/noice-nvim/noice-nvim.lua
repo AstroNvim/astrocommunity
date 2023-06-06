@@ -1,18 +1,18 @@
-local utils = require "astrocommunity.utils"
+local utils = require "astronvim.utils"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      if type(opts.ensure_installed) == "table" then
-        utils.list_insert_unique(opts.ensure_installed, { "bash", "markdown", "markdown_inline", "regex", "vim" })
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed =
+          utils.list_insert_unique(opts.ensure_installed, { "bash", "markdown", "markdown_inline", "regex", "vim" })
       end
-      return opts
     end,
   },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
+    cond = not vim.g.neovide,
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = {
       lsp = {

@@ -2,6 +2,7 @@ return {
   { "luukvbaal/statuscol.nvim", lazy = false, opts = {} },
   {
     "rebelot/heirline.nvim",
-    opts = function(opts) opts.statuscolumn = nil end,
+    optional = true,
+    opts = function(_, opts) opts.statuscolumn = nil end,
   },
 }

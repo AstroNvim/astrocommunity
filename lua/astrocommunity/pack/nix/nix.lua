@@ -1,25 +1,16 @@
-local utils = require "astrocommunity.utils"
+local utils = require "astronvim.utils"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table or string "all".
-      if not opts.ensure_installed then
-        opts.ensure_installed = {}
-      elseif opts.ensure_installed == "all" then
-        return
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "nix")
       end
-      -- Add the "nix" language to opts.ensure_installed.
-      utils.list_insert_unique(opts.ensure_installed, "nix")
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts)
-      -- Ensure that opts.ensure_installed exists and is a table.
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      utils.list_insert_unique(opts.ensure_installed, "rnix")
-    end,
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "rnix") end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
