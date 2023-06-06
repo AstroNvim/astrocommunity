@@ -82,6 +82,12 @@ return {
     opts = function() return { server = require("astronvim.utils.lsp").config "tsserver" } end,
   },
   {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = function(_, opts)
+      opts.sources = utils.list_insert_unique(opts.sources, require "typescript.extensions.null-ls.code-actions")
+    end,
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, opts)
       local events = require "neo-tree.events"
@@ -96,5 +102,11 @@ return {
         },
       }
     end,
+  },
+  {
+    "dmmulroy/tsc.nvim",
+    filetype = "typescript",
+    event = "User AstroFile",
+    config = function() require("tsc").setup() end,
   },
 }

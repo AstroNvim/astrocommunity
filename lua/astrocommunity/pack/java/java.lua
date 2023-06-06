@@ -42,9 +42,6 @@ return {
       local workspace_dir = vim.fn.stdpath "data" .. "/site/java/workspace-root/" .. project_name
       os.execute("mkdir " .. workspace_dir)
 
-      -- get the mason install path
-      local install_path = require("mason-registry").get_package("jdtls"):get_install_path()
-
       -- get the current OS
       local os
       if vim.fn.has "mac" == 1 then
@@ -68,7 +65,7 @@ return {
           "-Declipse.product=org.eclipse.jdt.ls.core.product",
           "-Dlog.protocol=true",
           "-Dlog.level=ALL",
-          "-javaagent:" .. install_path .. "/lombok.jar",
+          "-javaagent:" .. vim.fn.expand "$MASON/share/jdtls/lombok.jar",
           "-Xms1g",
           "--add-modules=ALL-SYSTEM",
           "--add-opens",
@@ -76,9 +73,9 @@ return {
           "--add-opens",
           "java.base/java.lang=ALL-UNNAMED",
           "-jar",
-          vim.fn.glob(install_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
+          vim.fn.expand "$MASON/share/jdtls/plugins/org.eclipse.equinox.launcher.jar",
           "-configuration",
-          install_path .. "/config_" .. os,
+          vim.fn.expand "$MASON/share/jdtls/config",
           "-data",
           workspace_dir,
         },
@@ -88,20 +85,9 @@ return {
         },
         init_options = {
           bundles = {
-            vim.fn.glob(
-              require("mason-registry").get_package("java-debug-adapter"):get_install_path()
-                .. "/extension/server/com.microsoft.java.debug.plugin-*.jar"
-            ),
+            vim.fn.expand "$MASON/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar",
             -- unpack remaining bundles
-            (table.unpack or unpack)(
-              vim.split(
-                vim.fn.glob(
-                  require("mason-registry").get_package("java-test"):get_install_path() .. "/extension/server/*.jar"
-                ),
-                "\n",
-                {}
-              )
-            ),
+            (table.unpack or unpack)(vim.split(vim.fn.glob "$MASON/share/java-test/*.jar", "\n", {})),
           },
         },
         handlers = {

@@ -32,6 +32,9 @@ return {
     extra_groups = {
       "NormalFloat",
       "NvimTreeNormal",
+      "NeoTreeNormal",
+      "NeoTreeFloatBorder",
+      "NeoTreeNormalNC",
     },
     -- table: groups you don't want to clear
     exclude_groups = {},

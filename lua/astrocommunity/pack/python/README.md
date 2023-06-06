@@ -11,4 +11,12 @@ This plugin pack does the following:
   - [isort](https://pypi.org/project/isort/)
   - [pylint](https://pypi.org/project/pylint/)
 - Adds `debugpy` for debugging
-- Adds [venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim) for virtual environment management
+- Adds [venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim) for virtual environment management. [**Important for Debian-like distro users**](https://github.com/linux-cultist/venv-selector.nvim/issues/6): because of the fd binary being named fdfind you'll need to add to `/plugins/user.lua` (for example) the following:
+```
+{
+  "linux-cultist/venv-selector.nvim",
+  opts = {
+    fd_binary_name = "fdfind",
+  },
+},
+```
