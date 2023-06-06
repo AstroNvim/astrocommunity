@@ -32,11 +32,12 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "jdtls") end,
-    dependencies = { "williamboman/mason-lspconfig.nvim" },
+    -- dependencies = { "williamboman/mason-lspconfig.nvim",  },
     opts = function(_, opts)
       -- use this function notation to build some variables
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
       local root_dir = require("jdtls.setup").find_root(root_markers)
+      require "mason-lspconfig"
 
       -- calculate workspace dir
       local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
