@@ -42,7 +42,7 @@ return {
     },
     {
       "<leader>rb",
-      [[ <Cmd>lua require('refactoring').refactor('Extract Block')<CR>]],
+      function() require('refactoring').refactor('Extract Block') end,
       { silent = true, expr = false },
       mode = {
         "n",
@@ -51,7 +51,7 @@ return {
     },
     {
       "<leader>rbf",
-      [[ <Cmd>lua require('refactoring').refactor('Extract Block To File')<CR>]],
+      function() require('refactoring').refactor('Extract Block To File') end,
       { silent = true, expr = false },
       mode = {
         "n",
@@ -60,7 +60,7 @@ return {
     },
     {
       "<leader>ri",
-      [[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
+      function() require('refactoring').refactor('Inline Variable') end,
       { silent = true, expr = false },
       mode = { "n" },
       desc = "Inline Variable",
