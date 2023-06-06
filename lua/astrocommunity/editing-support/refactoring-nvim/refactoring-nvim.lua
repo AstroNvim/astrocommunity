@@ -42,7 +42,7 @@ return {
     },
     {
       "<leader>rb",
-      function() require('refactoring').refactor('Extract Block') end,
+      function() require("refactoring").refactor "Extract Block" end,
       { silent = true, expr = false },
       mode = {
         "n",
@@ -51,7 +51,7 @@ return {
     },
     {
       "<leader>rbf",
-      function() require('refactoring').refactor('Extract Block To File') end,
+      function() require("refactoring").refactor "Extract Block To File" end,
       { silent = true, expr = false },
       mode = {
         "n",
@@ -60,7 +60,7 @@ return {
     },
     {
       "<leader>ri",
-      function() require('refactoring').refactor('Inline Variable') end,
+      function() require("refactoring").refactor "Inline Variable" end,
       { silent = true, expr = false },
       mode = { "n" },
       desc = "Inline Variable",
