@@ -15,6 +15,27 @@ local function on_file_remove(args)
   end
 end
 
+local function check_json_key_exists(filename, key)
+  -- Open the file in read mode
+  local file = io.open(filename, "r")
+  if not file then
+    return false -- File doesn't exist or cannot be opened
+  end
+
+  -- Read the contents of the file
+  local content = file:read "*all"
+  file:close()
+
+  -- Parse the JSON content
+  local json = vim.fn.json_decode(content)
+  if type(json) ~= "table" then
+    return false -- Invalid JSON format
+  end
+
+  -- Check if the key exists in the JSON object
+  return json[key] ~= nil
+end
+
 return {
   { import = "astrocommunity.pack.json" },
   {
@@ -31,17 +52,23 @@ return {
   },
   {
     "jay-babu/mason-null-ls.nvim",
+
     opts = function(_, opts)
       opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "prettierd", "eslint_d" })
-
       if not opts.handlers then opts.handlers = {} end
 
       local has_prettier = function(util)
         return util.root_has_file ".prettierrc"
           or util.root_has_file ".prettierrc.json"
           or util.root_has_file ".prettierrc.js"
+          or check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
       end
-      local has_eslint = function(util) return util.root_has_file ".eslintrc.json" or util.root_has_file ".eslintrc.js" end
+
+      local has_eslint = function(util)
+        return util.root_has_file ".eslintrc.json"
+          or util.root_has_file ".eslintrc.js"
+          or check_json_key_exists(vim.fn.getcwd() .. "/package.json", "eslintConfig")
+      end
 
       opts.handlers.prettierd = function()
         local null_ls = require "null-ls"
@@ -51,9 +78,7 @@ return {
       opts.handlers.eslint_d = function()
         local null_ls = require "null-ls"
         null_ls.register(null_ls.builtins.diagnostics.eslint_d.with {
-          condition = function(util)
-            return (util.root_has_file "package.json" and not has_prettier(util)) or has_eslint(util)
-          end,
+          condition = function(util) return (has_eslint(util) or not has_prettier(util)) end,
         })
       end
     end,
