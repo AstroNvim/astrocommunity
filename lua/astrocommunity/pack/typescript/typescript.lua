@@ -58,15 +58,25 @@ return {
       if not opts.handlers then opts.handlers = {} end
 
       local has_prettier = function(util)
-        return util.root_has_file ".prettierrc"
+        return check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
+          or util.root_has_file ".prettierrc"
           or util.root_has_file ".prettierrc.json"
+          or util.root_has_file ".prettierrc.yml"
+          or util.root_has_file ".prettierrc.yaml"
+          or util.root_has_file ".prettierrc.json5"
           or util.root_has_file ".prettierrc.js"
-          or check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
+          or util.root_has_file ".prettierrc.cjs"
+          or util.root_has_file "prettierrc.config.js"
+          or util.root_has_file "prettierrc.config.cjs"
+          or util.root_has_file ".prettierrc.toml"
       end
 
       local has_eslint = function(util)
-        return util.root_has_file ".eslintrc.json"
-          or util.root_has_file ".eslintrc.js"
+        return util.root_has_file ".eslintrc.js"
+          or util.root_has_file ".eslintrc.cjs"
+          or util.root_has_file ".eslintrc.yaml"
+          or util.root_has_file ".eslintrc.yml"
+          or util.root_has_file ".eslintrc.json"
           or check_json_key_exists(vim.fn.getcwd() .. "/package.json", "eslintConfig")
       end
 
