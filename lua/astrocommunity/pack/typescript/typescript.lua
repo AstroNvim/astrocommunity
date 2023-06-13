@@ -87,9 +87,7 @@ return {
 
       opts.handlers.eslint_d = function()
         local null_ls = require "null-ls"
-        null_ls.register(null_ls.builtins.diagnostics.eslint_d.with {
-          condition = function(util) return (has_eslint(util) or not has_prettier(util)) end,
-        })
+        null_ls.register(null_ls.builtins.diagnostics.eslint_d.with { condition = has_eslint })
       end
     end,
   },
