@@ -66,8 +66,8 @@ return {
           or util.root_has_file ".prettierrc.json5"
           or util.root_has_file ".prettierrc.js"
           or util.root_has_file ".prettierrc.cjs"
-          or util.root_has_file "prettierrc.config.js"
-          or util.root_has_file "prettierrc.config.cjs"
+          or util.root_has_file "prettier.config.js"
+          or util.root_has_file "prettier.config.cjs"
           or util.root_has_file ".prettierrc.toml"
       end
 
