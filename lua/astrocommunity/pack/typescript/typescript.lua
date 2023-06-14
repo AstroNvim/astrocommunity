@@ -66,8 +66,8 @@ return {
           or util.root_has_file ".prettierrc.json5"
           or util.root_has_file ".prettierrc.js"
           or util.root_has_file ".prettierrc.cjs"
-          or util.root_has_file "prettierrc.config.js"
-          or util.root_has_file "prettierrc.config.cjs"
+          or util.root_has_file "prettier.config.js"
+          or util.root_has_file "prettier.config.cjs"
           or util.root_has_file ".prettierrc.toml"
       end
 
@@ -87,9 +87,9 @@ return {
 
       opts.handlers.eslint_d = function()
         local null_ls = require "null-ls"
-        null_ls.register(null_ls.builtins.diagnostics.eslint_d.with {
-          condition = function(util) return (has_eslint(util) or not has_prettier(util)) end,
-        })
+        null_ls.register(null_ls.builtins.diagnostics.eslint_d.with { condition = has_eslint })
+        null_ls.register(null_ls.builtins.formatting.eslint_d.with { condition = has_eslint })
+        null_ls.register(null_ls.builtins.code_actions.eslint_d.with { condition = has_eslint })
       end
     end,
   },
