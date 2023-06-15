@@ -17,7 +17,7 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "isort", "black", "pylint" })
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "isort", "black" })
     end,
   },
   {
@@ -28,12 +28,5 @@ return {
     "linux-cultist/venv-selector.nvim",
     opts = {},
     keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
-  },
-  {
-    -- This is needed for pylint to work in a virtualenv. See https://github.com/williamboman/mason.nvim/issues/668#issuecomment-1320859097
-    "williamboman/mason.nvim",
-    opts = {
-      PATH = "append",
-    },
   },
 }
