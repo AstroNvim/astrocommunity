@@ -1,17 +1,13 @@
 return {
   "ggandor/leap.nvim",
   keys = {
-    { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-    { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-    { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+    { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+    { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+    { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward till" },
+    { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
+    { "gs", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
   },
-  config = function(_, opts)
-    local leap = require "leap"
-    for k, v in pairs(opts) do
-      leap.opts[k] = v
-    end
-    leap.add_default_mappings(true)
-  end,
+  opts = {},
   dependencies = {
     "tpope/vim-repeat",
   },
