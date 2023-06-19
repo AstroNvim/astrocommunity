@@ -11,14 +11,14 @@ return {
   },
   {
     "akinsho/flutter-tools.nvim",
-    ft = { "dart" },
+    ft = "dart",
     init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "dartls") end,
-    opts = {
-      lsp = require("astronvim.utils.lsp").config "dartls",
-      debugger = {
-        enabled = true,
-      },
-    },
+    opts = function()
+      return {
+        lsp = require("astronvim.utils.lsp").config "dartls",
+        debugger = { enabled = true },
+      }
+    end,
     dependencies = {
       { "nvim-lua/plenary.nvim" },
       {
@@ -28,5 +28,9 @@ return {
     },
   },
   -- Add "flutter" extension to "telescope"
-  { "nvim-telescope/telescope.nvim", opts = function() require("telescope").load_extension "flutter" end },
+  {
+    "nvim-telescope/telescope.nvim",
+    optional = true,
+    opts = function() require("telescope").load_extension "flutter" end,
+  },
 }
