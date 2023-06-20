@@ -1,4 +1,4 @@
-# treej
+# treesj
 
 **Repository:** https://github.com/Wansmer/treesj
 
