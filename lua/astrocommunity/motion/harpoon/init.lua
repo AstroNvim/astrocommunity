@@ -7,7 +7,11 @@ else
   dynamic_tmux_keymap_desc = "Goto to terminal window"
 end
 local icon
-if vim.g.icons_enabled then icon = "󱡀 " else icon = "" end
+if vim.g.icons_enabled then
+  icon = "󱡀 "
+else
+  icon = ""
+end
 return {
   "ThePrimeagen/harpoon",
   dependencies = {
@@ -19,6 +23,15 @@ return {
     { prefix, function() end, desc = icon .. "Harpoon" },
     { prefix .. "a", function() require("harpoon.mark").add_file() end, desc = "Add file" },
     { prefix .. "e", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle quick menu" },
+    {
+      "<C-t>",
+      function()
+        local num = tonumber(vim.fn.input "Go to mark index: ")
+        if num == nil then return end
+        require("harpoon.ui").nav_file(num)
+      end,
+      desc = "Goto index of mark",
+    },
     { "<C-p>", function() require("harpoon.ui").nav_prev() end, desc = "Goto previous mark" },
     { "<C-n>", function() require("harpoon.ui").nav_next() end, desc = "Goto next mark" },
     { prefix .. "m", "<cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" },
