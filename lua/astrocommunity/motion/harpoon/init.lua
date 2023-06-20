@@ -25,20 +25,17 @@ return {
     {
       prefix .. "t",
       function()
-        local num = tonumber(vim.fn.input "GoTo terminal window number: ")
-        if num == nil then return end
-        require("harpoon.term").gotoTerminal(num)
+        if running_tmux_seesion then
+          local num = tonumber(vim.fn.input "GoTo Tmux window number: ")
+          if num == nil then return end
+          require("harpoon.tmux").gotoTerminal(num)
+        else
+          local num = tonumber(vim.fn.input "GoTo terminal window number: ")
+          if num == nil then return end
+          require("harpoon.term").gotoTerminal(num)
+        end
       end,
-      desc = "Goto to terminal window",
-    },
-    {
-      prefix .. "j",
-      function()
-        local num = tonumber(vim.fn.input "GoTo Tmux window number: ")
-        if num == nil then return end
-        require("harpoon.tmux").gotoTerminal(num)
-      end,
-      desc = "Goto to TMUX tmux window",
+      desc = dynamic_tmux_keymap_desc,
     },
   },
 }
