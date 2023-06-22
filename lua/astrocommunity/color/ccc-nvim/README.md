@@ -1,5 +1,5 @@
 # ccc.nvim
 
-**Repository:** https://github.com/uga-rosa/ccc.nvim
+Color picker and highlighter plugin for Neovim.
 
-Super powerful color picker/colorizer plugin.
+**Repository:** <https://github.com/uga-rosa/ccc.nvim>

@@ -1,6 +1,8 @@
 # gruvbox.nvim
 
-**Repository:** A port of gruvbox community theme to lua with treesitter support!
+Lua port of the most famous vim colorscheme
+
+**Repository:** <https://github.com/ellisonleao/gruvbox.nvim>
 
 A port of gruvbox community theme to lua with treesitter support!
 

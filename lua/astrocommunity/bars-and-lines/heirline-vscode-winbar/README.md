@@ -1,6 +1,6 @@
 # heirline.nvim vscode style winbar
 
-**Website:** https://astronvim.com/Recipes/status#replicate-visual-studio-code-winbar
+**Website:** <https://astronvim.com/Recipes/status#replicate-visual-studio-code-winbar>
 
 This plugin specification configures the `winbar` in AstroNvim to look more like VS Code's
 

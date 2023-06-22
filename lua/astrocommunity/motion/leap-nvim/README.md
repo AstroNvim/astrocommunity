@@ -1,5 +1,5 @@
 # leap.nvim
 
-**Repository:** https://github.com/ggandor/leap.nvim
+Neovim's answer to the mouse 🦘
 
-:kangaroo: Neovim's answer to the mouse
+**Repository:** <https://github.com/ggandor/leap.nvim>

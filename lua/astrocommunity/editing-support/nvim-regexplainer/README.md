@@ -1,5 +1,7 @@
 # nvim-regexplainer
 
-**Repository:** https://github.com/bennypowers/nvim-regexplainer
+Describe the regexp under the cursor
 
-Describes the regular expression under the cursor. Toggle it with `gR`
+**Repository:** <https://github.com/bennypowers/nvim-regexplainer>
+
+Toggle it with `gR`
