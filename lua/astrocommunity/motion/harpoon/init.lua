@@ -1,17 +1,7 @@
 local prefix = "<leader><leader>"
-local dynamic_tmux_keymap_desc
-local running_tmux_seesion = vim.fn.exists "$TMUX" == 1
-if running_tmux_seesion then
-  dynamic_tmux_keymap_desc = "Goto to TMUX window"
-else
-  dynamic_tmux_keymap_desc = "Goto to terminal window"
-end
-local icon
-if vim.g.icons_enabled then
-  icon = "󱡀 "
-else
-  icon = ""
-end
+local running_tmux_session = vim.fn.exists "$TMUX" == 1
+local dynamic_tmux_keymap_desc = "Go to " .. running_tmux_session and "TMUX" or "terminal" .. " window"
+local icon = vim.g.icons_enabled and "󱡀 " or ""
 return {
   "ThePrimeagen/harpoon",
   dependencies = {
@@ -38,7 +28,7 @@ return {
     {
       prefix .. "t",
       function()
-        if running_tmux_seesion then
+        if running_tmux_session then
           local num = tonumber(vim.fn.input "GoTo Tmux window number: ")
           if num == nil then return end
           require("harpoon.tmux").gotoTerminal(num)
