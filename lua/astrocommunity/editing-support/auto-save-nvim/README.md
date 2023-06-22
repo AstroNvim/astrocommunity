@@ -1,5 +1,5 @@
 # auto-save.nvim
 
-**Repository:** <https://github.com/Pocco81/auto-save.nvim>
+🧶 Automatically save your changes in NeoVim
 
-A Neovim Lua plugin to automatically save your changes.
+**Repository:** <https://github.com/Pocco81/auto-save.nvim>

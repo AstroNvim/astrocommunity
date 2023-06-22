@@ -1,5 +1,7 @@
 # Github Nvim theme
 
+Github's Neovim themes
+
 **Repository:** <https://github.com/projekt0n/github-nvim-theme>
 
 ## Usage

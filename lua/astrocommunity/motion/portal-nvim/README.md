@@ -1,5 +1,5 @@
 # portal.nvim
 
-**Repository:** https://github.com/cbochs/portal.nvim
+Neovim plugin for improved location list navigation
 
-Neovim plugin for improved jumplist navigation
+**Repository:** <https://github.com/cbochs/portal.nvim>

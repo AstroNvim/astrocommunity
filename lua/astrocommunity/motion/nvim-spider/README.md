@@ -1,7 +1,8 @@
 # nvim-spider
-**Repository:** https://github.com/chrisgrieser/nvim-spider
 
-Use the `w`, `e`, `b` motions like a spider.
+Use the w, e, b motions like a spider. Move by subwords and skip insignificant punctuation.
+
+**Repository:** <https://github.com/chrisgrieser/nvim-spider>
 
 # Features
 ## Subword Motion 

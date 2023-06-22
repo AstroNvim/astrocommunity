@@ -1,6 +1,8 @@
 # monokai-pro.nvim
 
-**Repository:** https://github.com/loctvl842/monokai-pro.nvim
+Monokai Pro theme for Neovim written in Lua, with multiple filters: Pro, Classic, Machine, Octagon, Ristretto, Spectrum
+
+**Repository:** <https://github.com/loctvl842/monokai-pro.nvim>
 
 A professional theme for neovim. The following filters are available:
 

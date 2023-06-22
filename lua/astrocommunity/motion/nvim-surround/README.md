@@ -1,6 +1,8 @@
 # nvim-surround
 
-**Repository:** https://github.com/kylechui/nvim-surround
+Add/change/delete surrounding delimiter pairs with ease. Written with ❤️ in Lua.
+
+**Repository:** <https://github.com/kylechui/nvim-surround>
 
 Surround selections, stylishly.
 

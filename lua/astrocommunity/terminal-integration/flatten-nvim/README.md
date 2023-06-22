@@ -1,5 +1,5 @@
 # flatten.nvim
 
-**Repository:** https://github.com/willothy/flatten.nvim
+Open files and command output from neovim terminals in your current neovim instance
 
-Flatten allows you to open files from a neovim terminal buffer in your current neovim instance instead of a nested one in the terminal.
+**Repository:** <https://github.com/willothy/flatten.nvim>

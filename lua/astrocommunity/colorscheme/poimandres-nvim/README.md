@@ -1,5 +1,7 @@
 # poimandres
 
-**Repository:** https://github.com/olivercederborg/poimandres.nvim
+Poimandres colorscheme for Neovim written in Lua
 
-🍨 Soothing theme for (Neo)vim
+**Repository:** <https://github.com/olivercederborg/poimandres.nvim>
+
+🍨 Soothing theme for (Neo)vim.

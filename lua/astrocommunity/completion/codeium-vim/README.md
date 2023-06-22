@@ -1,7 +1,9 @@
 
 # codeium.vim
 
-**Repository:** https://github.com/Exafunction/codeium.vim
+Free, ultrafast Copilot alternative for Vim and Neovim
+
+**Repository:** <https://github.com/Exafunction/codeium.vim>
 
 Basic setup for codeium
 
@@ -16,4 +18,4 @@ Basic setup for codeium
 `n` `<leader>;` toggle on/off Codeium
 
 
-Note that you need to auth first before usage
+_Note_: You need to auth first before usage

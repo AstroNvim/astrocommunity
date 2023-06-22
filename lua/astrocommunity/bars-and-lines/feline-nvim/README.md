@@ -1,7 +1,7 @@
 # feline.nvim
 
-**Repository:** https://github.com/freddiehaddad/feline.nvim
+A minimal, stylish and customizable statusline, statuscolumn, and winbar for Neovim
 
-A minimal, stylish and customizable statusline / winbar for Neovim written in Lua
+**Repository:** <https://github.com/freddiehaddad/feline.nvim>
 
-This also disables the Heirline based statusline
+_Note_: This also disables the Heirline based statusline

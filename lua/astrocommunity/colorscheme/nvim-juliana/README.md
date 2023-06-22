@@ -1,8 +1,8 @@
 # nvim-juliana
 
-**Repository:** https://github.com/kaiuri/nvim-juliana
+Port of Sublime's Mariana Theme to Neovim for short attention span devs.
 
-Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
+**Repository:** <https://github.com/kaiuri/nvim-juliana>
 
 You can also set it to use other palettes like, for [example](https://github.com/kaiuri/nvim-juliana#gruvbox):
 
