@@ -1,6 +1,6 @@
 local prefix = "<leader><leader>"
 local running_tmux_session = vim.fn.exists "$TMUX" == 1
-local dynamic_tmux_keymap_desc = "Go to " .. running_tmux_session and "TMUX" or "terminal" .. " window"
+local dynamic_tmux_keymap_desc = "Go to " .. (running_tmux_session and "TMUX" or "terminal") .. " window"
 local icon = vim.g.icons_enabled and "󱡀 " or ""
 return {
   "ThePrimeagen/harpoon",
