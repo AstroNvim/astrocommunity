@@ -27,8 +27,8 @@ local function check_json_key_exists(filename, key)
   file:close()
 
   -- Parse the JSON content
-  local json = vim.fn.json_decode(content)
-  if type(json) ~= "table" then
+  local json_parsed, json = pcall(vim.fn.json_decode, content)
+  if not json_parsed or type(json) ~= "table" then
     return false -- Invalid JSON format
   end
 
