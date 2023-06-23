@@ -14,11 +14,12 @@ return {
     { prefix .. "a", function() require("harpoon.mark").add_file() end, desc = "Add file" },
     { prefix .. "e", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle quick menu" },
     {
-      "<C-t>",
+      "<C-x>",
       function()
-        local num = tonumber(vim.fn.input "Go to mark index: ")
-        if num == nil then return end
-        require("harpoon.ui").nav_file(num)
+        vim.ui.input({ prompt = "Harpoon mark index: " }, function(input)
+          local num = tonumber(input)
+          if num then require("harpoon.ui").nav_file(num) end
+        end)
       end,
       desc = "Goto index of mark",
     },
