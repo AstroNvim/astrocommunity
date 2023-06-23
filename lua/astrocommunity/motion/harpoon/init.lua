@@ -1,7 +1,5 @@
 local prefix = "<leader><leader>"
-local running_tmux_session = vim.fn.exists "$TMUX" == 1
-local dynamic_tmux_keymap_desc = "Go to " .. (running_tmux_session and "TMUX" or "terminal") .. " window"
-local icon = vim.g.icons_enabled and "󱡀 " or ""
+local term_string = vim.fn.exists "$TMUX" == 1 and "tmux" or "terminal"
 return {
   "ThePrimeagen/harpoon",
   dependencies = {
@@ -10,15 +8,16 @@ return {
   },
   cmd = { "Harpoon" },
   keys = {
-    { prefix, function() end, desc = icon .. "Harpoon" },
+    { prefix, function() end, desc = (vim.g.icons_enabled and "󱡀 " or "") .. "Harpoon" },
     { prefix .. "a", function() require("harpoon.mark").add_file() end, desc = "Add file" },
     { prefix .. "e", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle quick menu" },
     {
-      "<C-t>",
+      "<C-x>",
       function()
-        local num = tonumber(vim.fn.input "Go to mark index: ")
-        if num == nil then return end
-        require("harpoon.ui").nav_file(num)
+        vim.ui.input({ prompt = "Harpoon mark index: " }, function(input)
+          local num = tonumber(input)
+          if num then require("harpoon.ui").nav_file(num) end
+        end)
       end,
       desc = "Goto index of mark",
     },
@@ -28,17 +27,12 @@ return {
     {
       prefix .. "t",
       function()
-        if running_tmux_session then
-          local num = tonumber(vim.fn.input "GoTo Tmux window number: ")
-          if num == nil then return end
-          require("harpoon.tmux").gotoTerminal(num)
-        else
-          local num = tonumber(vim.fn.input "GoTo terminal window number: ")
-          if num == nil then return end
-          require("harpoon.term").gotoTerminal(num)
-        end
+        vim.ui.input({ prompt = term_string .. " window number: " }, function(input)
+          local num = tonumber(input)
+          if num then require("harpoon." .. term_string).gotoTerminal(num) end
+        end)
       end,
-      desc = dynamic_tmux_keymap_desc,
+      desc = "Go to " .. term_string .. " window",
     },
   },
 }
