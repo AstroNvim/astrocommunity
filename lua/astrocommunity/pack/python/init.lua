@@ -32,7 +32,7 @@ return {
     dependencies = { "mfussenegger/nvim-dap" },
     -- NOTE: ft: lazy-load on filetype
     ft = "python",
-    event = getEvent(),
+    event = "User AstroFile",
     config = function() require("dap-python").setup("python", {}) end,
   },
 }
