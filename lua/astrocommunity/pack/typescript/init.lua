@@ -54,7 +54,7 @@ return {
     "jay-babu/mason-null-ls.nvim",
 
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "prettierd", "eslint_d" })
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "prettierd", "eslint_d", "emmet_ls" })
       if not opts.handlers then opts.handlers = {} end
 
       local has_prettier = function(util)
