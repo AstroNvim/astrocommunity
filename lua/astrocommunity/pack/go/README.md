@@ -13,4 +13,4 @@ This plugin pack does the following:
   - [iferr](https://github.com/koron/iferr)
   - [impl](https://github.com/josharian/impl)
 - Adds [nvim-dap-go](https://github.com/leoluz/nvim-dap-go) for debugging
-- Adds [gopher.nvim](https://github.com/olexsmir/gopher.nvim) for language specific tools
+- Adds [go.nvim](https://github.com/ray-x/go.nvim) for language specific tools
