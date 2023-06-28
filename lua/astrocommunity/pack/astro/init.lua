@@ -56,32 +56,27 @@ return {
 
       opts.handlers.eslint_d = function()
         local null_ls = require "null-ls"
-        local null_ls = require "null-ls"
         if null_ls.builtins.diagnostics.eslint_d then
-        	utils.list_insert_unique(
-	        null_ls.builtins.diagnostics.eslint_d.filetypes , "astro")
-	else 
-	null_ls.register(
-          null_ls.builtins.diagnostics.eslint_d.with { condition = has_eslint, extra_filetypes = "astro" }
-        )
+          utils.list_insert_unique(null_ls.builtins.diagnostics.eslint_d.filetypes, "astro")
+        else
+          null_ls.register(
+            null_ls.builtins.diagnostics.eslint_d.with { condition = has_eslint, extra_filetypes = "astro" }
+          )
         end
         if null_ls.builtins.code_actions.eslint_d then
-        	utils.list_insert_unique(
-        	null_ls.builtins.code_actions.eslint_d.filetypes , "astro")
+          utils.list_insert_unique(null_ls.builtins.code_actions.eslint_d.filetypes, "astro")
         else
-        	null_ls.register(
-          null_ls.builtins.formatting.eslint_d.with { condition = has_eslint, extra_filetypes = "astro" }
-        )
-        if null_ls.builtins.formatting.eslint_d then 
-        
-        utils.list_insert_unique(
-        null_ls.builtins.formatting.eslint_d.filetypes , "astro")
-        else
-        null_ls.register(
-          null_ls.builtins.code_actions.eslint_d.with { condition = has_eslint, extra_filetypes = "astro" }
-        )
+          null_ls.register(
+            null_ls.builtins.formatting.eslint_d.with { condition = has_eslint, extra_filetypes = "astro" }
+          )
+          if null_ls.builtins.formatting.eslint_d then
+            utils.list_insert_unique(null_ls.builtins.formatting.eslint_d.filetypes, "astro")
+          else
+            null_ls.register(
+              null_ls.builtins.code_actions.eslint_d.with { condition = has_eslint, extra_filetypes = "astro" }
+            )
+          end
         end
-        
       end
     end,
   },
