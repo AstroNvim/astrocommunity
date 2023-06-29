@@ -14,3 +14,7 @@ jobs:
       - uses: amannn/action-semantic-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # It would be great to extend this at some point to automatically generate a list of possible scopes in a previous step and use that here
+          # Scopes being the name of a folder in a category or the name of a category
+          requireScope: true
