@@ -12,7 +12,7 @@ This plugin pack does the following:
 
 ## Additional LSP Configuration Tweaks
 
-Configuring the LSP is out of scope for commuunity packs, but here are some interesting things you
+Configuring the LSP is out of scope for community packs, but here are some interesting things you
 may want to do:
 
 ### Make Rust-Analyzer use its own profile
