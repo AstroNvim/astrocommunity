@@ -7,6 +7,7 @@ return {
     "altermo/ultimate-autopair.nvim",
     event = "InsertEnter",
     opts = {
+      -- disable autopair in the command line: https://github.com/altermo/ultimate-autopair.nvim/issues/8
       cmap = false,
       extensions = {
         rules = {
@@ -25,18 +26,31 @@ return {
             },
           },
         },
-        -- get fly mode working on strings: https://github.com/altermo/ultimate-autopair.nvim/issues/17
+        -- get fly mode working on strings: https://github.com/altermo/ultimate-autopair.nvim/issues/33
         fly = {
           nofilter = true,
         },
       },
-      { '"', '"', fly = true, p = 11 },
-      { "'", "'", fly = true, p = 11 },
+      config_internal_pairs = {
+        { '"', '"', fly = true },
+        { "'", "'", fly = true },
+      },
     },
     keys = {
       {
         "<leader>ua",
-        function() require("ultimate-autopair").toggle() end,
+        function()
+          local notify = require("astronvim.utils").notify
+          local function bool2str(bool) return bool and "on" or "off" end
+          local ok, ultimate_autopair = pcall(require, "ultimate-autopair")
+          if ok then
+            ultimate_autopair.toggle()
+            vim.g.ultimate_autopair_enabled = require("ultimate-autopair.core").disable
+            notify(string.format("ultimate-autopair %s", bool2str(not vim.g.ultimate_autopair_enabled)))
+          else
+            notify "ultimate-autopair not available"
+          end
+        end,
         desc = "Toggle ultimate-autopair",
       },
     },
