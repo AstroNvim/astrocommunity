@@ -57,9 +57,15 @@ If you wish to contribute to AstroCommunity, you should:
 
   - We use an only squash and merge development cycle here, so please open PRs that make sense to be represented in the git history in a single commit message
 
-  - PR titles and commit messages should be formatted with 'fix', 'feat', 'docs', 'refactor', or 'chore'. ex: `feat: add new plugin`
+  - PR titles should be formatted with 'fix', 'feat', 'docs', 'refactor', or 'chore'. ex: `feat(<scope>): add new plugin`
 
-  - If your contribution contains any sort of breaking change include a `!` at the end of the change type. ex: `feat!: move status bar from lualine to feline`
+  - If your contribution contains any sort of breaking change include a `!` at the end of the change type. ex: `feat(<scope>)!: move status bar from lualine to feline`
+
+  - PR titles should include the given scope of the project that is modified. This should be the name of the pre-existing directory in the project before the PR. For example:
+
+    - If you are adding a new plugin, the scope would be the name of the category it is being added into. ex. `feat(utility): added noice.nvim plugin`
+
+    - If you are modifying a pre-existing plugin or pack, the scope would be the name of the plugin folder. ex. `fix(noice-nvim): fix LSP handler error`
 
 - PRs should follow the pull request formats where applicable
 
