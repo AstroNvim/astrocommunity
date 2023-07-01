@@ -2,7 +2,7 @@ name: Review Checklist
 
 on:
   pull_request_target:
-    types: [review_requested]
+    types: [opened, review_requested]
 
 jobs:
   review-checklist:
