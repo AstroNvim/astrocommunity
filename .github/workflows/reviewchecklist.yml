@@ -12,6 +12,9 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
+            const body = context.payload.pull_request.body
+            if (body && body.startsWith(":robot: I have created a release *beep* *boop*")) { return; }
+
             const { data: comments } = await github.rest.issues.listComments({
               issue_number: context.issue.number,
               owner: context.repo.owner,
