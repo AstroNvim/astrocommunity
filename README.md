@@ -1,4 +1,4 @@
-<div align="center" id="madewithlua">
+<div align="center" id="madewithlua"> TEST DO NOT MERGE
     <img src="https://astronvim.com/img/logo/astronvim.svg" width="110", height="100">
 </div>
 
