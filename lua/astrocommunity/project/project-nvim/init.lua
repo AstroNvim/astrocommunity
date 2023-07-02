@@ -1,6 +1,6 @@
 return {
   {
-    "ahmedkhalf/project.nvim",
+    "jay-babu/project.nvim",
     event = "VeryLazy",
     opts = { ignore_lsp = { "lua_ls" } },
     config = function(_, opts) require("project_nvim").setup(opts) end,

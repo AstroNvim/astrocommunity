@@ -1,0 +1,44 @@
+name: Review Checklist
+
+on:
+  pull_request_target:
+    types: [opened, review_requested]
+
+jobs:
+  review-checklist:
+    name: Review Checklist
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const body = context.payload.pull_request.body
+            if (body && body.startsWith(":robot: I have created a release *beep* *boop*")) { return; }
+
+            const { data: comments } = await github.rest.issues.listComments({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+
+            // if comment already exists, then just return
+            if (comments.find(comment => comment.body.includes("### Review Checklist"))) { return; }
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `### Review Checklist
+
+            Does this PR follow the [Contribution Guidelines](development guidelines)? Following is a _partial_ checklist:
+
+            Proper conventional commit scoping:
+
+            - If you are adding a new plugin, the scope would be the name of the category it is being added into. ex. \`feat(utility): added noice.nvim plugin\`
+            - If you are modifying a pre-existing plugin or pack, the scope would be the name of the plugin folder. ex. \`fix(noice-nvim): fix LSP handler error\`
+
+            - [ ] Pull request title has the appropriate conventional commit type and **scope** where the scope is the name of the _pre-existing_ directory in the project as described above
+            - [ ] \`README\` is properly formatted and uses fenced in links with \`<url>\` unless they are inside a \`[title](url)\`
+            - [ ] Proper usage of \`opts\` table rather than setting things up with the \`config\` function.
+            `,
+            })

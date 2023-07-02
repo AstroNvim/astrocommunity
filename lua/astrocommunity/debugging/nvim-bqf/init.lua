@@ -1,1 +1,1 @@
-return { "kevinhwang91/nvim-bqf", event = "VeryLazy", opts = {} }
+return { "kevinhwang91/nvim-bqf", ft = "qf", opts = {} }
