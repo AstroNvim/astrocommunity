@@ -1,9 +1,7 @@
-local utils = require "astronvim.utils"
-
 return {
   "petertriho/nvim-scrollbar",
   opts = function(_, opts)
-    utils.extend_tbl(opts, {
+    require("astronvim.utils").extend_tbl(opts, {
       handlers = {
         gitsigns = require("astronvim.utils").is_available "gitsigns.nvim",
         search = require("astronvim.utils").is_available "nvim-hlslens",
