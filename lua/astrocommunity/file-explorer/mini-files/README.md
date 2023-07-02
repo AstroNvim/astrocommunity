@@ -1,5 +1,7 @@
 # mini.files
 
+**Status:  Beta**  
+
 Neovim Lua plugin to navigate and manipulate file system. Part of mini.nvim library
 
 For any issues that's causes by `mini.nvim` itself, please report those here:
