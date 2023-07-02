@@ -20,10 +20,8 @@ return {
   {
     "mfussenegger/nvim-dap",
     dependencies = {
-      -- "suketa/nvim-dap-ruby",
-      "takkii/neoruby-debugger",
-      -- config = function() require("dap-ruby").setup() end,
-      config = function() require("neoruby-debugger").setup() end,
+      "suketa/nvim-dap-ruby",
+      config = function() require("dap-ruby").setup() end,
     },
   },
 }
