@@ -2,7 +2,8 @@ return {
   { "NvChad/nvim-colorizer.lua", enabled = false },
   {
     "uga-rosa/ccc.nvim",
-    event = "User AstroFile",
+    event = { "User AstroFile", "InsertEnter" },
+    cmd = { "CccPick", "CccConvert", "CccHighlighterEnable", "CccHighlighterDisable", "CccHighlighterToggle" },
     keys = {
       { "<leader>uC", "<cmd>CccPick<cr>", desc = "Toggle colorizer" },
       { "<leader>zc", "<cmd>CccConvert<cr>", desc = "Convert color" },
@@ -14,6 +15,9 @@ return {
         lsp = true,
       },
     },
-    cmd = { "CccPick", "CccConvert", "CccHighlighterEnable", "CccHighlighterDisable", "CccHighlighterToggle" },
+    config = function(_, opts)
+      require("ccc").setup(opts)
+      if opts.highlighter and opts.highlighter.auto_enable then vim.cmd.CccHighlighterEnable() end
+    end,
   },
 }
