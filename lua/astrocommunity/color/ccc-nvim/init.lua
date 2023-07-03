@@ -2,7 +2,7 @@ return {
   { "NvChad/nvim-colorizer.lua", enabled = false },
   {
     "uga-rosa/ccc.nvim",
-    event = "User AstroFile",
+    event = "BufEnter",
     keys = {
       { "<leader>uC", "<cmd>CccPick<cr>", desc = "Toggle colorizer" },
       { "<leader>zc", "<cmd>CccConvert<cr>", desc = "Convert color" },
