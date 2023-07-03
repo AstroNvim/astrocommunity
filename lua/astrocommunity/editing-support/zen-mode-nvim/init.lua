@@ -36,6 +36,5 @@ return {
       vim.wo.winbar = vim.g.winbar_old
       vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
     end,
-
   },
 }
