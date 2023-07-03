@@ -5,7 +5,7 @@ return {
     event = { "User AstroFile", "InsertEnter" },
     cmd = { "CccPick", "CccConvert", "CccHighlighterEnable", "CccHighlighterDisable", "CccHighlighterToggle" },
     keys = {
-      { "<leader>uC", "<cmd>CccPick<cr>", desc = "Toggle colorizer" },
+      { "<leader>uC", "<cmd>CccHighlighterToggle<cr>", desc = "Toggle colorizer" },
       { "<leader>zc", "<cmd>CccConvert<cr>", desc = "Convert color" },
       { "<leader>zp", "<cmd>CccPick<cr>", desc = "Pick Color" },
     },
