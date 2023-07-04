@@ -21,17 +21,20 @@ return {
         laststatus = 0,
       },
     },
-    on_open = function() -- disable diagnostics and indent blankline
+    on_open = function() -- disable diagnostics, indent blankline, and winbar
       vim.g.diagnostics_mode_old = vim.g.diagnostics_mode
-      vim.g.diagnostics_mode = 0
-      vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[0])
       vim.g.indent_blankline_enabled_old = vim.g.indent_blankline_enabled
+      vim.g.winbar_old = vim.wo.winbar
+      vim.g.diagnostics_mode = 0
       vim.g.indent_blankline_enabled = false
-    end,
-    on_close = function() -- restore diagnostics and indent blankline
-      vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
+      vim.wo.winbar = nil
       vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
+    end,
+    on_close = function() -- restore diagnostics, indent blankline, and winbar
+      vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
       vim.g.indent_blankline_enabled = vim.g.indent_blankline_enabled_old
+      vim.wo.winbar = vim.g.winbar_old
+      vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
     end,
   },
 }
