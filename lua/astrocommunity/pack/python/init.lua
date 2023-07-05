@@ -33,6 +33,9 @@ return {
     -- NOTE: ft: lazy-load on filetype
     ft = "python",
     event = "User AstroFile",
-    config = function() require("dap-python").setup("python", {}) end,
+    config = function()
+      local path = require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python"
+      require("dap-python").setup(path, {})
+    end,
   },
 }
