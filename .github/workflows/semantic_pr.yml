@@ -28,6 +28,7 @@ jobs:
             docs
             feat
             fix
+            perf
             refactor
           ignoreLabels: |
             autorelease: pending
