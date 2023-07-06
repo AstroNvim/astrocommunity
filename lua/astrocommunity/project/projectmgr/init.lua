@@ -1,6 +1,6 @@
 return {
   "charludo/projectmgr.nvim",
-  lazy = false, -- important!
+  event = "VeryLazy",
   keys = {
     { "<leader>P", "<cmd>ProjectMgr<cr>", desc = "Open ProjectMgr panel" },
   },
