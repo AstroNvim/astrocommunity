@@ -10,7 +10,13 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "lua_ls") end,
+    opts = function(_, opts)
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "lua_ls")
+
+      -- Disable formatting from lua_ls
+      local formatting = require("astronvim.utils.lsp").formatting
+      formatting.disabled = utils.list_insert_unique(formatting.disabled, "lua_ls")
+    end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
