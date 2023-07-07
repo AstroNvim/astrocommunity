@@ -100,7 +100,7 @@ return {
   {
     "vuki656/package-info.nvim",
     requires = "MunifTanjim/nui.nvim",
-    config = true,
+    opts = {},
     event = "BufRead package.json",
   },
   {
