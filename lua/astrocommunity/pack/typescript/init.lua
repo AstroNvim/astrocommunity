@@ -138,8 +138,7 @@ return {
   },
   {
     "dmmulroy/tsc.nvim",
-    ft = "typescript",
-    event = "User AstroFile",
-    config = function() require("tsc").setup() end,
+    cmd = { "TSC" },
+    opts = {},
   },
 }
