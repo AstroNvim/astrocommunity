@@ -5,17 +5,18 @@ return {
   -- event = { "bufreadpre " .. vim.fn.expand "~" .. "/my-vault/**.md" },
   event = { "BufReadPre  */obsidian-vault/*.md" },
   keys = {
-    "gf",
-    function()
-      if require("obsidian").util.cursor_on_markdown_link() then
-        return "<cmd>ObsidianFollowLink<CR>"
-      else
-        return "gf"
-      end
-    end,
-    desc = "Obsidian Follow Link",
-    noremap = false,
-    expr = true,
+    {
+      "gf",
+      function()
+        if require("obsidian").util.cursor_on_markdown_link() then
+          return "<cmd>ObsidianFollowLink<CR>"
+        else
+          return "gf"
+        end
+      end,
+      noremap = false,
+      expr = true,
+    },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
