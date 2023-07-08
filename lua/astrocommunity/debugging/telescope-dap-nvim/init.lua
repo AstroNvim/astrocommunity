@@ -1,3 +1,5 @@
+local prefix = "<leader>fd"
+
 return {
   {
     "nvim-telescope/telescope-dap.nvim",
@@ -5,7 +7,7 @@ return {
     event = "User AstroFile",
     keys = {
       {
-        "<leader>fdc",
+        prefix .. "c",
         "<Cmd>lua require('telescope').extensions.dap.commands{}<CR>",
         { silent = true, expr = false },
         mode = {
@@ -14,7 +16,7 @@ return {
         desc = "Telescope DAP commands",
       },
       {
-        "<leader>fdg",
+        prefix .. "g",
         "<Cmd>lua require('telescope').extensions.dap.configurations{}<CR>",
         { silent = true, expr = false },
         mode = {
@@ -23,7 +25,7 @@ return {
         desc = "Telescope DAP configurations",
       },
       {
-        "<leader>fdl",
+        prefix .. "l",
         "<Cmd>lua require('telescope').extensions.dap.list_breakpoints{}<CR>",
         { silent = true, expr = false },
         mode = {
@@ -32,7 +34,7 @@ return {
         desc = "Telescope DAP list breakpoints",
       },
       {
-        "<leader>fdv",
+        prefix .. "v",
         "<Cmd>lua require('telescope').extensions.dap.variables{}<CR>",
         { silent = true, expr = false },
         mode = {
@@ -41,7 +43,7 @@ return {
         desc = "Telescope DAP variables",
       },
       {
-        "<leader>fdf",
+        prefix .. "f",
         "<Cmd>lua require('telescope').extensions.dap.frames{}<CR>",
         { silent = true, expr = false },
         mode = {
