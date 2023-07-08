@@ -21,7 +21,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      { "js-everts/cmp-tailwind-colors", config = true },
+      { "js-everts/cmp-tailwind-colors", opts = {} },
     },
     opts = function(_, opts)
       local format_kinds = opts.formatting.format
