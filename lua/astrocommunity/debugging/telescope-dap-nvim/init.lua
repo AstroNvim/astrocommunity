@@ -2,7 +2,7 @@ return {
   {
     "nvim-telescope/telescope-dap.nvim",
     name = "telescope_dap",
-    event = "VeryLazy",
+    event = "User AstroFile",
     keys = {
       {
         "<leader>fdc",
