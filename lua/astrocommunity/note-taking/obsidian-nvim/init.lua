@@ -49,16 +49,6 @@ return {
 
     -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
     -- URL it will be ignored but you can customize this behavior here.
-    follow_url_func = function(url)
-      local this_os = vim.loop.os_uname().sysname
-      -- Open the URL in the default web browser.
-      if this_os == "Darwin" then
-        vim.fn.jobstart { "open", url }
-      elseif this_os == "Linux" then
-        vim.fn.jobstart { "xdg-open", url }
-     elseif this_os == "Windows" then
-     vim.fn.jobstart { "explorer", url }
-      end
-    end,
+    follow_url_func = vim.ui.open or require("astronvim.utils").system_open,
   },
 }
