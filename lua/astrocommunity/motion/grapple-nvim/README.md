@@ -5,6 +5,7 @@ Neovim plugin for tagging important files
 **Repository:** <https://github.com/cbochs/grapple.nvim>
 
 ### Custom Heirline component for AstroNvim
+![image](https://github.com/Subjective/astrocommunity/assets/56745535/333069eb-dea7-428f-b28d-31fd5912f95f)
 
 ```lua
 local status = require "astronvim.utils.status"
