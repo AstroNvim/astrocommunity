@@ -1,5 +1,5 @@
 local prefix = "<leader>r"
-local utils = require("astronvim.utils")
+local utils = require "astronvim.utils"
 
 return {
   {
