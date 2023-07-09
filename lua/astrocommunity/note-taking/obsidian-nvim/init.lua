@@ -25,10 +25,7 @@ return {
   },
   opts = {
     dir = vim.env.HOME .. "/obsidian-vault", -- specify the vault location. no need to call 'vim.fn.expand' here
-    completion = { nvim_cmp = true },
-    disable_frontmatter = false,
     use_advanced_uri = true,
-    open_app_foreground = false,
     finder = "telescope.nvim",
 
     templates = {
