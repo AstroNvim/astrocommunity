@@ -10,11 +10,12 @@ return {
       "RestNvimLast",
     },
     dependencies = { "nvim-lua/plenary.nvim" },
+
     keys = {
       { prefix, desc = "RestNvim" },
       { prefix .. "r", "<Plug>RestNvim", desc = "Run request" },
     },
-    config = function(_, opts) require("rest-nvim").setup(opts) end,
+    opts = {},
   },
   {
     "nvim-treesitter/nvim-treesitter",
