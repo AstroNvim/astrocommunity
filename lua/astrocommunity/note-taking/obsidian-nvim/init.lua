@@ -58,7 +58,6 @@ return {
         vim.fn.jobstart { "xdg-open", url }
      elseif this_os == "Windows" then
      vim.fn.jobstart { "explorer", url }
-     
       end
     end,
   },
