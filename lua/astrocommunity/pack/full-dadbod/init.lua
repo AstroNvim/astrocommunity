@@ -2,7 +2,7 @@ return {
   {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = "tpope/vim-dadbod",
-    lazy = false,
+    event = "VeryLazy",
   },
   {
     "hrsh7th/nvim-cmp",
@@ -10,7 +10,7 @@ return {
     dependencies = {
       {
         "kristijanhusak/vim-dadbod-completion",
-        config = function()
+        init = function()
           vim.api.nvim_create_autocmd("FileType", {
             desc = "dadbod completion",
             group = vim.api.nvim_create_augroup("dadbod_cmp", { clear = true }),
