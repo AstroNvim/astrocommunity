@@ -24,6 +24,7 @@ jobs:
           scopes: ${{ steps.get-scopes.outputs.scopes }}
           requireScope: true
           types: |
+            chore
             ci
             docs
             feat
