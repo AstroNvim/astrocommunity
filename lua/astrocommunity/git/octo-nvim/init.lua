@@ -7,7 +7,6 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   cmd = { "Octo" },
-  config = function() require("octo").setup() end,
   opts = {
     use_diagnostic_signs = true,
   },
