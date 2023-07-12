@@ -12,6 +12,12 @@ return {
       desc = "Toggle virtual diagnostic lines",
     },
   },
-  init = function() require("astronvim.utils.ui").toggle_diagnostics() end,
   opts = {},
+  config = function(_, opts)
+    -- disable diagnostic virtual text
+    local lsp_utils = require "astronvim.utils.lsp"
+    lsp_utils.diagnostics[3].virtual_text = false
+    vim.diagnostic.config(lsp_utils.diagnostics[vim.g.diagnostics_mode])
+    require("lsp_lines").setup(opts)
+  end,
 }
