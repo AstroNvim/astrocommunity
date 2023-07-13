@@ -1,4 +1,8 @@
 local prefix = "<leader>O"
+local maps = { n = {} }
+local icon = vim.g.icons_enabled and "  " or ""
+maps.n[prefix] = { desc = icon .. "Octo" }
+require("astronvim.utils").set_mappings(maps)
 return {
   "pwntester/octo.nvim",
   dependencies = {
@@ -11,7 +15,6 @@ return {
     use_diagnostic_signs = true,
   },
   keys = {
-    { prefix, desc = "Octo" },
     { prefix .. "c", desc = "Comments" },
     { prefix .. "ca", "<cmd>Octo comment add<CR>", desc = "Add a new comment" },
     { prefix .. "cd", "<cmd>Octo comment delete<CR>", desc = "Delete a comment" },
