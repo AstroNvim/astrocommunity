@@ -1,10 +1,13 @@
 local prefix = "<leader>x"
+local maps = { n = {} }
+local icon = vim.g.icons_enabled and "󱍼 " or ""
+maps.n[prefix] = { desc = icon .. "Trouble" }
+require("astronvim.utils").set_mappings(maps)
 return {
   {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
     keys = {
-      { prefix, desc = "Trouble" },
       { prefix .. "X", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
       { prefix .. "x", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
       { prefix .. "l", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
