@@ -1,11 +1,12 @@
 local prefix = "gz"
+local maps = { n = {} }
+local icon = vim.g.icons_enabled and "󰑤 " or ""
+maps.n[prefix] = { desc = icon .. "Surround" }
+require("astronvim.utils").set_mappings(maps)
 return {
   { "machakann/vim-sandwich", enabled = false },
   {
     "echasnovski/mini.surround",
-    keys = {
-      { prefix, desc = "Surround" },
-    },
     opts = {
       mappings = {
         add = prefix .. "a", -- Add surrounding in Normal and Visual modes
