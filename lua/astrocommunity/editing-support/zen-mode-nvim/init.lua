@@ -37,6 +37,7 @@ return {
       vim.b.miniindentscope_disable = false
       vim.wo.winbar = vim.g.winbar_old
       vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
+      if vim.g.indent_blankline_enabled_old then vim.cmd "IndentBlanklineRefresh" end
     end,
   },
 }
