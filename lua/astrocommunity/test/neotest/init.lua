@@ -5,6 +5,13 @@ return {
     "nvim-neotest/neotest-go",
     "nvim-neotest/neotest-python",
     "rouge8/neotest-rust",
+    {
+      "folke/neodev.nvim",
+      opts = function(_, opts)
+        opts.library.plugins = require("astronvim.utils").list_insert_unique(opts.library.plugins, "neotest")
+        opts.library.types = true
+      end,
+    },
   },
   opts = function()
     return {
