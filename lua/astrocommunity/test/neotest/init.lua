@@ -8,7 +8,7 @@ return {
     {
       "folke/neodev.nvim",
       opts = function(_, opts)
-        require("astronvim.utils").list_insert_unique(opts.library.plugins, "neotest")
+        opts.library.plugins = require("astronvim.utils").list_insert_unique(opts.library.plugins, "neotest")
         opts.library.types = true
       end,
     },
