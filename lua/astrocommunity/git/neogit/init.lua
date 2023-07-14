@@ -10,6 +10,7 @@ return {
       { "nvim-lua/plenary.nvim" },
     },
     event = "User AstroGitFile",
+    opts = {},
     keys = {
       { prefix .. "nt", "<cmd>Neogit<CR>", desc = "Open Neogit Tab Page" },
       { prefix .. "nc", "<cmd>Neogit commit<CR>", desc = "Open Neogit Commit Page" },
