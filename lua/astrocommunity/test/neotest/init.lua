@@ -8,8 +8,12 @@ return {
     {
       "folke/neodev.nvim",
       opts = function(_, opts)
-        opts.library.plugins = require("astronvim.utils").list_insert_unique(opts.library.plugins, "neotest")
-        opts.library.types = true
+        return require("astronvim.utils").extend_tbl(opts, {
+          library = {
+            plugins = { "neotest" },
+            types = true,
+          },
+        })
       end,
     },
   },
