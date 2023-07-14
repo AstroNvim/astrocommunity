@@ -173,7 +173,7 @@ return {
         cmp = true,
         overseer = true,
         lsp_trouble = true,
-        ts_rainbow2 = true,
+        rainbow_delimiters = true,
       },
     },
   },
