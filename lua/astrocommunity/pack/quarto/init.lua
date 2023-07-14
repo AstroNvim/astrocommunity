@@ -3,20 +3,11 @@ local utils = require "astronvim.utils"
 return {
   {
     "quarto-dev/quarto-nvim",
+    ft = { "quarto", "qmd" },
     opts = {},
     dependencies = {
       { "hrsh7th/nvim-cmp" },
-      {
-        "jmbuhr/otter.nvim",
-        dev = false,
-        opts = {
-          lsp = {
-            hover = {
-              border = require("misc.style").border,
-            },
-          },
-        },
-      },
+      { "jmbuhr/otter.nvim" },
     },
   },
   {
