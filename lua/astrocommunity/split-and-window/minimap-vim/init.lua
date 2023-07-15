@@ -1,6 +1,6 @@
 return {
   "wfxr/minimap.vim",
-  lazy = false,
+  event = "User AstroFile",
   cmd = { "Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight" },
   init = function()
     vim.g.minimap_width = 10
