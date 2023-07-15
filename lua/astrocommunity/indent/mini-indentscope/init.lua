@@ -4,13 +4,13 @@ return {
   opts = { symbol = "│", options = { try_as_border = true } },
   init = function()
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = {      
+      pattern = {
         "aerial",
         "alpha",
         "dashboard",
         "fzf",
         "help",
-        "neo-tree",  
+        "neo-tree",
         "lazy",
         "lspinfo",
         "mason",
