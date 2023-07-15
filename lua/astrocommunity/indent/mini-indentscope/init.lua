@@ -2,11 +2,22 @@ return {
   "echasnovski/mini.indentscope",
   event = "User AstroFile",
   opts = { symbol = "│", options = { try_as_border = true } },
-  config = function(_, opts)
+  init = function()
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "fzf", "starter", "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason", "undotree" },
+      pattern = {
+        "fzf",
+        "starter",
+        "help",
+        "alpha",
+        "dashboard",
+        "neo-tree",
+        "Trouble",
+        "lazy",
+        "lspinfo",
+        "mason",
+        "undotree",
+      },
       callback = function() vim.b.miniindentscope_disable = true end,
     })
-    require("mini.indentscope").setup(opts)
   end,
 }
