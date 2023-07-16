@@ -56,29 +56,41 @@
     <a href="lua/astrocommunity/note-taking">
       <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/note-taking?label=Note Taking Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=ee99a0"/>
     </a>
+    <a href="lua/astrocommunity/programming-language-support">
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/programming-language-support?label=Programming Language Support Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f5a97f"/>
+    </a>
     <a href="lua/astrocommunity/project">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/project?label=Project Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f5a97f"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/project?label=Project Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=eed49f"/>
+    </a>
+    <a href="lua/astrocommunity/remote-development">
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/remote-development?label=Remote Development Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=a6da95"/>
     </a>
     <a href="lua/astrocommunity/scrolling">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/scrolling?label=Scrolling Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=eed49f"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/scrolling?label=Scrolling Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=8bd5ca"/>
+    </a>
+    <a href="lua/astrocommunity/search">
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/search?label=Search Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=91d7e3"/>
+    </a>
+    <a href="lua/astrocommunity/split-and-window">
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/split-and-window?label=Split/Window Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=7dc4e4"/>
     </a>
     <a href="lua/astrocommunity/startup">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/startup?label=Startup Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=a6da95"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/startup?label=Startup Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=b7bdf8"/>
     </a>
     <a href="lua/astrocommunity/syntax">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/syntax?label=Syntax Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=8bd5ca"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/syntax?label=Syntax Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f4dbd6"/>
     </a>
     <a href="lua/astrocommunity/terminal-integration">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/terminal-integration?label=Terminal Integration Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=91d7e3"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/terminal-integration?label=Terminal Integration Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f0c6c6"/>
     </a>
     <a href="lua/astrocommunity/test">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/test?label=Test Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=7dc4e4"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/test?label=Test Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f5bde6"/>
     </a>
     <a href="lua/astrocommunity/utility">
       <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/utility?label=Utility Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=b7bdf8"/>
     </a>
     <a href="lua/astrocommunity/workflow">
-      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/workflow?label=Workflow Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=f4dbd6"/>
+      <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/workflow?label=Workflow Plugins&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=ee99a0"/>
     </a>
     <a href="lua/astrocommunity/pack">
       <img src="https://img.shields.io/github/directory-file-count/AstroNvim/astrocommunity/lua/astrocommunity/pack?label=Plugin Packs&style=for-the-badge&logo=neovim&logoColor=D9E0EE&labelColor=302D41&color=b7bdf8"/>
@@ -105,18 +117,18 @@ Category Colors:
 #f5bde6: media
 #c6a0f6: motion
 #ee99a0: note-taking
-#f5a97f: project
-#eed49f: scrolling
-#a6da95: startup
-#8bd5ca: syntax
-#91d7e3: terminal-integration
-#7dc4e4: test
-#b7bdf8: utility
-#f4dbd6: workflow
-#f0c6c6:
-#f5bde6:
-#c6a0f6:
-#ee99a0:
+#f5a97f: programming-language-support
+#eed49f: project
+#a6da95: remote-development
+#8bd5ca: scrolling
+#91d7e3: search
+#7dc4e4: split-and-window
+#b7bdf8: startup
+#f4dbd6: syntax
+#f0c6c6: terminal-integration
+#f5bde6: test
+#c6a0f6: utility
+#ee99a0: workflow
 #f5a97f:
 #eed49f:
 #a6da95:
