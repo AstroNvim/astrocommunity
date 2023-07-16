@@ -7,6 +7,7 @@ return {
   { "machakann/vim-sandwich", enabled = false },
   {
     "echasnovski/mini.surround",
+    event = "User AstroFile",
     opts = {
       mappings = {
         add = prefix .. "a", -- Add surrounding in Normal and Visual modes
