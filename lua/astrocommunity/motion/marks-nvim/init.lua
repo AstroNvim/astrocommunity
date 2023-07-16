@@ -1,6 +1,6 @@
 return {
   "chentoast/marks.nvim",
-  event = "BufEnter",
+  event = "User AstroFile",
   opts = {
     excluded_filetypes = {
       "qf",
