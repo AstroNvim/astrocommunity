@@ -7,7 +7,20 @@ return {
   { "machakann/vim-sandwich", enabled = false },
   {
     "echasnovski/mini.surround",
-    event = "User AstroFile",
+    keys = function(plugin, keys)
+      -- Populate the keys based on the user's options
+      local mappings = {
+        { plugin.opts.mappings.add, desc = "Add surrounding", mode = { "n", "v" } },
+        { plugin.opts.mappings.delete, desc = "Delete surrounding" },
+        { plugin.opts.mappings.find, desc = "Find right surrounding" },
+        { plugin.opts.mappings.find_left, desc = "Find left surrounding" },
+        { plugin.opts.mappings.highlight, desc = "Highlight surrounding" },
+        { plugin.opts.mappings.replace, desc = "Replace surrounding" },
+        { plugin.opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
+      }
+      mappings = vim.tbl_filter(function(m) return m[1] and #m[1] > 0 end, mappings)
+      return vim.list_extend(mappings, keys)
+    end,
     opts = {
       mappings = {
         add = prefix .. "a", -- Add surrounding in Normal and Visual modes
