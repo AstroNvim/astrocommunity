@@ -29,4 +29,9 @@ return {
       table.insert(opts.bottom, "Trouble")
     end,
   },
+  {
+    "catppuccin/nvim",
+    optional = true,
+    opts = { integrations = { lsp_trouble = true } },
+  },
 }

@@ -45,4 +45,9 @@ return {
       })
     end,
   },
+  {
+    "catppuccin/nvim",
+    optional = true,
+    opts = { integrations = { noice = true } },
+  },
 }
