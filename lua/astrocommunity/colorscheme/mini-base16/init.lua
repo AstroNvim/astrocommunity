@@ -1,1 +1,8 @@
-return { "echasnovski/mini.base16" }
+return {
+  "echasnovski/mini.base16",
+  {
+    "catppuccin/nvim",
+    optional = true,
+    opts = { integrations = { mini = true } },
+  },
+}
