@@ -3,6 +3,7 @@ return {
   name = "catppuccin",
   opts = {
     integrations = {
+      alpha = true,
       aerial = true,
       dap = { enabled = true, enable_ui = true },
       mason = true,
