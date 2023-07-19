@@ -1,7 +1,7 @@
 return {
   "jackMort/ChatGPT.nvim",
   cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTEditWithInstructions", "ChatGPTRun" },
-  depencencies = {
+  dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
