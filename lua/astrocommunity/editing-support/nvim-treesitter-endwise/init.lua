@@ -1,13 +1,7 @@
 return {
-  {
-    "RRethy/nvim-treesitter-endwise",
-    event = "VeryLazy",
-    config = function()
-      require('nvim-treesitter.configs').setup {
-        endwise = {
-          enable = true
-        }
-      }
-    end
-  }
+  "nvim-treesitter/nvim-treesitter",
+  dependencies = { "RRethy/nvim-treesitter-endwise" },
+  opts = {
+    endwise = { enable = true },
+  },
 }
