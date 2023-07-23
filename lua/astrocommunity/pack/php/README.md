@@ -1,6 +1,6 @@
 # PHP Language Pack
 
-**Note**: Installation of `phpactor` requires `composer`
+**Note:** Installation of `phpactor` requires `composer`
 
 This plugin pack does the following:
 
