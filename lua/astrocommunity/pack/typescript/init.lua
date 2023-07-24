@@ -58,18 +58,25 @@ return {
       if not opts.handlers then opts.handlers = {} end
 
       local has_prettier = function(util)
-        if vim.bo.filetype == "markdown" then return true end
-        return check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
-          or util.root_has_file ".prettierrc"
-          or util.root_has_file ".prettierrc.json"
-          or util.root_has_file ".prettierrc.yml"
-          or util.root_has_file ".prettierrc.yaml"
-          or util.root_has_file ".prettierrc.json5"
-          or util.root_has_file ".prettierrc.js"
-          or util.root_has_file ".prettierrc.cjs"
-          or util.root_has_file "prettier.config.js"
-          or util.root_has_file "prettier.config.cjs"
-          or util.root_has_file ".prettierrc.toml"
+        if
+          vim.bo.filetype == "javascriptreact"
+          or vim.bo.filetype == "typescriptreact"
+          or vim.bo.filetype == "javascript"
+          or vim.bo.filetype == "typescript"
+        then
+          return check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
+            or util.root_has_file ".prettierrc"
+            or util.root_has_file ".prettierrc.json"
+            or util.root_has_file ".prettierrc.yml"
+            or util.root_has_file ".prettierrc.yaml"
+            or util.root_has_file ".prettierrc.json5"
+            or util.root_has_file ".prettierrc.js"
+            or util.root_has_file ".prettierrc.cjs"
+            or util.root_has_file "prettier.config.js"
+            or util.root_has_file "prettier.config.cjs"
+            or util.root_has_file ".prettierrc.toml"
+        end
+        return true
       end
 
       local has_eslint = function(util)
