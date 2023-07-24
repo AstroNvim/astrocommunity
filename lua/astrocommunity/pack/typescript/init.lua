@@ -58,6 +58,7 @@ return {
       if not opts.handlers then opts.handlers = {} end
 
       local has_prettier = function(util)
+        if vim.bo.filetype == "markdown" then return true end
         return check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
           or util.root_has_file ".prettierrc"
           or util.root_has_file ".prettierrc.json"
