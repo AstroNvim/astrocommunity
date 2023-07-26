@@ -1,6 +1,12 @@
 local utils = require "astrocore.utils"
 return {
   {
+    "AstroNvim/astrolsp",
+    opts = {
+      setup_handlers = { clangd = false },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
@@ -19,8 +25,7 @@ return {
   {
     "p00f/clangd_extensions.nvim",
     ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-    init = function() utils.list_insert_unique(astrocore.lsp.skip_setup, "clangd") end,
-    opts = function() return { server = require("astrocore.utils.lsp").config "clangd" } end,
+    opts = function() return { server = require("astrolsp").config "clangd" } end,
   },
   {
     "Civitasv/cmake-tools.nvim",
