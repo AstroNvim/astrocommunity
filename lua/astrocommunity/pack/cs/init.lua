@@ -1,4 +1,4 @@
-local utils = require "astronvim.utils"
+local utils = require "astrocore.utils"
 return {
   -- CSharp support
   {

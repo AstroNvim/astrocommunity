@@ -5,7 +5,7 @@ local icon = vim.g.icons_enabled and "󰛔 " or ""
 maps.n[prefix] = { desc = icon .. "Search / Replace" }
 maps.x[prefix] = { desc = icon .. "Search / Replace" }
 
-require("astronvim.utils").set_mappings(maps)
+require("astrocore.utils").set_mappings(maps)
 
 return {
   {

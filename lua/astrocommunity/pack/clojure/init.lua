@@ -1,5 +1,5 @@
 -- Clojure support with Conjure plugin
-local utils = require "astronvim.utils"
+local utils = require "astrocore.utils"
 return {
   -- Clojure Language Server
   {

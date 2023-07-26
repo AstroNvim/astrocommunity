@@ -1,5 +1,5 @@
 local prefix = "<leader>z"
-local utils = require "astronvim.utils"
+local utils = require "astrocore.utils"
 return {
   "Pocco81/true-zen.nvim",
   opts = function(_, opts)

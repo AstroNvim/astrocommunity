@@ -1,4 +1,4 @@
-local utils = require "astronvim.utils"
+local utils = require "astrocore.utils"
 return {
   { import = "astrocommunity.pack.yaml" }, -- stack.yaml
   { import = "astrocommunity.pack.json" }, -- hls.json
@@ -14,10 +14,10 @@ return {
     "mrcjkb/haskell-tools.nvim",
     ft = { "haskell" },
     branch = "1.x.x", -- recommended by haskell-tools
-    init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "hls") end,
+    init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "hls") end,
     opts = {
       hls = {
-        on_attach = function(client, bufnr) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
+        on_attach = function(client, bufnr) require("astrocore.utils.lsp").on_attach(client, bufnr) end,
       },
     },
     config = function(_, opts)

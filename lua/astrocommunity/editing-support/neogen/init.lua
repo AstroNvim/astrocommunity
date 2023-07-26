@@ -2,7 +2,7 @@ local prefix = "<leader>a"
 local maps = { n = {} }
 local icon = vim.g.icons_enabled and "󰷉 " or ""
 maps.n[prefix] = { desc = icon .. "Annotation" }
-require("astronvim.utils").set_mappings(maps)
+require("astrocore.utils").set_mappings(maps)
 return {
   "danymat/neogen",
   cmd = "Neogen",
