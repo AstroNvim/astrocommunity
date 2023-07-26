@@ -26,7 +26,7 @@ return {
     on_open = function() -- disable diagnostics, indent blankline, winbar, and offscreen matchup
       vim.g.diagnostics_mode_old = vim.g.diagnostics_mode
       vim.g.diagnostics_mode = 0
-      vim.diagnostic.config(require("astrocore.utils.lsp").diagnostics[vim.g.diagnostics_mode])
+      vim.diagnostic.config(require("astrolsp").diagnostics[vim.g.diagnostics_mode])
 
       vim.g.indent_blankline_enabled_old = vim.g.indent_blankline_enabled
       vim.g.indent_blankline_enabled = false
@@ -50,7 +50,7 @@ return {
     end,
     on_close = function() -- restore diagnostics, indent blankline, winbar, and offscreen matchup
       vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
-      vim.diagnostic.config(require("astrocore.utils.lsp").diagnostics[vim.g.diagnostics_mode])
+      vim.diagnostic.config(require("astrolsp").diagnostics[vim.g.diagnostics_mode])
 
       vim.g.indent_blankline_enabled = vim.g.indent_blankline_enabled_old
       vim.g.miniindentscope_disable = vim.g.miniindentscope_disable_old
