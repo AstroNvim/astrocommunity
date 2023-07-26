@@ -37,6 +37,12 @@ local function check_json_key_exists(filename, key)
 end
 
 return {
+  {
+    "AstroNvim/astrolsp",
+    opts = {
+      setup_handlers = { tsserver = false },
+    },
+  },
   { import = "astrocommunity.pack.json" },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -105,14 +111,13 @@ return {
   },
   {
     "jose-elias-alvarez/typescript.nvim",
-    init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "tsserver") end,
     ft = {
       "typescript",
       "typescriptreact",
       "javascript",
       "javascriptreact",
     },
-    opts = function() return { server = require("astrocore.utils.lsp").config "tsserver" } end,
+    opts = function() return { server = require("astrolsp").config "tsserver" } end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
