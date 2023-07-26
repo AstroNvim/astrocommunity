@@ -1,4 +1,4 @@
-local utils = require "astronvim.utils"
+local utils = require "astrocore.utils"
 local prefix = "<leader>g"
 local icon = vim.g.icons_enabled and "󰰔 " or ""
 utils.set_mappings { n = { [prefix] = { desc = icon .. "Neogit" } } }

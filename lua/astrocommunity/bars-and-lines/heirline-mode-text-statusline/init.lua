@@ -1,7 +1,7 @@
 return {
   "rebelot/heirline.nvim",
   opts = function(_, opts)
-    local status = require "astronvim.utils.status"
+    local status = require "astrocore.utils.status"
 
     opts.statusline = { -- statusline
       hl = { fg = "fg", bg = "bg" },
