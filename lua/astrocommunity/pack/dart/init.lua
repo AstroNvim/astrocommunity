@@ -2,6 +2,12 @@ local utils = require "astrocore.utils"
 return {
   { import = "astrocommunity.pack.yaml" },
   {
+    "AstroNvim/astrolsp",
+    opts = {
+      setup_handlers = { dartls = false },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
@@ -12,10 +18,9 @@ return {
   {
     "akinsho/flutter-tools.nvim",
     ft = "dart",
-    init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "dartls") end,
     opts = function()
       return {
-        lsp = require("astrocore.utils.lsp").config "dartls",
+        lsp = require("astrolsp").config "dartls",
         debugger = { enabled = true },
       }
     end,
