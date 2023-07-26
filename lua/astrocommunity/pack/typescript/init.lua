@@ -117,7 +117,7 @@ return {
       "javascript",
       "javascriptreact",
     },
-    opts = function() return { server = require("astrolsp").config "tsserver" } end,
+    opts = function() return { server = require("astrolsp").lsp_opts "tsserver" } end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",

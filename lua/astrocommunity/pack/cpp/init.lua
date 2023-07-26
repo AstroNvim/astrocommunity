@@ -25,7 +25,7 @@ return {
   {
     "p00f/clangd_extensions.nvim",
     ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-    opts = function() return { server = require("astrolsp").config "clangd" } end,
+    opts = function() return { server = require("astrolsp").lsp_opts "clangd" } end,
   },
   {
     "Civitasv/cmake-tools.nvim",

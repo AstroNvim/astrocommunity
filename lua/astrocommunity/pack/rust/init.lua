@@ -40,7 +40,7 @@ return {
         adapter = require("rust-tools.dap").get_codelldb_adapter()
       end
 
-      return { server = require("astrolsp").config "rust_analyzer", dap = { adapter = adapter } }
+      return { server = require("astrolsp").lsp_opts "rust_analyzer", dap = { adapter = adapter } }
     end,
     dependencies = {
       {
