@@ -2,6 +2,13 @@ local utils = require "astrocore.utils"
 
 return {
   {
+    "AstroNvim/astrolsp",
+    opts = {
+      setup_handlers = { jdtls = false },
+    },
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
@@ -31,7 +38,6 @@ return {
   {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
-    init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "jdtls") end,
     dependencies = { "williamboman/mason-lspconfig.nvim" },
     opts = function(_, opts)
       -- use this function notation to build some variables
@@ -101,7 +107,7 @@ return {
         filetypes = { "java" },
         on_attach = function(client, bufnr)
           require("jdtls").setup_dap()
-          require("astrocore.utils.lsp").on_attach(client, bufnr)
+          require("astrolsp").on_attach(client, bufnr)
         end,
       }
 
