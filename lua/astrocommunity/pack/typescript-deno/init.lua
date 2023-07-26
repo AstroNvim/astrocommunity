@@ -1,6 +1,12 @@
-local utils = require "astronvim.utils"
+local utils = require "astrocore"
 
 return {
+  {
+    "AstroNvim/astrolsp",
+    opts = {
+      handlers = { denols = false },
+    },
+  },
   { import = "astrocommunity.pack.json" },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -20,8 +26,7 @@ return {
   },
   {
     "sigmasd/deno-nvim",
-    init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "denols") end,
     ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-    opts = function() return { server = require("astronvim.utils.lsp").config "denols" } end,
+    opts = function() return { server = require("astrolsp").config "denols" } end,
   },
 }

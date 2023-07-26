@@ -1,14 +1,22 @@
+local keys = {}
+for _, key in ipairs { "f", "F", "t", "T" } do
+  keys[key] = { key, desc = key }
+end
+
 return {
   {
+    "AstroNvim/astrocore",
+    opts = {
+      mappings = {
+        n = keys,
+        x = keys,
+        o = keys,
+      },
+    },
+  },
+
+  {
     "ggandor/flit.nvim",
-    keys = function()
-      ---@type LazyKeys[]
-      local ret = {}
-      for _, key in ipairs { "f", "F", "t", "T" } do
-        ret[#ret + 1] = { key, mode = { "n", "x", "o" }, desc = key }
-      end
-      return ret
-    end,
     opts = { labeled_modes = "nx" },
     dependencies = {
       "ggandor/leap.nvim",

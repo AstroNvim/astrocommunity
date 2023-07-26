@@ -1,11 +1,19 @@
 return {
   {
-    "machakann/vim-sandwich",
-    keys = {
-      { "sa", desc = "Add surrounding", mode = { "n", "v" } },
-      { "sd", desc = "Delete surrounding" },
-      { "sr", desc = "Replace surrounding" },
+    "AstroNvim/astrocore",
+    mappings = {
+      n = {
+        { "sa", "Add surrounding" },
+        { "sd", "Delete surrounding" },
+        { "sr", "Replace surrounding" },
+      },
+      v = {
+        { "sa", "Add surrounding" },
+      },
     },
+  },
+  {
+    "machakann/vim-sandwich",
   },
   {
     "catppuccin/nvim",

@@ -1,6 +1,12 @@
-local utils = require "astronvim.utils"
+local utils = require "astrocore"
 return {
   { import = "astrocommunity.pack.toml" },
+  {
+    "AstroNvim/astrolsp",
+    opts = {
+      handlers = { rust_analyzer = false },
+    },
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -12,7 +18,6 @@ return {
   {
     "simrat39/rust-tools.nvim",
     ft = { "rust" },
-    init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
     opts = function()
       local adapter
       local success, package = pcall(function() return require("mason-registry").get_package "codelldb" end)
@@ -35,7 +40,7 @@ return {
         adapter = require("rust-tools.dap").get_codelldb_adapter()
       end
 
-      return { server = require("astronvim.utils.lsp").config "rust_analyzer", dap = { adapter = adapter } }
+      return { server = require("astrolsp").lsp_opts "rust_analyzer", dap = { adapter = adapter } }
     end,
     dependencies = {
       {

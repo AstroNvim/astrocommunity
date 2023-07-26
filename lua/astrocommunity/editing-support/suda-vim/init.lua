@@ -1,14 +1,19 @@
 return {
-  "lambdalisue/suda.vim",
-  keys = {
-    {
-      "<leader>W",
-      ":SudaWrite<CR>",
-      desc = "Suda Write",
+  {
+    "AstroNvim/astrocore",
+    opts = {
+      mappings = {
+        n = {
+          ["<leader>W"] = { "<cmd>SudaWrite<CR>", desc = "Suda Write" },
+        },
+      },
     },
   },
-  cmd = {
-    "SudaRead",
-    "SudaWrite",
+  {
+    "lambdalisue/suda.vim",
+    cmd = {
+      "SudaRead",
+      "SudaWrite",
+    },
   },
 }
