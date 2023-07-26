@@ -1,4 +1,4 @@
-local utils = require "astrocore.utils"
+local utils = require "astrocore"
 return {
   { import = "astrocommunity.pack.yaml" }, -- stack.yaml
   { import = "astrocommunity.pack.json" }, -- hls.json

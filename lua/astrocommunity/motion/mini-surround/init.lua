@@ -2,7 +2,7 @@ local prefix = "gz"
 local maps = { n = {} }
 local icon = vim.g.icons_enabled and "󰑤 " or ""
 maps.n[prefix] = { desc = icon .. "Surround" }
-require("astrocore.utils").set_mappings(maps)
+require("astrocore").set_mappings(maps)
 return {
   { "machakann/vim-sandwich", enabled = false },
   {

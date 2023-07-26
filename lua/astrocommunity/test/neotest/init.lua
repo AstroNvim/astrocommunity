@@ -11,7 +11,7 @@ return {
         opts = function(_, opts)
           opts.library = opts.library or {}
           if opts.library.plugins ~= true then
-            opts.library.plugins = require("astrocore.utils").list_insert_unique(opts.library.plugins, "neotest")
+            opts.library.plugins = require("astrocore").list_insert_unique(opts.library.plugins, "neotest")
           end
           opts.library.types = true
         end,

@@ -30,7 +30,7 @@ return {
     "akinsho/bufferline.nvim",
     optional = true,
     opts = function(_, opts)
-      return require("astrocore.utils").extend_tbl(opts, {
+      return require("astrocore").extend_tbl(opts, {
         highlights = require("nord").bufferline.highlights { italic = true, bold = true },
         options = { separator_style = "thin" },
       })

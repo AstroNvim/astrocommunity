@@ -1,4 +1,4 @@
-local utils = require "astrocore.utils"
+local utils = require "astrocore"
 
 local function on_file_remove(args)
   local ts_clients = vim.lsp.get_active_clients { name = "tsserver" }

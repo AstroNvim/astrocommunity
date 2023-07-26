@@ -12,7 +12,7 @@ maps.n[prefix .. "a"] = { desc = "Assignee/Reviewer" }
 maps.n[prefix .. "l"] = { desc = "Label" }
 maps.n[prefix .. "e"] = { desc = "Reaction" }
 maps.n[prefix .. "s"] = { desc = "Review" }
-require("astrocore.utils").set_mappings(maps)
+require("astrocore").set_mappings(maps)
 return {
   {
     "pwntester/octo.nvim",

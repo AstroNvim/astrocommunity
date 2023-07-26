@@ -1,4 +1,4 @@
-local utils = require "astrocore.utils"
+local utils = require "astrocore"
 
 --  [markdown markmap]
 --  https://github.com/Zeioth/markmap.nvim

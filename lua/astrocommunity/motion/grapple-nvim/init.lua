@@ -2,7 +2,7 @@ local prefix = "<leader><leader>"
 local maps = { n = {} }
 local icon = vim.g.icons_enabled and "󰛢 " or ""
 maps.n[prefix] = { desc = icon .. "Grapple" }
-require("astrocore.utils").set_mappings(maps)
+require("astrocore").set_mappings(maps)
 return {
   "cbochs/grapple.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },

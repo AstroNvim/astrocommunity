@@ -4,7 +4,7 @@ return {
     dependencies = {
       "HiPhish/nvim-ts-rainbow2",
       init = function()
-        require("astrocore.utils").notify(
+        require("astrocore").notify(
           "`nvim-ts-rainbow2` is deprecated!\nPlease use `rainbow-delimiters`",
           vim.log.levels.WARN
         )

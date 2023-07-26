@@ -40,7 +40,7 @@ return {
       {
         "<leader>ua",
         function()
-          local notify = require("astrocore.utils").notify
+          local notify = require("astrocore").notify
           local function bool2str(bool) return bool and "on" or "off" end
           local ok, ultimate_autopair = pcall(require, "ultimate-autopair")
           if ok then

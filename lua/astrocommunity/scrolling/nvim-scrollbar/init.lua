@@ -1,11 +1,11 @@
 return {
   "petertriho/nvim-scrollbar",
   opts = function(_, opts)
-    require("astrocore.utils").extend_tbl(opts, {
+    require("astrocore").extend_tbl(opts, {
       handlers = {
-        gitsigns = require("astrocore.utils").is_available "gitsigns.nvim",
-        search = require("astrocore.utils").is_available "nvim-hlslens",
-        ale = require("astrocore.utils").is_available "ale",
+        gitsigns = require("astrocore").is_available "gitsigns.nvim",
+        search = require("astrocore").is_available "nvim-hlslens",
+        ale = require("astrocore").is_available "ale",
       },
     })
   end,

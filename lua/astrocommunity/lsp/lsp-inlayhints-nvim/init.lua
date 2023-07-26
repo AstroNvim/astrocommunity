@@ -10,7 +10,7 @@ return {
           if client.server_capabilities.inlayHintProvider then
             local inlayhints = require "lsp-inlayhints"
             inlayhints.on_attach(client, args.buf)
-            require("astrocore.utils").set_mappings({
+            require("astrocore").set_mappings({
               n = {
                 ["<leader>uH"] = { inlayhints.toggle, desc = "Toggle inlay hints" },
               },

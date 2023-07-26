@@ -1,4 +1,4 @@
-local utils = require "astrocore.utils"
+local utils = require "astrocore"
 
 return {
   {
@@ -60,7 +60,7 @@ return {
 
       -- ensure that OS is valid
       if not os or os == "" then
-        require("astrocore.utils").notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
+        require("astrocore").notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
       end
 
       local defaults = {
@@ -132,7 +132,7 @@ return {
             require("jdtls").start_or_attach(opts)
             -- require('jdtls.dap').setup_dap_main_class_configs()
           else
-            require("astrocore.utils").notify(
+            require("astrocore").notify(
               "jdtls: root_dir not found. Please specify a root marker",
               vim.log.levels.ERROR
             )

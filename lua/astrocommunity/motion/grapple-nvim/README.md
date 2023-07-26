@@ -8,7 +8,7 @@ Neovim plugin for tagging important files
 ![image](https://github.com/Subjective/astrocommunity/assets/56745535/333069eb-dea7-428f-b28d-31fd5912f95f)
 
 ```lua
-local status = require "astrocore.utils.status"
+local status = require "astrocore.status"
 
 status.component.grapple = {
   provider = function()
@@ -27,7 +27,7 @@ return {
     {
       "rebelot/heirline.nvim",
       opts = function(_, opts)
-        local status = require("astrocore.utils.status")
+        local status = require("astrocore.status")
 
         -- custom heirline statusline component for grapple
         status.component.grapple = {
