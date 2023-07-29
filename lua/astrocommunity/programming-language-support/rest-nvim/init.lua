@@ -3,6 +3,17 @@ local utils = require "astrocore"
 
 return {
   {
+    "AstroNvim/astrocore",
+    opts = {
+      mappings = {
+        n = {
+          [prefix] = { desc = "RestNvim" },
+          [prefix .. "r"] = { "<Plug>RestNvim", desc = "Run request" },
+        },
+      },
+    },
+  },
+  {
     "rest-nvim/rest.nvim",
     ft = { "http", "json" },
     cmd = {
@@ -11,11 +22,6 @@ return {
       "RestNvimLast",
     },
     dependencies = { "nvim-lua/plenary.nvim" },
-
-    keys = {
-      { prefix, desc = "RestNvim" },
-      { prefix .. "r", "<Plug>RestNvim", desc = "Run request" },
-    },
     opts = {},
   },
   {
