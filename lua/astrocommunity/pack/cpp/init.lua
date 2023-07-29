@@ -3,7 +3,7 @@ return {
   {
     "AstroNvim/astrolsp",
     opts = {
-      setup_handlers = { clangd = false },
+      handlers = { clangd = false },
     },
   },
   {

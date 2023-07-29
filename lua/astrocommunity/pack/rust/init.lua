@@ -4,7 +4,7 @@ return {
   {
     "AstroNvim/astrolsp",
     opts = {
-      setup_handlers = { rust_analyzer = false },
+      handlers = { rust_analyzer = false },
     },
   },
   {

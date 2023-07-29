@@ -4,7 +4,7 @@ return {
   {
     "AstroNvim/astrolsp",
     opts = {
-      setup_handlers = { denols = false },
+      handlers = { denols = false },
     },
   },
   { import = "astrocommunity.pack.json" },

@@ -4,7 +4,7 @@ return {
   {
     "AstroNvim/astrolsp",
     opts = {
-      setup_handlers = { jdtls = false },
+      handlers = { jdtls = false },
     },
   },
 
