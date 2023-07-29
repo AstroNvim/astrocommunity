@@ -1,22 +1,38 @@
 local prefix = "<leader>fd"
 
 return {
-  "nvim-telescope/telescope.nvim",
-  keys = {
-    { prefix .. "c", function() require("telescope").extensions.dap.commands() end, desc = "Telescope DAP commands" },
-    { prefix .. "f", function() require("telescope").extensions.dap.frames() end, desc = "Telescope DAP frames" },
-    {
-      prefix .. "g",
-      function() require("telescope").extensions.dap.configurations() end,
-      desc = "Telescope DAP configurations",
+  {
+    "AstroNvim/astrocore",
+    opts = {
+      mappings = {
+        n = {
+          [prefix .. "c"] = {
+            "<cmd>lua require('telescope').extensions.dap.commands()<cr>",
+            desc = "Telescope DAP commands",
+          },
+          [prefix .. "f"] = {
+            "<cmd>lua require('telescope').extensions.dap.frames()<cr>",
+            desc = "Telescope DAP frames",
+          },
+          [prefix .. "g"] = {
+            "<cmd>lua require('telescope').extensions.dap.configurations()<cr>",
+            desc = "Telescope DAP configurations",
+          },
+          [prefix .. "l"] = {
+            "<cmd>lua require('telescope').extensions.dap.list_breakpoints()<cr>",
+            desc = "Telescope DAP list breakpoints",
+          },
+          [prefix .. "v"] = {
+            "<cmd>lua require('telescope').extensions.dap.variables()<cr>",
+            desc = "Telescope DAP variables",
+          },
+        },
+      },
     },
-    {
-      prefix .. "l",
-      function() require("telescope").extensions.dap.list_breakpoints() end,
-      desc = "Telescope DAP list breakpoints",
-    },
-    { prefix .. "v", function() require("telescope").extensions.dap.variables() end, desc = "Telescope DAP variables" },
   },
-  dependencies = { "nvim-telescope/telescope-dap.nvim" },
-  opts = function() require("telescope").load_extension "dap" end,
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-telescope/telescope-dap.nvim" },
+    opts = function() require("telescope").load_extension "dap" end,
+  },
 }
