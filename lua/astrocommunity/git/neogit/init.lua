@@ -1,10 +1,25 @@
 local utils = require "astrocore"
+local ui_utils = require "astroui"
 local prefix = "<leader>g"
 local icon = vim.g.icons_enabled and "󰰔 " or ""
-utils.set_mappings { n = { [prefix] = { desc = icon .. "Neogit" } } }
+-- utils.set_mappings { n = { [prefix] = { desc = icon .. "Neogit" } } }
 
-local fold_signs = { utils.get_icon "FoldClosed", utils.get_icon "FoldOpened" }
+local fold_signs = { ui_utils.get_icon "FoldClosed", ui_utils.get_icon "FoldOpened" }
 return {
+  {
+    "AstroNvim/astrocore",
+    opts = {
+      mappings = {
+        n = {
+          [prefix] = { desc = icon .. "Neogit" },
+          [prefix .. "nt"] = { "<cmd>Neogit<CR>", desc = "Open Neogit Tab Page" },
+          [prefix .. "nc"] = { "<cmd>Neogit commit<CR>", desc = "Open Neogit Commit Page" },
+          [prefix .. "nd"] = { ":Neogit cwd=", desc = "Open Neogit Override CWD" },
+          [prefix .. "nk"] = { ":Neogit kind=", desc = "Open Neogit Override Kind" },
+        },
+      },
+    },
+  },
   {
     "NeogitOrg/neogit",
     dependencies = {
@@ -25,12 +40,6 @@ return {
         signs = { section = fold_signs, item = fold_signs },
       })
     end,
-    keys = {
-      { prefix .. "nt", "<cmd>Neogit<CR>", desc = "Open Neogit Tab Page" },
-      { prefix .. "nc", "<cmd>Neogit commit<CR>", desc = "Open Neogit Commit Page" },
-      { prefix .. "nd", ":Neogit cwd=", desc = "Open Neogit Override CWD" },
-      { prefix .. "nk", ":Neogit kind=", desc = "Open Neogit Override Kind" },
-    },
   },
   {
     "catppuccin/nvim",
