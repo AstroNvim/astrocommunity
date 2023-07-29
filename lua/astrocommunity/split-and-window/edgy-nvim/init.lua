@@ -1,5 +1,14 @@
 return {
   {
+    "AstroNvim/astrocore",
+    opts = {
+      mappings = {
+        ["<leader>F"] = { function() require("edgy").toggle() end, desc = "Toggle Sidebars" },
+        ["<leader>f"] = { function() require("edgy").select() end, desc = "Pick Sidebar" },
+      },
+    },
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
       source_selector = {
@@ -10,12 +19,6 @@ return {
   },
   {
     "folke/edgy.nvim",
-    event = "VeryLazy",
-    keys = {
-      -- stylua: ignore
-      { "<leader>E", function() require("edgy").toggle() end, desc = "Toggle Sidebars" },
-      { "<leader>F", function() require("edgy").select() end, desc = "Pick Sidebar" },
-    },
     opts = {
       exit_when_last = true,
       bottom = {
