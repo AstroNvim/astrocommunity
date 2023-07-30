@@ -1,3 +1,5 @@
+local utils = require "astronvim.utils"
+
 return {
   "folke/zen-mode.nvim",
   cmd = "ZenMode",
@@ -21,7 +23,7 @@ return {
         laststatus = 0,
       },
     },
-    on_open = function() -- disable diagnostics, indent blankline, and winbar
+    on_open = function() -- disable diagnostics, indent blankline, winbar, and offscreen matchup
       vim.g.diagnostics_mode_old = vim.g.diagnostics_mode
       vim.g.diagnostics_mode = 0
       vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
@@ -38,8 +40,15 @@ return {
         group = vim.api.nvim_create_augroup("disable_winbar", { clear = true }),
         desc = "Ensure winbar stays disabled when writing to file, switching buffers, opening floating windows, etc.",
       })
+
+      if utils.is_available "vim-matchup" then
+        vim.cmd.NoMatchParen()
+        vim.g.matchup_matchparen_offscreen_old = vim.g.matchup_matchparen_offscreen
+        vim.g.matchup_matchparen_offscreen = {}
+        vim.cmd.DoMatchParen()
+      end
     end,
-    on_close = function() -- restore diagnostics, indent blankline, and winbar
+    on_close = function() -- restore diagnostics, indent blankline, winbar, and offscreen matchup
       vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
       vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
 
@@ -49,6 +58,11 @@ return {
 
       vim.api.nvim_clear_autocmds { group = "disable_winbar" }
       vim.wo.winbar = vim.g.winbar_old
+
+      if utils.is_available "vim-matchup" then
+        vim.g.matchup_matchparen_offscreen = vim.g.matchup_matchparen_offscreen_old
+        vim.cmd.DoMatchParen()
+      end
     end,
   },
 }
