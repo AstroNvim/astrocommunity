@@ -9,19 +9,28 @@ require("astrocore").set_mappings(maps)
 
 return {
   {
+    "AstroNvim/astrocore",
+    opts = {
+      mappings = {
+        n = {
+          [prefix .. "s"] = { "<cmd>lua require('spectre').open()<CR>", desc = "Spectre" },
+          [prefix .. "f"] = {
+            "<cmd>lua require('spectre').open_file_search()<CR>",
+            desc = "Spectre (current file)",
+          },
+        },
+        x = {
+          [prefix .. "w"] = {
+            "<cmd>lua require('spectre').open_visual({select_word=true})<CR>",
+            desc = "Spectre (current word)",
+          },
+        },
+      },
+    },
+  },
+  {
     "nvim-pack/nvim-spectre",
     cmd = "Spectre",
-    keys = {
-      { prefix .. "s", function() require("spectre").toggle() end, desc = "Toggle Spectre" },
-      {
-        prefix .. "w",
-        mode = "x",
-        function() require("spectre").open_visual { select_word = true } end,
-        desc = "Spectre (current word)",
-      },
-      { prefix .. "f", function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
-    },
-
     opts = function()
       return {
         mapping = {
