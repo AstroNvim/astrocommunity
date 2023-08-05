@@ -1,10 +1,13 @@
 local prefix = "<leader><leader>"
+local maps = { n = {} }
+local icon = vim.g.icons_enabled and "󰛢 " or ""
+maps.n[prefix] = { desc = icon .. "Grapple" }
+require("astronvim.utils").set_mappings(maps)
 return {
   "cbochs/grapple.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   cmd = { "Grapple" },
   keys = {
-    { prefix, desc = "Grapple" },
     { prefix .. "a", "<cmd>GrappleTag<CR>", desc = "Add file" },
     { prefix .. "d", "<cmd>GrappleUntag<CR>", desc = "Remove file" },
     { prefix .. "t", "<cmd>GrappleToggle<CR>", desc = "Toggle a file" },

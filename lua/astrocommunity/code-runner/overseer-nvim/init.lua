@@ -18,4 +18,9 @@ return {
     },
     opts = {},
   },
+  {
+    "catppuccin/nvim",
+    optional = true,
+    opts = { integrations = { overseer = true } },
+  },
 }

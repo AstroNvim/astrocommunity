@@ -5,7 +5,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "go")
+        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "go", "gomod", "gosum", "gowork")
       end
     end,
   },
@@ -40,7 +40,7 @@ return {
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function() require("go").setup() end,
+    opts = {},
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()',

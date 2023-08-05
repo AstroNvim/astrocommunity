@@ -91,16 +91,13 @@ return {
           },
         },
         handlers = {
-          ["language/status"] = function()
-            -- print(result)
-          end,
           ["$/progress"] = function()
             -- disable progress updates.
           end,
         },
         filetypes = { "java" },
         on_attach = function(client, bufnr)
-          require("jdtls").setup_dap()
+          require("jdtls").setup_dap { hotcodereplace = "auto" }
           require("astronvim.utils.lsp").on_attach(client, bufnr)
         end,
       }

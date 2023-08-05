@@ -51,7 +51,7 @@ return {
         if copilot.is_visible() then copilot.accept_line() end
       end)
 
-      opts.mapping["<C-j>"] = cmp.mapping(function()
+      opts.mapping["<C-n>"] = cmp.mapping(function()
         if copilot.is_visible() then copilot.accept_line() end
       end)
 

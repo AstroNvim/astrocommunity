@@ -1,7 +1,6 @@
 return {
   "ThePrimeagen/refactoring.nvim",
   dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
-  event = "User AstroFile",
   opts = {},
   keys = {
     {
@@ -10,6 +9,7 @@ return {
       { silent = true, expr = false },
       mode = {
         "v",
+        "x",
       },
       desc = "Extract Function",
     },
@@ -19,6 +19,7 @@ return {
       { silent = true, expr = false },
       mode = {
         "v",
+        "x",
       },
       desc = "Extract Function To File",
     },
@@ -28,6 +29,7 @@ return {
       { silent = true, expr = false },
       mode = {
         "v",
+        "x",
       },
       desc = "Extract Variable",
     },
@@ -36,7 +38,9 @@ return {
       [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
       { silent = true, expr = false },
       mode = {
+        "n",
         "v",
+        "x",
       },
       desc = "Inline Variable",
     },
@@ -59,13 +63,6 @@ return {
       desc = "Extract Block To File",
     },
     {
-      "<leader>ri",
-      function() require("refactoring").refactor "Inline Variable" end,
-      { silent = true, expr = false },
-      mode = { "n" },
-      desc = "Inline Variable",
-    },
-    {
       "<leader>rr",
       function() require("refactoring").select_refactor() end,
       { silent = true, expr = false },
@@ -78,13 +75,13 @@ return {
       desc = "Debug: Print Function",
     },
     {
-      "<leader>rv",
+      "<leader>rd",
       function() require("refactoring").debug.print_var { normal = true, below = false } end,
       mode = { "n" },
       desc = "Debug: Print Variable",
     },
     {
-      "<leader>rv",
+      "<leader>rd",
       function() require("refactoring").debug.print_var { below = false } end,
       mode = { "v" },
       desc = "Debug: Print Variable",
