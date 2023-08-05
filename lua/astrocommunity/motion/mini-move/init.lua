@@ -1,16 +1,25 @@
 return {
   {
-    "echasnovski/mini.move",
-    keys = {
-      { "<A-h>", mode = "n", desc = "Move line left" },
-      { "<A-j>", mode = "n", desc = "Move line down" },
-      { "<A-k>", mode = "n", desc = "Move line up" },
-      { "<A-l>", mode = "n", desc = "Move line right" },
-      { "<A-h>", mode = "v", desc = "Move selection left" },
-      { "<A-j>", mode = "v", desc = "Move selection down" },
-      { "<A-k>", mode = "v", desc = "Move selection up" },
-      { "<A-l>", mode = "v", desc = "Move selection right" },
+    "AstroNvim/astrocore",
+    opts = {
+      mappings = {
+        n = {
+          ["<A-h>"] = { desc = "Move line left" },
+          ["<A-j>"] = { desc = "Move line down" },
+          ["<A-k>"] = { desc = "Move line up" },
+          ["<A-l>"] = { desc = "Move line right" },
+        },
+        v = {
+          ["<A-h>"] = { desc = "Move selection left" },
+          ["<A-j>"] = { desc = "Move selection down" },
+          ["<A-k>"] = { desc = "Move selection up" },
+          ["<A-l>"] = { desc = "Move selection right" },
+        },
+      },
     },
+  },
+  {
+    "echasnovski/mini.move",
     opts = {
       mappings = {
         left = "<A-h>",
