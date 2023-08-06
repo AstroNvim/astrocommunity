@@ -1,5 +1,30 @@
 # Changelog
 
+## [3.4.0](https://github.com/AstroNvim/astrocommunity/compare/v3.3.0...v3.4.0) (2023-08-06)
+
+
+### Features
+
+* **editing-support:** add yanky.nvim ([#486](https://github.com/AstroNvim/astrocommunity/issues/486)) ([299fe33](https://github.com/AstroNvim/astrocommunity/commit/299fe33ca31e81d61716af4602f631434990fb3d))
+* **pack:** Add Scala language pack ([#501](https://github.com/AstroNvim/astrocommunity/issues/501)) ([b98fde2](https://github.com/AstroNvim/astrocommunity/commit/b98fde28477a38f18708c9222a0cffa6999f5b2d))
+* **pack:** Adding helm pack ([#496](https://github.com/AstroNvim/astrocommunity/issues/496)) ([f8fbe84](https://github.com/AstroNvim/astrocommunity/commit/f8fbe8404559e8314b4096cffa20e20c1f08fbfe))
+* **pack:** enable hot reloading in java and show java lsp progress ([#504](https://github.com/AstroNvim/astrocommunity/issues/504)) ([fbf40f4](https://github.com/AstroNvim/astrocommunity/commit/fbf40f402e4958e681d65d90276156ef11b2eda9))
+* **programming-language-support:** Add dooku.nvim ([#503](https://github.com/AstroNvim/astrocommunity/issues/503)) ([6deb350](https://github.com/AstroNvim/astrocommunity/commit/6deb3507274eb0410641d2050af5c1f8a8e929ad))
+* **zen-mode-nvim:** add integration with vim-matchup if enabled ([#485](https://github.com/AstroNvim/astrocommunity/issues/485)) ([4671c39](https://github.com/AstroNvim/astrocommunity/commit/4671c3978e132030f49c454a168a1f84e233ea06))
+
+
+### Bug Fixes
+
+* **go:** Add extra treesitter languages for Go ([#495](https://github.com/AstroNvim/astrocommunity/issues/495)) ([7d7f82a](https://github.com/AstroNvim/astrocommunity/commit/7d7f82aab2b41af9e17b14a05488ac78991e11df))
+* **multicursors-nvim:** support MCstart in visual mode ([#492](https://github.com/AstroNvim/astrocommunity/issues/492)) ([d5822bb](https://github.com/AstroNvim/astrocommunity/commit/d5822bb2fe3bed39b731e827f3c1c6e9bed0418c))
+* **neogit:** move check into code rather than docs ([#494](https://github.com/AstroNvim/astrocommunity/issues/494)) ([e365cdf](https://github.com/AstroNvim/astrocommunity/commit/e365cdf50e7edfce953b071d624283e326e710e4))
+* **refactoring-nvim:** add select mode to mappings. remove conflicting ([#499](https://github.com/AstroNvim/astrocommunity/issues/499)) ([c59b7a7](https://github.com/AstroNvim/astrocommunity/commit/c59b7a7c87aa451799b3949e71b8537ad152d33d))
+
+
+### Reverts
+
+* use `&lt;C-j&gt;` for copilot acceptance ([#507](https://github.com/AstroNvim/astrocommunity/issues/507)) ([213ddc3](https://github.com/AstroNvim/astrocommunity/commit/213ddc3a8fe586f665cbb4c5f9db3a23fae8ad59))
+
 ## [3.3.0](https://github.com/AstroNvim/astrocommunity/compare/v3.2.0...v3.3.0) (2023-07-23)
 
 
