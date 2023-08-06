@@ -18,6 +18,7 @@ return {
       "TelescopePrompt",
       "aerial",
       "alpha",
+      "checkhealth",
       "dapui-repl",
       "dapui_breakpoints",
       "dapui_console",
