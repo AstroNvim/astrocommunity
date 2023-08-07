@@ -1,5 +1,18 @@
 return {
-  { "akinsho/bufferline.nvim", event = "VeryLazy", opts = {} },
+  {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    opts = {
+      offsets = {
+        {
+          filetype = "neo-tree",
+          text = "Neo-tree",
+          highlight = "Directory",
+          text_align = "left",
+        },
+      },
+    },
+  },
   {
     "rebelot/heirline.nvim",
     optional = true,
