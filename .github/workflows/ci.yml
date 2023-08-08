@@ -1,14 +1,31 @@
-name: CI/CD
+name: AstroNvim
 on:
   push:
     branches: ["main"]
   pull_request:
 
 jobs:
+  scopes:
+    name: Calculate scopes
+    runs-on: ubuntu-latest
+    outputs:
+      scopes: ${{ steps.get-scopes.outputs.scopes }}
+    steps:
+      - uses: actions/checkout@v3
+      - id: get-scopes
+        run: |
+          echo "scopes<<EOF" >> $GITHUB_OUTPUT
+          find lua/astrocommunity -mindepth 1 -maxdepth 2 -type d -exec basename {} \; >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
   CI:
     uses: AstroNvim/.github/.github/workflows/plugin_ci.yml@main
     secrets: inherit
+    needs: scopes
     with:
       plugin_name: ${{ github.event.repository.name }}
       is_production: ${{ github.event_name == 'push' }}
       docs: false
+      spellcheck: false
+      commit_msg: false
+      pr_title: true
+      scopes: ${{ needs.scopes.outputs.scopes }}
