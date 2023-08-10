@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.5.0](https://github.com/AstroNvim/astrocommunity/compare/v3.4.0...v3.5.0) (2023-08-10)
+
+
+### Features
+
+* **cpp:** only load `clangd_extensions` when `clangd` attaches ([#516](https://github.com/AstroNvim/astrocommunity/issues/516)) ([ba3ea51](https://github.com/AstroNvim/astrocommunity/commit/ba3ea511fbc3fa8113485859681ce5fe3c2d6d4e))
+
+
+### Bug Fixes
+
+* **ansible:** use public API for getting buffer lines ([#514](https://github.com/AstroNvim/astrocommunity/issues/514)) ([3cda952](https://github.com/AstroNvim/astrocommunity/commit/3cda9522caae9f321c472e23d39a23e95b19f723))
+* **auto-save-nvim:** disable format on save when auto saving ([#511](https://github.com/AstroNvim/astrocommunity/issues/511)) ([ee65d95](https://github.com/AstroNvim/astrocommunity/commit/ee65d951937c34b636947b31905e7f98f675e472))
+* **cpp:** update clangd_extensions plugin to new setup process ([#513](https://github.com/AstroNvim/astrocommunity/issues/513)) ([3712618](https://github.com/AstroNvim/astrocommunity/commit/37126181ce621e4257478881ae21a1b54d2c048b))
+* **rust:** Lazy load crates.nvim on BufRead Cargo.toml event ([#515](https://github.com/AstroNvim/astrocommunity/issues/515)) ([cdd62c6](https://github.com/AstroNvim/astrocommunity/commit/cdd62c67e982f5857778b936456305afeb22795a))
+
 ## [3.4.0](https://github.com/AstroNvim/astrocommunity/compare/v3.3.0...v3.4.0) (2023-08-06)
 
 
