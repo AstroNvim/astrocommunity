@@ -26,7 +26,7 @@ return {
           end
         end,
       })
-      opts.server = require("astrolsp").config "denols"
+      opts.server = require("astrolsp").lsp_opts "denols"
       opts.server.root_dir = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
     end,
   },

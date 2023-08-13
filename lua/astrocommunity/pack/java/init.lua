@@ -97,9 +97,6 @@ return {
           },
         },
         handlers = {
-          ["language/status"] = function()
-            -- print(result)
-          end,
           ["$/progress"] = function()
             -- disable progress updates.
           end,

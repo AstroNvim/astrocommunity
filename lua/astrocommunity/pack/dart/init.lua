@@ -20,7 +20,7 @@ return {
     ft = "dart",
     opts = function()
       return {
-        lsp = require("astrolsp").config "dartls",
+        lsp = require("astrolsp").lsp_opts "dartls",
         debugger = { enabled = true },
       }
     end,

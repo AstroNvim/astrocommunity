@@ -1,4 +1,4 @@
-local utils = require "astronvim.utils"
+local utils = require "astrocore"
 
 return {
   {
@@ -28,7 +28,7 @@ return {
 
           local metals = require "metals"
 
-          local user_config = require("astronvim.utils.lsp").config "metals"
+          local user_config = require("astrolsp").lsp_opts "metals"
           local old_on_attach = user_config.on_attach
           user_config.on_attach = function(...)
             old_on_attach(...)

@@ -27,6 +27,6 @@ return {
   {
     "sigmasd/deno-nvim",
     ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-    opts = function() return { server = require("astrolsp").config "denols" } end,
+    opts = function() return { server = require("astrolsp").lsp_opts "denols" } end,
   },
 }
