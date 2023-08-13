@@ -67,6 +67,7 @@ return {
     dir = vim.env.HOME .. "/obsidian-vault", -- specify the vault location. no need to call 'vim.fn.expand' here
     use_advanced_uri = true,
     finder = "telescope.nvim",
+    mappings = {},
 
     templates = {
       subdir = "templates",

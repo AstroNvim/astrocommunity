@@ -22,7 +22,7 @@ return {
     init = function()
       local function yaml_ft(path, bufnr)
         -- get content of buffer as string
-        local content = vim.filetype.getlines(bufnr)
+        local content = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
         if type(content) == "table" then content = table.concat(content, "\n") end
 
         -- check if file is in roles, tasks, or handlers folder

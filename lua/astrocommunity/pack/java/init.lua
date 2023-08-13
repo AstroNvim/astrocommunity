@@ -87,7 +87,45 @@ return {
         },
         root_dir = root_dir,
         settings = {
-          java = {},
+          java = {
+            eclipse = {
+              downloadSources = true,
+            },
+            configuration = {
+              updateBuildConfiguration = "interactive",
+            },
+            maven = {
+              downloadSources = true,
+            },
+
+            implementationsCodeLens = {
+              enabled = true,
+            },
+            referencesCodeLens = {
+              enabled = true,
+            },
+          },
+          signatureHelp = {
+
+            enabled = true,
+          },
+          completion = {
+            favoriteStaticMembers = {
+              "org.hamcrest.MatcherAssert.assertThat",
+              "org.hamcrest.Matchers.*",
+              "org.hamcrest.CoreMatchers.*",
+              "org.junit.jupiter.api.Assertions.*",
+              "java.util.Objects.requireNonNull",
+              "java.util.Objects.requireNonNullElse",
+              "org.mockito.Mockito.*",
+            },
+          },
+          sources = {
+            organizeImports = {
+              starThreshold = 9999,
+              staticStarThreshold = 9999,
+            },
+          },
         },
         init_options = {
           bundles = {
@@ -97,17 +135,14 @@ return {
           },
         },
         handlers = {
-          ["language/status"] = function()
-            -- print(result)
-          end,
           ["$/progress"] = function()
             -- disable progress updates.
           end,
         },
         filetypes = { "java" },
         on_attach = function(client, bufnr)
-          require("jdtls").setup_dap()
-          require("astrolsp").on_attach(client, bufnr)
+          require("jdtls").setup_dap { hotcodereplace = "auto" }
+          require("astronvim.utils.lsp").on_attach(client, bufnr)
         end,
       }
 

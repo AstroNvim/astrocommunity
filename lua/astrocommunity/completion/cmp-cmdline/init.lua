@@ -1,22 +1,28 @@
-local cmp = require "cmp"
-
 return {
   "hrsh7th/cmp-cmdline",
-  lazy = false,
-  opts = {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = "path" },
-    }, {
-      {
-        name = "cmdline",
-        option = {
-          ignore_cmds = { "Man", "!" },
+  opts = function()
+    local cmp_mapping = require "cmp.config.mapping"
+    local cmp_sources = require "cmp.config.sources"
+
+    return {
+      mapping = cmp_mapping.preset.cmdline(),
+      sources = cmp_sources({
+        { name = "path" },
+      }, {
+        {
+          name = "cmdline",
+          option = {
+            ignore_cmds = { "Man", "!" },
+          },
         },
-      },
-    }, {
-      { name = "buffer" },
-    }),
-  },
+      }, {
+        { name = "buffer" },
+      }),
+    }
+  end,
   config = function(_, opts) require("cmp").setup.cmdline(":", opts) end,
+  dependencies = {
+    "nvim-cmp",
+  },
+  event = { "CmdlineEnter" },
 }
