@@ -29,6 +29,7 @@ return {
       "lazy",
       "mason",
       "neo-tree",
+      "neo-tree-popup",
       "netrw",
       "noice",
       "notify",
