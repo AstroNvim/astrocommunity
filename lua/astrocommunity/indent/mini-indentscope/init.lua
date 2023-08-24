@@ -14,6 +14,8 @@ return {
           "neo-tree",
           "lazy",
           "lspinfo",
+          "man",
+          "checkhealth",
           "mason",
           "notify",
           "null-ls-info",
