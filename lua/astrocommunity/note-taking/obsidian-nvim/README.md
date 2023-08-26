@@ -16,5 +16,8 @@ and
 
 to match your vault location. 
 
+We set `mappings` to an empty table, because `gf` is used for lazy loading in `keys`  
+if you don't want `gf` for lazy loading, you should remove `keys` and `mappings` tables
+
 
 The plugin may also nag and ask you to create a `templates` directory in the vault. You can use `mkdir templates` to create an empty directory.
