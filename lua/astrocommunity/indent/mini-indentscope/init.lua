@@ -26,6 +26,14 @@ return {
         },
         callback = function() vim.b.miniindentscope_disable = true end,
       })
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "*" },
+        callback = function()
+          if vim.tbl_contains({ "nofile", "prompt", "quickfix", "terminal" }, vim.bo["buftype"]) then
+            vim.b.miniindentscope_disable = true
+          end
+        end,
+      })
     end,
   },
   {
