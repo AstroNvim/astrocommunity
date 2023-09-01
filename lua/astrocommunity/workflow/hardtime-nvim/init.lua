@@ -25,6 +25,8 @@ return {
       "dapui_scopes",
       "dapui_stacks",
       "dapui_watches",
+      "DressingInput",
+      "DressingSelect",
       "help",
       "lazy",
       "mason",
