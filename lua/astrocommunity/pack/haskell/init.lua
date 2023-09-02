@@ -18,9 +18,13 @@ return {
     },
     branch = "2.x.x", -- Recommended
     init = function() -- Optional, see Advanced configuration
+      utils.list_insert_unique(astronvim.lsp.skip_setup, "hls")
       vim.g.haskell_tools = {
         hls = {
-          on_attach = function(client, bufnr) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
+          on_attach = function(client, bufnr, ht) 
+            require("astronvim.utils.lsp").on_attach(client, bufnr)
+            ht.dap.discover_configurations(bufnr)
+          end,
         },
       }
     end,
