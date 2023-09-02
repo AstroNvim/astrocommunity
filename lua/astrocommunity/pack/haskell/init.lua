@@ -12,33 +12,25 @@ return {
   },
   {
     "mrcjkb/haskell-tools.nvim",
-    ft = { "haskell" },
-    branch = "1.x.x", -- recommended by haskell-tools
-    init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "hls") end,
-    opts = {
-      hls = {
-        on_attach = function(client, bufnr) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
-      },
-    },
-    config = function(_, opts)
-      local tools = require "haskell-tools"
-      vim.api.nvim_create_autocmd("Filetype", {
-        pattern = "haskell", -- autocmd to start haskell-tools
-        callback = function() tools.start_or_attach(opts) end,
-      })
-
-      vim.api.nvim_create_autocmd("LspAttach", {
-        pattern = "*.hs", -- autocmd to start haskell-tools
-        callback = function(args)
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if client.name == "haskell-tools.nvim" then tools.dap.discover_configurations(args.buf) end
-        end,
-      })
-    end,
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim", -- optional
+      "nvim-telescope/telescope.nvim", -- Optional
     },
+    branch = "2.x.x", -- Recommended
+    init = function() -- Optional, see Advanced configuration
+      vim.g.haskell_tools = {
+        tools = {
+          -- ...
+        },
+        hls = {
+          ---@param ht is a copy of the haskell-tools module
+          on_attach = function(client, bufnr, ht) end,
+          -- ...
+        },
+      }
+    end,
+    -- load the plugin when opening one of the following file types
+    ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
   },
   {
     "williamboman/mason-lspconfig.nvim",
