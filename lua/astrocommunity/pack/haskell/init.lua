@@ -19,13 +19,8 @@ return {
     branch = "2.x.x", -- Recommended
     init = function() -- Optional, see Advanced configuration
       vim.g.haskell_tools = {
-        tools = {
-          -- ...
-        },
         hls = {
-          ---@param ht is a copy of the haskell-tools module
-          on_attach = function(client, bufnr, ht) end,
-          -- ...
+          on_attach = function(client, bufnr) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
         },
       }
     end,
