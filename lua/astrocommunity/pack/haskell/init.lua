@@ -21,7 +21,7 @@ return {
       utils.list_insert_unique(astronvim.lsp.skip_setup, "hls")
       vim.g.haskell_tools = {
         hls = {
-          on_attach = function(client, bufnr, ht) 
+          on_attach = function(client, bufnr, ht)
             require("astronvim.utils.lsp").on_attach(client, bufnr)
             ht.dap.discover_configurations(bufnr)
           end,
