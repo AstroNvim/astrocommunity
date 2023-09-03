@@ -30,6 +30,7 @@ return {
       "help",
       "lazy",
       "mason",
+      "minifiles",
       "neo-tree",
       "neo-tree-popup",
       "netrw",
