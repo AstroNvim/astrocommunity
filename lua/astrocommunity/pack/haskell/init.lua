@@ -14,11 +14,11 @@ return {
     "mrcjkb/haskell-tools.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim", -- Optional
+      { "nvim-telescope/telescope.nvim", optional = true }, -- Optional
     },
     branch = "2.x.x", -- Recommended
     init = function() -- Optional, see Advanced configuration
-      utils.list_insert_unique(astronvim.lsp.skip_setup, "hls")
+      astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "hls")
       vim.g.haskell_tools = {
         hls = {
           on_attach = function(client, bufnr, ht)
