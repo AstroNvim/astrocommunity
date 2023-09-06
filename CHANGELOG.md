@@ -1,5 +1,21 @@
 # Changelog
 
+## [4.1.0](https://github.com/AstroNvim/astrocommunity/compare/v4.0.0...v4.1.0) (2023-09-06)
+
+
+### Features
+
+* **pack:** Add zig pack ([#557](https://github.com/AstroNvim/astrocommunity/issues/557)) ([086f3c7](https://github.com/AstroNvim/astrocommunity/commit/086f3c78be03b58416fbd1248dcdc70f3d4c67d1))
+
+
+### Bug Fixes
+
+* **hardtime-nvim:** disable hardtime-nvim on dressing-nvim fts ([#549](https://github.com/AstroNvim/astrocommunity/issues/549)) ([177f8f4](https://github.com/AstroNvim/astrocommunity/commit/177f8f4dd0cf8e0e00c52f651e88dc5b7dcde63c))
+* **haskell:** Update `haskell-tools.nvim` to v2.0.0 ([#553](https://github.com/AstroNvim/astrocommunity/issues/553)) ([ffca0d7](https://github.com/AstroNvim/astrocommunity/commit/ffca0d776490966321193cd8796aa15c715a9a71))
+* **python:** Adds Imports Sorting with isort to the Python Pack ([#551](https://github.com/AstroNvim/astrocommunity/issues/551)) ([2fe93b3](https://github.com/AstroNvim/astrocommunity/commit/2fe93b36b552a391f49fb283eafa7bf415e73a49))
+* **yanky-nvim:** Fix yanky.nvim loading when restoring session ([#555](https://github.com/AstroNvim/astrocommunity/issues/555)) ([e35186e](https://github.com/AstroNvim/astrocommunity/commit/e35186e965770c614f38582c55bb70fe3e7070d4))
+* **zen-mode-nvim:** disable global winbar upon entering zen mode ([#554](https://github.com/AstroNvim/astrocommunity/issues/554)) ([bb52899](https://github.com/AstroNvim/astrocommunity/commit/bb528993675119e4392acd1aea2b1691d5791005))
+
 ## [4.0.0](https://github.com/AstroNvim/astrocommunity/compare/v3.6.0...v4.0.0) (2023-08-30)
 
 
