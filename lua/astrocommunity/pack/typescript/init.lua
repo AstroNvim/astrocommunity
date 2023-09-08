@@ -72,7 +72,8 @@ return {
       end
 
       local has_eslint = function(util)
-        return util.root_has_file ".eslintrc.js"
+        return util.root_has_file ".eslintrc"
+          or util.root_has_file ".eslintrc.js"
           or util.root_has_file ".eslintrc.cjs"
           or util.root_has_file ".eslintrc.yaml"
           or util.root_has_file ".eslintrc.yml"
