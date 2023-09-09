@@ -11,4 +11,4 @@ This plugin pack does the following:
 
 - Adds `zig` Treesitter parsers
 - Adds `zls` language server
-- Adds [zig-tools.nvim](https://github.com/NTBBloodbath/zig-tools.nvim)
+- Adds [zig-tools.nvim](https://codeberg.org/NTBBloodbath/zig-tools.nvim)
