@@ -1,7 +1,8 @@
 local utils = require "astronvim.utils"
 
 return {
-  "folke/zen-mode.nvim",
+  -- TODO: switch back to folke's repo when it's maintained again
+  "Subjective/zen-mode.nvim",
   cmd = "ZenMode",
   opts = {
     window = {
