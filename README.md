@@ -193,7 +193,7 @@ return {
   },
   { import = "astrocommunity.completion.copilot-lua" },
   { -- further customize the options set by the community
-    "copilot.lua",
+    "zbirenbaum/copilot.lua",
     opts = {
       suggestion = {
         keymap = {
