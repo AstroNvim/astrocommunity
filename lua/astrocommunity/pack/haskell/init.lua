@@ -21,7 +21,6 @@ return {
     init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "hls") end,
     opts = function(_, opts)
       -- this allows users to pass opts through an opts table in community.lua
-      opts = opts or {}
       local defaults = {
         hls = {
           on_attach = function(client, bufnr, _) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
