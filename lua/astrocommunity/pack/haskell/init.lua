@@ -26,8 +26,7 @@ return {
           on_attach = function(client, bufnr, _) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
         },
       }
-      opts = vim.tbl_deep_extend("keep", opts, defaults)
-      return opts
+      return vim.tbl_deep_extend("keep", opts, defaults)
     end,
     config = function(_, opts)
       -- haskell-tools reads this config the first time `require('haskell-tools')` is called,
