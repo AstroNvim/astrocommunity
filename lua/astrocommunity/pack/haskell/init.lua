@@ -14,22 +14,20 @@ return {
     "mrcjkb/haskell-tools.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope.nvim", optional = true }, -- Optional
+      { "nvim-telescope/telescope.nvim", optional = true },
+      { "mfussenegger/nvim-dap", optional = true },
     },
-    branch = "2.x.x", -- Recommended
-    init = function() -- Optional, see Advanced configuration
-      astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "hls")
-      vim.g.haskell_tools = {
-        hls = {
-          on_attach = function(client, bufnr, ht)
-            require("astronvim.utils.lsp").on_attach(client, bufnr)
-            ht.dap.discover_configurations(bufnr)
-          end,
-        },
-      }
-    end,
+    version = "^2",
     -- load the plugin when opening one of the following file types
     ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
+    init = function()
+      astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "hls")
+      vim.g.haskell_tools = vim.tbl_deep_extend("keep", vim.g.haskell_tools or {}, {
+        hls = {
+          on_attach = function(client, bufnr, _) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
+        },
+      })
+    end,
   },
   {
     "williamboman/mason-lspconfig.nvim",

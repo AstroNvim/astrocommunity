@@ -15,7 +15,7 @@ return {
   },
 
   {
-    "NTBBloodbath/zig-tools.nvim",
+    "https://codeberg.org/NTBBloodbath/zig-tools.nvim",
     -- Load zig-tools.nvim only in Zig buffers
     ft = { "zig" },
     opts = {},
