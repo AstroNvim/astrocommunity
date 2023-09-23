@@ -3,7 +3,9 @@ return {
     "Astronvim/astrocore",
     opts = {
       mappings = {
-        ["<leader>uT"] = { "<cmd>Twilight<cr>", desc = "Toggle Twilight" },
+        n = {
+          ["<leader>uT"] = { "<cmd>Twilight<cr>", desc = "Toggle Twilight" },
+        },
       },
     },
   },
