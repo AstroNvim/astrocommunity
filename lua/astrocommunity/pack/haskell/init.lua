@@ -1,5 +1,5 @@
 local utils = require "astrocore"
-local lsp_utils = require "astrolsp"
+
 return {
   { import = "astrocommunity.pack.yaml" }, -- stack.yaml
   { import = "astrocommunity.pack.json" }, -- hls.json

@@ -1,7 +1,11 @@
 local prefix = "<leader><leader>"
 local icon = vim.g.icons_enabled and "󰛢 " or ""
+local maps = { n = {}, x = {} }
+
 maps.n[prefix] = { desc = icon .. "Grapple" }
+
 require("astrocore").set_mappings(maps)
+
 return {
   {
     "AstroNvim/astrocore",
