@@ -3,9 +3,11 @@ return {
     "AstroNvim/astrocore",
     opts = {
       mappings = {
-        ["<leader>uC"] = { "<cmd>CccHighlighterToggle<cr>", desc = "Toggle colorizer" },
-        ["<leader>zc"] = { "<cmd>CccConvert<cr>", desc = "Convert color" },
-        ["<leader>zp"] = { "<cmd>CccPick<cr>", desc = "Pick Color" },
+        n = {
+          ["<leader>uC"] = { "<cmd>CccHighlighterToggle<cr>", desc = "Toggle colorizer" },
+          ["<leader>zc"] = { "<cmd>CccConvert<cr>", desc = "Convert color" },
+          ["<leader>zp"] = { "<cmd>CccPick<cr>", desc = "Pick Color" },
+        },
       },
     },
   },
