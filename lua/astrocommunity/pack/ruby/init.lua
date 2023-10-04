@@ -19,10 +19,6 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-    dependencies = {
-      "suketa/nvim-dap-ruby",
-      name = "dap-ruby",
-      opts = {},
-    },
+    dependencies = { "suketa/nvim-dap-ruby", config = true },
   },
 }
