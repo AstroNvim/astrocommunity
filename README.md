@@ -1,5 +1,5 @@
 <div align="center" id="madewithlua">
-    <img src="https://astronvim.com/img/logo/astronvim.svg" width="110", height="100">
+    <img src="https://astronvim.com/logo/astronvim.svg" width="110", height="100">
 </div>
 
 <h1 align="center">AstroNvim Community Repository</h1>
@@ -146,7 +146,7 @@ This repository contains plugin configuration specifications, a collection of co
 ## 📦 Setup
 
 Add the following to your `plugins` configuration, either in your `user/init.lua` file or in a file in `user/plugins/` folder such as `user/plugins/community.lua`
-If you're not sure what folders we are talking about it is recommended to read [AstroNvim Readme](https://astronvim.com/Configuration/manage_user_config).
+If you're not sure what folders we are talking about it is recommended to read [AstroNvim Readme](https://docs.astronvim.com/Configuration/manage_user_config).
 
 ### `user/init.lua` example
 
@@ -218,10 +218,10 @@ return {
 }
 ```
 
-**Note:** 
+**Note:**
+
 - You can disable imports by setting the enabled option to false. Also, you have two options to modify an existing plugin: you can use the full repository name, like "m4xshen/smartcolumn.nvim", or the module name, like "catppuccin". Keep in mind that the module name may differ from the folder name.
 - We advise you to avoid using shorthands whenever importing a plugin to further customize it. Use the full import path.
-
 
 ## Contributing
 
