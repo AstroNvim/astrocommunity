@@ -141,7 +141,7 @@ Category Colors:
 #b7bdf8: pack
 -->
 
-AstroNvim's community repository contains plugin configuration specifications—a collection of plugins contributed by the community for AstroNvim, a NeoVim configuration. These specifications help manage the variety of plugins used in AstroNvim.
+AstroNvim's community repository contains plugin configuration specifications — a collection of plugins contributed by the community for AstroNvim, a NeoVim configuration. These specifications help manage the variety of plugins used in AstroNvim.
 
 ## 📦 Setup
 
