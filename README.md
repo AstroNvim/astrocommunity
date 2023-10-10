@@ -222,4 +222,4 @@ return {
 
 ## Contributing
 
-If you've crafted a plugin configuration and wish to share it with the AstroCommunity, please follow our [Contribution Guidelines](./CONTRIBUTING.md) and submit a pull request. Ensure you've rigorously tested your changes before submission. As this isn't an official repository, its stability relies on community contributions. We're excited to see how it evolves!
+If you've written a plugin configuration and wish to add it with the AstroCommunity repository, please follow our [Contribution Guidelines](./CONTRIBUTING.md) and submit a pull request. Ensure you've rigorously tested your changes before submission. This isn't an official repository, so its stability relies on community contributions. We're excited to see how this project grows and evolves!
