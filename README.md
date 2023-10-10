@@ -141,16 +141,14 @@ Category Colors:
 #b7bdf8: pack
 -->
 
-This repository contains plugin configuration specifications, a collection of community-contributed plugins for AstroNvim, a neovim configuration by AstroNvim. The configuration specs are used to manage the various plugins that are used in AstroNvim.
+AstroNvim's community repository contains plugin configuration specifications — a collection of plugins contributed by the community for AstroNvim, a NeoVim configuration. These specifications help manage the variety of plugins used in AstroNvim.
 
 ## 📦 Setup
 
-Add the following to your `plugins` configuration, either in your `user/init.lua` file or in a file in `user/plugins/` folder such as `user/plugins/community.lua`
-If you're not sure what folders we are talking about it is recommended to read [AstroNvim Readme](https://docs.astronvim.com/Configuration/manage_user_config).
-
+To integrate the community plugins, add the provided configurations to your `plugins` setup. This can be done in your `user/init.lua` file or within a dedicated file in the `user/plugins/` directory. If you're unfamiliar with these directories, we recommend referring to the [AstroNvim documentation](https://docs.astronvim.com/Configuration/manage_user_config).
 ### `user/init.lua` example
 
-Put the following in your `user/init.lua` file:
+Integrate the following content within your `user/init.lua`:
 
 ```lua
 return {
@@ -164,7 +162,7 @@ return {
 
 ### `user/plugins/community.lua` example
 
-If you prefer to organize your plugins in the `user/plugins` folder, you can create a file named `community.lua` (any Lua file in this folder will be loaded). Here’s an full example of what the file could look like:
+If you prefer to separate your plugins in the `user/plugins` folder, consider creating a file named `community.lua`. All Lua files in this directory will be automatically loaded. Below is a comprehensive example:
 
 ```lua
 return {
@@ -218,11 +216,10 @@ return {
 }
 ```
 
-**Note:**
-
-- You can disable imports by setting the enabled option to false. Also, you have two options to modify an existing plugin: you can use the full repository name, like "m4xshen/smartcolumn.nvim", or the module name, like "catppuccin". Keep in mind that the module name may differ from the folder name.
-- We advise you to avoid using shorthands whenever importing a plugin to further customize it. Use the full import path.
+**Notes:**
+- To disable imports, set the `enabled` option to `false`. You have two approaches to modify an existing plugin: use the full repository name (e.g., "m4xshen/smartcolumn.nvim") or the module name (e.g., "catppuccin"). Remember, the module name might differ from the folder name.
+- It's recommended to use the full import path when customizing a plugin, and not the shorthand notation of just the repository name.
 
 ## Contributing
 
-If you have a plugin configuration that you would like to add to the AstroCommunity repository, read through our [Contribution Guidelines](./CONTRIBUTING.md) and make a pull request to the repository. Be sure to test your changes thoroughly before submitting the pull request as this is not an officially supported or maintained repository and will be up to the community to be stable. We are looking forward to see where this builds to!
+If you've written a plugin configuration and wish to add it with the AstroCommunity repository, please follow our [Contribution Guidelines](./CONTRIBUTING.md) and submit a pull request. Ensure you've rigorously tested your changes before submission. This isn't an official repository, so its stability relies on community contributions. We're excited to see how this project grows and evolves!
