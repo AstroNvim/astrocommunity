@@ -218,7 +218,7 @@ return {
 
 **Notes:**
 - To disable imports, set the `enabled` option to `false`. You have two approaches to modify an existing plugin: use the full repository name (e.g., "m4xshen/smartcolumn.nvim") or the module name (e.g., "catppuccin"). Remember, the module name might differ from the folder name.
-- It's recommended to use the full import path when customizing a plugin, instead of shorthand.
+- It's recommended to use the full import path when customizing a plugin, and not the shorthand notation of just the repository name.
 
 ## Contributing
 
