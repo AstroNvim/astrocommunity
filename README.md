@@ -145,7 +145,7 @@ AstroNvim's community repository contains plugin configuration specifications â€
 
 ## ðŸ“¦ Setup
 
-To integrate the community plugins, add the provided configurations to your `plugins` setup. This can be done in your `user/init.lua` file or within a dedicated file in the `user/plugins/` directory. If you're unfamiliar with these directories, we recommend referring to the [AstroNvim Readme](https://docs.astronvim.com/Configuration/manage_user_config).
+To integrate the community plugins, add the provided configurations to your `plugins` setup. This can be done in your `user/init.lua` file or within a dedicated file in the `user/plugins/` directory. If you're unfamiliar with these directories, we recommend referring to the [AstroNvim documentation](https://docs.astronvim.com/Configuration/manage_user_config).
 ### `user/init.lua` example
 
 Integrate the following content within your `user/init.lua`:
