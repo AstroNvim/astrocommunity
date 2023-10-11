@@ -10,7 +10,9 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "pyright" }) end,
+    opts = function(_, opts)
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "pyright", "ruff_lsp" })
+    end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
