@@ -3,9 +3,8 @@
 This plugin pack does the following:
 
 - Adds `typescript`, `javascript`, and `tsx` Treesitter parsers
-- Adds `tsserver` language server
+- Adds `tsserver` and `vscode-eslint` language server
 - Adds `prettierd` formatter
-- Adds `eslint_d` linter
 - Adds [JSON language support](../json)
 - Adds support for dap for JS
 - Adds [typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim) for language specific tooling
