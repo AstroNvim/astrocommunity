@@ -7,21 +7,22 @@
 2. Install Xcode Device Simulators:
    To enable simulator functionality from within Neovim, you need to have Xcode Device Simulators installed on your machine. You can install these simulators from Xcode.
 
-3. Configure the Plugin Options (`opts` table):
-   To run the simulator from within Neovim, you'll need to configure the plugin's `opts` table. Add the name of the desired simulator device to the `opts` table in your Neovim configuration. Here's an example:
-   Refer to [xBase](https://github.com/kkharji/xbase#neovim-3) documentation for more details on options that can be passed to the plugin.
+3. Mappings:
+   The default mappings for the xbase plugin overlap with AstroNvim's default. Therefore, you should set the mappings yourself.
+   Refer to [xBase](https://github.com/kkharji/xbase#neovim-3) documentation for more options.
 
 ```lua
 opts = {
   -- ... (other options)
 
-  simctl = {
-    iOS = {
-      -- "iPhone 15", -- Uncomment and specify the devices you want to include
-      -- Add more iOS devices as needed, e.g., "iPhone 12", "iPad Pro (11-inch)", etc.
-    },
-    watchOS = {},
-    tvOS = {},
+  mappings = {
+    enable = true,
+    build_picker = "<leader>rb", -- Set to 0 to disable
+    run_picker = "<leader>ra", -- Set to 0 to disable
+    watch_picker = 0, -- Set to 0 to disable
+    all_picker = 0, -- Set to 0 to disable
+    toggle_split_log_buffer = 0,
+    toggle_vsplit_log_buffer = "<leader>rs",
   },
 
   -- ... (other options)
