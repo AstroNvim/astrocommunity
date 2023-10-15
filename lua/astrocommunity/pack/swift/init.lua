@@ -15,4 +15,15 @@ return {
     },
     init = function() require("astronvim.utils.lsp").setup "sourcekit-lsp" end,
   },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = function(_, opts)
+      local nls = require "null-ls"
+      if type(opts.sources) == "table" then
+        vim.list_extend(opts.sources, {
+          nls.builtins.formatting.swift_format,
+        })
+      end
+    end,
+  },
 }
