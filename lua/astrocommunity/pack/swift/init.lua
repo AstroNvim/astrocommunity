@@ -1,3 +1,5 @@
+local utils = require "astronvim.utils"
+
 return {
   {
     "xbase-lab/xbase",
@@ -25,5 +27,17 @@ return {
         })
       end
     end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "swift")
+      end
+    end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,
   },
 }
