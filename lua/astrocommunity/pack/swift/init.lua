@@ -1,6 +1,11 @@
 return {
   {
     "xbase-lab/xbase",
+    ft = {
+      "swift",
+      "objcpp",
+      "objc",
+    },
     run = "make install", -- or "make install && make free_space" (not recommended, longer build time)
     dependencies = {
       "neovim/nvim-lspconfig",
