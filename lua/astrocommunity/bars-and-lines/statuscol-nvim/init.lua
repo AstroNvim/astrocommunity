@@ -1,5 +1,10 @@
 return {
-  { "luukvbaal/statuscol.nvim", lazy = false, opts = {} },
+  {
+    "luukvbaal/statuscol.nvim",
+    event = "User AstroFile",
+    lazy = vim.fn.argv()[1] == nil,
+    opts = {},
+  },
   {
     "rebelot/heirline.nvim",
     optional = true,
