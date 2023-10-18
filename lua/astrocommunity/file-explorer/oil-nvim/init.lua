@@ -1,5 +1,6 @@
 return {
   "stevearc/oil.nvim",
+  lazy = false,
   opts = {},
   enabled = true,
   cmd = "Oil",
