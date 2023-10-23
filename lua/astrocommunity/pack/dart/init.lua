@@ -1,4 +1,5 @@
 local utils = require "astronvim.utils"
+local astronvim = require "astronvim"
 return {
   { import = "astrocommunity.pack.yaml" },
   {
