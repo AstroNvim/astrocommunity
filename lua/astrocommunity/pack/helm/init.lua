@@ -11,7 +11,7 @@ return {
           require("nvim-treesitter.parsers").get_parser_configs().gotmpl = {
             install_info = {
               url = vim.fn.stdpath "data" .. "/lazy/tree-sitter-go-template",
-              files = "src/parser.c",
+              files = { "src/parser.c" },
             },
             filetype = "helm",
           }
