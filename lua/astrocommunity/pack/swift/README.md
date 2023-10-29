@@ -1,5 +1,7 @@
 # Swift Language Pack
 
+## Note: xbase is a WIP plugin, and the experience provided by this plugin might be lackluster
+
 **Requirements:**
 
 1. Make sure you have [sourcekit-lsp](https://github.com/apple/sourcekit-lsp) installed on your machine.
