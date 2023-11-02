@@ -1,13 +1,26 @@
 name: AstroNvim
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   pull_request:
+  pull_request_target:
+    types: [opened, edited, synchronize]
 
 jobs:
+  CI:
+    uses: AstroNvim/.github/.github/workflows/plugin_ci.yml@main
+    if: ${{ github.event_name != 'pull_request_target' }}
+    secrets: inherit
+    with:
+      plugin_name: ${{ github.event.repository.name }}
+      is_production: ${{ github.event_name == 'push' }}
+      docs: false
+      spellcheck: false
+      commit_msg: false
   scopes:
     name: Calculate scopes
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request_target' }}
     outputs:
       scopes: ${{ steps.get-scopes.outputs.scopes }}
     steps:
@@ -17,15 +30,11 @@ jobs:
           echo "scopes<<EOF" >> $GITHUB_OUTPUT
           find lua/astrocommunity -mindepth 1 -maxdepth 2 -type d -exec basename {} \; >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-  CI:
-    uses: AstroNvim/.github/.github/workflows/plugin_ci.yml@main
-    secrets: inherit
+  PR:
+    uses: AstroNvim/.github/.github/workflows/validate_pr.yml@main
     needs: scopes
+    if: ${{ github.event_name == 'pull_request_target' }}
+    secrets: inherit
     with:
-      plugin_name: ${{ github.event.repository.name }}
-      is_production: ${{ github.event_name == 'push' }}
-      docs: false
-      spellcheck: false
-      commit_msg: false
-      pr_title: true
+      conventional_title: true
       scopes: ${{ needs.scopes.outputs.scopes }}

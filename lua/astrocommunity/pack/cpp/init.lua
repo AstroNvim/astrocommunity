@@ -13,10 +13,6 @@ return {
     opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "clangd") end,
   },
   {
-    "jay-babu/mason-null-ls.nvim",
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "clang-format") end,
-  },
-  {
     "p00f/clangd_extensions.nvim",
     init = function()
       -- load clangd extensions when clangd attaches
