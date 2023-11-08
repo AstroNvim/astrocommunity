@@ -1,15 +1,5 @@
-local utils = require "astrocore"
+local utils = require "astronvim.utils"
 return {
-  {
-    "AstroNvim/astrocore",
-    opts = {
-      mappings = {
-        n = {
-          ["<leader>lv"] = { "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" },
-        },
-      },
-    },
-  },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -20,13 +10,13 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "pyright" }) end,
+    opts = function(_, opts)
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "pyright", "ruff_lsp" })
+    end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "black", "isort" })
-    end,
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "ruff" }) end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
@@ -39,6 +29,7 @@ return {
   {
     "linux-cultist/venv-selector.nvim",
     opts = {},
+    keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
   {
     "mfussenegger/nvim-dap-python",

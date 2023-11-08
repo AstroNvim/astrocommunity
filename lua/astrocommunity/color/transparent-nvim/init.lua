@@ -37,6 +37,7 @@ return {
         "NonText",
         "SignColumn",
         "CursorLineNr",
+        "CursorLine",
         "EndOfBuffer",
       },
       -- table: additional groups that should be cleared

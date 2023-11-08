@@ -1,5 +1,44 @@
 # Changelog
 
+## [5.0.0](https://github.com/AstroNvim/astrocommunity/compare/v4.1.0...v5.0.0) (2023-10-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **pack:** Split python pack into python and python-ruff ([#603](https://github.com/AstroNvim/astrocommunity/issues/603))
+* **transparent-nvim:** Move transparent-nvim to right folder.
+* **transparent-nvim:** moved to the `color` category ([#568](https://github.com/AstroNvim/astrocommunity/issues/568))
+
+### Features
+
+* **colorscheme:** add nordic ([23dc5e5](https://github.com/AstroNvim/astrocommunity/commit/23dc5e52af855782d7e02a595bba13ea41936a99))
+* **colorscheme:** Add nordic.nvim ([#595](https://github.com/AstroNvim/astrocommunity/issues/595)) ([23dc5e5](https://github.com/AstroNvim/astrocommunity/commit/23dc5e52af855782d7e02a595bba13ea41936a99))
+* **pack:** java. enable niceities with jdtls and downloading source … ([#524](https://github.com/AstroNvim/astrocommunity/issues/524)) ([8284d88](https://github.com/AstroNvim/astrocommunity/commit/8284d88f397a59a6412c91f001b3dea5b79cdf64))
+* **pack:** java. enable niceities with jdtls and downloading source code from libraries ([8284d88](https://github.com/AstroNvim/astrocommunity/commit/8284d88f397a59a6412c91f001b3dea5b79cdf64))
+* **pack:** Split python pack into python and python-ruff ([#603](https://github.com/AstroNvim/astrocommunity/issues/603)) ([e0615a4](https://github.com/AstroNvim/astrocommunity/commit/e0615a43b05237deb13cad1029b6be66a1611272))
+* **pack:** update Zig url ([#564](https://github.com/AstroNvim/astrocommunity/issues/564)) ([877c949](https://github.com/AstroNvim/astrocommunity/commit/877c9490a6ba0d433ec7b5f28601a6a1ead27bcf))
+* **typescript:** Swap out eslint_d with eslint-lsp ([#600](https://github.com/AstroNvim/astrocommunity/issues/600)) ([54a0988](https://github.com/AstroNvim/astrocommunity/commit/54a0988e619e41099c5243fd4e9df672db575522))
+
+
+### Bug Fixes
+
+* fix [#596](https://github.com/AstroNvim/astrocommunity/issues/596); Fix indent-blankline configuration to match the new plugin requirements ([7bd974c](https://github.com/AstroNvim/astrocommunity/commit/7bd974c38ba7197201ba9bafdaafc4c318ad7a06))
+* **hardtime-nvim:** call enable() explicitly, remove redundant keys ([#589](https://github.com/AstroNvim/astrocommunity/issues/589)) ([d79add3](https://github.com/AstroNvim/astrocommunity/commit/d79add350bddcae4fea04a5c0ace8d619037cf98))
+* **haskell:** make haskell-tools respect the `options` table ([#571](https://github.com/AstroNvim/astrocommunity/issues/571)) ([c53ccf1](https://github.com/AstroNvim/astrocommunity/commit/c53ccf10db5af699bab44269e0f6b5be41be60b2))
+* **haskell:** remove now redundant `discover_configurations` call ([#570](https://github.com/AstroNvim/astrocommunity/issues/570)) ([59df499](https://github.com/AstroNvim/astrocommunity/commit/59df499a5730504d1cad22073d9cd4a06ca03e0f))
+* **indent-blankline-nvim:** Fix indent-blankline-nvim configuration to match the new plugin requirements ([#597](https://github.com/AstroNvim/astrocommunity/issues/597)) ([7bd974c](https://github.com/AstroNvim/astrocommunity/commit/7bd974c38ba7197201ba9bafdaafc4c318ad7a06))
+* **mini-indentscope:** correctly disable indentscope in buftypes and terminals ([#566](https://github.com/AstroNvim/astrocommunity/issues/566)) ([c292208](https://github.com/AstroNvim/astrocommunity/commit/c292208c30b54b359f3c33dd2e80b292013e975d))
+* **neosolarized-nvim:** Add missing dependencies ([#580](https://github.com/AstroNvim/astrocommunity/issues/580)) ([fdab800](https://github.com/AstroNvim/astrocommunity/commit/fdab8006f2343b717b0b22b2094740e8b1d89409))
+* **peek-nvim:** Swap remote of peek-nvim to fork ([#602](https://github.com/AstroNvim/astrocommunity/issues/602)) ([a63d983](https://github.com/AstroNvim/astrocommunity/commit/a63d98367a1d057c8632572350f977cd6f05d7fc))
+* **project:** initialize projectmgr-nvim ([fc631bf](https://github.com/AstroNvim/astrocommunity/commit/fc631bfa8b26ab0b33200dde54c570d766949a1f))
+* **projectmgr-nvim:** disable lazy loading ([#605](https://github.com/AstroNvim/astrocommunity/issues/605)) ([fc631bf](https://github.com/AstroNvim/astrocommunity/commit/fc631bfa8b26ab0b33200dde54c570d766949a1f))
+* **rainbow-delimiters-nvim:** fix setup function due to breaking change  ([#610](https://github.com/AstroNvim/astrocommunity/issues/610)) ([5c3ce63](https://github.com/AstroNvim/astrocommunity/commit/5c3ce63f9bc2c286c0e12922972ea1e1ef06f294))
+* **smartcolumn-nvim:** Add sensible default opts for when not to show colorcolumn ([#607](https://github.com/AstroNvim/astrocommunity/issues/607)) ([c624e8a](https://github.com/AstroNvim/astrocommunity/commit/c624e8aaee288d80a073bc3c50744551300bde2a))
+* **transparent-nvim:** Move transparent-nvim to right folder. ([6f1a4b5](https://github.com/AstroNvim/astrocommunity/commit/6f1a4b5dc2eea3c831d738154b24f7f52902432f))
+* **transparent-nvim:** moved to the `color` category ([#568](https://github.com/AstroNvim/astrocommunity/issues/568)) ([6f1a4b5](https://github.com/AstroNvim/astrocommunity/commit/6f1a4b5dc2eea3c831d738154b24f7f52902432f))
+* **typescript:** Check for deprecated .eslintrc file ([#599](https://github.com/AstroNvim/astrocommunity/issues/599)) ([db19103](https://github.com/AstroNvim/astrocommunity/commit/db1910360893b00f70ec9af26def6796f8c033cd))
+* **vim-matchup:** remove matchup_match_paren_deferred option ([#561](https://github.com/AstroNvim/astrocommunity/issues/561)) ([751812a](https://github.com/AstroNvim/astrocommunity/commit/751812af94ccc9e6279a6d73da7a7a32b785f79e))
+
 ## [4.1.0](https://github.com/AstroNvim/astrocommunity/compare/v4.0.0...v4.1.0) (2023-09-06)
 
 

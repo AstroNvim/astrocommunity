@@ -7,10 +7,9 @@ return {
       },
     },
   },
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-    enabled = true,
-    cmd = "Oil",
-  },
+  "stevearc/oil.nvim",
+  lazy = false,
+  opts = {},
+  enabled = true,
+  cmd = "Oil",
 }
