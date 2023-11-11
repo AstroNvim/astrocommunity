@@ -1,6 +1,25 @@
 local utils = require "astrocore"
 return {
   {
+    "b0o/SchemaStore.nvim",
+    dependencies = {
+      {
+        "AstroNvim/astrolsp",
+        opts = {
+          config = {
+            jsonls = {
+              on_new_config = function(config)
+                if not config.settings.json.schemas then config.settings.json.schemas = {} end
+                vim.list_extend(config.settings.json.schemas, require("schemastore").json.schemas())
+              end,
+              settings = { json = { validate = { enable = true } } },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
