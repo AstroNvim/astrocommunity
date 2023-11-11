@@ -1,22 +1,31 @@
 return {
   {
-    "AstroNvim/astrocore",
-    opts = {
-      mappings = {
-        n = {
-          ["<leader>lr"] = {
-            function()
-              require "inc_rename"
-              return ":IncRename " .. vim.fn.expand "<cword>"
-            end,
-            desc = "IncRename",
+    "smjonas/inc-rename.nvim",
+    event = "User AstroLspSetup",
+    dependencies = {
+      "AstroNvim/astrolsp",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>lr"] = {
+              ":IncRename ",
+              desc = "IncRename",
+              cond = "textDocument/rename",
+            },
           },
         },
       },
     },
+    cmd = "IncRename",
+    opts = {},
   },
   {
-    "smjonas/inc-rename.nvim",
-    opts = {},
+    "folke/noice.nvim",
+    optional = true,
+    opts = {
+      presets = {
+        inc_rename = true,
+      },
+    },
   },
 }
