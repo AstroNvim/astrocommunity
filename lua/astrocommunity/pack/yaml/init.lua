@@ -1,6 +1,28 @@
 local utils = require "astrocore"
 return {
   {
+    "b0o/SchemaStore.nvim",
+    dependencies = {
+      {
+        "AstroNvim/astrolsp",
+        opts = {
+          config = {
+            yamlls = {
+              on_new_config = function(config)
+                config.settings.yaml.schemas = vim.tbl_deep_extend(
+                  "force",
+                  config.settings.yaml.schemas or {},
+                  require("schemastore").yaml.schemas()
+                )
+              end,
+              settings = { yaml = { schemaStore = { enable = false, url = "" } } },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
