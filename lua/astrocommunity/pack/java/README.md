@@ -17,7 +17,7 @@ This plugin pack does the following:
 
 ## Tips
 
-`jdtls` requires Java 11+. If your project requires you to use Java 8, you could try and set the java runtime for `jdtls`. Something along the lines of:
+`jdtls` requires Java 11+ but can be used to develop on any Java version. If you develop  using different Java runtimes, you can set the runtimes  you have available in the settings of `jdtls`. Here is a simple example:
 
 ```lua
   "AstroNvim/astrocommunity",
