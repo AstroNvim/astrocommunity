@@ -106,7 +106,7 @@ return {
     opts = function() return { server = require("astrolsp").lsp_opts "tsserver" } end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     opts = function(_, opts)
       opts.sources = utils.list_insert_unique(opts.sources, require "typescript.extensions.null-ls.code-actions")
     end,
