@@ -1,6 +1,25 @@
 return {
   { import = "astrocommunity.pack.toml" },
   {
+    "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
+    opts = {
+      handlers = { clangd = false },
+      ---@diagnostic disable: missing-fields
+      config = {
+        rust_analyzer = {
+          settings = {
+            ["rust-analyser"] = {
+              checkOnSave = {
+                command = "clippy",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     "vxpm/ferris.nvim",
     lazy = true,
     init = function()
