@@ -1,5 +1,4 @@
 local utils = require "astrocore"
-local lsp_utils = require "astrolsp"
 return {
   { import = "astrocommunity.pack.yaml" }, -- stack.yaml
   { import = "astrocommunity.pack.json" }, -- hls.json
@@ -28,7 +27,6 @@ return {
     -- load the plugin when opening one of the following file types
     ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
     init = function()
-      astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "hls")
       vim.g.haskell_tools = vim.tbl_deep_extend("keep", vim.g.haskell_tools or {}, {
         hls = {
           on_attach = function(client, bufnr, _) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
