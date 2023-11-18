@@ -27,7 +27,6 @@ return {
       mappings = {},
     },
     keys = {
-      { prefix .. "v", "<cmd>Octo manage pr reviewers", desc = "Manage reviewers" }, 
       { prefix .. "ca", "<cmd>Octo comment add<CR>", desc = "Add a new comment" },
       { prefix .. "cd", "<cmd>Octo comment delete<CR>", desc = "Delete a comment" },
 
