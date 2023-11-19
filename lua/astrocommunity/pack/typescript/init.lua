@@ -37,12 +37,6 @@ local function check_json_key_exists(filename, key)
 end
 
 return {
-  {
-    "AstroNvim/astrolsp",
-    opts = {
-      handlers = { tsserver = false },
-    },
-  },
   { import = "astrocommunity.pack.json" },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -97,25 +91,31 @@ return {
   },
   {
     "pmizio/typescript-tools.nvim",
-    dependencies = { "AstroNvim/astrolsp", opts = { handlers = { tsserver = false } } },
-    ft = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-    opts = function()
-      -- get AstroLSP provided options like `on_attach` and `capabilities`
-      return require("astrocore").extend_tbl(require("astrolsp").lsp_opts "typescript-tools", {
-        settings = {
-          tsserver_file_preferences = {
-            includeInlayParameterNameHints = "all",
-            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
+    dependencies = {
+      "AstroNvim/astrolsp",
+      opts = {
+        handlers = { tsserver = false }, -- disable tsserver setup, this plugin does it
+        config = {
+          ["typescript-tools"] = { -- enable inlay hints by default for `typescript-tools`
+            settings = {
+              tsserver_file_preferences = {
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
           },
         },
-      })
-    end,
+      },
+    },
+    ft = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+    -- get AstroLSP provided options like `on_attach` and `capabilities`
+    opts = function() return require("astrolsp").lsp_opts "typescript-tools" end,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
