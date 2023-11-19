@@ -80,7 +80,7 @@ return {
 
       { prefix .. "ss", "<cmd> Octo review start<CR>", desc = "Start review" },
       { prefix .. "sf", "<cmd> Octo review submit<CR>", desc = "Submit review" },
-      { prefix .. "sr", "<cmd> Octo review resume<CR>", desc = "Submit resume" },
+      { prefix .. "sr", "<cmd> Octo review resume<CR>", desc = "Resume review" },
       { prefix .. "sd", "<cmd> Octo review discard<CR>", desc = "Delete pending review" },
       { prefix .. "sc", "<cmd> Octo review comments<CR>", desc = "View pending comments" },
       { prefix .. "sp", "<cmd> Octo review commit<CR>", desc = "Select commit to review" },
