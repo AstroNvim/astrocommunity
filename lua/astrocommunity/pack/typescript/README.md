@@ -2,7 +2,7 @@
 
 This plugin pack does the following:
 
-- Adds `typescript`, `javascript`, and `tsx` Treesitter parsers
+- Adds `typescript`, `javascript`, `tsx`, and `jsdoc` Treesitter parsers
 - Adds `tsserver` and `vscode-eslint` language server
 - Adds `prettierd` formatter
 - Adds [JSON language support](../json)
