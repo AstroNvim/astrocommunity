@@ -19,12 +19,12 @@ opts = {
 
   mappings = {
     enable = true,
-    build_picker = "<leader>rb", -- Set to 0 to disable
-    run_picker = "<leader>ra", -- Set to 0 to disable
+    build_picker = "<Leader>rb", -- Set to 0 to disable
+    run_picker = "<Leader>ra", -- Set to 0 to disable
     watch_picker = 0, -- Set to 0 to disable
     all_picker = 0, -- Set to 0 to disable
     toggle_split_log_buffer = 0,
-    toggle_vsplit_log_buffer = "<leader>rs",
+    toggle_vsplit_log_buffer = "<Leader>rs",
   },
 
   -- ... (other options)

@@ -1,16 +1,6 @@
 local utils = require "astrocore"
 return {
   {
-    "AstroNvim/astrocore",
-    opts = {
-      mappings = {
-        n = {
-          ["<leader>lv"] = { "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" },
-        },
-      },
-    },
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
@@ -38,6 +28,18 @@ return {
   },
   {
     "linux-cultist/venv-selector.nvim",
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<Leader>lv"] = { "<CMD>VenvSelect<CR>", desc = "Select VirtualEnv" },
+            },
+          },
+        },
+      },
+    },
     opts = {},
   },
   {

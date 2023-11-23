@@ -12,7 +12,7 @@ return {
             inlayhints.on_attach(client, args.buf)
             require("astrocore").set_mappings({
               n = {
-                ["<leader>uH"] = { inlayhints.toggle, desc = "Toggle inlay hints" },
+                ["<Leader>uH"] = { inlayhints.toggle, desc = "Toggle inlay hints" },
               },
             }, { buffer = args.buf })
           end

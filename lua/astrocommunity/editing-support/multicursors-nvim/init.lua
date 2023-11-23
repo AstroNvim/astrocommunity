@@ -7,7 +7,7 @@ return {
     {
       mode = { "v", "n" },
       "<Leader>m",
-      "<cmd>MCstart<cr>",
+      "<CMD>MCstart<CR>",
       desc = "Create a selection for word under the cursor",
     },
   },

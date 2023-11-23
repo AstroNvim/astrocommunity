@@ -1,25 +1,21 @@
 return {
   {
-    "AstroNvim/astrocore",
-    opts = {
-      mappings = {
-        n = {
-          ["<A-h>"] = { desc = "Move line left" },
-          ["<A-j>"] = { desc = "Move line down" },
-          ["<A-k>"] = { desc = "Move line up" },
-          ["<A-l>"] = { desc = "Move line right" },
-        },
-        v = {
-          ["<A-h>"] = { desc = "Move selection left" },
-          ["<A-j>"] = { desc = "Move selection down" },
-          ["<A-k>"] = { desc = "Move selection up" },
-          ["<A-l>"] = { desc = "Move selection right" },
-        },
-      },
-    },
-  },
-  {
     "echasnovski/mini.move",
+    keys = function(plugin, keys)
+      -- Populate the keys based on the user's options
+      local mappings = {
+        { plugin.opts.mappings.line_left, desc = "Move line left" },
+        { plugin.opts.mappings.line_right, desc = "Move line right" },
+        { plugin.opts.mappings.line_down, desc = "Move line down" },
+        { plugin.opts.mappings.line_up, desc = "Move line up" },
+        { plugin.opts.mappings.left, desc = "Move selection left", mode = "v" },
+        { plugin.opts.mappings.right, desc = "Move selection right", mode = "v" },
+        { plugin.opts.mappings.down, desc = "Move selection down", mode = "v" },
+        { plugin.opts.mappings.up, desc = "Move selection up", mode = "v" },
+      }
+      mappings = vim.tbl_filter(function(m) return m[1] and #m[1] > 0 end, mappings)
+      return vim.list_extend(mappings, keys)
+    end,
     opts = {
       mappings = {
         left = "<A-h>",
