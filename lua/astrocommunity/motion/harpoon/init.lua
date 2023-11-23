@@ -1,18 +1,22 @@
-local prefix = "<leader><leader>"
-local term_string = vim.fn.exists "$TMUX" == 1 and "tmux" or "terminal"
-local maps = { n = {} }
-local icon = vim.g.icons_enabled and "󱡀 " or ""
-maps.n[prefix] = { desc = icon .. "Harpoon" }
-require("astrocore").set_mappings(maps)
 return {
   {
-    "AstroNvim/astrocore",
-    opts = {
-      mappings = {
-        n = {
-          [prefix .. "a"] = { function() require("harpoon.mark").add_file() end, desc = "Add file" },
-          [prefix .. "e"] = { function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle quick menu" },
-          ["<C-x>"] = {
+    "ThePrimeagen/harpoon",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      { "AstroNvim/astroui", opts = { icons = { Harpoon = "󱡀" } } },
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          local term_string = vim.fn.exists "$TMUX" == 1 and "tmux" or "terminal"
+          local prefix = "<Leader><Leader>"
+          maps.n[prefix] = { desc = require("astroui").get_icon("Harpoon", 1, true) .. "Harpoon" }
+
+          maps.n[prefix .. "a"] = { function() require("harpoon.mark").add_file() end, desc = "Add file" }
+          maps.n[prefix .. "e"] =
+            { function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle quick menu" }
+          maps.n["<C-x>"] = {
             function()
               vim.ui.input({ prompt = "Harpoon mark index: " }, function(input)
                 local num = tonumber(input)
@@ -20,11 +24,11 @@ return {
               end)
             end,
             desc = "Goto index of mark",
-          },
-          ["<C-p>"] = { function() require("harpoon.ui").nav_prev() end, desc = "Goto previous mark" },
-          ["<C-n>"] = { function() require("harpoon.ui").nav_next() end, desc = "Goto next mark" },
-          [prefix .. "m"] = { "<cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" },
-          [prefix .. "t"] = {
+          }
+          maps.n["<C-p>"] = { function() require("harpoon.ui").nav_prev() end, desc = "Goto previous mark" }
+          maps.n["<C-n>"] = { function() require("harpoon.ui").nav_next() end, desc = "Goto next mark" }
+          maps.n[prefix .. "m"] = { "<CMD>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" }
+          maps.n[prefix .. "t"] = {
             function()
               vim.ui.input({ prompt = term_string .. " window number: " }, function(input)
                 local num = tonumber(input)
@@ -32,16 +36,9 @@ return {
               end)
             end,
             desc = "Go to " .. term_string .. " window",
-          },
-        },
+          }
+        end,
       },
-    },
-  },
-  {
-    "ThePrimeagen/harpoon",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
     },
     cmd = { "Harpoon" },
   },
