@@ -9,7 +9,7 @@ return {
       config = {
         rust_analyzer = {
           settings = {
-            ["rust-analyser"] = {
+            ["rust_analyzer"] = {
               checkOnSave = {
                 command = "clippy",
               },
