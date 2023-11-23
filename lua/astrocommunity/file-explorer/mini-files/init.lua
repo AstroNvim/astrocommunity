@@ -1,20 +1,17 @@
 return {
-  {
-    "AstroNvim/astrocore",
-    opts = {
-      mappings = {
-        ["<leader>e"] = { function() require("mini.files").open() end, desc = "Explorer" },
-      },
-    },
-  },
-  {
-    "neo-tree.nvim",
-    enabled = false,
-  },
+  { "neo-tree.nvim", enabled = false },
   {
     "echasnovski/mini.files",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            ["<Leader>e"] = { function() require("mini.files").open() end, desc = "Explorer" },
+          },
+        },
+      },
     },
     opts = {},
   },

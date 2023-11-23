@@ -1,5 +1,5 @@
 local astrocore = require "astrocore"
-local prefix = "<leader>f"
+local prefix = "<Leader>f"
 
 return {
   {
@@ -28,8 +28,8 @@ return {
       "DevdocsUpdateAll",
     },
     keys = {
-      { prefix .. "d", "<cmd>DevdocsOpenCurrentFloat<CR>", desc = "Find Devdocs for current file", mode = { "n" } },
-      { prefix .. "D", "<cmd>DevdocsOpenFloat<CR>", desc = "Find Devdocs", mode = { "n" } },
+      { prefix .. "d", "<CMD>DevdocsOpenCurrentFloat<CR>", desc = "Find Devdocs for current file", mode = { "n" } },
+      { prefix .. "D", "<CMD>DevdocsOpenFloat<CR>", desc = "Find Devdocs", mode = { "n" } },
     },
     opts = {
       previewer_cmd = vim.fn.executable "glow" == 1 and "glow" or nil,

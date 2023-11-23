@@ -1,19 +1,16 @@
 return {
-  {
-    "AstroNvim/astrocore",
-    opts = {
-      mappings = {
-        n = {
-          ["<leader>W"] = { "<cmd>SudaWrite<CR>", desc = "Suda Write" },
+  "lambdalisue/suda.vim",
+  dependencies = {
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>W"] = { "<CMD>SudaWrite<CR>", desc = "Suda Write" },
+          },
         },
       },
     },
   },
-  {
-    "lambdalisue/suda.vim",
-    cmd = {
-      "SudaRead",
-      "SudaWrite",
-    },
-  },
+  cmd = { "SudaRead", "SudaWrite" },
 }

@@ -1,18 +1,18 @@
 return {
-  {
-    "Astronvim/astrocore",
-    opts = {
-      mappings = {
-        ["<leader>uT"] = { "<cmd>Twilight<cr>", desc = "Toggle Twilight" },
+  "folke/twilight.nvim",
+  dependencies = {
+    {
+      "Astronvim/astrocore",
+      opts = {
+        mappings = {
+          ["<Leader>uT"] = { "<CMD>Twilight<CR>", desc = "Toggle Twilight" },
+        },
       },
     },
   },
-  {
-    "folke/twilight.nvim",
-    cmd = {
-      "Twilight",
-      "TwilightEnable",
-      "TwilightDisable",
-    },
+  cmd = {
+    "Twilight",
+    "TwilightEnable",
+    "TwilightDisable",
   },
 }

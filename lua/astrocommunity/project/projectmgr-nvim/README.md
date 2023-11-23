@@ -6,7 +6,7 @@ Quickly switch between projects and automate startup tasks.
 
 ### 🦑 Usage with `telescope.nvim`
 
-`:ProjectMgr` (or <leader>P) toggles a telescope picker with your projects. The telescope preview displays information about your project
+`:ProjectMgr` (or <Leader>P) toggles a telescope picker with your projects. The telescope preview displays information about your project
 and its current git state.
 The following actions and keybinds are available:
 
@@ -17,7 +17,7 @@ The following actions and keybinds are available:
 | `<C-d>` / `<C-x>` | Delete project under your cursor                                                                   |
 | `<C-e>` / `<C-u>` | Edit the project under your cursor                                                                 |
 | `<C-q>` / `<ESC>` | Close the window without doing anything                                                            |
-| `<leader>P`       | Open the ProjectMgr panel                                                                          |
+| `<Leader>P`       | Open the ProjectMgr panel                                                                          |
 
 ### 🦑 Usage without `telescope.nvim`
 

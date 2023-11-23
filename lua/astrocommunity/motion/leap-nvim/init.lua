@@ -1,71 +1,35 @@
 return {
   {
-    "AstroNvim/astrocore",
-    opts = {
-      mappings = {
-        n = {
-          ["s"] = {
-            "<Plug>(leap-forward-to)",
-            desc = "Leap forward to",
-          },
-          ["S"] = {
-            "<Plug>(leap-backward-to)",
-            desc = "Leap backward to",
-          },
-          ["gs"] = {
-            "<Plug>(leap-from-window)",
-            desc = "Leap from window",
-          },
-        },
-        x = {
-          ["s"] = {
-            "<Plug>(leap-forward-to)",
-            desc = "Leap forward to",
-          },
-          ["S"] = {
-            "<Plug>(leap-backward-to)",
-            desc = "Leap backward to",
-          },
-          ["x"] = {
-            "<Plug>(leap-forward-till)",
-            desc = "Leap forward till",
-          },
-          ["X"] = {
-            "<Plug>(leap-backward-till)",
-            desc = "Leap backward till",
-          },
-          ["gs"] = {
-            "<Plug>(leap-from-window)",
-            desc = "Leap from window",
-          },
-        },
-        o = {
-          ["s"] = {
-            "<Plug>(leap-forward-to)",
-            desc = "Leap forward to",
-          },
-          ["S"] = {
-            "<Plug>(leap-backward-to)",
-            desc = "Leap backward to",
-          },
-          ["x"] = {
-            "<Plug>(leap-forward-till)",
-            desc = "Leap forward till",
-          },
-          ["X"] = {
-            "<Plug>(leap-backward-till)",
-            desc = "Leap backward till",
-          },
-          ["gs"] = {
-            "<Plug>(leap-from-window)",
-            desc = "Leap from window",
+    "ggandor/leap.nvim",
+    dependencies = {
+      "tpope/vim-repeat",
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["s"] = { "<Plug>(leap-forward-to)", desc = "Leap forward to" },
+              ["S"] = { "<Plug>(leap-backward-to)", desc = "Leap backward to" },
+              ["gs"] = { "<Plug>(leap-from-window)", desc = "Leap from window" },
+            },
+            x = {
+              ["s"] = { "<Plug>(leap-forward-to)", desc = "Leap forward to" },
+              ["S"] = { "<Plug>(leap-backward-to)", desc = "Leap backward to" },
+              ["x"] = { "<Plug>(leap-forward-till)", desc = "Leap forward till" },
+              ["X"] = { "<Plug>(leap-backward-till)", desc = "Leap backward till" },
+              ["gs"] = { "<Plug>(leap-from-window)", desc = "Leap from window" },
+            },
+            o = {
+              ["s"] = { "<Plug>(leap-forward-to)", desc = "Leap forward to" },
+              ["S"] = { "<Plug>(leap-backward-to)", desc = "Leap backward to" },
+              ["x"] = { "<Plug>(leap-forward-till)", desc = "Leap forward till" },
+              ["X"] = { "<Plug>(leap-backward-till)", desc = "Leap backward till" },
+              ["gs"] = { "<Plug>(leap-from-window)", desc = "Leap from window" },
+            },
           },
         },
       },
     },
-  },
-  {
-    "ggandor/leap.nvim",
     opts = {},
     init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
       vim.api.nvim_create_autocmd("User", {
@@ -83,9 +47,6 @@ return {
         pattern = "LeapLeave",
       })
     end,
-    dependencies = {
-      "tpope/vim-repeat",
-    },
   },
   {
     "catppuccin/nvim",

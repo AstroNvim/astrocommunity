@@ -1,19 +1,22 @@
 return {
   {
-    "AstroNvim/astrocore",
-    mappings = {
-      n = {
-        { "sa", "Add surrounding" },
-        { "sd", "Delete surrounding" },
-        { "sr", "Replace surrounding" },
-      },
-      v = {
-        { "sa", "Add surrounding" },
+    "machakann/vim-sandwich",
+    event = { "User AstroFile", "InsertEnter" },
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        mappings = {
+          n = {
+            { "sa", desc = "Add surrounding" },
+            { "sd", desc = "Delete surrounding" },
+            { "sr", desc = "Replace surrounding" },
+          },
+          v = {
+            { "sa", desc = "Add surrounding" },
+          },
+        },
       },
     },
-  },
-  {
-    "machakann/vim-sandwich",
   },
   {
     "catppuccin/nvim",
