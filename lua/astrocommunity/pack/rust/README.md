@@ -24,7 +24,7 @@ upside is that you can run `cargo build` without that being blocked while rust-a
 The first three levels of this are AstronVim-specific configurations, the rest is rust-analyzer specific:
 
 ```
-   lsp = {
+  lsp = {
     config = {
       rust_analyzer = {
         settings = {
