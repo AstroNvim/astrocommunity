@@ -73,24 +73,11 @@ It's common to use both tools as part of your development workflow. You might ru
     config = {
       rust_analyzer = {
         settings = {
-            cargo = {
-              allFeatures = true,
-              loadOutDirsFromCheck = true,
-              runBuildScripts = true,
-            },
             -- Add clippy lints for Rust.
             checkOnSave = {
               allFeatures = true,
               command = "clippy",
               extraArgs = { "--no-deps" },
-            },
-            procMacro = {
-              enable = true,
-              ignored = {
-                ["async-trait"] = { "async_trait" },
-                ["napi-derive"] = { "napi" },
-                ["async-recursion"] = { "async_recursion" },
-              },
             },
           },
         },
