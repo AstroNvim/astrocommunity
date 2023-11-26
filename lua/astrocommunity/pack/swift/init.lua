@@ -15,7 +15,7 @@ return {
       -- "nvim-lua/plenary.nvim", -- optional/requirement of telescope.nvim
       -- "stevearc/dressing.nvim", -- optional (in case you don't use telescope but something else)
     },
-    init = function() require("astronvim.utils.lsp").setup "sourcekit-lsp" end,
+    init = function() require("astronvim.utils.lsp").setup "sourcekit" end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
