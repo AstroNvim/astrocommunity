@@ -6,7 +6,6 @@ return {
     opts = {
     	picker = "telescope"
     },
- 
   },
 
   {
