@@ -4,7 +4,7 @@ return {
   {
     "mickael-menu/zk-nvim",
     opts = {
-    	picker = "telescope"
+      picker = "telescope",
     },
   },
 
