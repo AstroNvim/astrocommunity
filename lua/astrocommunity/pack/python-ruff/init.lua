@@ -1,4 +1,4 @@
-local utils = require "astronvim.utils"
+local utils = require "astrocore"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -28,8 +28,19 @@ return {
   },
   {
     "linux-cultist/venv-selector.nvim",
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<Leader>lv"] = { "<CMD>VenvSelect<CR>", desc = "Select VirtualEnv" },
+            },
+          },
+        },
+      },
+    },
     opts = {},
-    keys = { { "<Leader>lv", "<CMD>:VenvSelect<CR>", desc = "Select VirtualEnv" } },
   },
   {
     "mfussenegger/nvim-dap-python",

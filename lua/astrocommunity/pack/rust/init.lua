@@ -1,10 +1,10 @@
+local utils = require "astrocore"
 return {
   { import = "astrocommunity.pack.toml" },
   {
     "AstroNvim/astrolsp",
     ---@type AstroLSPOpts
     opts = {
-      handlers = { clangd = false },
       ---@diagnostic disable: missing-fields
       config = {
         rust_analyzer = {
@@ -18,6 +18,12 @@ return {
         },
       },
     },
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = function(_, opts)
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "rust_analyzer" })
+    end,
   },
   {
     "vxpm/ferris.nvim",
