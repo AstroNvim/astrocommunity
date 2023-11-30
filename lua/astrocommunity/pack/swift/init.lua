@@ -15,19 +15,9 @@ return {
       -- "nvim-lua/plenary.nvim", -- optional/requirement of telescope.nvim
       -- "stevearc/dressing.nvim", -- optional (in case you don't use telescope but something else)
     },
-    init = function() require("astronvim.utils.lsp").setup "sourcekit-lsp" end,
+    init = function() require("astronvim.utils.lsp").setup "sourcekit" end,
   },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = function(_, opts)
-      local nls = require "null-ls"
-      if type(opts.sources) == "table" then
-        vim.list_extend(opts.sources, {
-          nls.builtins.formatting.swift_format,
-        })
-      end
-    end,
-  },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -36,6 +26,7 @@ return {
       end
     end,
   },
+
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,

@@ -1,17 +1,23 @@
 # Swift Language Pack
 
-## Note: xbase is a WIP plugin, and the experience provided by this plugin might be lackluster
+## Note
 
-**Requirements:**
+xbase is a WIP plugin, and the experience provided by this plugin might be
+lackluster.
 
-1. Make sure you have [sourcekit-lsp](https://github.com/apple/sourcekit-lsp) installed on your machine.
+## Requirements
 
-2. Install Xcode Device Simulators:
-   To enable simulator functionality from within Neovim, you need to have Xcode Device Simulators installed on your machine. You can install these simulators from Xcode.
+1. Make sure you have [sourcekit-lsp](https://github.com/apple/sourcekit-lsp)
+   installed on your machine.
 
-3. Mappings:
-   The default mappings for the xbase plugin overlap with AstroNvim's default. Therefore, you should set the mappings yourself.
-   Refer to [xBase](https://github.com/kkharji/xbase#neovim-3) documentation for more options.
+2. Install Xcode Device Simulators: To enable simulator functionality from
+   within Neovim, you need to have Xcode Device Simulators installed on your
+machine. You can install these simulators from Xcode.
+
+3. Mappings: The default mappings for the xbase plugin overlap with AstroNvim's
+   default. Therefore, you should set the mappings yourself. Refer to
+[xBase](https://github.com/kkharji/xbase#neovim-3) documentation for more
+options.
 
 ```lua
 opts = {
