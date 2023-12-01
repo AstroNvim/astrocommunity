@@ -27,11 +27,10 @@ return {
     -- load the plugin when opening one of the following file types
     ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
     init = function()
-      vim.g.haskell_tools = vim.tbl_deep_extend("keep", vim.g.haskell_tools or {}, {
-        hls = {
-          on_attach = function(client, bufnr, _) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
-        },
-      })
+      local astrolsp = require "astrolsp"
+      vim.g.haskell_tools = utils.extend_tbl({
+        hls = { capabilities = astrolsp.config.capabilities, on_attach = astrolsp.on_attach },
+      }, vim.g.haskell_tools)
     end,
   },
   {
