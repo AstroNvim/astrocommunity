@@ -3,6 +3,7 @@ local utils = require "astrocore"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "java", "html" })
@@ -11,6 +12,7 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    optional = true,
     opts = function(_, opts)
       opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
     end,
@@ -18,11 +20,13 @@ return {
 
   {
     "jay-babu/mason-null-ls.nvim",
+    optional = true,
     opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "clang_format") end,
   },
 
   {
     "jay-babu/mason-nvim-dap.nvim",
+    optional = true,
     opts = function(_, opts)
       opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "javadbg", "javatest" })
     end,

@@ -12,6 +12,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    optional = true,
     opts = function(_, opts)
       local ensure_installed = {
         "r",

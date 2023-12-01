@@ -40,6 +40,7 @@ return {
   { import = "astrocommunity.pack.json" },
   {
     "nvim-treesitter/nvim-treesitter",
+    optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "javascript", "typescript", "tsx" })
@@ -48,11 +49,12 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    optional = true,
     opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "tsserver") end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
-
+    optional = true,
     opts = function(_, opts)
       opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "prettierd", "eslint-lsp" })
       if not opts.handlers then opts.handlers = {} end
@@ -81,6 +83,7 @@ return {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
+    optional = true,
     opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "js") end,
   },
   {
@@ -119,6 +122,7 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
+    optional = true,
     opts = function(_, opts)
       local events = require "neo-tree.events"
       opts.event_handlers = {
