@@ -4,7 +4,6 @@ return {
     "AstroNvim/astrolsp",
     ---@type AstroLSPOpts
     opts = {
-      handlers = { clangd = false },
       ---@diagnostic disable: missing-fields
       config = {
         clangd = {
