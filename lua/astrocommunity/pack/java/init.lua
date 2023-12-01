@@ -2,13 +2,6 @@ local utils = require "astrocore"
 
 return {
   {
-    "AstroNvim/astrolsp",
-    opts = {
-      handlers = { jdtls = false },
-    },
-  },
-
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
@@ -38,7 +31,10 @@ return {
   {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
-    dependencies = { "williamboman/mason-lspconfig.nvim" },
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      { "AstroNvim/astrolsp", opts = { handlers = { jdtls = false } } },
+    },
     opts = function(_, opts)
       -- use this function notation to build some variables
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
@@ -46,24 +42,14 @@ return {
       -- calculate workspace dir
       local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
       local workspace_dir = vim.fn.stdpath "data" .. "/site/java/workspace-root/" .. project_name
-      os.execute("mkdir " .. workspace_dir)
+      vim.fn.mkdir(workspace_dir, "p")
 
-      -- get the current OS
-      local os
-      if vim.fn.has "mac" == 1 then
-        os = "mac"
-      elseif vim.fn.has "unix" == 1 then
-        os = "linux"
-      elseif vim.fn.has "win32" == 1 then
-        os = "win"
+      -- validate operating system
+      if not (vim.fn.has "mac" == 1 or vim.fn.has "unix" == 1 or vim.fn.has "win32" == 1) then
+        utils.notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
       end
 
-      -- ensure that OS is valid
-      if not os or os == "" then
-        require("astrocore").notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
-      end
-
-      local defaults = {
+      return utils.extend_tbl({
         cmd = {
           "java",
           "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -88,27 +74,13 @@ return {
         root_dir = root_dir,
         settings = {
           java = {
-            eclipse = {
-              downloadSources = true,
-            },
-            configuration = {
-              updateBuildConfiguration = "interactive",
-            },
-            maven = {
-              downloadSources = true,
-            },
-
-            implementationsCodeLens = {
-              enabled = true,
-            },
-            referencesCodeLens = {
-              enabled = true,
-            },
+            eclipse = { downloadSources = true },
+            configuration = { updateBuildConfiguration = "interactive" },
+            maven = { downloadSources = true },
+            implementationsCodeLens = { enabled = true },
+            referencesCodeLens = { enabled = true },
           },
-          signatureHelp = {
-
-            enabled = true,
-          },
+          signatureHelp = { enabled = true },
           completion = {
             favoriteStaticMembers = {
               "org.hamcrest.MatcherAssert.assertThat",
@@ -135,28 +107,14 @@ return {
           },
         },
         handlers = {
-          ["$/progress"] = function()
-            -- disable progress updates.
-          end,
+          ["$/progress"] = function() end, -- disable progress updates.
         },
         filetypes = { "java" },
         on_attach = function(client, bufnr)
           require("jdtls").setup_dap { hotcodereplace = "auto" }
-          require("astronvim.utils.lsp").on_attach(client, bufnr)
+          require("astrolsp").on_attach(client, bufnr)
         end,
-      }
-
-      -- TODO: add overwrite for on_attach
-
-      -- ensure that table is valid
-      if not opts then opts = {} end
-
-      -- extend the current table with the defaults keeping options in the user opts
-      -- this allows users to pass opts through an opts table in community.lua
-      opts = vim.tbl_deep_extend("keep", opts, defaults)
-
-      -- send opts to config
-      return opts
+      }, opts)
     end,
     config = function(_, opts)
       -- setup autocmd on filetype detect java
@@ -165,9 +123,8 @@ return {
         callback = function()
           if opts.root_dir and opts.root_dir ~= "" then
             require("jdtls").start_or_attach(opts)
-            -- require('jdtls.dap').setup_dap_main_class_configs()
           else
-            require("astrocore").notify("jdtls: root_dir not found. Please specify a root marker", vim.log.levels.ERROR)
+            utils.notify("jdtls: root_dir not found. Please specify a root marker", vim.log.levels.ERROR)
           end
         end,
       })
