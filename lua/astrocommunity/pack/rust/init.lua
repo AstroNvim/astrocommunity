@@ -4,7 +4,6 @@ return {
     "AstroNvim/astrolsp",
     ---@type AstroLSPOpts
     opts = {
-      handlers = { clangd = false },
       ---@diagnostic disable: missing-fields
       config = {
         rust_analyzer = {
@@ -55,6 +54,9 @@ return {
       })
     end,
     opts = {
+      src = {
+        cmp = { enabled = true },
+      },
       null_ls = {
         enabled = true,
         name = "crates.nvim",
