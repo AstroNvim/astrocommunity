@@ -2,6 +2,7 @@ local utils = require "astrocore"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "python", "toml" })
@@ -10,16 +11,19 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    optional = true,
     opts = function(_, opts)
       opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "pyright", "ruff_lsp" })
     end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
+    optional = true,
     opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "ruff" }) end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
+    optional = true,
     opts = function(_, opts)
       opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "python")
       if not opts.handlers then opts.handlers = {} end
