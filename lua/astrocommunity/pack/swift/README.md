@@ -9,6 +9,7 @@ This plugin pack does the following:
 - Adds `swift` Treesitter parsers
 - Adds `sourcekit` in LSP servers
 - Adds `sourcekit` in LSP config
+- Adds `codelldb` for debugging
 
 ## SwiftLint and SwiftFormat
 
