@@ -3,7 +3,9 @@ return {
   { import = "astrocommunity.pack.yaml" },
   {
     "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
     opts = {
+      ---@diagnostic disable: missing-fields
       handlers = { dartls = false },
     },
   },

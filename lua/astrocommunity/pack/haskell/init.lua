@@ -4,7 +4,9 @@ return {
   { import = "astrocommunity.pack.json" }, -- hls.json
   {
     "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
     opts = {
+      ---@diagnostic disable: missing-fields
       handlers = { hls = false },
     },
   },

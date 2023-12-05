@@ -3,7 +3,9 @@ local utils = require "astrocore"
 return {
   {
     "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
     opts = {
+      ---@diagnostic disable: missing-fields
       handlers = { metals = false },
     },
   },

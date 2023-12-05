@@ -5,7 +5,9 @@ return {
     dependencies = {
       {
         "AstroNvim/astrolsp",
+        ---@type AstroLSPOpts
         opts = {
+          ---@diagnostic disable: missing-fields
           config = {
             yamlls = {
               on_new_config = function(config)

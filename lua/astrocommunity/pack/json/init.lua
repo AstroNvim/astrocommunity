@@ -4,8 +4,11 @@ return {
     "b0o/SchemaStore.nvim",
     dependencies = {
       {
+
         "AstroNvim/astrolsp",
+        ---@type AstroLSPOpts
         opts = {
+          ---@diagnostic disable: missing-fields
           config = {
             jsonls = {
               on_new_config = function(config)

@@ -4,7 +4,9 @@ return {
     event = "User AstroLspSetup",
     dependencies = {
       "AstroNvim/astrolsp",
+      ---@type AstroLSPOpts
       opts = {
+        ---@diagnostic disable: missing-fields
         mappings = {
           n = {
             ["<Leader>lr"] = {

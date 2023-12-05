@@ -37,7 +37,14 @@ return {
     ft = { "java" },
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
-      { "AstroNvim/astrolsp", opts = { handlers = { jdtls = false } } },
+      {
+        "AstroNvim/astrolsp",
+        ---@type AstroLSPOpts
+        opts = {
+          ---@diagnostic disable: missing-fields
+          handlers = { jdtls = false },
+        },
+      },
     },
     opts = function(_, opts)
       -- use this function notation to build some variables

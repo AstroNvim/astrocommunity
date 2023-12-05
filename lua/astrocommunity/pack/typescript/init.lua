@@ -95,7 +95,9 @@ return {
   {
     "pmizio/typescript-tools.nvim",
     dependencies = {
+      ---@type AstroLSPOpts
       "AstroNvim/astrolsp",
+      ---@diagnostic disable: missing-fields
       opts = {
         handlers = { tsserver = false }, -- disable tsserver setup, this plugin does it
         config = {
