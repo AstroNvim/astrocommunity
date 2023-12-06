@@ -7,7 +7,7 @@ return {
       icons = {
         VimIcon = "",
         ScrollText = "",
-        GitBranch = "",
+        GitBranch = "",
         GitAdd = "",
         GitChange = "",
         GitDelete = "",
@@ -16,7 +16,7 @@ return {
       status = {
         -- define the separators between each section
         separators = {
-          left = { "", " " }, -- separator for the left side of the statusline
+          left = { "", "" }, -- separator for the left side of the statusline
           right = { " ", "" }, -- separator for the right side of the statusline
           tab = { "", "" },
         },
@@ -83,15 +83,20 @@ return {
         -- add a section for the currently opened file information
         status.component.file_info {
           -- enable the file_icon and disable the highlighting based on filetype
-          file_icon = { padding = { left = 0 } },
           filename = { fallback = "Empty" },
+          -- disable some of the info
+          filetype = false,
+          file_read_only = false,
           -- add padding
           padding = { right = 1 },
           -- define the section separator
           surround = { separator = "left", condition = false },
         },
         -- add a component for the current git branch if it exists and use no separator for the sections
-        status.component.git_branch { surround = { separator = "none" } },
+        status.component.git_branch {
+          git_branch = { padding = { left = 1 } },
+          surround = { separator = "none" },
+        },
         -- add a component for the current git diff if it exists and use no separator for the sections
         status.component.git_diff {
           padding = { left = 1 },
@@ -138,6 +143,7 @@ return {
               padding = { left = 1 },
             },
             -- disable all other elements of the file_info component
+            filetype = false,
             file_icon = false,
             file_modified = false,
             file_read_only = false,
