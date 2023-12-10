@@ -16,7 +16,10 @@ return {
     opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    init = function() require("astronvim.utils.lsp").setup "sourcekit" end,
+    "Astronvim/astrolsp",
+    ---@type AstroLSPOpts
+    opts = {
+      servers = { "sourcekit" },
+    },
   },
 }
