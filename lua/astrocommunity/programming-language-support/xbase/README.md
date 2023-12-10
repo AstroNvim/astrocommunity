@@ -5,6 +5,14 @@
 xbase is a WIP plugin, and the experience provided by this plugin might be
 lackluster.
 
+## Tip
+
+You should also include the swift pack for basic language support. To add it into your setup, add:
+```lua
+  ...
+  {import ="astrocommunity.pack.swift"}
+```
+
 ## Requirements
 
 1. Make sure you have [sourcekit-lsp](https://github.com/apple/sourcekit-lsp)
