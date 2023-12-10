@@ -1,4 +1,4 @@
-local utils = require "astronvim.utils"
+local utils = require "astrocore"
 local haskell_ft = { "haskell", "lhaskell", "cabal", "cabalproject" }
 
 return {

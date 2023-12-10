@@ -22,7 +22,6 @@ return {
         },
       },
     },
-    opts = {},
   },
   {
     "catppuccin/nvim",

@@ -13,7 +13,16 @@ return {
     transparent.clear_prefix "NeoTree"
     transparent.clear_prefix "lualine"
   end,
-  keys = {
-    { prefix .. "T", "<cmd>TransparentToggle<CR>", desc = "Toggle transparency" },
+  dependencies = {
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>uT"] = { desc = "Toggle transparency" },
+          },
+        },
+      },
+    },
   },
 }
