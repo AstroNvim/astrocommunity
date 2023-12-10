@@ -1,7 +1,8 @@
 return {
   {
-    "phaazon/hop.nvim",
-    dependencies = {
+    "smoka7/hop.nvim",
+    opts = {},
+    keys = {
       {
         "AstroNvim/astrocore",
         opts = {

@@ -15,7 +15,7 @@ This plugin pack does the following:
 Configuring the LSP is out of scope for community packs, but here are some interesting things you
 may want to do:
 
-### Make Rust-Analyzer use its own profile
+## Make Rust-Analyzer use its own profile
 
 Add this into your LSP configuration to make the rust-analyzer use its own profile. The effect is
 that you will use more disk space as rust-analyzer gets its own special folder in `targets`. The
@@ -29,9 +29,31 @@ The first three levels of this are AstronVim-specific configurations, the rest i
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
-            cargo = {
+           cargo = {
               extraEnv = { CARGO_PROFILE_RUST_ANALYZER_INHERITS = 'dev', },
               extraArgs = { "--profile", "rust-analyzer", },
+            },
+          },
+        },
+      },
+    },
+  },
+```
+
+## Use clippy instead of cargo check
+
+If you'd like to run cargo clippy instead of cargo check on safe, add the following:
+
+```
+  lsp = {
+    config = {
+      rust_analyzer = {
+        settings = {
+            -- Add clippy lints for Rust.
+            checkOnSave = {
+              allFeatures = true,
+              command = "clippy",
+              extraArgs = { "--no-deps" },
             },
           },
         },
