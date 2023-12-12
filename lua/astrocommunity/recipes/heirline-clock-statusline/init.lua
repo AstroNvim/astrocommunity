@@ -40,7 +40,8 @@ return {
       surround = { separator = "right", color = status.hl.mode_bg }, -- background highlight based on mode
     }
 
-    vim.uv.new_timer():start( -- timer for updating the time
+    local uv = vim.uv or vim.loop
+    uv.new_timer():start( -- timer for updating the time
       (60 - tonumber(os.date "%S")) * 1000, -- offset timer based on current seconds past the minute
       60000, -- update every 60 seconds
       vim.schedule_wrap(function() vim.api.nvim_exec_autocmds("User", { pattern = "UpdateTime", modeline = false }) end)
