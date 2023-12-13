@@ -49,7 +49,19 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "tsserver") end,
+    opts = function(_, opts)
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "tsserver", "eslint-lsp")
+    end,
+    init = function()
+      vim.api.nvim_create_autocmd("BufWritePost", {
+        desc = "Fix all eslint errors",
+        pattern = { "*.tsx", "*.ts", "*.jsx", "*.js" },
+        group = "...",
+        callback = function()
+          if vim.fn.exists ":EslintFixAll" > 0 then vim.cmd "EslintFixAll" end
+        end,
+      })
+    end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
