@@ -16,7 +16,7 @@ return {
     opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,
   },
   {
-    "Astronvim/astrolsp",
+    "AstroNvim/astrolsp",
     ---@type AstroLSPOpts
     opts = {
       servers = { "sourcekit" },
