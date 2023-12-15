@@ -50,15 +50,22 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "tsserver", "eslint-lsp")
-    end,
-    init = function()
-      vim.api.nvim_create_autocmd("BufWritePost", {
-        desc = "Fix all eslint errors",
-        pattern = { "*.tsx", "*.ts", "*.jsx", "*.js" },
-        group = "...",
-        callback = function()
-          if vim.fn.exists ":EslintFixAll" > 0 then vim.cmd "EslintFixAll" end
+      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "tsserver", "eslint")
+  
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("eslint_fix_creator", { clear = true }),
+        desc = "Create autocommand in buffers where eslint attaches",
+        callback = function(args)
+          if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "eslint" then
+            vim.api.nvim_create_autocmd("BufWritePost", {
+              desc = "Fix all eslint errors",
+              buffer = args.buf,
+              group = vim.api.nvim_create_augroup(("eslint_fix_%d"):format(args.buf), { clear = true }),
+              callback = function()
+                if vim.fn.exists ":EslintFixAll" > 0 then vim.cmd.EslintFixAll() end
+              end,
+            })
+          end
         end,
       })
     end,
