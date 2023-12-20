@@ -29,6 +29,7 @@ return {
   {
     "linux-cultist/venv-selector.nvim",
     opts = {},
+    cmd = { "VenvSelect", "VenvSelectCached" },
     keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
   {
