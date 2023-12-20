@@ -45,6 +45,7 @@ return {
       },
     },
     opts = {},
+    cmd = { "VenvSelect", "VenvSelectCached" },
   },
   {
     "mfussenegger/nvim-dap-python",
