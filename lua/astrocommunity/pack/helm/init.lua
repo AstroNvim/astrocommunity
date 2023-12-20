@@ -4,23 +4,25 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
-    dependencies = {
-      {
-        "ngalaiko/tree-sitter-go-template",
-        config = function()
-          require("nvim-treesitter.parsers").get_parser_configs().gotmpl = {
-            install_info = {
-              url = vim.fn.stdpath "data" .. "/lazy/tree-sitter-go-template",
-              files = { "src/parser.c" },
-            },
-            filetype = "helm",
-          }
-        end,
-      },
-    },
+    opts = function(_, opts)
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+      parser_config.gotmpl = {
+        install_info = {
+          url = "https://github.com/ngalaiko/tree-sitter-go-template",
+          files = { "src/parser.c" },
+          branch = "main",
+        },
+        filetype = "gotmpl",
+      }
+      vim.treesitter.language.register("gotmpl", "helm")
+
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "gotmpl")
+    end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    optional = true,
     opts = function(_, opts)
       opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "helm_ls")
 
