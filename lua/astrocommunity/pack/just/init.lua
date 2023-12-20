@@ -1,3 +1,4 @@
+local utils = require "astronvim.utils"
 vim.filetype.add {
   extension = { just = "just" },
   filename = {
@@ -24,6 +25,6 @@ return {
       maintainers = { "@IndianBoy42" },
     }
 
-    opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "just")
+    opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "just")
   end,
 }
