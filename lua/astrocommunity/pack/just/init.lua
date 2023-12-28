@@ -11,20 +11,17 @@ vim.filetype.add {
 
 return {
   "nvim-treesitter/nvim-treesitter",
-  optional = true,
   opts = function(_, opts)
     local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
     parser_config.just = {
       install_info = {
-        url = "https://github.com/IndianBoy42/tree-sitter-just",
+        url = "https://github.com/IndianBoy42/tree-sitter-just", -- local path or git repo
         files = { "src/parser.c", "src/scanner.cc" },
         branch = "main",
+        use_makefile = true, -- this may be necessary on MacOS (try if you see compiler errors)
       },
-      filetype = "just",
       maintainers = { "@IndianBoy42" },
     }
-
-    opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "just")
+    utils.list_insert_unique(opts.ensure_installed, "just")
   end,
 }
