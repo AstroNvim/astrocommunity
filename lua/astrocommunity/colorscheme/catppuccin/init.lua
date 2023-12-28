@@ -2,11 +2,13 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    ---@type CatppuccinOptions
     opts = {
       integrations = {
         alpha = true,
         aerial = true,
-        dap = { enabled = true, enable_ui = true },
+        dap = true,
+        dap_ui = true,
         mason = true,
         neotree = true,
         notify = true,
