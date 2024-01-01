@@ -39,7 +39,6 @@ return {
             truezen.narrow(first, last)
           end,
           desc = "Narrow (True Zen)",
-          mode = { "v" },
         }
       end,
     },
