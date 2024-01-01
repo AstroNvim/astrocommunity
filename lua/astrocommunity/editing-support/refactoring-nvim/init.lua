@@ -8,16 +8,28 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>rb"] = { require("refactoring").refactor "Extract Block", desc = "Extract Block" },
-            ["<Leader>ri"] = { require("refactoring").refactor "Inline Variable", desc = "Inline Variable" },
-            ["<Leader>rp"] = { require("refactoring").debug.printf { below = false }, desc = "Debug: Print Function" },
-            ["<Leader>rc"] = { require("refactoring").debug.cleanup {}, desc = "Debug: Clean Up" },
+            ["<Leader>rb"] = {
+              function() require("refactoring").refactor "Extract Block" end,
+              desc = "Extract Block",
+            },
+            ["<Leader>ri"] = {
+              function() require("refactoring").refactor "Inline Variable" end,
+              desc = "Inline Variable",
+            },
+            ["<Leader>rp"] = {
+              function() require("refactoring").debug.printf { below = false } end,
+              desc = "Debug: Print Function",
+            },
+            ["<Leader>rc"] = {
+              function() require("refactoring").debug.cleanup {} end,
+              desc = "Debug: Clean Up",
+            },
             ["<Leader>rd"] = {
-              require("refactoring").debug.print_var { below = false },
+              function() require("refactoring").debug.print_var { below = false } end,
               desc = "Debug: Print Variable",
             },
             ["<Leader>rbf"] = {
-              require("refactoring").refactor "Extract Block To File",
+              function() require("refactoring").refactor "Extract Block To File" end,
               desc = "Extract Block To File",
             },
           },
@@ -30,8 +42,14 @@ return {
               function() require("refactoring").refactor "Extract Function To File" end,
               desc = "Extract Function To File",
             },
-            ["<leadeer>rv"] = { require("refactoring").refactor "Extract Variable", desc = "Extract Variable" },
-            ["<Leader>ri"] = { require("refactoring").refactor "Inline Variable", desc = "Inline Variable" },
+            ["<Leader>rv"] = {
+              function() require("refactoring").refactor "Extract Variable" end,
+              desc = "Extract Variable",
+            },
+            ["<Leader>ri"] = {
+              function() require("refactoring").refactor "Inline Variable" end,
+              desc = "Inline Variable",
+            },
           },
           v = {
             ["<Leader>re"] = {
@@ -42,18 +60,36 @@ return {
               function() require("refactoring").refactor "Extract Function To File" end,
               desc = "Extract Function To File",
             },
-            ["<leadeer>rv"] = { require("refactoring").refactor "Extract Variable", desc = "Extract Variable" },
-            ["<Leader>ri"] = { require("refactoring").refactor "Inline Variable", desc = "Inline Variable" },
-            ["<Leader>rb"] = { require("refactoring").refactor "Extract Block", desc = "Extract Block" },
+            ["<Leader>rv"] = {
+              function() require("refactoring").refactor "Extract Variable" end,
+              desc = "Extract Variable",
+            },
+            ["<Leader>ri"] = {
+              function() require("refactoring").refactor "Inline Variable" end,
+              desc = "Inline Variable",
+            },
+            ["<Leader>rb"] = {
+              function() require("refactoring").refactor "Extract Block" end,
+              desc = "Extract Block",
+            },
             ["<Leader>rbf"] = {
-              require("refactoring").refactor "Extract Block To File",
+              function() require("refactoring").refactor "Extract Block To File" end,
               desc = "Extract Block To File",
             },
-            ["<Leader>rr"] = { require("refactoring").select_refactor, desc = "Select Refactor" },
-            ["<Leader>rp"] = { require("refactoring").debug.printf { below = false }, desc = "Debug: Print Function" },
-            ["<Leader>rc"] = { require("refactoring").debug.cleanup {}, desc = "Debug: Clean Up" },
+            ["<Leader>rr"] = {
+              function() require("refactoring").select_refactor() end,
+              desc = "Select Refactor",
+            },
+            ["<Leader>rp"] = {
+              function() require("refactoring").debug.printf { below = false } end,
+              desc = "Debug: Print Function",
+            },
+            ["<Leader>rc"] = {
+              function() require("refactoring").debug.cleanup {} end,
+              desc = "Debug: Clean Up",
+            },
             ["<Leader>rd"] = {
-              require("refactoring").debug.print_var { below = false },
+              function() require("refactoring").debug.print_var { below = false } end,
               desc = "Debug: Print Variable",
             },
           },
