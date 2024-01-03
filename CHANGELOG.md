@@ -1,5 +1,30 @@
 # Changelog
 
+## [5.2.0](https://github.com/AstroNvim/astrocommunity/compare/v5.1.0...v5.2.0) (2024-01-03)
+
+
+### Features
+
+* **dial-nvim:** Migrate to new mapping api, and add g&lt;C-x&gt; g<C-a> mappings ([#700](https://github.com/AstroNvim/astrocommunity/issues/700)) ([5ae9eed](https://github.com/AstroNvim/astrocommunity/commit/5ae9eed83715c9501f1763c81e1091bc5473b12e))
+* **lsp:** add `nvim-lsp-file-operations` plugin ([#691](https://github.com/AstroNvim/astrocommunity/issues/691)) ([0b5b857](https://github.com/AstroNvim/astrocommunity/commit/0b5b857ba75b11e37afc0ffb219e3d396d2f9310))
+* **pack:** Add crystal pack ([#690](https://github.com/AstroNvim/astrocommunity/issues/690)) ([5812210](https://github.com/AstroNvim/astrocommunity/commit/5812210216c1d534e731bac99dc76ea4158d722d))
+* **pack:** Add nim pack ([#699](https://github.com/AstroNvim/astrocommunity/issues/699)) ([6b8aef2](https://github.com/AstroNvim/astrocommunity/commit/6b8aef261a4821987b764ad5a866e1b80dddaf1d))
+* **pack:** crystal pack ([5812210](https://github.com/AstroNvim/astrocommunity/commit/5812210216c1d534e731bac99dc76ea4158d722d))
+* **pack:** gleam pack ([#689](https://github.com/AstroNvim/astrocommunity/issues/689)) ([85781f4](https://github.com/AstroNvim/astrocommunity/commit/85781f40a5c796292fd75acec83f4ed520177264))
+
+
+### Bug Fixes
+
+* **helm:** Swap to correct branch ([#704](https://github.com/AstroNvim/astrocommunity/issues/704)) ([d2c7ee3](https://github.com/AstroNvim/astrocommunity/commit/d2c7ee3340b93805423221858037909692d2bd66))
+* **just:** Fix buggy just pack ([#696](https://github.com/AstroNvim/astrocommunity/issues/696)) ([008194e](https://github.com/AstroNvim/astrocommunity/commit/008194e0876ca67d084195024695730585bc170f))
+* **pack:** fix incorrect import ([bb32d33](https://github.com/AstroNvim/astrocommunity/commit/bb32d336984e42e96152a44f6b1aa6f36faee71d))
+* **todo-comments-nvim:** Lazy load todo-comments on command ([#694](https://github.com/AstroNvim/astrocommunity/issues/694)) ([2744133](https://github.com/AstroNvim/astrocommunity/commit/27441337cda35a68f3fc89e6da47bc121c08b5a6))
+
+
+### Performance Improvements
+
+* **python:** Lazy load venv-selector on command ([#686](https://github.com/AstroNvim/astrocommunity/issues/686)) ([31c22b5](https://github.com/AstroNvim/astrocommunity/commit/31c22b5a34cbb02cd0dd7420b233c759214f0ea0))
+
 ## [5.1.0](https://github.com/AstroNvim/astrocommunity/compare/v5.0.0...v5.1.0) (2023-12-15)
 
 
