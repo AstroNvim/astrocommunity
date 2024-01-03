@@ -11,7 +11,7 @@ return {
         install_info = {
           url = "https://github.com/ngalaiko/tree-sitter-go-template",
           files = { "src/parser.c" },
-          branch = "main",
+          branch = "master",
         },
         filetype = "gotmpl",
       }
