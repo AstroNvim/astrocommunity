@@ -1,12 +1,10 @@
-local utils = require "astrocore"
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "kotlin")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "kotlin")
       end
     end,
   },
@@ -14,19 +12,23 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "kotlin_language_server")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "kotlin_language_server")
     end,
   },
 
   {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "ktlint") end,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "ktlint")
+    end,
   },
 
   {
     "jay-babu/mason-nvim-dap.nvim",
     optional = true,
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "kotlin") end,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "kotlin")
+    end,
   },
 }

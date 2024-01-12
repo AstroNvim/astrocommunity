@@ -1,4 +1,3 @@
-local utils = require "astrocore"
 return {
   {
     "rest-nvim/rest.nvim",
@@ -26,7 +25,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "http", "json" })
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "http", "json" })
       end
     end,
   },

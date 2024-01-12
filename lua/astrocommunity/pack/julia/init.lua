@@ -1,4 +1,3 @@
-local utils = require "astrocore"
 return {
   { import = "astrocommunity.pack.toml" },
   {
@@ -6,14 +5,16 @@ return {
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "julia")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "julia")
       end
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "julials") end,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "julials")
+    end,
   },
   {
     "hrsh7th/nvim-cmp",

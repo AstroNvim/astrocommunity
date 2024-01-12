@@ -1,5 +1,3 @@
-local utils = require "astrocore"
-
 return {
   "folke/zen-mode.nvim",
   cmd = "ZenMode",
@@ -41,7 +39,7 @@ return {
         desc = "Ensure winbar stays disabled when writing to file, switching buffers, opening floating windows, etc.",
       })
 
-      if utils.is_available "vim-matchup" then
+      if require("astrocore").is_available "vim-matchup" then
         vim.cmd.NoMatchParen()
         vim.g.matchup_matchparen_offscreen_old = vim.g.matchup_matchparen_offscreen
         vim.g.matchup_matchparen_offscreen = {}
@@ -59,7 +57,7 @@ return {
       vim.api.nvim_clear_autocmds { group = "disable_winbar" }
       vim.o.winbar = vim.g.winbar_old
 
-      if utils.is_available "vim-matchup" then
+      if require("astrocore").is_available "vim-matchup" then
         vim.g.matchup_matchparen_offscreen = vim.g.matchup_matchparen_offscreen_old
         vim.cmd.DoMatchParen()
       end

@@ -1,4 +1,3 @@
-local utils = require "astrocore"
 return {
   {
     "AstroNvim/astrolsp",
@@ -19,14 +18,17 @@ return {
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "cpp", "c", "objc", "cuda", "proto" })
+        opts.ensure_installed =
+          require("astrocore").list_insert_unique(opts.ensure_installed, { "cpp", "c", "objc", "cuda", "proto" })
       end
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "clangd") end,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "clangd")
+    end,
   },
   {
     "p00f/clangd_extensions.nvim",
@@ -51,7 +53,9 @@ return {
     dependencies = {
       {
         "jay-babu/mason-nvim-dap.nvim",
-        opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,
+        opts = function(_, opts)
+          opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "codelldb")
+        end,
       },
     },
     opts = {},
