@@ -2,21 +2,27 @@ return {
   { import = "astrocommunity.pack.toml" },
   {
     "AstroNvim/astrolsp",
-    ---@type AstroLSPOpts
-    opts = {
-      ---@diagnostic disable: missing-fields
-      config = {
-        rust_analyzer = {
-          settings = {
-            ["rust-analyzer"] = {
-              checkOnSave = {
-                command = "clippy",
+    ---@param opts AstroLSPOpts
+    opts = function(_, opts)
+      -- add rust_analyzer to servers list if the command is available
+      if vim.fn.executable "rust-analyzer" == 1 then
+        opts.servers = require("astrocore").list_insert_unique(opts.servers, "rust_analyzer")
+      end
+      return vim.tbl_deep_extend("keep", opts, {
+        ---@diagnostic disable: missing-fields
+        config = {
+          rust_analyzer = {
+            settings = {
+              ["rust-analyzer"] = {
+                checkOnSave = {
+                  command = "clippy",
+                },
               },
             },
           },
         },
-      },
-    },
+      })
+    end,
   },
   {
     "vxpm/ferris.nvim",
