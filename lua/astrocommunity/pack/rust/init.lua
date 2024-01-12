@@ -25,6 +25,14 @@ return {
     end,
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "rust")
+      end
+    end,
+  },
+  {
     "vxpm/ferris.nvim",
     lazy = true,
     init = function()
