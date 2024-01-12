@@ -1,11 +1,12 @@
-local utils = require "astrocore"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed =
-          utils.list_insert_unique(opts.ensure_installed, { "bash", "markdown", "markdown_inline", "regex", "vim" })
+        opts.ensure_installed = require("astrocore").list_insert_unique(
+          opts.ensure_installed,
+          { "bash", "markdown", "markdown_inline", "regex", "vim" }
+        )
       end
     end,
   },
@@ -14,6 +15,7 @@ return {
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = function(_, opts)
+      local utils = require "astrocore"
       return utils.extend_tbl(opts, {
         lsp = {
           -- override markdown rendering so that **cmp** and other plugins use **Treesitter**

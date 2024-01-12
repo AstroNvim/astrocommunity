@@ -1,5 +1,3 @@
-local utils = require "astrocore"
-
 return {
   "mfussenegger/nvim-dap",
   optional = true,
@@ -38,7 +36,7 @@ return {
     if not dap.configurations.javascript then
       dap.configurations.javascript = js_config
     else
-      utils.extend_tbl(dap.configurations.javascript, js_config)
+      require("astrocore").extend_tbl(dap.configurations.javascript, js_config)
     end
   end,
 }

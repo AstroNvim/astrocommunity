@@ -1,12 +1,10 @@
-local utils = require "astrocore"
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "java", "html" })
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "java", "html" })
       end
     end,
   },
@@ -14,21 +12,23 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
     end,
   },
 
   {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "clang_format") end,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "clang_format")
+    end,
   },
 
   {
     "jay-babu/mason-nvim-dap.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "javadbg", "javatest" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "javadbg", "javatest" })
     end,
   },
 
@@ -47,6 +47,7 @@ return {
       },
     },
     opts = function(_, opts)
+      local utils = require "astrocore"
       -- use this function notation to build some variables
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
       local root_dir = require("jdtls.setup").find_root(root_markers)
@@ -135,7 +136,7 @@ return {
           if opts.root_dir and opts.root_dir ~= "" then
             require("jdtls").start_or_attach(opts)
           else
-            utils.notify("jdtls: root_dir not found. Please specify a root marker", vim.log.levels.ERROR)
+            require("astrocore").notify("jdtls: root_dir not found. Please specify a root marker", vim.log.levels.ERROR)
           end
         end,
       })

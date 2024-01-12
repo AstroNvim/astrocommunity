@@ -1,5 +1,3 @@
-local utils = require "astrocore"
-
 return {
   {
     "AstroNvim/astrolsp",
@@ -14,7 +12,7 @@ return {
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "scala")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "scala")
       end
     end,
   },
@@ -38,7 +36,7 @@ return {
             metals.setup_dap()
           end
 
-          metals.initialize_or_attach(utils.extend_tbl(metals.bare_config(), user_config))
+          metals.initialize_or_attach(require("astrocore").extend_tbl(metals.bare_config(), user_config))
         end,
         group = vim.api.nvim_create_augroup("nvim-metals", { clear = true }),
       })

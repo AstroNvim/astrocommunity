@@ -1,4 +1,3 @@
-local utils = require "astrocore"
 local haskell_ft = { "haskell", "lhaskell", "cabal", "cabalproject" }
 
 return {
@@ -18,7 +17,7 @@ return {
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haskell")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "haskell")
       end
     end,
   },
@@ -35,7 +34,7 @@ return {
     version = vim.fn.has "nvim-0.9" == 1 and "^3" or "^2",
     init = function()
       local astrolsp = require "astrolsp"
-      vim.g.haskell_tools = utils.extend_tbl({
+      vim.g.haskell_tools = require("astrocore").extend_tbl({
         hls = { capabilities = astrolsp.config.capabilities, on_attach = astrolsp.on_attach },
       }, vim.g.haskell_tools)
     end,
@@ -43,12 +42,16 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "hls") end,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "hls")
+    end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     optional = true,
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haskell") end,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "haskell")
+    end,
   },
   {
     "mrcjkb/haskell-snippets.nvim",

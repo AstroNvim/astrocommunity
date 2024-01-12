@@ -1,5 +1,3 @@
-local utils = require "astrocore"
-
 return {
   {
     "quarto-dev/quarto-nvim",
@@ -31,7 +29,7 @@ return {
         "css",
       }
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, ensure_installed)
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, ensure_installed)
       end
     end,
   },

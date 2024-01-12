@@ -1,4 +1,3 @@
-local utils = require "astrocore"
 return {
   -- Helm support
   {
@@ -17,14 +16,14 @@ return {
       }
       vim.treesitter.language.register("gotmpl", "helm")
 
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "gotmpl")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "gotmpl")
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "helm_ls")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "helm_ls")
 
       local configs = require "lspconfig.configs"
       local lspconfig = require "lspconfig"

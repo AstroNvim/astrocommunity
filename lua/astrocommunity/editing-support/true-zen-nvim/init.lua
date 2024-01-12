@@ -1,4 +1,3 @@
-local utils = require "astrocore"
 return {
   "Pocco81/true-zen.nvim",
   dependencies = {
@@ -44,6 +43,7 @@ return {
     },
   },
   opts = function(_, opts)
+    local utils = require "astrocore"
     return utils.extend_tbl(opts, {
       integrations = {
         tmux = os.getenv "TMUX" ~= nil, -- hide tmux status bar in (minimalist, ataraxis)
