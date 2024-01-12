@@ -1,4 +1,4 @@
-local utils = require "astronvim.utils"
+local utils = require "astrocore"
 vim.filetype.add {
   filename = {
     ["docker-compose.yaml"] = "yaml.docker-compose",
