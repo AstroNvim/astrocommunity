@@ -39,7 +39,6 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("lazy_ferris", { clear = true }),
         desc = "Lazy load Ferris",
-        once = true,
         callback = function(args)
           if vim.lsp.get_client_by_id(args.data.client_id).name == "rust_analyzer" then
             if require("ferris.private.config").opts.create_commands then
