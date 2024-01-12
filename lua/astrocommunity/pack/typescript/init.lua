@@ -1,20 +1,5 @@
 local utils = require "astrocore"
 
-local function on_file_remove(args)
-  local ts_clients = vim.lsp.get_clients { name = "tsserver" }
-  for _, ts_client in ipairs(ts_clients) do
-    ts_client.request("workspace/executeCommand", {
-      command = "_typescript.applyRenameFile",
-      arguments = {
-        {
-          sourceUri = vim.uri_from_fname(args.source),
-          targetUri = vim.uri_from_fname(args.destination),
-        },
-      },
-    })
-  end
-end
-
 local function check_json_key_exists(filename, key)
   -- Open the file in read mode
   local file = io.open(filename, "r")
@@ -38,6 +23,7 @@ end
 
 return {
   { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
@@ -142,20 +128,8 @@ return {
     opts = function() return require("astrolsp").lsp_opts "typescript-tools" end,
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    optional = true,
-    opts = function(_, opts)
-      local events = require "neo-tree.events"
-      if not opts.event_handlers then opts.event_handlers = {} end
-      vim.list_extend(opts.event_handlers, {
-        { event = events.FILE_MOVED, handler = on_file_remove },
-        { event = events.FILE_RENAMED, handler = on_file_remove },
-      })
-    end,
-  },
-  {
     "dmmulroy/tsc.nvim",
-    cmd = { "TSC" },
+    cmd = "TSC",
     opts = {},
   },
 }
