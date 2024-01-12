@@ -130,16 +130,11 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, opts)
       local events = require "neo-tree.events"
-      opts.event_handlers = {
-        {
-          event = events.FILE_MOVED,
-          handler = on_file_remove,
-        },
-        {
-          event = events.FILE_RENAMED,
-          handler = on_file_remove,
-        },
-      }
+      if not opts.event_handlers then opts.event_handlers = {} end
+      vim.list_extend(opts.event_handlers, {
+        { event = events.FILE_MOVED, handler = on_file_remove },
+        { event = events.FILE_RENAMED, handler = on_file_remove },
+      })
     end,
   },
   {
