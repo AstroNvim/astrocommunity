@@ -6,7 +6,9 @@ return {
       "AstroNvim/astrocore",
       opts = {
         mappings = {
-          ["<Leader>fu"] = { "<CMD>Telescope undo<CR>", desc = "Find undos" },
+          n = {
+            ["<Leader>fu"] = { "<CMD>Telescope undo<CR>", desc = "Find undos" },
+          },
         },
       },
     },
