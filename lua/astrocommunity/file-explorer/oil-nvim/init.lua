@@ -6,7 +6,9 @@ return {
       "AstroNvim/astrocore",
       opts = {
         mappings = {
-          ["<Leader>O"] = { function() require("oil").open() end, desc = "Open folder in Oil" },
+          n = {
+            ["<Leader>O"] = { function() require("oil").open() end, desc = "Open folder in Oil" },
+          },
         },
       },
     },
