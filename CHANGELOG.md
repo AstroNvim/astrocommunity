@@ -1,5 +1,21 @@
 # Changelog
 
+## [5.3.0](https://github.com/AstroNvim/astrocommunity/compare/v5.2.0...v5.3.0) (2024-01-12)
+
+
+### Features
+
+* **docker:** Add filetype handling to pack to make lsp attach ([8e964d3](https://github.com/AstroNvim/astrocommunity/commit/8e964d3936a5a4225c0cf8b6d0b207dffab8f160))
+* **docker:** Handle docker-compose.yaml filetype to make lsp attach ([#715](https://github.com/AstroNvim/astrocommunity/issues/715)) ([8e964d3](https://github.com/AstroNvim/astrocommunity/commit/8e964d3936a5a4225c0cf8b6d0b207dffab8f160))
+* **main:** Add type hints to all opts usage for catppuccin/nvim. Catch bug in opts usage for catppuccin ([#695](https://github.com/AstroNvim/astrocommunity/issues/695)) ([3c0d274](https://github.com/AstroNvim/astrocommunity/commit/3c0d2748552a8e711cb5153ab479341a84ff10aa))
+
+
+### Bug Fixes
+
+* **dial-nvim:** remove expr = true from mappings and return from functions ([#710](https://github.com/AstroNvim/astrocommunity/issues/710)) ([58c28a7](https://github.com/AstroNvim/astrocommunity/commit/58c28a716cf4f1725f29504bba6b91f8748f8710))
+* **rainbow-delimiters-nvim:** event loading ([#707](https://github.com/AstroNvim/astrocommunity/issues/707)) ([074c182](https://github.com/AstroNvim/astrocommunity/commit/074c182181a1197ba183907869d26cb838f90593))
+* **typescript:** don't overwrite neo-tree events ([#717](https://github.com/AstroNvim/astrocommunity/issues/717)) ([02d2f98](https://github.com/AstroNvim/astrocommunity/commit/02d2f98fc25d4229f21e3e87b157b6895f65f0e4))
+
 ## [5.2.0](https://github.com/AstroNvim/astrocommunity/compare/v5.1.0...v5.2.0) (2024-01-03)
 
 
