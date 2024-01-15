@@ -8,7 +8,9 @@ return {
         "AstroNvim/astrocore",
         opts = {
           mappings = {
-            ["<Leader>e"] = { function() require("mini.files").open() end, desc = "Explorer" },
+            n = {
+              ["<Leader>e"] = { function() require("mini.files").open() end, desc = "Explorer" },
+            },
           },
         },
       },

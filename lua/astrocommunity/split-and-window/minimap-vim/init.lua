@@ -7,7 +7,9 @@ return {
       "AstroNvim/astrocore",
       opts = {
         mappings = {
-          ["<Leader>um"] = { "<CMD>MinimapToggle<CR>", desc = "Toggle minimap" },
+          n = {
+            ["<Leader>um"] = { "<CMD>MinimapToggle<CR>", desc = "Toggle minimap" },
+          },
         },
       },
     },
