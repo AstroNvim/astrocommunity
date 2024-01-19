@@ -14,7 +14,7 @@ This plugin pack does the following:
 
 ## How do I disable Eslint format on save?
 
-Do opt out of the Eslint format on save behaviour, you can disable the autocmd setup with the pack with this:
+To opt out of the Eslint format on save behaviour, you can disable the autocmd setup with the pack with this:
 
 ```lua
 return {
