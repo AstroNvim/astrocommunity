@@ -57,4 +57,13 @@ return {
       require("dap-python").setup(path, opts)
     end,
   },
+  {
+    "nvim-neotest/neotest",
+    optional = true,
+    dependencies = { "nvim-neotest/neotest-python" },
+    opts = function(_, opts)
+      if not opts.adapters then opts.adapters = {} end
+      table.insert(opts.adapters, require "neotest-python"(require("astrocore").plugin_opts "neotest-python"))
+    end,
+  },
 }

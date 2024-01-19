@@ -76,14 +76,11 @@ return {
   },
   {
     "nvim-neotest/neotest",
-    ft = haskell_ft,
-    dependencies = {
-      { "mrcjkb/neotest-haskell" },
-    },
-    opts = {
-      adapters = {
-        ["neotest-haskell"] = {},
-      },
-    },
+    optional = true,
+    dependencies = { "mrcjkb/neotest-haskell" },
+    opts = function(_, opts)
+      if not opts.adapters then opts.adapters = {} end
+      table.insert(opts.adapters, require "neotest-haskell"(require("astrocore").plugin_opts "neotest-haskell"))
+    end,
   },
 }
