@@ -69,4 +69,13 @@ return {
         or scala_config
     end,
   },
+  {
+    "nvim-neotest/neotest",
+    optional = true,
+    dependencies = { "stevanmilic/neotest-scala" },
+    opts = function(_, opts)
+      if not opts.adapters then opts.adapters = {} end
+      table.insert(opts.adapters, require "neotest-scala"(require("astrocore").plugin_opts "neotest-scala"))
+    end,
+  },
 }
