@@ -6,7 +6,7 @@ return {
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed =
-          require("astrocore").list_insert_unique(opts.ensure_installed, { "go", "gomod", "gosum", "gowork" })
+          require("astrocore").list_insert_unique(opts.ensure_installed, "go", "gomod", "gosum", "gowork")
       end
     end,
   },
@@ -17,7 +17,11 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
+        "gomodifytags",
+        "gofumpt",
+        "iferr",
+        "impl",
+        "goimports"
       )
     end,
   },

@@ -22,7 +22,7 @@ return {
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed =
-          require("astrocore").list_insert_unique(opts.ensure_installed, { "gdscript", "glsl", "godot_resource" })
+          require("astrocore").list_insert_unique(opts.ensure_installed, "gdscript", "glsl", "godot_resource")
       end
     end,
   },
