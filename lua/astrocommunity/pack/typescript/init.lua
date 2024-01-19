@@ -36,23 +36,6 @@ return {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "tsserver", "eslint" })
-
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("eslint_fix_creator", { clear = true }),
-        desc = "Create autocommand in buffers where eslint attaches",
-        callback = function(args)
-          if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "eslint" then
-            vim.api.nvim_create_autocmd("BufWritePost", {
-              desc = "Fix all eslint errors",
-              buffer = args.buf,
-              group = vim.api.nvim_create_augroup(("eslint_fix_%d"):format(args.buf), { clear = true }),
-              callback = function()
-                if vim.fn.exists ":EslintFixAll" > 0 then vim.cmd.EslintFixAll() end
-              end,
-            })
-          end
-        end,
-      })
     end,
   },
   {
@@ -105,6 +88,16 @@ return {
       "AstroNvim/astrolsp",
       ---@diagnostic disable: missing-fields
       opts = {
+        autocmds = {
+          eslint_fix_on_save = {
+            cond = function(client) return client.name == "eslint" and vim.fn.exists ":EslintFixAll" > 0 end,
+            {
+              event = "BufWritePost",
+              desc = "Fix all eslint errors",
+              callback = function() vim.cmd.EslintFixAll() end,
+            },
+          },
+        },
         handlers = { tsserver = false }, -- disable tsserver setup, this plugin does it
         config = {
           ["typescript-tools"] = { -- enable inlay hints by default for `typescript-tools`
