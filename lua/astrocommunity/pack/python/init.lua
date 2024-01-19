@@ -1,5 +1,17 @@
 return {
   {
+    "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
+    opts = {
+      ---@diagnostic disable: missing-fields
+      config = {
+        pyright = {
+          before_init = function(_, c) c.settings.python.pythonPath = vim.fn.exepath "python" end,
+        },
+      },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
