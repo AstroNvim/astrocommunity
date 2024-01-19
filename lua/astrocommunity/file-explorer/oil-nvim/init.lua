@@ -1,7 +1,7 @@
 return {
   "stevearc/oil.nvim",
   cmd = "Oil",
-  depdencies = {
+  dependencies = {
     {
       "AstroNvim/astrocore",
       opts = {
