@@ -2,7 +2,7 @@ return {
   { "numToStr/Comment.nvim", enabled = false },
   {
     "echasnovski/mini.comment",
-    event = "BufReadPost",
+    event = "User AstroFile",
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
     opts = {
       custom_commentstring = function()
