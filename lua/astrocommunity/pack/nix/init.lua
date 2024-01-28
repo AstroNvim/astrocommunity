@@ -10,7 +10,7 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "rnix") end,
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "nil_ls") end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
