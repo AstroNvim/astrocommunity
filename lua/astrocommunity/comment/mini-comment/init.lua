@@ -2,8 +2,8 @@ return {
   { "numToStr/Comment.nvim", enabled = false },
   {
     "echasnovski/mini.comment",
-    event = "User AstroFile",
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
+    event = "User AstroFile",
     opts = {
       custom_commentstring = function()
         return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
