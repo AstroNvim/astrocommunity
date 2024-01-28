@@ -1,5 +1,21 @@
 # Changelog
 
+## [5.4.0](https://github.com/AstroNvim/astrocommunity/compare/v5.3.0...v5.4.0) (2024-01-28)
+
+
+### Features
+
+* **motion:** add tabout.nvim ([#722](https://github.com/AstroNvim/astrocommunity/issues/722)) ([51d1c0c](https://github.com/AstroNvim/astrocommunity/commit/51d1c0cd0ef66fdf86dc8a1728879ba3ad94ce03))
+* **nix:** replace rnix with nil_ls ([#737](https://github.com/AstroNvim/astrocommunity/issues/737)) ([ab14eab](https://github.com/AstroNvim/astrocommunity/commit/ab14eab0f0b163e2aba7e13b2349acd929683d27))
+* **openingh-nvim:** added mappings to copy url ([#733](https://github.com/AstroNvim/astrocommunity/issues/733)) ([149ab9c](https://github.com/AstroNvim/astrocommunity/commit/149ab9c83764f41bbd9642fcfdb4dd9a95edda9d))
+
+
+### Bug Fixes
+
+* **harpoon:** change word terminal to term ([#725](https://github.com/AstroNvim/astrocommunity/issues/725)) ([7351bf0](https://github.com/AstroNvim/astrocommunity/commit/7351bf05c8cd68029ceb61988c8c17ccfa724dcc))
+* **nvim-coverage:** Call nvim-coverage's setup ([#726](https://github.com/AstroNvim/astrocommunity/issues/726)) ([2a9f741](https://github.com/AstroNvim/astrocommunity/commit/2a9f7410513c94120dad8c63c4311419481dbc39))
+* **nvim-coverage:** updated old keyword ([#723](https://github.com/AstroNvim/astrocommunity/issues/723)) ([3304429](https://github.com/AstroNvim/astrocommunity/commit/330442988044e87c6d540eb2be6ebd5cd0f46af6))
+
 ## [5.3.0](https://github.com/AstroNvim/astrocommunity/compare/v5.2.0...v5.3.0) (2024-01-12)
 
 
