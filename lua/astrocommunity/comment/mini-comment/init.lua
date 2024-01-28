@@ -2,12 +2,12 @@ return {
   { "numToStr/Comment.nvim", enabled = false },
   {
     "echasnovski/mini.comment",
-    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
     event = "User AstroFile",
     opts = {
-      hooks = {
-        pre = function() require("ts_context_commentstring.internal").update_commentstring {} end,
-      },
+      custom_commentstring = function()
+        return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
+      end,
     },
   },
   {
