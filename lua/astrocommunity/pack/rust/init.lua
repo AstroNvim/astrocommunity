@@ -10,7 +10,7 @@ return {
     end,
   },
   {
-    "simrat39/rust-tools.nvim",
+    "mrcjkb/rustaceanvim",
     ft = { "rust" },
     init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "rust_analyzer") end,
     opts = function()
@@ -30,9 +30,9 @@ return {
           -- The liblldb extension is .so for linux and .dylib for macOS
           liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
         end
-        adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
+        adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb_path, liblldb_path)
       else
-        adapter = require("rust-tools.dap").get_codelldb_adapter()
+        vim.notify "codelldb not found"
       end
 
       return { server = require("astronvim.utils.lsp").config "rust_analyzer", dap = { adapter = adapter } }
@@ -43,6 +43,8 @@ return {
         opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,
       },
     },
+    config = function()
+    end
   },
   {
     "williamboman/mason-lspconfig.nvim",
