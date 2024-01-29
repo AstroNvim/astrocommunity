@@ -5,7 +5,6 @@ return {
   { import = "astrocommunity.pack.html-css" },
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" } },
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "angular")
