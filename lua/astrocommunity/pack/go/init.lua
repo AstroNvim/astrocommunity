@@ -1,4 +1,20 @@
 return {
+  {
+    "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
+    opts = {
+      ---@diagnostic disable-next-line: missing-fields
+      config = {
+        gopls = {
+          settings = {
+            gopls = {
+              semanticTokens = true,
+            },
+          },
+        },
+      },
+    },
+  },
   -- Golang support
   {
     "nvim-treesitter/nvim-treesitter",
