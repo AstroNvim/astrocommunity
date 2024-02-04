@@ -15,6 +15,7 @@ These are things you have to setup on your own
 
 * ImageMagick - **mandatory**
 * magick LuaRock - **mandatory** (luarocks --local --lua-version=5.1 install magick)
+    - Magick LuaRock requires Lua 5.1 
 * Kitty >= 28.0 - for the kitty backend
 * ueberzugpp - for the ueberzug backend
 * curl - for remote images
