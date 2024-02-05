@@ -64,12 +64,18 @@ return {
     opts = {},
   },
   {
-    "olexsmir/gopher.nvim",
-    dependencies = { -- dependencies
-      "nvim-lua/plenary.nvim",
+    "ray-x/go.nvim",
+    dependencies = {
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
-    build = ":GoInstallDeps",
+    opts = {
+      disable_defaults = true,
+    },
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()',
   },
   {
     "nvim-neotest/neotest",
