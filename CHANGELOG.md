@@ -1,5 +1,22 @@
 # Changelog
 
+## [5.5.0](https://github.com/AstroNvim/astrocommunity/compare/v5.4.0...v5.5.0) (2024-02-07)
+
+
+### Features
+
+* **angular:** Migrate to built-in treesitter ([#743](https://github.com/AstroNvim/astrocommunity/issues/743)) ([8157924](https://github.com/AstroNvim/astrocommunity/commit/8157924d02308c24754fb4f71e165700f989043f))
+* **debugging:** Add nvim-chainsaw ([#739](https://github.com/AstroNvim/astrocommunity/issues/739)) ([c393c18](https://github.com/AstroNvim/astrocommunity/commit/c393c18899d8070866b610010971668014152e7b))
+* **lsp:** Add lsp-lens.nvim ([#750](https://github.com/AstroNvim/astrocommunity/issues/750)) ([340fdd3](https://github.com/AstroNvim/astrocommunity/commit/340fdd3645d946d50b5a301e4edad8b99a18b6ba))
+* **media:** add image.nvim ([#742](https://github.com/AstroNvim/astrocommunity/issues/742)) ([6398af8](https://github.com/AstroNvim/astrocommunity/commit/6398af89a30e7542be73dd22368859307bad1a80))
+* **pack:** add Pkl language support ([#749](https://github.com/AstroNvim/astrocommunity/issues/749)) ([402ded4](https://github.com/AstroNvim/astrocommunity/commit/402ded4f183bd99b89c9ae6a12c7bbf81c7cb72a))
+
+
+### Bug Fixes
+
+* **angular:** use built-in treesitter ([8157924](https://github.com/AstroNvim/astrocommunity/commit/8157924d02308c24754fb4f71e165700f989043f))
+* **diffview-nvim:** use diffview winbar and disable view activation ([#752](https://github.com/AstroNvim/astrocommunity/issues/752)) ([a953b0d](https://github.com/AstroNvim/astrocommunity/commit/a953b0d1749b0bd0079003bcfb20129047924e58))
+
 ## [5.4.0](https://github.com/AstroNvim/astrocommunity/compare/v5.3.0...v5.4.0) (2024-01-28)
 
 
