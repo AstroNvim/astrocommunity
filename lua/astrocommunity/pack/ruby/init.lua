@@ -27,4 +27,22 @@ return {
     optional = true,
     dependencies = { "suketa/nvim-dap-ruby", config = true },
   },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        ruby = { "standardrb" },
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        ruby = { "standardrb" },
+      },
+    },
+  },
 }
