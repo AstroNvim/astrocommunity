@@ -1,5 +1,6 @@
 return {
   { "AstroNvim/astrolsp", opts = { formatting = { disabled = true } } },
+  { "jay-babu/mason-null-ls.nvim", optional = true, opts = { methods = { formatting = false } } },
   {
     "stevearc/conform.nvim",
     event = "User AstroFile",
