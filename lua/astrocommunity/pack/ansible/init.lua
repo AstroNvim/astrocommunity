@@ -47,7 +47,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        ["yaml.ansible"] = { "prettierd" },
+        ["yaml.ansible"] = { { "prettierd", "prettier" } },
       },
     },
   },
