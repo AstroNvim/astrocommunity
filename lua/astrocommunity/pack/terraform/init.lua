@@ -19,7 +19,30 @@ return {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "tflint", "tfsec")
+      opts.ensure_installed =
+        require("astrocore").list_insert_unique(opts.ensure_installed, "tflint", "tfsec", "terraform_fmt")
     end,
+  },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        tf = { "terraform_fmt" },
+        terraform = { "terraform_fmt" },
+        ["terraform-vars"] = { "terraform_fmt" },
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        tf = { "tfsec" },
+        terraform = { "tfsec" },
+        ["terraform-vars"] = { "tfsec" },
+      },
+    },
   },
 }
