@@ -65,4 +65,13 @@ return {
     end,
     ft = "helm",
   },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        helm = { { "prettierd", "prettier" } },
+      },
+    },
+  },
 }
