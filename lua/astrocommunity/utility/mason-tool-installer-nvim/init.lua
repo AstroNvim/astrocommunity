@@ -20,6 +20,15 @@ return {
       end
       for _, plugin in ipairs { "mason-nvim-dap.nvim", "mason-lspconfig.nvim", "mason-null-ls.nvim" } do
         for _, target in ipairs(require("astrocore").plugin_opts(plugin).ensure_installed or {}) do
+          local mappings
+          if plugin == "mason-lspconfig.nvim" then
+            mappings = require("mason-lspconfig.mappings.server").lspconfig_to_package
+          elseif plugin == "mason-null-ls.nvim" then
+            mappings = require("mason-null-ls.mappings.source").null_ls_to_package
+          elseif plugin == "mason-nvim-dap.nvim" then
+            mappings = require("mason-nvim-dap.mappings.source").nvim_dap_to_package
+          end
+          if mappings and mappings[target] then target = mappings[target] end
           if not target_lookup[target] then table.insert(opts.ensure_installed, target) end
         end
       end
