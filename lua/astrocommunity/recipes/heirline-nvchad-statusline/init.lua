@@ -17,7 +17,7 @@ return {
         -- define the separators between each section
         separators = {
           left = { "", "" }, -- separator for the left side of the statusline
-          right = { " ", "" }, -- separator for the right side of the statusline
+          right = { "", "" }, -- separator for the right side of the statusline
           tab = { "", "" },
         },
         -- add new colors that can be used by heirline
@@ -114,46 +114,51 @@ return {
         -- the elements after this will appear on the right of the statusline
         status.component.fill(),
         -- add a component for the current diagnostics if it exists and use the right separator for the section
-        status.component.diagnostics { surround = { separator = "right" } },
+        status.component.diagnostics { surround = { separator = "right" }, padding = { right = 1 } },
         -- add a component to display LSP clients, disable showing LSP progress, and use the right separator
         status.component.lsp {
           lsp_progress = false,
+          padding = { right = 1 },
           surround = { separator = "right" },
         },
         -- NvChad has some nice icons to go along with information, so we can create a parent component to do this
         -- all of the children of this table will be treated together as a single component
         {
-          -- define a simple component where the provider is just a folder icon
-          status.component.builder {
-            -- astronvim.get_icon gets the user interface icon for a closed folder with a space after it
-            { provider = require("astroui").get_icon "FolderClosed" },
-            -- add padding after icon
-            padding = { right = 1 },
-            -- set the foreground color to be used for the icon
-            hl = { fg = "bg" },
-            -- use the right separator and define the background color
-            surround = { separator = "right", color = "folder_icon_bg" },
-          },
-          -- add a file information component and only show the current working directory name
-          status.component.file_info {
-            -- we only want filename to be used and we can change the fname
-            -- function to get the current working directory name
-            filename = {
-              fname = function(nr) return vim.fn.getcwd(nr) end,
-              padding = { left = 1 },
+          flexible = 1,
+          {
+            -- define a simple component where the provider is just a folder icon
+            status.component.builder {
+              -- astronvim.get_icon gets the user interface icon for a closed folder with a space after it
+              { provider = require("astroui").get_icon "FolderClosed" },
+              -- add padding after icon
+              padding = { right = 1 },
+              -- set the foreground color to be used for the icon
+              hl = { fg = "bg" },
+              -- use the right separator and define the background color
+              surround = { separator = "right", color = "folder_icon_bg" },
             },
-            -- disable all other elements of the file_info component
-            filetype = false,
-            file_icon = false,
-            file_modified = false,
-            file_read_only = false,
-            -- use no separator for this part but define a background color
-            surround = {
-              separator = "none",
-              color = "file_info_bg",
-              condition = false,
+            -- add a file information component and only show the current working directory name
+            status.component.file_info {
+              -- we only want filename to be used and we can change the fname
+              -- function to get the current working directory name
+              filename = {
+                fname = function(nr) return vim.fn.getcwd(nr) end,
+                padding = { left = 1, right = 1 },
+              },
+              -- disable all other elements of the file_info component
+              filetype = false,
+              file_icon = false,
+              file_modified = false,
+              file_read_only = false,
+              -- use no separator for this part but define a background color
+              surround = {
+                separator = "none",
+                color = "file_info_bg",
+                condition = false,
+              },
             },
           },
+          {},
         },
         -- the final component of the NvChad statusline is the navigation section
         -- this is very similar to the previous current working directory section with the icon
