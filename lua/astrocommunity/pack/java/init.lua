@@ -15,7 +15,6 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "jdtls", "lemminx")
     end,
   },
-
   {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
@@ -23,7 +22,6 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "clang_format")
     end,
   },
-
   {
     "jay-babu/mason-nvim-dap.nvim",
     optional = true,
@@ -31,7 +29,20 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "javadbg", "javatest")
     end,
   },
-
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(
+        opts.ensure_installed,
+        "jdtls",
+        "lemminx",
+        "clang-format",
+        "java-debug-adapter",
+        "java-test"
+      )
+    end,
+  },
   {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
