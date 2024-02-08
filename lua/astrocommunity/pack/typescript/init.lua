@@ -75,6 +75,19 @@ return {
     end,
   },
   {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(
+        opts.ensure_installed,
+        "typescript-language-server",
+        "eslint-lsp",
+        "prettierd",
+        "js-debug-adapter"
+      )
+    end,
+  },
+  {
     "vuki656/package-info.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = {},
