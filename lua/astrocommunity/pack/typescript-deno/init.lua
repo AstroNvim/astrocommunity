@@ -33,6 +33,13 @@ return {
     end,
   },
   {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "deno", "js-debug-adapter")
+    end,
+  },
+  {
     "sigmasd/deno-nvim",
     ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
     opts = function() return { server = require("astrolsp").lsp_opts "denols" } end,
