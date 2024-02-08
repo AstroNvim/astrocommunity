@@ -54,6 +54,17 @@ return {
     end,
   },
   {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(
+        opts.ensure_installed,
+        "haskell-debug-adapter",
+        "haskell-language-server"
+      )
+    end,
+  },
+  {
     "mrcjkb/haskell-snippets.nvim",
     enabled = function() return require("astrocore").is_available "LuaSnip" end,
     ft = haskell_ft,
