@@ -3,6 +3,7 @@ return {
   { import = "astrocommunity.pack.yaml" },
   {
     "nvim-treesitter/nvim-treesitter",
+    commit = "f2778bd1a28b74adf5b1aa51aa57da85adfa3d16",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "dart")
