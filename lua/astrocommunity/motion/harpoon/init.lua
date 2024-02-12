@@ -12,7 +12,6 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
-    cmd = { "Harpoon" },
     keys = {
       { prefix .. "a", function() require("harpoon"):list():append() end, desc = "Add file" },
       {
