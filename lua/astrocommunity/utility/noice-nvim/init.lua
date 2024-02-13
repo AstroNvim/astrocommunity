@@ -16,8 +16,27 @@ return {
   },
   {
     "AstroNvim/astrolsp",
-    ---@type AstroLSPOpts
-    opts = { features = { lsp_handlers = false } },
+    ---@param opts AstroLSPOpts
+    opts = function(_, opts)
+      local noice_opts = require("astrocore").plugin_opts "noice.nvim"
+      if -- check if noice handlers are disabled
+        vim.tbl_get(noice_opts, "lsp", "hover", "enabled") ~= false
+        or vim.tbl_get(noice_opts, "lsp", "signature", "enabled") ~= false
+      then
+        if not opts.features then opts.features = {} end
+        opts.features.lsp_handlers = false
+      end
+    end,
+  },
+  {
+    "heirline.nvim",
+    optional = true,
+    opts = function(_, opts)
+      local noice_opts = require("astrocore").plugin_opts "noice.nvim"
+      if vim.tbl_get(noice_opts, "lsp", "progress", "enabled") ~= false then -- check if lsp progress is enabled
+        opts.statusline[9] = require("astroui.status").component.lsp { lsp_progress = false }
+      end
+    end,
   },
   {
     "folke/noice.nvim",
