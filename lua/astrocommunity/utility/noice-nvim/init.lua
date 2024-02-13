@@ -15,6 +15,11 @@ return {
     end,
   },
   {
+    "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
+    opts = { features = { lsp_handlers = false } },
+  },
+  {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim" },
@@ -38,7 +43,6 @@ return {
         },
       })
     end,
-    init = function() vim.g.lsp_handlers_enabled = false end,
   },
   {
     "folke/edgy.nvim",
