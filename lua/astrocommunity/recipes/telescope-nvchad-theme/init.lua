@@ -8,7 +8,7 @@ return {
       -- colors from highlight group there is no default table
       -- so we don't need to put a parameter for this function
       init = function()
-        local get_hlgroup = require("astrocore").get_hlgroup
+        local get_hlgroup = require("astroui").get_hlgroup
         -- get highlights from highlight groups
         local normal = get_hlgroup "Normal"
         local fg, bg = normal.fg, normal.bg

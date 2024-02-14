@@ -22,7 +22,7 @@ return {
         },
         -- add new colors that can be used by heirline
         colors = function(hl)
-          local get_hlgroup = require("astrocore").get_hlgroup
+          local get_hlgroup = require("astroui").get_hlgroup
           -- use helper function to get highlight group properties
           local comment_fg = get_hlgroup("Comment").fg
           hl.git_branch_fg = comment_fg
