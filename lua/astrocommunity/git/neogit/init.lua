@@ -9,7 +9,7 @@ return {
         opts = function(_, opts)
           local maps = opts.mappings
           local prefix = "<Leader>g"
-          maps.n[prefix] = { desc = require("astroui").get_icon("Neogit", 1, true) .. "Neogit" }
+          maps.n[prefix .. "n"] = { desc = require("astroui").get_icon("Neogit", 1, true) .. "Neogit" }
           maps.n[prefix .. "nt"] = { "<CMD>Neogit<CR>", desc = "Open Neogit Tab Page" }
           maps.n[prefix .. "nc"] = { "<CMD>Neogit commit<CR>", desc = "Open Neogit Commit Page" }
           maps.n[prefix .. "nd"] = { ":Neogit cwd=", desc = "Open Neogit Override CWD" }
