@@ -16,7 +16,7 @@ return {
       }
 
       if vim.fn.executable "laravel-dev-generators" == 1 then
-        opts.servers = require("astrocore").list_insert_unique(opts.servers, "blade")
+        opts.servers = require("astrocore").list_insert_unique(opts.servers, { "blade" })
       end
     end,
   },
@@ -35,21 +35,21 @@ return {
         filetype = "blade",
       }
 
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "blade")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "blade" })
     end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "blade_formatter")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "blade_formatter" })
     end,
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "blade-formatter")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "blade-formatter" })
     end,
   },
   {

@@ -4,7 +4,7 @@ return {
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "java", "html")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "java", "html" })
       end
     end,
   },
@@ -12,21 +12,21 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "jdtls", "lemminx")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
     end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "clang_format")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "clang_format" })
     end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "javadbg", "javatest")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "javadbg", "javatest" })
     end,
   },
   {
@@ -35,11 +35,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        "jdtls",
-        "lemminx",
-        "clang-format",
-        "java-debug-adapter",
-        "java-test"
+        { "jdtls", "lemminx", "clang-format", "java-debug-adapter", "java-test" }
       )
     end,
   },

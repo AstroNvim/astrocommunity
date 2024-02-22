@@ -22,7 +22,7 @@ return {
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed =
-          require("astrocore").list_insert_unique(opts.ensure_installed, "go", "gomod", "gosum", "gowork")
+          require("astrocore").list_insert_unique(opts.ensure_installed, { "go", "gomod", "gosum", "gowork" })
       end
     end,
   },
@@ -33,11 +33,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        "gomodifytags",
-        "gofumpt",
-        "iferr",
-        "impl",
-        "goimports"
+        { "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
       )
     end,
   },
@@ -45,7 +41,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "gopls")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "gopls" })
     end,
   },
   {
@@ -54,13 +50,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        "delve",
-        "gopls",
-        "gomodifytags",
-        "gofumpt",
-        "iferr",
-        "impl",
-        "goimports"
+        { "delve", "gopls", "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
       )
     end,
   },
@@ -73,7 +63,7 @@ return {
         "jay-babu/mason-nvim-dap.nvim",
         optional = true,
         opts = function(_, opts)
-          opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "delve")
+          opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "delve" })
         end,
       },
     },

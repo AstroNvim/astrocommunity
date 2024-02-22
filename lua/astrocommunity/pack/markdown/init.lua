@@ -5,7 +5,7 @@ return {
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed =
-          require("astrocore").list_insert_unique(opts.ensure_installed, "markdown", "markdown_inline")
+          require("astrocore").list_insert_unique(opts.ensure_installed, { "markdown", "markdown_inline" })
       end
     end,
   },
@@ -13,21 +13,22 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "marksman")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "marksman" })
     end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "prettierd")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "prettierd" })
     end,
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "marksman", "prettierd")
+      opts.ensure_installed =
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "marksman", "prettierd" })
     end,
   },
   {

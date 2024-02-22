@@ -16,21 +16,21 @@ return {
       }
       vim.treesitter.language.register("gotmpl", "helm")
 
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "gotmpl")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "gotmpl" })
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "helm_ls")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "helm_ls" })
     end,
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "helm-ls")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "helm-ls" })
     end,
   },
   {

@@ -5,7 +5,7 @@ return {
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "html", "css")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "html", "css" })
       end
     end,
   },
@@ -14,22 +14,24 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, "html", "cssls", "emmet_ls")
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "html", "cssls", "emmet_ls" })
     end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "prettierd")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "prettierd" })
     end,
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, "html-lsp", "css-lsp", "emmet-ls", "prettierd")
+      opts.ensure_installed = require("astrocore").list_insert_unique(
+        opts.ensure_installed,
+        { "html-lsp", "css-lsp", "emmet-ls", "prettierd" }
+      )
     end,
   },
   {

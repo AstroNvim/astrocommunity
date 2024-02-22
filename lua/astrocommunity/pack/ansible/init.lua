@@ -4,7 +4,7 @@ return {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "ansiblelint")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "ansiblelint" })
     end,
   },
   {
@@ -12,14 +12,14 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, "ansible-lint", "ansible-language-server")
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "ansible-lint", "ansible-language-server" })
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "ansiblels")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "ansiblels" })
     end,
   },
   {

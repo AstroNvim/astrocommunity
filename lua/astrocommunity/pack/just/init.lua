@@ -21,6 +21,6 @@ return {
       },
       maintainers = { "@IndianBoy42" },
     }
-    require("astrocore").list_insert_unique(opts.ensure_installed, "just")
+    require("astrocore").list_insert_unique(opts.ensure_installed, { "just" })
   end,
 }

@@ -17,7 +17,7 @@ return {
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "haskell")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "haskell" })
       end
     end,
   },
@@ -43,14 +43,14 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "hls")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "hls" })
     end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, "haskell")
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "haskell" })
     end,
   },
   {
@@ -59,8 +59,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        "haskell-debug-adapter",
-        "haskell-language-server"
+        { "haskell-debug-adapter", "haskell-language-server" }
       )
     end,
   },
