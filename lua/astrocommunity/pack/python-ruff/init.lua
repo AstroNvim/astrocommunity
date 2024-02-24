@@ -31,10 +31,8 @@ return {
   {
     "stevearc/conform.nvim",
     optional = true,
-    opts = {
-      formatters_by_ft = {
-        python = { "ruff_format" },
-      },
-    },
+    opts = function(_, opts)
+      if opts.formatters_by_ft then opts.formatters_by_ft.python = nil end
+    end,
   },
 }
