@@ -61,5 +61,4 @@ If you'd like to run cargo clippy instead of cargo check on safe, add the follow
       },
     },
   },
-
 ```
