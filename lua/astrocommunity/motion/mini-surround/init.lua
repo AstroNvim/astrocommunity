@@ -1,6 +1,5 @@
 local prefix = "gz"
 return {
-  { "machakann/vim-sandwich", enabled = false },
   {
     "echasnovski/mini.surround",
     dependencies = {

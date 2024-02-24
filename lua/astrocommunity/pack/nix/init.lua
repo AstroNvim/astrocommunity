@@ -19,8 +19,8 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "rnix-lsp" })
-    end,
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "nil_lsp" })
+    end
   },
   {
     "nvimtools/none-ls.nvim",
