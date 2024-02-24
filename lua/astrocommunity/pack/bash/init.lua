@@ -29,7 +29,7 @@ return {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "bashls", "shfmt" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "shfmt" })
     end,
   },
   {
@@ -45,15 +45,6 @@ return {
     opts = {
       formatters_by_ft = {
         sh = { "shfmt" },
-      },
-    },
-  },
-  {
-    "mfussenegger/nvim-lint",
-    optional = true,
-    opts = {
-      linters_by_ft = {
-        sh = { "bashls" },
       },
     },
   },
