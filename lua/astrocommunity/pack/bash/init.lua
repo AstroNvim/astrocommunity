@@ -14,7 +14,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "bash-language-server", "bashls", "shfmt", "bash-debug-adapter" }
+        { "bash-language-server", "shellcheck", "shfmt", "bash-debug-adapter" }
       )
     end,
   },
@@ -25,11 +25,18 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "bashls" })
     end,
   },
+  { "gbprod/none-ls-shellcheck.nvim", lazy = true },
   {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "shfmt" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "shfmt", "shellcheck" })
+      if opts.handlers and require("astrocore").is_available "none-ls-shellcheck.nvim" then
+        opts.handlers.shellcheck = function()
+          require("null-ls").register(require "none-ls-shellcheck.diagnostics")
+          require("null-ls").register(require "none-ls-shellcheck.code_actions")
+        end
+      end
     end,
   },
   {
@@ -45,6 +52,15 @@ return {
     opts = {
       formatters_by_ft = {
         sh = { "shfmt" },
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        sh = { "shellcheck" },
       },
     },
   },
