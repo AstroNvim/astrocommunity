@@ -1,13 +1,18 @@
-local prefix = "<Leader>g"
+---@type LazySpec
 return {
   "almo7aya/openingh.nvim",
   cmd = { "OpenInGHRepo", "OpenInGHFile", "OpenInGHFileLines" },
-  keys = {
-    { prefix .. "o", "<cmd>OpenInGHRepo<CR>", desc = "Open git repo in web", mode = { "n" } },
-    { prefix .. "O", "<cmd>OpenInGHRepo+<CR>", desc = "Copy git repo url", mode = { "n" } },
-    { prefix .. "f", "<cmd>OpenInGHFile<CR>", desc = "Open git file in web", mode = { "n" } },
-    { prefix .. "F", "<cmd>OpenInGHFile+<CR>", desc = "Copy git file url", mode = { "n" } },
-    { prefix .. "f", "<cmd>OpenInGHFileLines<CR>", desc = "Open git lines in web", mode = { "x" } },
-    { prefix .. "F", "<cmd>OpenInGHFileLines+<CR>", desc = "Copy git lines url", mode = { "x" } },
+  dependencies = {
+    "AstroNvim/astrocore",
+    opts = function(_, opts)
+      local prefix = "<Leader>g"
+      opts.mappings.n[prefix] = { desc = "OpenInGH" }
+      opts.mappings.n[prefix .. "o"] = { "<CMD>OpenInGHRepo<CR>", desc = "Open git repo in web" }
+      opts.mappings.n[prefix .. "O"] = { "<CMD>OpenInGHRepo+<CR>", desc = "Copy git repo url" }
+      opts.mappings.n[prefix .. "f"] = { "<CMD>OpenInGHFile<CR>", desc = "Open git file in web" }
+      opts.mappings.n[prefix .. "F"] = { "<CMD>OpenInGHFile+<CR>", desc = "Copy git file url" }
+      opts.mappings.x[prefix .. "f"] = { "<CMD>OpenInGHFileLines<CR>", desc = "Open git lines in web" }
+      opts.mappings.x[prefix .. "F"] = { "<CMD>OpenInGHFileLines+<CR>", desc = "Copy git lines url" }
+    end,
   },
 }
