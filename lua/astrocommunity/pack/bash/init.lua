@@ -14,7 +14,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "bash-language-server", "shellcheck", "shfmt", "bash-debug-adapter" }
+        { "bash-language-server", "bashls", "shfmt", "bash-debug-adapter" }
       )
     end,
   },
@@ -29,7 +29,7 @@ return {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "shellcheck", "shfmt" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "bashls", "shfmt" })
     end,
   },
   {
@@ -53,7 +53,7 @@ return {
     optional = true,
     opts = {
       linters_by_ft = {
-        sh = { "shellcheck" },
+        sh = { "bashls" },
       },
     },
   },

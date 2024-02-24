@@ -27,7 +27,7 @@ return {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "stylua", "luacheck" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "stylua", "selene" })
     end,
   },
   {
@@ -35,7 +35,7 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, { "lua-language-server", "stylua", "luacheck" })
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "lua-language-server", "stylua", "selene" })
     end,
   },
   {
@@ -52,7 +52,7 @@ return {
     optional = true,
     opts = {
       linters_by_ft = {
-        lua = { "luacheck" },
+        lua = { "selene" },
       },
     },
   },
