@@ -49,7 +49,8 @@ If you'd like to run cargo clippy instead of cargo check on safe, add the follow
     config = {
       rust_analyzer = {
         settings = {
-            -- Add clippy lints for Rust.
+          -- Add clippy lints for Rust.
+          ["rust-analyzer"] = {
             checkOnSave = {
               allFeatures = true,
               command = "clippy",
