@@ -71,6 +71,10 @@ If you wish to contribute to AstroCommunity, you should:
 
 - When adding a new plugin, we are trying our best to use categories as used by [NeovimCraft](https://neovimcraft.com/). Please check there to see if your plugin exists and use the category they use. If there the plugin isn't available use the best fit category and we can discuss the organization on the pull request.
 
+- When adding a new plugin, please add any notes/caveats that the user should be aware of inside the accompanying `README.md` file. Notes and caveats could include:
+  - Example of a useful LSP config for a language pack.
+  - The plugins being used in the pack doesn't support a specific SDK/Version of that language.
+
 ## How to remove, squash, or edit commits from your PR
 
 > You may have been directed here to remove a commit such as a merge commit: `Merge astrocommunity/main into devBranch` from your PR
