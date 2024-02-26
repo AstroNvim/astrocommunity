@@ -16,7 +16,7 @@ return {
           used_by = { "pcf" },
         }
 
-        opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, "pkl")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "pkl" })
       end,
     },
   },
