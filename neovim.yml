@@ -1,0 +1,8 @@
+---
+base: lua51
+
+globals:
+  vim:
+    any: true
+  jit:
+    any: true
