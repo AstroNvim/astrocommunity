@@ -1,14 +1,21 @@
 return {
   {
     "shaunsingh/nord.nvim",
-    init = function()
-      vim.g.nord_contrast = true
-      vim.g.nord_borders = false
-      vim.g.nord_disable_background = false
-      vim.g.nord_italic = false
-      vim.g.nord_uniform_diff_background = true
-      vim.g.nord_bold = false
-    end,
+    dependencies = {
+      "AstroNvim/astrocore",
+      opts = {
+        options = {
+          g = {
+            nord_contrast = true,
+            nord_borders = false,
+            nord_disable_background = false,
+            nord_italic = false,
+            nord_uniform_diff_background = true,
+            nord_bold = false,
+          },
+        },
+      },
+    },
   },
   {
     "lukas-reineke/headlines.nvim",
