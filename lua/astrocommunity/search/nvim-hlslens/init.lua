@@ -1,6 +1,6 @@
 return {
   "kevinhwang91/nvim-hlslens",
   opts = {},
+  dependencies = { "AstroNvim/astrocore", opts = { on_keys = { auto_hlsearch = false } } },
   event = "BufRead",
-  init = function() vim.on_key(nil, vim.api.nvim_get_namespaces()["auto_hlsearch"]) end,
 }
