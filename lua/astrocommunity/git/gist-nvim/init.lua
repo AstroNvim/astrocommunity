@@ -1,17 +1,5 @@
 return {
   "Rawnly/gist.nvim",
-  dependencies = {
-    {
-      "samjwill/nvim-unception",
-      lazy = false,
-      dependencies = {
-        "AstroNvim/astrocore",
-        opts = { options = { g = {
-          unception_block_while_host_edits = true,
-        } } },
-      },
-    },
-  },
   cmd = { "GistCreate", "GistCreateFromFile", "GistsList" },
   opts = {
     private = false,
