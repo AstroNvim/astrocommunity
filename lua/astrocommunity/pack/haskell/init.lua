@@ -6,6 +6,7 @@ return {
   { import = "astrocommunity.test.neotest" }, -- neotest-haskell
   {
     "AstroNvim/astrolsp",
+    optional = true,
     ---@type AstroLSPOpts
     opts = {
       ---@diagnostic disable: missing-fields
@@ -33,9 +34,9 @@ return {
     -- vim.fn.has >= nvim 0.9 installs version 3
     version = vim.fn.has "nvim-0.9" == 1 and "^3" or "^2",
     init = function()
-      local astrolsp = require "astrolsp"
+      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
       vim.g.haskell_tools = require("astrocore").extend_tbl({
-        hls = { capabilities = astrolsp.config.capabilities, on_attach = astrolsp.on_attach },
+        hls = astrolsp_avail and { capabilities = astrolsp.config.capabilities, on_attach = astrolsp.on_attach } or {},
       }, vim.g.haskell_tools)
     end,
   },

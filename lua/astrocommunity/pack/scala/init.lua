@@ -1,6 +1,7 @@
 return {
   {
     "AstroNvim/astrolsp",
+    optional = true,
     ---@type AstroLSPOpts
     opts = {
       ---@diagnostic disable: missing-fields
@@ -21,11 +22,12 @@ return {
     ft = { "scala", "sbt", "java" },
     opts = function()
       local metals = require "metals"
-      local user_config = require("astrolsp").lsp_opts "metals"
+      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
+      local user_config = astrolsp_avail and astrolsp.lsp_opts "metals" or {}
       if require("astrocore").is_available "nvim-dap" then
         local on_attach = user_config.on_attach
         user_config.on_attach = function(...)
-          on_attach(...)
+          if type(on_attach) == "function" then on_attach(...) end
           metals.setup_dap()
         end
       end

@@ -95,6 +95,7 @@ return {
     dependencies = {
       ---@type AstroLSPOpts
       "AstroNvim/astrolsp",
+      optional = true,
       ---@diagnostic disable: missing-fields
       opts = {
         autocmds = {
@@ -128,7 +129,10 @@ return {
     },
     ft = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
     -- get AstroLSP provided options like `on_attach` and `capabilities`
-    opts = function() return require("astrolsp").lsp_opts "typescript-tools" end,
+    opts = function()
+      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
+      if astrolsp_avail then return astrolsp.lsp_opts "typescript-tools" end
+    end,
   },
   {
     "dmmulroy/tsc.nvim",

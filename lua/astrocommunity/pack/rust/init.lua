@@ -11,6 +11,7 @@ return {
   },
   {
     "AstroNvim/astrolsp",
+    optional = true,
     ---@param opts AstroLSPOpts
     opts = {
       handlers = { rust_analyzer = false }, -- disable setup of `rust_analyzer`
@@ -84,7 +85,8 @@ return {
         adapter = cfg.get_codelldb_adapter()
       end
 
-      return { server = require("astrolsp").lsp_opts "rust_analyzer", dap = { adapter = adapter } }
+      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
+      return { server = astrolsp_avail and astrolsp.lsp_opts "rust_analyzer", dap = { adapter = adapter } }
     end,
     config = function(_, opts) vim.g.rustaceanvim = require("astrocore").extend_tbl(opts, vim.g.rustaceanvim) end,
   },

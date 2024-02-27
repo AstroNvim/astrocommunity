@@ -14,6 +14,7 @@ return {
     },
     {
       "AstroNvim/astrolsp",
+      optional = true,
       opts = {
         diagnostics = {
           virtual_text = false,

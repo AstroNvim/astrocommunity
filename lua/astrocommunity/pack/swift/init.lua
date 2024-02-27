@@ -24,6 +24,7 @@ return {
   },
   {
     "AstroNvim/astrolsp",
+    optional = true,
     ---@type AstroLSPOpts
     opts = {
       servers = { "sourcekit" },
