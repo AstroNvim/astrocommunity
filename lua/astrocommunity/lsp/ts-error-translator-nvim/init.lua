@@ -1,8 +1,5 @@
 return {
-  -- TODO: move back to upstream after PR: https://github.com/dmmulroy/ts-error-translator.nvim/pull/18
-  -- "dmmulroy/ts-error-translator.nvim",
-  "mehalter/ts-error-translator.nvim",
-  branch = "reuse_existing_handler",
+  "dmmulroy/ts-error-translator.nvim",
   lazy = true,
   dependencies = {
     "AstroNvim/astrolsp",
