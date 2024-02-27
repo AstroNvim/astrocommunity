@@ -3,6 +3,7 @@ return {
   lazy = true,
   dependencies = {
     "AstroNvim/astrolsp",
+    optional = true,
     ---@param opts AstroLSPOpts
     opts = function(_, opts)
       if not opts.lsp_handlers then opts.lsp_handlers = {} end
@@ -17,5 +18,5 @@ return {
       end
     end,
   },
-  opts = { auto_override_publish_diagnostics = false },
+  opts = function() return { auto_override_publish_diagnostics = not require("astrocore").is_available "astrolsp" } end,
 }

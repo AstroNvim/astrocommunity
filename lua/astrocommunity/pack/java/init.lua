@@ -46,6 +46,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       {
         "AstroNvim/astrolsp",
+        optional = true,
         ---@type AstroLSPOpts
         opts = {
           ---@diagnostic disable: missing-fields
@@ -129,9 +130,10 @@ return {
           ["$/progress"] = function() end, -- disable progress updates.
         },
         filetypes = { "java" },
-        on_attach = function(client, bufnr)
+        on_attach = function(...)
           require("jdtls").setup_dap { hotcodereplace = "auto" }
-          require("astrolsp").on_attach(client, bufnr)
+          local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
+          if astrolsp_avail then astrolsp.on_attach(...) end
         end,
       }, opts)
     end,

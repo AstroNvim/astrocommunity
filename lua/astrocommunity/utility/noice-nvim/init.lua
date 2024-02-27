@@ -12,6 +12,7 @@ return {
   },
   {
     "AstroNvim/astrolsp",
+    optional = true,
     ---@param opts AstroLSPOpts
     opts = function(_, opts)
       local noice_opts = require("astrocore").plugin_opts "noice.nvim"

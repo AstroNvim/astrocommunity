@@ -11,7 +11,6 @@ This plugin pack does the following:
 - Adds [package-info.nvim](https://github.com/vuki656/package-info.nvim) for project package management
 - Adds [nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations) to handles file imports on rename or move within neo-tree
 
-
 ## How do I disable Eslint format on save?
 
 To opt out of the Eslint format on save behaviour, you can disable the autocmd setup with the pack with this:
@@ -19,10 +18,11 @@ To opt out of the Eslint format on save behaviour, you can disable the autocmd s
 ```lua
 return {
   "AstroNvim/astrolsp",
+  optional = true,
   opts = {
     autocmds = {
-      eslint_fix_on_save = false
-    }
-  }
+      eslint_fix_on_save = false,
+    },
+  },
 }
 ```

@@ -26,7 +26,8 @@ return {
           end
         end,
       })
-      opts.server = require("astrolsp").lsp_opts "denols"
+      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
+      opts.server = astrolsp_avail and astrolsp.lsp_opts "denols"
       opts.server.root_dir = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
     end,
   },

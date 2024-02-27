@@ -1,6 +1,7 @@
 return {
   {
     "AstroNvim/astrolsp",
+    optional = true,
     ---@type AstroLSPOpts
     opts = {
       ---@diagnostic disable: missing-fields
@@ -43,6 +44,9 @@ return {
   {
     "sigmasd/deno-nvim",
     ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-    opts = function() return { server = require("astrolsp").lsp_opts "denols" } end,
+    opts = function(_, opts)
+      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
+      if astrolsp_avail then opts.server = astrolsp.lsp_opts "denols" end
+    end,
   },
 }

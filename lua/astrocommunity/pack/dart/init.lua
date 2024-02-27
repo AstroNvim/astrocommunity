@@ -2,6 +2,7 @@ return {
   { import = "astrocommunity.pack.yaml" },
   {
     "AstroNvim/astrolsp",
+    optional = true,
     ---@type AstroLSPOpts
     opts = {
       ---@diagnostic disable: missing-fields
@@ -20,11 +21,10 @@ return {
   {
     "akinsho/flutter-tools.nvim",
     ft = "dart",
-    opts = function()
-      return {
-        lsp = require("astrolsp").config "dartls",
-        debugger = { enabled = true },
-      }
+    opts = function(_, opts)
+      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
+      if astrolsp_avail then opts.lsp = astrolsp.lsp_opts "dartls" end
+      opts.debugger = { enabled = true }
     end,
     dependencies = {
       { "nvim-lua/plenary.nvim" },

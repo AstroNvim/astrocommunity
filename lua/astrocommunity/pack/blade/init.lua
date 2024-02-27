@@ -7,6 +7,7 @@ vim.filetype.add {
 return {
   {
     "AstroNvim/astrolsp",
+    optional = true,
     ---@param opts AstroLSPOpts
     opts = function(_, opts)
       opts.config.blade = {
