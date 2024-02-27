@@ -6,6 +6,26 @@ return {
       {
         "AstroNvim/astrocore",
         opts = {
+          autocmds = {
+            leap_cursor = { -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
+              {
+                event = "User",
+                pattern = "LeapEnter",
+                callback = function()
+                  vim.cmd.hi("Cursor", "blend=100")
+                  vim.opt.guicursor:append { "a:Cursor/lCursor" }
+                end,
+              },
+              {
+                event = "User",
+                pattern = "LeapLeave",
+                callback = function()
+                  vim.cmd.hi("Cursor", "blend=0")
+                  vim.opt.guicursor:remove { "a:Cursor/lCursor" }
+                end,
+              },
+            },
+          },
           mappings = {
             n = {
               ["s"] = { "<Plug>(leap-forward-to)", desc = "Leap forward to" },
@@ -31,22 +51,6 @@ return {
       },
     },
     opts = {},
-    init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
-      vim.api.nvim_create_autocmd("User", {
-        callback = function()
-          vim.cmd.hi("Cursor", "blend=100")
-          vim.opt.guicursor:append { "a:Cursor/lCursor" }
-        end,
-        pattern = "LeapEnter",
-      })
-      vim.api.nvim_create_autocmd("User", {
-        callback = function()
-          vim.cmd.hi("Cursor", "blend=0")
-          vim.opt.guicursor:remove { "a:Cursor/lCursor" }
-        end,
-        pattern = "LeapLeave",
-      })
-    end,
   },
   {
     "catppuccin/nvim",
