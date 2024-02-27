@@ -86,22 +86,29 @@ return {
 
       return { server = require("astrolsp").lsp_opts "rust_analyzer", dap = { adapter = adapter } }
     end,
-    config = function(_, opts) vim.g.rustaceanvim = opts end,
+    config = function(_, opts) vim.g.rustaceanvim = require("astrocore").extend_tbl(opts, vim.g.rustaceanvim) end,
   },
   {
     "Saecki/crates.nvim",
     lazy = true,
-    init = function()
-      vim.api.nvim_create_autocmd("BufRead", {
-        group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
-        desc = "Load crates.nvim into Cargo buffers",
-        pattern = "Cargo.toml",
-        callback = function()
-          require("cmp").setup.buffer { sources = { { name = "crates" } } }
-          require "crates"
-        end,
-      })
-    end,
+    dependencies = {
+      "AstroNvim/astrocore",
+      opts = {
+        autocmds = {
+          CmpSourceCargo = {
+            {
+              event = "BufRead",
+              desc = "Load crates.nvim into Cargo buffers",
+              pattern = "Cargo.toml",
+              callback = function()
+                require("cmp").setup.buffer { sources = { { name = "crates" } } }
+                require "crates"
+              end,
+            },
+          },
+        },
+      },
+    },
     opts = {
       src = {
         cmp = { enabled = true },
