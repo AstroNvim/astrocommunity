@@ -140,4 +140,18 @@ return {
       },
     },
   },
+  n = {
+    ["<leader>dt"] = {
+      function() require("dap-go").debug_test() end,
+      desc = "Debug single test",
+    },
+    ["<leader>jt"] = {
+      function() require("go.gotest").test_func() end,
+      desc = "Run test func",
+    },
+    ["<leader>jT"] = {
+      function() require("go.gotest").test_package() end,
+      desc = "Run pkg test",
+    },
+  },
 }
