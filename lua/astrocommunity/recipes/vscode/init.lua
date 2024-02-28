@@ -1,7 +1,7 @@
 if not vim.g.vscode then return {} end -- don't do anything in non-vscode instances
 
--- a list of known working plugins with vscode-neovim
-local enabled = vim.tbl_add_reverse_lookup {
+local enabled = {}
+vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   -- core plugins
   "lazy.nvim",
   "AstroNvim",
@@ -24,7 +24,7 @@ local enabled = vim.tbl_add_reverse_lookup {
   "vim-repeat",
   "vim-sandwich",
   -- feel free to open PRs to add more support!
-}
+})
 
 local Config = require "lazy.core.config"
 -- disable plugin update checking
