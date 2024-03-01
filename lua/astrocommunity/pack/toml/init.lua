@@ -17,15 +17,6 @@ return {
     end,
   },
   {
-    "jay-babu/mason-null-ls.nvim",
-    optional = true,
-    opts = function(_, opts)
-      -- Ensure that opts.handlers exists and is a table
-      if not opts.handlers then opts.handlers = {} end
-      opts.handlers.taplo = function() end
-    end,
-  },
-  {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
