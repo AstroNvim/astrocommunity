@@ -1,12 +1,14 @@
 return {
-  "edgedb/edgedb-vim",
-  ft = "edgeql",
-  init = function()
-    vim.filetype.add {
-      extensions = {
-        esdl = "edgeql",
-        edgeql = "edgeql",
-      },
-    }
-  end,
+  {
+    "AstroNvim/astrocore",
+    ---@type AstroCoreOpts
+    opts = { filetypes = { extensions = {
+      esdl = "edgeql",
+      edgeql = "edgeql",
+    } } },
+  },
+  {
+    "edgedb/edgedb-vim",
+    ft = "edgeql",
+  },
 }

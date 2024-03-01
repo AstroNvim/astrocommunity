@@ -1,19 +1,13 @@
 return {
   {
+    "AstroNvim/astrocore",
+    ---@type AstroCoreOpts
+    opts = { filetypes = { extension = { gdshaderinc = "gdshaderinc" } } },
+  },
+  {
     "QuickGD/quickgd.nvim",
     ft = { "gdshader", "gdshaderinc" },
-    cmd = {
-      "GodotRun",
-      "GodotRunLast",
-      "GodotStart",
-    },
-    init = function()
-      vim.filetype.add {
-        extension = {
-          gdshaderinc = "gdshaderinc",
-        },
-      }
-    end,
+    cmd = { "GodotRun", "GodotRunLast", "GodotStart" },
     config = true,
   },
   {

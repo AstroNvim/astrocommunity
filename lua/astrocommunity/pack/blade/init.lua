@@ -1,10 +1,9 @@
-vim.filetype.add {
-  pattern = {
-    [".*.php.blade"] = "blade",
-  },
-}
-
 return {
+  {
+    "AstroNvim/astrocore",
+    ---@type AstroCoreOpts
+    opts = { filetypes = { pattern = { [".*.php.blade"] = "blade" } } },
+  },
   {
     "AstroNvim/astrolsp",
     optional = true,

@@ -1,6 +1,9 @@
-vim.filetype.add { extension = { cr = "crystal" } }
-
 return {
+  {
+    "AstroNvim/astrocore",
+    ---@type AstroCoreOpts
+    opts = { filetypes = { extension = { cr = "crystal" } } },
+  },
   {
     "vim-crystal/vim-crystal",
     ft = { "crystal" },
