@@ -23,6 +23,40 @@ return {
       "CocWatch",
     },
     event = { "User AstroFile", "InsertEnter" },
+    dependencies = {
+      "AstroNvim/astrocore",
+      ---@param opts AstroCoreOpts
+      opts = function(_, opts)
+        if not opts.commands then opts.commands = {} end
+        opts.commands.Format = { "call CocAction('format')", desc = "Format file with LSP" }
+        if not opts.mappings then opts.mappings = require("astrocore").empty_map_table() end
+        local maps = assert(opts.mappings)
+        maps.n["[d"] = { "<Plug>(coc-diagnostic-prev)", desc = "Previous diagnostic" }
+        maps.n["]d"] = { "<Plug>(coc-diagnostic-next)", desc = "Next diagnostic" }
+        maps.n.gd = { "<Plug>(coc-definition)", desc = "Show the definition of current symbol" }
+        maps.n.gT = { "<Plug>(coc-type-definition)", desc = "Show the definition of current type" }
+        maps.n.gI = { "<Plug>(coc-implementation)", desc = "Show the implementation of current symbol" }
+        maps.n.gr = { "<Plug>(coc-references)", desc = "Show the references of current symbol" }
+        maps.n["<Leader>lR"] = maps.n.gr
+        maps.n["<Leader>lr"] = { "<Plug>(coc-rename)", desc = "Rename current symbol" }
+        maps.n["<Leader>lf"] = { function() vim.cmd.Format() end, desc = "Format buffer", nowait = true }
+        maps.n["<Leader>la"] = { "<Plug>(coc-codeaction-cursor)", desc = "LSP code action" }
+        maps.n["<Leader>lL"] = { "<Plug>(coc-codelens-action)", desc = "LSP CodeLens run" }
+        maps.n.K = {
+          function()
+            local cw = vim.fn.expand "<cword>"
+            if vim.fn.index({ "vim", "help" }, vim.bo.filetype) >= 0 then
+              vim.api.nvim_command("h " .. cw)
+            elseif vim.api.nvim_eval "coc#rpc#ready()" then
+              vim.fn.CocActionAsync "doHover"
+            else
+              vim.api.nvim_command("!" .. vim.o.keywordprg .. " " .. cw)
+            end
+          end,
+          desc = "Hover symbol details",
+        }
+      end,
+    },
   },
   {
     "rebelot/heirline.nvim",
