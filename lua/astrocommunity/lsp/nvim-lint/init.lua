@@ -17,22 +17,25 @@ return {
           or linter
       end
 
-      local orig_resolve_linter_by_ft = lint._resolve_linter_by_ft
-      lint._resolve_linter_by_ft = function(...)
-        local linters = orig_resolve_linter_by_ft(...)
-        -- Add fallback linters and global linters.
-        if not linters[1] then linters = lint.linters_by_ft["_"] or {} end
-        require("astrocore").list_insert_unique(linters, lint.linters_by_ft["*"] or {})
-
-        -- Filter out linters that don't exist or don't match the condition.
-        local ctx = { filename = vim.api.nvim_buf_get_name(0) }
-        ctx.dirname = vim.fn.fnamemodify(ctx.filename, ":h")
-        linters = vim.tbl_filter(function(name)
+      local valid_linters = function(ctx, linters)
+        if not linters then return {} end
+        return vim.tbl_filter(function(name)
           local linter = lint.linters[name]
           return linter
             and vim.fn.executable(linter.cmd) == 1
             and not (type(linter) == "table" and linter.condition and not linter.condition(ctx))
         end, linters)
+      end
+
+      local orig_resolve_linter_by_ft = lint._resolve_linter_by_ft
+      lint._resolve_linter_by_ft = function(...)
+        local ctx = { filename = vim.api.nvim_buf_get_name(0) }
+        ctx.dirname = vim.fn.fnamemodify(ctx.filename, ":h")
+
+        local linters = valid_linters(ctx, orig_resolve_linter_by_ft(...))
+        if not linters[1] then linters = valid_linters(ctx, lint.linters_by_ft["_"]) end -- fallback
+        require("astrocore").list_insert_unique(linters, valid_linters(ctx, lint.linters_by_ft["*"])) -- global
+
         return linters
       end
 
