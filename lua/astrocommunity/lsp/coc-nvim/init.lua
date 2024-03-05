@@ -100,6 +100,7 @@ return {
     end,
   },
   -- disable unnecessary plugins
+  { "AstroNvim/astrolsp", enabled = false },
   { "hrsh7th/cmp-nvim-lsp", enabled = false },
   { "jose-elias-alvarez/null-ls.nvim", enabled = false },
   { "nvimtools/none-ls.nvim", enabled = false },
