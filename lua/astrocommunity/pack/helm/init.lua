@@ -3,38 +3,32 @@ return {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
     opts = {
+      autocmds = {
+        helm_commentstring = {
+          {
+            event = "FileType",
+            pattern = "helm",
+            callback = function() vim.opt_local.commentstring = "{{/* %s */}}" end,
+          },
+        },
+      },
       filetypes = {
-        extension = {
-          yaml = function(path, _)
-            -- check if file is in templates folder or is helmfile
-            local path_regex = vim.regex "/templates/*\\.(tpl|yaml)$|*.gotmpl|helmfile*.yaml"
-            if path_regex and path_regex:match_str(path) then return "helm" end
-
-            -- return yaml if nothing else
-            return "yaml"
-          end,
+        extension = { gotmpl = "helm" },
+        pattern = {
+          [".*/templates/.*%.ya?ml"] = "helm",
+          [".*/templates/.*%.tpl"] = "helm",
+          ["helmfile.*%.ya?ml"] = "helm",
         },
       },
     },
   },
-  -- Helm support
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
-      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-      parser_config.gotmpl = {
-        install_info = {
-          url = "https://github.com/ngalaiko/tree-sitter-go-template",
-          files = { "src/parser.c" },
-          branch = "master",
-        },
-        filetype = "gotmpl",
-      }
-      vim.treesitter.language.register("gotmpl", "helm")
-
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "gotmpl" })
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "helm" })
+      end
     end,
   },
   {
@@ -51,7 +45,6 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "helm-ls" })
     end,
   },
-  { "towolf/vim-helm", ft = "helm" },
   {
     "stevearc/conform.nvim",
     optional = true,
