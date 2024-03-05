@@ -22,11 +22,11 @@ return {
       },
     },
     on_open = function() -- disable diagnostics, indent blankline, winbar, and offscreen matchup
-      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-      if astrolsp_avail then
+      local astrocore_avail, astrocore = pcall(require, "astrocore")
+      if astrocore_avail then
         vim.g.diagnostics_mode_old = vim.g.diagnostics_mode
         vim.g.diagnostics_mode = 0
-        vim.diagnostic.config(astrolsp.diagnostics[vim.g.diagnostics_mode])
+        vim.diagnostic.config(astrocore.diagnostics[vim.g.diagnostics_mode])
       end
 
       vim.g.indent_blankline_enabled_old = vim.g.indent_blankline_enabled
@@ -50,10 +50,12 @@ return {
       end
     end,
     on_close = function() -- restore diagnostics, indent blankline, winbar, and offscreen matchup
-      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-      if astrolsp_avail then
+      local astrocore_avail, astrocore = pcall(require, "astrocore")
+      if astrocore_avail then
         vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
-        vim.diagnostic.config(astrolsp.diagnostics[vim.g.diagnostics_mode or astrolsp.config.features.diagnostics_mode])
+        vim.diagnostic.config(
+          astrocore.diagnostics[vim.g.diagnostics_mode or astrocore.config.features.diagnostics_mode]
+        )
       end
 
       vim.g.indent_blankline_enabled = vim.g.indent_blankline_enabled_old
