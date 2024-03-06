@@ -1,5 +1,7 @@
 # Neovide Configuration for AstroNvim
 
+**Website:** <https://docs.astronvim.com/recipes/neovide>
+
 ## Features
 
 - Adjust the scale factor incrementally to find the perfect size for your needs.
