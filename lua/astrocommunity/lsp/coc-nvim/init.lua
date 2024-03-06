@@ -31,6 +31,7 @@ return {
         if not opts.options.g then opts.options.g = {} end
         opts.options.g.coc_global_extensions = {
           "coc-json",
+          "coc-marketplace",
         }
 
         if not opts.commands then opts.commands = {} end
@@ -50,6 +51,7 @@ return {
         maps.n["<Leader>la"] = { "<Plug>(coc-codeaction-cursor)", desc = "LSP code action" }
         maps.n["<Leader>lL"] = { "<Plug>(coc-codelens-action)", desc = "LSP CodeLens run" }
         maps.n["<Leader>lc"] = { function() vim.cmd.CocConfig() end, desc = "Configuration" }
+        maps.n["<Leader>lm"] = { "<cmd>CocList marketplace<cr>", desc = "Marketplace" }
         maps.n.K = {
           function()
             local cw = vim.fn.expand "<cword>"
