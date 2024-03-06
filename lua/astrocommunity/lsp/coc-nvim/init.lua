@@ -90,6 +90,7 @@ return {
         coc_diagnostic("information", "Info"),
         coc_diagnostic("hint", "Hint"),
         update = { "User", pattern = "CocDiagnosticChange" },
+        init = status.init.update_events { "BufEnter" },
         surround = {
           separator = "right",
           condition = function()
@@ -103,7 +104,11 @@ return {
       }
       statusline[9] = status.component.builder { -- status
         { provider = function() return vim.g.coc_status end },
-        update = { "User", pattern = "CocStatusChange" },
+        update = {
+          "User",
+          pattern = "CocStatusChange",
+          callback = vim.schedule_wrap(function() vim.cmd.redrawstatus() end),
+        },
         surround = { separator = "right", condition = function() return vim.g.coc_status ~= nil end },
         on_click = { name = "coc_status", callback = function() vim.schedule(vim.cmd.CocInfo) end },
       }
