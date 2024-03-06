@@ -9,18 +9,14 @@ end
 ---@param scale_factor number
 ---@param clamp? boolean
 local function set_scale_factor(scale_factor, clamp)
-  if clamp then scale_factor = clamp_scale_factor(scale_factor) end
-  vim.g.neovide_scale_factor = scale_factor
+  vim.g.neovide_scale_factor = clamp and clamp_scale_factor(scale_factor) or scale_factor
 end
 
 local function reset_scale_factor() vim.g.neovide_scale_factor = vim.g.neovide_initial_scale_factor end
 
 ---@param increment number
 ---@param clamp? boolean
-local change_scale_factor = function(increment, clamp)
-  local new_scale = vim.g.neovide_scale_factor + increment
-  set_scale_factor(new_scale, clamp)
-end
+local function change_scale_factor(increment, clamp) set_scale_factor(vim.g.neovide_scale_factor + increment, clamp) end
 
 ---@type LazySpec
 return {
