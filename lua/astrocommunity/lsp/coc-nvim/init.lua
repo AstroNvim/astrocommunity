@@ -27,6 +27,12 @@ return {
       "AstroNvim/astrocore",
       ---@param opts AstroCoreOpts
       opts = function(_, opts)
+        if not opts.options then opts.options = {} end
+        if not opts.options.g then opts.options.g = {} end
+        opts.options.g.coc_global_extensions = {
+          "coc-json",
+        }
+
         if not opts.commands then opts.commands = {} end
         opts.commands.Format = { "call CocAction('format')", desc = "Format file with LSP" }
         if not opts.mappings then opts.mappings = require("astrocore").empty_map_table() end
@@ -42,6 +48,7 @@ return {
         maps.n["<Leader>lf"] = { function() vim.cmd.Format() end, desc = "Format buffer", nowait = true }
         maps.n["<Leader>la"] = { "<Plug>(coc-codeaction-cursor)", desc = "LSP code action" }
         maps.n["<Leader>lL"] = { "<Plug>(coc-codelens-action)", desc = "LSP CodeLens run" }
+        maps.n["<Leader>lc"] = { function() vim.cmd.CocConfig() end, desc = "Configuration" }
         maps.n.K = {
           function()
             local cw = vim.fn.expand "<cword>"
