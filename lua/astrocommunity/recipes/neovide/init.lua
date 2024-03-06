@@ -49,24 +49,24 @@ return {
           set_scale_factor(scale_factor, option ~= "force")
         end,
         nargs = "+",
-        desc = "Set Neovide scale size",
+        desc = "Set Neovide scale factor",
       },
       NeovideResetScaleFactor = {
         reset_scale_factor,
-        desc = "Reset Neovide scaling",
+        desc = "Reset Neovide scale factor",
       },
     },
     mappings = {
       n = {
         ["<C-=>"] = {
-          function() change_scale_factor(vim.g.neovide_increment_scale_factor, true) end,
-          desc = "Neovide increase scale",
+          function() change_scale_factor(vim.g.neovide_increment_scale_factor * vim.v.count1, true) end,
+          desc = "Increase Neovide scale factor",
         },
         ["<C-->"] = {
-          function() change_scale_factor(-vim.g.neovide_increment_scale_factor, true) end,
-          desc = "Neovide decrease scale",
+          function() change_scale_factor(-vim.g.neovide_increment_scale_factor * vim.v.count1, true) end,
+          desc = "Decrease Neovide scale factor",
         },
-        ["<C-0>"] = { reset_scale_factor, desc = "Neovide reset scale" },
+        ["<C-0>"] = { reset_scale_factor, desc = "Reset Neovide scale factor" },
       },
     },
   },
