@@ -2,11 +2,6 @@ return {
   {
     "neoclide/coc.nvim",
     branch = "release",
-    init = function()
-      vim.g.coc_global_extensions = {
-        "coc-json",
-      }
-    end,
     cmd = {
       "CocCommand",
       "CocConfig",
@@ -32,6 +27,12 @@ return {
       "AstroNvim/astrocore",
       ---@param opts AstroCoreOpts
       opts = function(_, opts)
+        if not opts.options then opts.options = {} end
+        if not opts.options.g then opts.options.g = {} end
+        opts.options.g.coc_global_extensions = {
+          "coc-json",
+        }
+
         if not opts.commands then opts.commands = {} end
         opts.commands.Format = { "call CocAction('format')", desc = "Format file with LSP" }
         if not opts.mappings then opts.mappings = require("astrocore").empty_map_table() end
