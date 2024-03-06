@@ -112,6 +112,20 @@ return {
         surround = { separator = "right", condition = function() return vim.g.coc_status ~= nil end },
         on_click = { name = "coc_status", callback = function() vim.schedule(vim.cmd.CocInfo) end },
       }
+      statusline[10] = status.component.builder { -- service
+        {
+          provider = function()
+            if vim.g.coc_status then
+              return status.utils.stylize(" ", { icon = { kind = "ActiveLSP", padding = { left = 1, right = 1 } } })
+            end
+          end,
+        },
+        surround = { separator = "right", condition = function() return vim.g.coc_status ~= nil end },
+        on_click = {
+          name = "coc_services",
+          callback = vim.schedule_wrap(function() vim.api.nvim_exec2("CocList services", {}) end),
+        },
+      }
     end,
   },
   -- disable unnecessary plugins
