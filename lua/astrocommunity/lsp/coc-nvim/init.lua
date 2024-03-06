@@ -39,7 +39,8 @@ return {
         maps.n.gr = { "<Plug>(coc-references)", desc = "Show the references of current symbol" }
         maps.n["<Leader>lR"] = maps.n.gr
         maps.n["<Leader>lr"] = { "<Plug>(coc-rename)", desc = "Rename current symbol" }
-        maps.n["<Leader>lf"] = { function() vim.cmd.Format() end, desc = "Format buffer", nowait = true }
+        maps.n["<Leader>lf"] = { function() vim.cmd.Format() end, desc = "Format buffer" }
+        maps.x["<Leader>lF"] = { "<Plug>(coc-format-selected)", desc = "Format selection" }
         maps.n["<Leader>la"] = { "<Plug>(coc-codeaction-cursor)", desc = "LSP code action" }
         maps.n["<Leader>lL"] = { "<Plug>(coc-codelens-action)", desc = "LSP CodeLens run" }
         maps.n.K = {
