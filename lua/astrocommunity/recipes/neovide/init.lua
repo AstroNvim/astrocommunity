@@ -25,7 +25,7 @@ return {
   opts = {
     options = {
       g = {
-        neovide_change_scale_factor = vim.g.neovide_change_scale_factor or 0.1,
+        neovide_increment_scale_factor = vim.g.neovide_increment_scale_factor or 0.1,
         neovide_min_scale_factor = vim.g.neovide_min_scale_factor or 0.7,
         neovide_max_scale_factor = vim.g.neovide_max_scale_factor or 2.0,
         neovide_initial_scale_factor = vim.g.neovide_scale_factor or 1,
@@ -59,11 +59,11 @@ return {
     mappings = {
       n = {
         ["<C-=>"] = {
-          function() change_scale_factor(vim.g.neovide_change_scale_factor, true) end,
+          function() change_scale_factor(vim.g.neovide_increment_scale_factor, true) end,
           desc = "Neovide increase scale",
         },
         ["<C-->"] = {
-          function() change_scale_factor(-vim.g.neovide_change_scale_factor, true) end,
+          function() change_scale_factor(-vim.g.neovide_increment_scale_factor, true) end,
           desc = "Neovide decrease scale",
         },
         ["<C-0>"] = { reset_scale_factor, desc = "Neovide reset scale" },
