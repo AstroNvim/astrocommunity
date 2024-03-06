@@ -2,6 +2,11 @@ return {
   {
     "neoclide/coc.nvim",
     branch = "release",
+    init = function()
+      vim.g.coc_global_extensions = {
+        "coc-json",
+      }
+    end,
     cmd = {
       "CocCommand",
       "CocConfig",
@@ -42,6 +47,7 @@ return {
         maps.n["<Leader>lf"] = { function() vim.cmd.Format() end, desc = "Format buffer", nowait = true }
         maps.n["<Leader>la"] = { "<Plug>(coc-codeaction-cursor)", desc = "LSP code action" }
         maps.n["<Leader>lL"] = { "<Plug>(coc-codelens-action)", desc = "LSP CodeLens run" }
+        maps.n["<Leader>lc"] = { function() vim.cmd.CocConfig() end, desc = "Configuration" }
         maps.n.K = {
           function()
             local cw = vim.fn.expand "<cword>"
