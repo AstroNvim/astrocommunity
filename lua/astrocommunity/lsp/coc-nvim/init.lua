@@ -48,24 +48,29 @@ return {
         }
 
         if not opts.commands then opts.commands = {} end
-        opts.commands.Format = { "call CocAction('format')", desc = "Format file with LSP" }
+        opts.commands.Format = { function() vim.fn.CocAction "format" end, desc = "Format file with LSP" }
         if not opts.mappings then opts.mappings = require("astrocore").empty_map_table() end
         local maps = assert(opts.mappings)
         maps.n["[d"] = { "<Plug>(coc-diagnostic-prev)", desc = "Previous diagnostic" }
         maps.n["]d"] = { "<Plug>(coc-diagnostic-next)", desc = "Next diagnostic" }
-        maps.n.gd = { "<Plug>(coc-definition)", desc = "Show the definition of current symbol" }
-        maps.n.gT = { "<Plug>(coc-type-definition)", desc = "Show the definition of current type" }
-        maps.n.gI = { "<Plug>(coc-implementation)", desc = "Show the implementation of current symbol" }
-        maps.n.gr = { "<Plug>(coc-references)", desc = "Show the references of current symbol" }
+        maps.n["gD"] = { "<Plug>(coc-declaration)", desc = "Show the declaration of current symbol" }
+        maps.n["gI"] = { "<Plug>(coc-implementation)", desc = "Show the implementation of current symbol" }
+        maps.n["gT"] = { "<Plug>(coc-type-definition)", desc = "Show the definition of current type" }
+        maps.n["gd"] = { "<Plug>(coc-definition)", desc = "Show the definition of current symbol" }
+        maps.n["gr"] = { "<Plug>(coc-references)", desc = "Show the references of current symbol" }
         maps.n["<Leader>lR"] = maps.n.gr
-        maps.n["<Leader>lr"] = { "<Plug>(coc-rename)", desc = "Rename current symbol" }
-        maps.n["<Leader>lf"] = { function() vim.cmd.Format() end, desc = "Format buffer" }
-        maps.x["<Leader>lF"] = { "<Plug>(coc-format-selected)", desc = "Format selection" }
         maps.n["<Leader>la"] = { "<Plug>(coc-codeaction-cursor)", desc = "LSP code action" }
-        maps.n["<Leader>lL"] = { "<Plug>(coc-codelens-action)", desc = "LSP CodeLens run" }
         maps.n["<Leader>lc"] = { "<Cmd>CocConfig<CR>", desc = "Configuration" }
+        maps.n["<Leader>lf"] = { function() vim.cmd.Format() end, desc = "Format buffer" }
         maps.n["<Leader>lm"] = { "<Cmd>CocList marketplace<CR>", desc = "Marketplace" }
-        maps.n.K = {
+        maps.n["<Leader>lr"] = { "<Plug>(coc-rename)", desc = "Rename current symbol" }
+        maps.n["<Leader>ls"] = { "<Cmd>CocList symbols<CR>", desc = "Search symbols" }
+        maps.n["<Leader>lS"] = { "<Cmd>CocOutline<CR>", desc = "Symbols outline" }
+        maps.n["<Leader>lL"] = { "<Plug>(coc-codelens-action)", desc = "LSP CodeLens run" }
+        maps.n["<Leader>uL"] = { "<Cmd>CocCommand document.toggleCodeLens<CR>", desc = "Toggle CodeLens" }
+        maps.n["<Leader>uh"] = { "<Cmd>CocCommand document.toggleInlayHint<CR>", desc = "Toggle LSP inlay hints" }
+        maps.x["<Leader>lF"] = { "<Plug>(coc-format-selected)", desc = "Format selection" }
+        maps.n["K"] = {
           function()
             local cw = vim.fn.expand "<cword>"
             if vim.fn.index({ "vim", "help" }, vim.bo.filetype) >= 0 then
@@ -152,6 +157,7 @@ return {
   { "hrsh7th/cmp-nvim-lsp", enabled = false },
   { "lvimuser/lsp-inlayhints.nvim", enabled = false },
   { "rcarriga/cmp-dap", enabled = false },
+  { "stevearc/aerial.nvim", enabled = false },
   -- refactor
   { "ThePrimeagen/refactoring.nvim", enabled = false },
   -- luaship
