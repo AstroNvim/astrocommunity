@@ -104,14 +104,27 @@ return {
         on_click = { name = "coc_diagnostic", callback = function() vim.schedule(vim.cmd.CocDiagnostic) end },
       }
       statusline[9] = status.component.builder { -- status
-        { provider = function() return vim.g.coc_status end },
+        {
+          provider = function() return vim.g.coc_status end,
+          on_click = { name = "coc_status", callback = function() vim.schedule(vim.cmd.CocInfo) end },
+        },
+        {
+          provider = function()
+            if vim.g.coc_status then
+              return status.utils.stylize(" ", { icon = { kind = "ActiveLSP", padding = { left = 1 } } })
+            end
+          end,
+          on_click = {
+            name = "coc_services",
+            callback = vim.schedule_wrap(function() vim.api.nvim_exec2("CocList services", {}) end),
+          },
+        },
         update = {
           "User",
           pattern = "CocStatusChange",
           callback = vim.schedule_wrap(function() vim.cmd.redrawstatus() end),
         },
         surround = { separator = "right", condition = function() return vim.g.coc_status ~= nil end },
-        on_click = { name = "coc_status", callback = function() vim.schedule(vim.cmd.CocInfo) end },
       }
     end,
   },
