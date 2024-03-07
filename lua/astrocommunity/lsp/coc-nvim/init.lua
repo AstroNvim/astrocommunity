@@ -128,13 +128,13 @@ return {
           end,
           on_click = {
             name = "coc_services",
-            callback = vim.schedule_wrap(function() vim.api.nvim_exec2("CocList services", {}) end),
+            callback = vim.schedule_wrap(function() vim.cmd.CocList "services" end),
           },
         },
         update = {
           "User",
           pattern = "CocStatusChange",
-          callback = vim.schedule_wrap(function() vim.cmd.redrawstatus() end),
+          callback = function() vim.schedule(vim.cmd.redrawstatus) end,
         },
         surround = { separator = "right", condition = function() return vim.g.coc_status ~= nil end },
       }
