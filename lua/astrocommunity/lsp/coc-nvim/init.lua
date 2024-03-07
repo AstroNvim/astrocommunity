@@ -30,6 +30,8 @@ return {
       opts = function(_, opts)
         if not opts.options then opts.options = {} end
         if not opts.options.g then opts.options.g = {} end
+        if not opts.options.opt then opts.options.opt = {} end
+        opts.options.opt.cmdheight = 1
         opts.options.g.coc_global_extensions = {
           "coc-json",
           "coc-marketplace",
