@@ -10,6 +10,7 @@ return {
       "CocEnable",
       "CocInfo",
       "CocInstall",
+      "CocList",
       "CocLocalConfig",
       "CocOpenLog",
       "CocOutline",
@@ -50,8 +51,8 @@ return {
         maps.x["<Leader>lF"] = { "<Plug>(coc-format-selected)", desc = "Format selection" }
         maps.n["<Leader>la"] = { "<Plug>(coc-codeaction-cursor)", desc = "LSP code action" }
         maps.n["<Leader>lL"] = { "<Plug>(coc-codelens-action)", desc = "LSP CodeLens run" }
-        maps.n["<Leader>lc"] = { function() vim.cmd.CocConfig() end, desc = "Configuration" }
-        maps.n["<Leader>lm"] = { "<cmd>CocList marketplace<cr>", desc = "Marketplace" }
+        maps.n["<Leader>lc"] = { "<Cmd>CocConfig<CR>", desc = "Configuration" }
+        maps.n["<Leader>lm"] = { "<Cmd>CocList marketplace<CR>", desc = "Marketplace" }
         maps.n.K = {
           function()
             local cw = vim.fn.expand "<cword>"
