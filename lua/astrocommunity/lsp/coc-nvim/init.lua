@@ -145,29 +145,23 @@ return {
       }
     end,
   },
-  -- disable unnecessary plugins
+  -- disable core lsp plugins
   { "AstroNvim/astrolsp", enabled = false },
-  { "hrsh7th/cmp-nvim-lsp", enabled = false },
-  { "jose-elias-alvarez/null-ls.nvim", enabled = false },
-  { "nvimtools/none-ls.nvim", enabled = false },
+  { "folke/neoconf.nvim", enabled = false },
+  { "folke/neodev.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },
-  { "williamboman/nvim-lsp-installer", enabled = false },
   { "neovim/nvim-lspconfig", enabled = false },
-  { "williamboman/mason-lspconfig.nvim", enabled = false },
-  { "hrsh7th/cmp-nvim-lsp", enabled = false },
-  { "lvimuser/lsp-inlayhints.nvim", enabled = false },
-  { "rcarriga/cmp-dap", enabled = false },
+  { "nvimtools/none-ls.nvim", enabled = false },
   { "stevearc/aerial.nvim", enabled = false },
-  -- refactor
-  { "ThePrimeagen/refactoring.nvim", enabled = false },
+  { "williamboman/mason-lspconfig.nvim", enabled = false },
+  -- cmp
+  { "hrsh7th/cmp-buffer", enabled = false },
+  { "hrsh7th/cmp-nvim-lsp", enabled = false },
+  { "hrsh7th/cmp-path", enabled = false },
+  { "hrsh7th/nvim-cmp", enabled = false },
+  { "rcarriga/cmp-dap", enabled = false },
+  { "saadparwaiz1/cmp_luasnip", enabled = false },
   -- luaship
   { "L3MON4D3/LuaSnip", enabled = false },
   { "rafamadriz/friendly-snippets", enabled = false },
-  -- cmp
-  { "hrsh7th/nvim-cmp", enabled = false },
-  { "hrsh7th/cmp-buffer", enabled = false },
-  { "hrsh7th/cmp-path", enabled = false },
-  { "saadparwaiz1/cmp_luasnip", enabled = false },
-  { "folke/trouble.nvim", enabled = false },
-  { "folke/neoconf.nvim", enabled = false },
 }
