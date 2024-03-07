@@ -37,6 +37,16 @@ return {
           "coc-marketplace",
         }
 
+        if not opts.autocmds then opts.autocmds = {} end
+        opts.autocmds.coc_settings = {
+          {
+            event = "FileType",
+            pattern = "list",
+            desc = "disable foldcolumn for coc lists",
+            callback = function() vim.wo.foldcolumn = "0" end,
+          },
+        }
+
         if not opts.commands then opts.commands = {} end
         opts.commands.Format = { "call CocAction('format')", desc = "Format file with LSP" }
         if not opts.mappings then opts.mappings = require("astrocore").empty_map_table() end
