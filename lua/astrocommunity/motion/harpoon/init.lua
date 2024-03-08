@@ -3,7 +3,9 @@ local prefix = "<leader><leader>"
 local maps = { n = {} }
 local icon = vim.g.icons_enabled and "󱡀 " or ""
 maps.n[prefix] = { desc = icon .. "Harpoon" }
+
 require("astronvim.utils").set_mappings(maps)
+
 return {
   {
     "ThePrimeagen/harpoon",
@@ -44,11 +46,5 @@ return {
       -- },
     },
     opts = {},
-  },
-  {
-    "catppuccin/nvim",
-    optional = true,
-    ---@type CatppuccinOptions
-    opts = { integrations = { harpoon = true } },
   },
 }
