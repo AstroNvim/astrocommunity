@@ -1,5 +1,5 @@
 local prefix = "<leader><leader>"
-local term_string = vim.fn.exists "$TMUX" == 1 and "tmux" or "term"
+-- local term_string = vim.fn.exists "$TMUX" == 1 and "tmux" or "term"
 local maps = { n = {} }
 local icon = vim.g.icons_enabled and "󱡀 " or ""
 maps.n[prefix] = { desc = icon .. "Harpoon" }
@@ -32,16 +32,16 @@ return {
       { "<C-p>", function() require("harpoon"):list():prev() end, desc = "Goto previous mark" },
       { "<C-n>", function() require("harpoon"):list():next() end, desc = "Goto next mark" },
       { prefix .. "m", "<cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" },
-      {
-        prefix .. "t",
-        function()
-          vim.ui.input({ prompt = term_string .. " window number: " }, function(input)
-            local num = tonumber(input)
-            if num then require("harpoon").term.gotoTerminal(num) end
-          end)
-        end,
-        desc = "Go to " .. term_string .. " window",
-      },
+      -- {
+      --   prefix .. "t",
+      --   function()
+      --     vim.ui.input({ prompt = term_string .. " window number: " }, function(input)
+      --       local num = tonumber(input)
+      --       if num then require("harpoon").term.gotoTerminal(num) end
+      --     end)
+      --   end,
+      --   desc = "Go to " .. term_string .. " window",
+      -- },
     },
     opts = {},
   },
