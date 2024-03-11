@@ -7,14 +7,13 @@ return {
     opts = function(_, opts)
       if not opts.options then opts.options = {} end
       if not opts.options.g then opts.options.g = {} end
-      if not opts.options.opt then opts.options.opt = {} end
       opts.options.g.VM_silent_exit = 1
       opts.options.g.VM_show_warnings = 0
 
       if not opts.autocmds then opts.autocmds = {} end
       opts.autocmds.visual_multi_exit = {
         {
-          event = { "User" },
+          event = "User",
           pattern = "visual_multi_exit",
           desc = "Avoid spurious 'hit-enter-prompt' when exiting vim-visual-multi",
           callback = function()
