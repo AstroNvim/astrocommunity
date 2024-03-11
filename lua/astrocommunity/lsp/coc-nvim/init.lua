@@ -45,7 +45,6 @@ return {
             desc = "disable foldcolumn and statusline for coc lists",
             callback = function()
               if vim.bo.filetype == [[list]] then
-                vim.wo.foldcolumn = "0"
                 vim.o.laststatus = (vim.o.laststatus == opts.options.opt.laststatus) and 0 or vim.o.laststatus
               else
                 vim.o.laststatus = (vim.o.laststatus == 0) and opts.options.opt.laststatus or vim.o.laststatus

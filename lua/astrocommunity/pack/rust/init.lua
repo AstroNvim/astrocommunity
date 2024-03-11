@@ -60,7 +60,7 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = "^3",
+    version = "^4",
     ft = "rust",
     opts = function()
       local adapter
