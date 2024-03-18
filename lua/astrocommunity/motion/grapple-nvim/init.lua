@@ -5,16 +5,19 @@ maps.n[prefix] = { desc = icon .. "Grapple" }
 require("astronvim.utils").set_mappings(maps)
 return {
   "cbochs/grapple.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = {
+    { "nvim-tree/nvim-web-devicons", lazy = true },
+  },
   cmd = { "Grapple" },
   keys = {
-    { prefix .. "a", "<cmd>GrappleTag<CR>", desc = "Add file" },
-    { prefix .. "d", "<cmd>GrappleUntag<CR>", desc = "Remove file" },
-    { prefix .. "t", "<cmd>GrappleToggle<CR>", desc = "Toggle a file" },
-    { prefix .. "e", "<cmd>GrapplePopup tags<CR>", desc = "Select from tags" },
-    { prefix .. "s", "<cmd>GrapplePopup scopes<CR>", desc = "Select a project scope" },
-    { prefix .. "x", "<cmd>GrappleReset<CR>", desc = "Clear tags from current project" },
-    { "<C-n>", "<cmd>GrappleCycle forward<CR>", desc = "Select next tag" },
-    { "<C-p>", "<cmd>GrappleCycle backward<CR>", desc = "Select previous tag" },
+    { prefix .. "a", "<cmd>Grapple tag<CR>", desc = "Add file" },
+    { prefix .. "d", "<cmd>Grapple untag<CR>", desc = "Remove file" },
+    { prefix .. "t", "<cmd>Grapple toggle<CR>", desc = "Toggle a file" },
+    { prefix .. "e", "<cmd>Grapple toggle_tags<CR>", desc = "Select from tags" },
+    { prefix .. "s", "<cmd>Grapple toggle_scopes<CR>", desc = "Select a scope" },
+    { prefix .. "l", "<cmd>Grapple toggle_loaded<CR>", desc = "Select a loaded scope" },
+    { prefix .. "x", "<cmd>Grapple reset<CR>", desc = "Clear tags from current project" },
+    { "<C-n>", "<cmd>Grapple cycle forward<CR>", desc = "Select next tag" },
+    { "<C-p>", "<cmd>Grapple cycle backward<CR>", desc = "Select previous tag" },
   },
 }

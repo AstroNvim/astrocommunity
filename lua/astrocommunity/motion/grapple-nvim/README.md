@@ -5,6 +5,7 @@ Neovim plugin for tagging important files
 **Repository:** <https://github.com/cbochs/grapple.nvim>
 
 ### Example of a custom Heirline component for AstroNvim
+
 ![image](https://github.com/Subjective/astrocommunity/assets/56745535/333069eb-dea7-428f-b28d-31fd5912f95f)
 
 ```lua
@@ -14,13 +15,14 @@ status.component.grapple = {
   provider = function()
     local available, grapple = pcall(require, "grapple")
     if available then
-      local key = grapple.key { buffer = 0 }
-      if key ~= nil then return " " .. key .. " " end
+      return grapple.statusline()
     end
   end,
 }
 ```
+
 **Example Configuration:**
+
 ```lua
 return {
   plugins = {
@@ -34,8 +36,7 @@ return {
           provider = function()
             local available, grapple = pcall(require, "grapple")
             if available then
-              local key = grapple.key { buffer = 0 }
-              if key ~= nil then return " " .. key .. " " end
+              return grapple.statusline()
             end
           end,
         }
