@@ -11,6 +11,16 @@ return {
               ["<Leader>O"] = { function() require("oil").open() end, desc = "Open folder in Oil" },
             },
           },
+          autocmds = {
+            oil_settings = {
+              {
+                event = "FileType",
+                desc = "Disable view saving for oil buffers",
+                pattern = "oil",
+                callback = function(args) vim.b[args.buf].view_activated = false end,
+              },
+            },
+          },
         },
       },
     },
