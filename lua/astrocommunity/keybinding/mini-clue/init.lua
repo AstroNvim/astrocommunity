@@ -5,9 +5,7 @@ return {
   },
   {
     "echasnovski/mini.clue",
-    keys = {
-      "<Leader>",
-    },
+    event = "VeryLazy",
     dependecies = { "AstroNvim/astrocore" },
     opts = function()
       local miniclue = require "mini.clue"
