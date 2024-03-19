@@ -3,6 +3,7 @@ return {
     "nvim-neotest/neotest",
     ft = { "go", "rust", "python" },
     dependencies = {
+      "nvim-neotest/nvim-nio",
       "nvim-neotest/neotest-go",
       "nvim-neotest/neotest-python",
       "rouge8/neotest-rust",
