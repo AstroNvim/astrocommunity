@@ -19,6 +19,21 @@ return {
                 pattern = "oil",
                 callback = function(args) vim.b[args.buf].view_activated = false end,
               },
+              {
+                event = "User",
+                pattern = "OilActionsPost",
+                desc = "Close buffers when files are deleted in Oil",
+                callback = function(args)
+                  if args.data.err then return end
+                  for _, action in ipairs(args.data.actions) do
+                    if action.type == "delete" then
+                      local _, path = require("oil.util").parse_url(action.url)
+                      local bufnr = vim.fn.bufnr(path)
+                      if bufnr ~= -1 then require("astrocore.buffer").wipe(bufnr, true) end
+                    end
+                  end
+                end,
+              },
             },
           },
         },
