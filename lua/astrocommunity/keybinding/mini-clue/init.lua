@@ -1,5 +1,9 @@
 return {
   {
+      "folke/which-key.nvim",
+    enabled = false
+    },
+  {
     "echasnovski/mini.clue",
     keys = {
       "<Leader>",
