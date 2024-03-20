@@ -25,18 +25,11 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "bashls" })
     end,
   },
-  { "gbprod/none-ls-shellcheck.nvim", lazy = true },
   {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "shfmt", "shellcheck" })
-      if opts.handlers and require("astrocore").is_available "none-ls-shellcheck.nvim" then
-        opts.handlers.shellcheck = function()
-          require("null-ls").register(require "none-ls-shellcheck.diagnostics")
-          require("null-ls").register(require "none-ls-shellcheck.code_actions")
-        end
-      end
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "shfmt" })
     end,
   },
   {
