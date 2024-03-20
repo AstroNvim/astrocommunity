@@ -8,7 +8,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>fy"] = { "<CMD>Telescope neoclip<CR>", desc = "Find yanks (neoclip)" },
+            ["<Leader>fy"] = { "<Cmd>Telescope neoclip<CR>", desc = "Find yanks (neoclip)" },
           },
         },
       },

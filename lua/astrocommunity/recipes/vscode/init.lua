@@ -42,9 +42,9 @@ return {
     opts = {
       mappings = {
         n = {
-          ["<Leader>ff"] = "<CMD>Find<CR>",
-          ["<Leader>fw"] = "<CMD>call VSCodeNotify('workbench.action.findInFiles')<CR>",
-          ["<Leader>ls"] = "<CMD>call VSCodeNotify('workbench.action.gotoSymbol')<CR>",
+          ["<Leader>ff"] = "<Cmd>Find<CR>",
+          ["<Leader>fw"] = "<Cmd>call VSCodeNotify('workbench.action.findInFiles')<CR>",
+          ["<Leader>ls"] = "<Cmd>call VSCodeNotify('workbench.action.gotoSymbol')<CR>",
         },
       },
     },

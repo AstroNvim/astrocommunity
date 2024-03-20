@@ -60,7 +60,7 @@ return {
         opts = {
           mappings = {
             n = {
-              ["<Leader>lv"] = { "<CMD>VenvSelect<CR>", desc = "Select VirtualEnv" },
+              ["<Leader>lv"] = { "<Cmd>VenvSelect<CR>", desc = "Select VirtualEnv" },
             },
           },
         },

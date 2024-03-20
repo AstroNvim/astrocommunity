@@ -7,7 +7,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>um"] = { "<CMD>MinimapToggle<CR>", desc = "Toggle minimap" },
+            ["<Leader>um"] = { "<Cmd>MinimapToggle<CR>", desc = "Toggle minimap" },
           },
         },
         options = {

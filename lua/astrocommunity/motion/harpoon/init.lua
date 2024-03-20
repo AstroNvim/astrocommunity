@@ -30,7 +30,7 @@ return {
           }
           maps.n["<C-p>"] = { function() require("harpoon"):list():prev() end, desc = "Goto previous mark" }
           maps.n["<C-n>"] = { function() require("harpoon"):list():next() end, desc = "Goto next mark" }
-          maps.n[prefix .. "m"] = { "<cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" }
+          maps.n[prefix .. "m"] = { "<Cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" }
           maps.n[prefix .. "t"] = {
             function()
               vim.ui.input({ prompt = term_string .. " window number: " }, function(input)

@@ -26,8 +26,8 @@ return {
       "DevdocsUpdateAll",
     },
     keys = {
-      { prefix .. "d", "<CMD>DevdocsOpenCurrentFloat<CR>", desc = "Find Devdocs for current file", mode = { "n" } },
-      { prefix .. "D", "<CMD>DevdocsOpenFloat<CR>", desc = "Find Devdocs", mode = { "n" } },
+      { prefix .. "d", "<Cmd>DevdocsOpenCurrentFloat<CR>", desc = "Find Devdocs for current file", mode = { "n" } },
+      { prefix .. "D", "<Cmd>DevdocsOpenFloat<CR>", desc = "Find Devdocs", mode = { "n" } },
     },
     opts = {
       previewer_cmd = vim.fn.executable "glow" == 1 and "glow" or nil,

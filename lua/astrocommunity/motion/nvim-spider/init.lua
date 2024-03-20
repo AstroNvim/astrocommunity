@@ -1,19 +1,19 @@
 local key_maps = {
   ["w"] = {
-    "<CMD>lua require('spider').motion('w')<CR>",
+    "<Cmd>lua require('spider').motion('w')<CR>",
     desc = "Next word",
   },
 
   ["e"] = {
-    "<CMD>lua require('spider').motion('e')<CR>",
+    "<Cmd>lua require('spider').motion('e')<CR>",
     desc = "Next end of word",
   },
   ["b"] = {
-    "<CMD>lua require('spider').motion('b')<CR>",
+    "<Cmd>lua require('spider').motion('b')<CR>",
     desc = "Previous word",
   },
   ["ge"] = {
-    "<CMD>lua require('spider').motion('ge')<CR>",
+    "<Cmd>lua require('spider').motion('ge')<CR>",
     desc = "Previous end of word",
   },
 }

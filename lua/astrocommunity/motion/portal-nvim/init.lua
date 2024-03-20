@@ -6,8 +6,8 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>o"] = { "<CMD>Portal jumplist backward<CR>", desc = "Portal Jump backward" },
-            ["<Leader>i"] = { "<CMD>Portal jumplist forward<CR>", desc = "Portal Jump forward" },
+            ["<Leader>o"] = { "<Cmd>Portal jumplist backward<CR>", desc = "Portal Jump backward" },
+            ["<Leader>i"] = { "<Cmd>Portal jumplist forward<CR>", desc = "Portal Jump forward" },
           },
         },
       },

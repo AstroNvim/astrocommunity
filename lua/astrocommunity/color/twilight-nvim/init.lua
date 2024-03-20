@@ -6,7 +6,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>uT"] = { "<CMD>Twilight<CR>", desc = "Toggle Twilight" },
+            ["<Leader>uT"] = { "<Cmd>Twilight<CR>", desc = "Toggle Twilight" },
           },
         },
       },

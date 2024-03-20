@@ -7,7 +7,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>fu"] = { "<CMD>Telescope undo<CR>", desc = "Find undos" },
+            ["<Leader>fu"] = { "<Cmd>Telescope undo<CR>", desc = "Find undos" },
           },
         },
       },

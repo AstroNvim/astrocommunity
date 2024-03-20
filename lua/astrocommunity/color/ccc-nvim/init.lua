@@ -10,9 +10,9 @@ return {
         opts = {
           mappings = {
             n = {
-              ["<Leader>uC"] = { "<CMD>CccHighlighterToggle<CR>", desc = "Toggle colorizer" },
-              ["<Leader>zc"] = { "<CMD>CccConvert<CR>", desc = "Convert color" },
-              ["<Leader>zp"] = { "<CMD>CccPick<CR>", desc = "Pick Color" },
+              ["<Leader>uC"] = { "<Cmd>CccHighlighterToggle<CR>", desc = "Toggle colorizer" },
+              ["<Leader>zc"] = { "<Cmd>CccConvert<CR>", desc = "Convert color" },
+              ["<Leader>zp"] = { "<Cmd>CccPick<CR>", desc = "Pick Color" },
             },
           },
         },

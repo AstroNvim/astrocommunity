@@ -7,7 +7,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>fz"] = { "<CMD>Telescope zoxide list<CR>", desc = "Find directories" },
+            ["<Leader>fz"] = { "<Cmd>Telescope zoxide list<CR>", desc = "Find directories" },
           },
         },
       },

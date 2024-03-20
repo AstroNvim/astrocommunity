@@ -6,7 +6,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>W"] = { "<CMD>SudaWrite<CR>", desc = "Suda Write" },
+            ["<Leader>W"] = { "<Cmd>SudaWrite<CR>", desc = "Suda Write" },
           },
         },
       },
