@@ -1,5 +1,30 @@
 # Changelog
 
+## [6.0.0](https://github.com/AstroNvim/astrocommunity/compare/v5.5.0...v6.0.0) (2024-03-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **grapple-nvim:** update to Grapple v0.10.0 ([#779](https://github.com/AstroNvim/astrocommunity/issues/779))
+* **harpoon:** Update to v2 ([#741](https://github.com/AstroNvim/astrocommunity/issues/741))
+
+### Features
+
+* **editing-support:** Add cloak.nvim ([#761](https://github.com/AstroNvim/astrocommunity/issues/761)) ([3b88193](https://github.com/AstroNvim/astrocommunity/commit/3b881932c27a41d4623c2d71d9774a33f5fa6f91))
+* **grapple-nvim:** better keymaps + add nvim-web-devicons dependency ([#781](https://github.com/AstroNvim/astrocommunity/issues/781)) ([c730a7e](https://github.com/AstroNvim/astrocommunity/commit/c730a7ee7c6fafc75d0356230b0b378ab4327733))
+* **harpoon:** Update to v2 ([#741](https://github.com/AstroNvim/astrocommunity/issues/741)) ([0151343](https://github.com/AstroNvim/astrocommunity/commit/0151343be2066f14eef15a971e83b09671217d00))
+* **pack:** add Templ language pack ([#780](https://github.com/AstroNvim/astrocommunity/issues/780)) ([bbd7f7f](https://github.com/AstroNvim/astrocommunity/commit/bbd7f7f1291ee6b9f91ca2cf2b22a92a30f18ad9))
+
+
+### Bug Fixes
+
+* **bash:** fix duplicate diagnostics in bash pack ([#804](https://github.com/AstroNvim/astrocommunity/issues/804)) ([570a524](https://github.com/AstroNvim/astrocommunity/commit/570a52451880a336a1aff366a8cc970b2dd2dcdc))
+* **grapple-nvim:** better keymaps + add nvim-web-devicons as a lazy dependency ([c730a7e](https://github.com/AstroNvim/astrocommunity/commit/c730a7ee7c6fafc75d0356230b0b378ab4327733))
+* **grapple-nvim:** update to Grapple v0.10.0 ([#779](https://github.com/AstroNvim/astrocommunity/issues/779)) ([30e8aae](https://github.com/AstroNvim/astrocommunity/commit/30e8aae3a71213179c6330df6a6300f00915b79c))
+* **grapple:** update after rewrite ([30e8aae](https://github.com/AstroNvim/astrocommunity/commit/30e8aae3a71213179c6330df6a6300f00915b79c))
+* **markdown-preview-nvim:** yarn istead of npm ([#770](https://github.com/AstroNvim/astrocommunity/issues/770)) ([f6a07ff](https://github.com/AstroNvim/astrocommunity/commit/f6a07ff850a8ddc5fb327132c07d43106a850e1f))
+* **pack:** fix duplicate diagnostics in bash pack ([570a524](https://github.com/AstroNvim/astrocommunity/commit/570a52451880a336a1aff366a8cc970b2dd2dcdc))
+
 ## [5.5.0](https://github.com/AstroNvim/astrocommunity/compare/v5.4.0...v5.5.0) (2024-02-07)
 
 
