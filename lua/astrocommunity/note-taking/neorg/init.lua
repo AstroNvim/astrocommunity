@@ -1,6 +1,9 @@
 return {
   "nvim-neorg/neorg",
   build = ":Neorg sync-parsers",
+  -- Pinned to last commit before v8.0.0's breaking changes as a temp fix
+  -- TODO: remove this in AstroNvim v4 when #813 is merged
+  commit = "583a82e",
   dependencies = { "nvim-lua/plenary.nvim" },
   event = "VeryLazy",
   opts = {
