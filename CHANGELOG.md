@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.1](https://github.com/AstroNvim/astrocommunity/compare/v6.0.0...v6.0.1) (2024-03-25)
+
+
+### Bug Fixes
+
+* **neorg:** restrict to version 7 ([f219659](https://github.com/AstroNvim/astrocommunity/commit/f219659b67b246584c421074d73db0a941af5cbd))
+
 ## [6.0.0](https://github.com/AstroNvim/astrocommunity/compare/v5.5.0...v6.0.0) (2024-03-19)
 
 
