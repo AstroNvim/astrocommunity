@@ -1,43 +1,38 @@
-local utils = require "astronvim.utils"
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "python", "toml" })
-      end
-    end,
-  },
+  { import = "astrocommunity.pack.python" },
   {
     "williamboman/mason-lspconfig.nvim",
+    optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "pyright", "ruff_lsp" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "ruff_lsp" })
     end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "ruff" }) end,
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
+    optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "python")
-      if not opts.handlers then opts.handlers = {} end
-      opts.handlers.python = function() end -- make sure python doesn't get set up by mason-nvim-dap, it's being set up by nvim-dap-python
+      opts.ensure_installed = vim.tbl_filter(
+        function(v) return not vim.tbl_contains({ "black", "isort" }, v) end,
+        opts.ensure_installed
+      )
     end,
   },
   {
-    "linux-cultist/venv-selector.nvim",
-    opts = {},
-    keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "ruff-lsp" })
+      opts.ensure_installed = vim.tbl_filter(
+        function(v) return not vim.tbl_contains({ "black", "isort" }, v) end,
+        opts.ensure_installed
+      )
+    end,
   },
   {
-    "mfussenegger/nvim-dap-python",
-    dependencies = "mfussenegger/nvim-dap",
-    ft = "python", -- NOTE: ft: lazy-load on filetype
-    config = function(_, opts)
-      local path = require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python"
-      require("dap-python").setup(path, opts)
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = function(_, opts)
+      if opts.formatters_by_ft then opts.formatters_by_ft.python = nil end
     end,
   },
 }

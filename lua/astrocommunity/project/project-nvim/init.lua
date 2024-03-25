@@ -1,4 +1,5 @@
 return {
+  { "AstroNvim/astrocore", opts = { rooter = false } },
   {
     "jay-babu/project.nvim",
     main = "project_nvim",

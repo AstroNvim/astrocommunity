@@ -1,4 +1,3 @@
-local utils = require "astronvim.utils"
 return {
   {
     "bennypowers/nvim-regexplainer",
@@ -11,7 +10,7 @@ return {
     opts = function(_, opts)
       -- add regex to treesitters
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "regex")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "regex" })
       end
     end,
   },

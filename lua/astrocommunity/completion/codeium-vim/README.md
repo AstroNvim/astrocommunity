@@ -15,7 +15,7 @@ Basic setup for codeium
 
 `i` `<C-x>`: clear suggestions
 
-`n` `<leader>;` toggle on/off Codeium
+`n` `<Leader>;` toggle on/off Codeium
 
 
 _Note_: You need to auth first before usage

@@ -1,10 +1,21 @@
 return {
   {
     "machakann/vim-sandwich",
-    keys = {
-      { "sa", desc = "Add surrounding", mode = { "n", "v" } },
-      { "sd", desc = "Delete surrounding" },
-      { "sr", desc = "Replace surrounding" },
+    event = { "User AstroFile", "InsertEnter" },
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        mappings = {
+          n = {
+            { "sa", desc = "Add surrounding" },
+            { "sd", desc = "Delete surrounding" },
+            { "sr", desc = "Replace surrounding" },
+          },
+          v = {
+            { "sa", desc = "Add surrounding" },
+          },
+        },
+      },
     },
   },
   {

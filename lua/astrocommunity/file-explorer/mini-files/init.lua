@@ -1,19 +1,19 @@
 return {
-  {
-    "neo-tree.nvim",
-    enabled = false,
-  },
+  { "neo-tree.nvim", enabled = false },
   {
     "echasnovski/mini.files",
-    keys = {
-      {
-        "<leader>e",
-        function() require("mini.files").open() end,
-        desc = "Explorer",
-      },
-    },
     dependencies = {
       "nvim-tree/nvim-web-devicons",
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<Leader>e"] = { function() require("mini.files").open() end, desc = "Explorer" },
+            },
+          },
+        },
+      },
     },
     opts = {},
   },

@@ -6,7 +6,7 @@ return {
     vim.keymap.set("i", "<c-;>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
     vim.keymap.set("i", "<c-,>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
     vim.keymap.set("i", "<c-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
-    vim.keymap.set("n", "<leader>;", function()
+    vim.keymap.set("n", "<Leader>;", function()
       if vim.g.codeium_enabled == true then
         vim.cmd "CodeiumDisable"
       else

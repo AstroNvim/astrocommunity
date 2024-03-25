@@ -1,6 +1,3 @@
-local prefix = "<leader>r"
-local utils = require "astronvim.utils"
-
 return {
   {
     "rest-nvim/rest.nvim",
@@ -10,11 +7,17 @@ return {
       "RestNvimPreview",
       "RestNvimLast",
     },
-    dependencies = { "nvim-lua/plenary.nvim" },
-
-    keys = {
-      { prefix, desc = "RestNvim" },
-      { prefix .. "r", "<Plug>RestNvim", desc = "Run request" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          local prefix = "<Leader>r"
+          maps.n[prefix] = { desc = "RestNvim" }
+          maps.n[prefix .. "r"] = { "<Plug>RestNvim", desc = "Run request" }
+        end,
+      },
     },
     opts = {},
   },
@@ -22,7 +25,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "http", "json" })
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "http", "json" })
       end
     end,
   },
