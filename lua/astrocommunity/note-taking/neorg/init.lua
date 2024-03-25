@@ -1,12 +1,13 @@
 return {
   {
-    "vhyrro/luarocks.nvim",
-    priority = 1000, -- We'd like this plugin to load first out of the rest
-    config = true,
-  },
-  {
     "nvim-neorg/neorg",
-    dependencies = { "luarocks.nvim" },
+    dependencies = {
+      {
+        "vhyrro/luarocks.nvim",
+        priority = 1000, -- We'd like this plugin to load first out of the rest
+        config = true,
+      },
+    },
     event = "VeryLazy",
     opts = {
       load = {
