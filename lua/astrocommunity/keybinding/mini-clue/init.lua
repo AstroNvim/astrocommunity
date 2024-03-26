@@ -21,7 +21,7 @@ return {
         end
       end
       return {
-        window = { config = { anchor = "SW", row = "auto", col = "auto" } },
+        window = { config = { row = "auto", col = "auto" } },
         triggers = {
           -- Leader triggers
           { mode = "n", keys = "<Leader>" },
