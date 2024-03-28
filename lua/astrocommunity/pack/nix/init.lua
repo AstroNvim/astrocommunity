@@ -1,19 +1,30 @@
-local utils = require "astronvim.utils"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "nix")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "nix" })
       end
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "nil_ls") end,
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "rnix" })
+    end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "nil_ls" })
+    end,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    optional = true,
     opts = function(_, opts)
       local nls = require "null-ls"
       if type(opts.sources) == "table" then
@@ -24,5 +35,23 @@ return {
         })
       end
     end,
+  },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        nix = { "alejandra" },
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        nix = { "statix" },
+      },
+    },
   },
 }

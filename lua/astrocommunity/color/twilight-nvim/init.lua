@@ -1,6 +1,17 @@
 return {
   "folke/twilight.nvim",
-  keys = { { "<leader>uT", "<cmd>Twilight<cr>", desc = "Toggle Twilight" } },
+  dependencies = {
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>uT"] = { "<Cmd>Twilight<CR>", desc = "Toggle Twilight" },
+          },
+        },
+      },
+    },
+  },
   cmd = {
     "Twilight",
     "TwilightEnable",

@@ -1,22 +1,38 @@
-local prefix = "<leader>fd"
+local prefix = "<Leader>fd"
 
 return {
   "nvim-telescope/telescope.nvim",
-  keys = {
-    { prefix .. "c", function() require("telescope").extensions.dap.commands() end, desc = "Telescope DAP commands" },
-    { prefix .. "f", function() require("telescope").extensions.dap.frames() end, desc = "Telescope DAP frames" },
+  dependencies = {
+    "nvim-telescope/telescope-dap.nvim",
     {
-      prefix .. "g",
-      function() require("telescope").extensions.dap.configurations() end,
-      desc = "Telescope DAP configurations",
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            [prefix .. "c"] = {
+              "<Cmd>lua require('telescope').extensions.dap.commands()<CR>",
+              desc = "Telescope DAP commands",
+            },
+            [prefix .. "f"] = {
+              "<Cmd>lua require('telescope').extensions.dap.frames()<CR>",
+              desc = "Telescope DAP frames",
+            },
+            [prefix .. "g"] = {
+              "<Cmd>lua require('telescope').extensions.dap.configurations()<CR>",
+              desc = "Telescope DAP configurations",
+            },
+            [prefix .. "l"] = {
+              "<Cmd>lua require('telescope').extensions.dap.list_breakpoints()<CR>",
+              desc = "Telescope DAP list breakpoints",
+            },
+            [prefix .. "v"] = {
+              "<Cmd>lua require('telescope').extensions.dap.variables()<CR>",
+              desc = "Telescope DAP variables",
+            },
+          },
+        },
+      },
     },
-    {
-      prefix .. "l",
-      function() require("telescope").extensions.dap.list_breakpoints() end,
-      desc = "Telescope DAP list breakpoints",
-    },
-    { prefix .. "v", function() require("telescope").extensions.dap.variables() end, desc = "Telescope DAP variables" },
   },
-  dependencies = { "nvim-telescope/telescope-dap.nvim" },
   opts = function() require("telescope").load_extension "dap" end,
 }
