@@ -167,7 +167,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        java = { "clang_format" },
+        java = { "clang-format" },
       },
     },
   },
