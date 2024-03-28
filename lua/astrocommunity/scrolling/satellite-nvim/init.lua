@@ -1,5 +1,3 @@
-local utils = require "astronvim.utils"
-
 return {
   {
     -- scrollbar
@@ -11,6 +9,7 @@ return {
     "folke/zen-mode.nvim",
     optional = true,
     opts = function(_, opts)
+      local utils = require "astrocore"
       local old_on_open, old_on_close = opts.on_open, opts.on_close
       opts.on_open = function()
         utils.conditional_func(old_on_open, true)

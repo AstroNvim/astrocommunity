@@ -1,5 +1,3 @@
-local utils = require "astronvim.utils"
-
 return {
   "folke/zen-mode.nvim",
   cmd = "ZenMode",
@@ -24,9 +22,12 @@ return {
       },
     },
     on_open = function() -- disable diagnostics, indent blankline, winbar, and offscreen matchup
-      vim.g.diagnostics_mode_old = vim.g.diagnostics_mode
-      vim.g.diagnostics_mode = 0
-      vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
+      local astrocore_avail, astrocore = pcall(require, "astrocore")
+      if astrocore_avail then
+        vim.g.diagnostics_mode_old = vim.g.diagnostics_mode
+        vim.g.diagnostics_mode = 0
+        vim.diagnostic.config(astrocore.diagnostics[vim.g.diagnostics_mode])
+      end
 
       vim.g.indent_blankline_enabled_old = vim.g.indent_blankline_enabled
       vim.g.indent_blankline_enabled = false
@@ -41,7 +42,7 @@ return {
         desc = "Ensure winbar stays disabled when writing to file, switching buffers, opening floating windows, etc.",
       })
 
-      if utils.is_available "vim-matchup" then
+      if require("astrocore").is_available "vim-matchup" then
         vim.cmd.NoMatchParen()
         vim.g.matchup_matchparen_offscreen_old = vim.g.matchup_matchparen_offscreen
         vim.g.matchup_matchparen_offscreen = {}
@@ -49,8 +50,13 @@ return {
       end
     end,
     on_close = function() -- restore diagnostics, indent blankline, winbar, and offscreen matchup
-      vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
-      vim.diagnostic.config(require("astronvim.utils.lsp").diagnostics[vim.g.diagnostics_mode])
+      local astrocore_avail, astrocore = pcall(require, "astrocore")
+      if astrocore_avail then
+        vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
+        vim.diagnostic.config(
+          astrocore.diagnostics[vim.g.diagnostics_mode or astrocore.config.features.diagnostics_mode]
+        )
+      end
 
       vim.g.indent_blankline_enabled = vim.g.indent_blankline_enabled_old
       vim.g.miniindentscope_disable = vim.g.miniindentscope_disable_old
@@ -59,7 +65,7 @@ return {
       vim.api.nvim_clear_autocmds { group = "disable_winbar" }
       vim.o.winbar = vim.g.winbar_old
 
-      if utils.is_available "vim-matchup" then
+      if require("astrocore").is_available "vim-matchup" then
         vim.g.matchup_matchparen_offscreen = vim.g.matchup_matchparen_offscreen_old
         vim.cmd.DoMatchParen()
       end

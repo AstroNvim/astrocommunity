@@ -1,38 +1,44 @@
-local utils = require "astronvim.utils"
-
 return {
   {
+    "AstroNvim/astrolsp",
+    optional = true,
+    ---@type AstroLSPOpts
+    opts = {
+      ---@diagnostic disable: missing-fields
+      handlers = { metals = false },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
+    optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "scala")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "scala" })
       end
     end,
   },
   {
     "scalameta/nvim-metals",
-    init = function()
-      astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "metals")
+    ft = { "scala", "sbt", "java" },
+    opts = function()
+      local metals = require "metals"
+      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
+      local user_config = astrolsp_avail and astrolsp.lsp_opts "metals" or {}
+      if require("astrocore").is_available "nvim-dap" then
+        local on_attach = user_config.on_attach
+        user_config.on_attach = function(...)
+          if type(on_attach) == "function" then on_attach(...) end
+          metals.setup_dap()
+        end
+      end
+      return require("astrocore").extend_tbl(metals.bare_config(), user_config)
+    end,
+    config = function(self, opts)
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "scala", "sbt" },
-        callback = function()
-          if vim.fn.executable "metals" ~= 1 and vim.fn.executable "coursier" ~= 1 then
-            vim.notify "`metals` or `coursier` are required to be installed for `nvim-metals` to work."
-            return
-          end
-
-          local metals = require "metals"
-
-          local user_config = require("astronvim.utils.lsp").config "metals"
-          local old_on_attach = user_config.on_attach
-          user_config.on_attach = function(...)
-            old_on_attach(...)
-            metals.setup_dap()
-          end
-
-          metals.initialize_or_attach(utils.extend_tbl(metals.bare_config(), user_config))
-        end,
+        pattern = self.ft,
         group = vim.api.nvim_create_augroup("nvim-metals", { clear = true }),
+        desc = "Initialize and attach nvim-metals",
+        callback = function() require("metals").initialize_or_attach(opts) end,
       })
     end,
   },
@@ -61,6 +67,15 @@ return {
       local dap = require "dap"
       dap.configurations.scala = dap.configurations.scala and vim.list_extend(dap.configurations.scala, scala_config)
         or scala_config
+    end,
+  },
+  {
+    "nvim-neotest/neotest",
+    optional = true,
+    dependencies = { "stevanmilic/neotest-scala" },
+    opts = function(_, opts)
+      if not opts.adapters then opts.adapters = {} end
+      table.insert(opts.adapters, require "neotest-scala"(require("astrocore").plugin_opts "neotest-scala"))
     end,
   },
 }

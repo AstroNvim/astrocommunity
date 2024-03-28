@@ -6,5 +6,3 @@ globals:
     any: true
   jit:
     any: true
-  astronvim:
-    any: true

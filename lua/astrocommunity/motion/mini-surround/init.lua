@@ -1,11 +1,17 @@
 local prefix = "gz"
-local maps = { n = {} }
-local icon = vim.g.icons_enabled and "󰑤 " or ""
-maps.n[prefix] = { desc = icon .. "Surround" }
-require("astronvim.utils").set_mappings(maps)
 return {
   {
     "echasnovski/mini.surround",
+    dependencies = {
+      { "AstroNvim/astroui", opts = { icons = { Surround = "󰑤" } } },
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          maps.n[prefix] = { desc = require("astroui").get_icon("Surround", 1, true) .. "Surround" }
+        end,
+      },
+    },
     keys = function(plugin, keys)
       -- Populate the keys based on the user's options
       local mappings = {

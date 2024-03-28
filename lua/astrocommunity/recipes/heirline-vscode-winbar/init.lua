@@ -1,7 +1,7 @@
 return {
   "rebelot/heirline.nvim",
   opts = function(_, opts)
-    local status = require "astronvim.utils.status"
+    local status = require "astroui.status"
 
     opts.winbar = { -- create custom winbar
       -- store the current buffer number
@@ -11,10 +11,17 @@ return {
       {
         condition = function() return not status.condition.is_active() end,
         -- show the path to the file relative to the working directory
-        status.component.separated_path { path_func = status.provider.filename { modify = ":.:h" } },
+        status.component.separated_path {
+          path_func = status.provider.filename { modify = ":.:h" },
+        },
         -- add the file name and icon
         status.component.file_info {
-          file_icon = { hl = status.hl.file_icon "winbar", padding = { left = 0 } },
+          file_icon = {
+            hl = status.hl.file_icon "winbar",
+            padding = { left = 0 },
+          },
+          filename = {},
+          filetype = false,
           file_modified = false,
           file_read_only = false,
           hl = status.hl.get_attributes("winbarnc", true),
@@ -25,10 +32,14 @@ return {
       -- active winbar
       {
         -- show the path to the file relative to the working directory
-        status.component.separated_path { path_func = status.provider.filename { modify = ":.:h" } },
+        status.component.separated_path {
+          path_func = status.provider.filename { modify = ":.:h" },
+        },
         -- add the file name and icon
         status.component.file_info { -- add file_info to breadcrumbs
           file_icon = { hl = status.hl.filetype_color, padding = { left = 0 } },
+          filename = {},
+          filetype = false,
           file_modified = false,
           file_read_only = false,
           hl = status.hl.get_attributes("winbar", true),
@@ -44,7 +55,5 @@ return {
         },
       },
     }
-
-    return opts
   end,
 }

@@ -1,20 +1,18 @@
 return {
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      source_selector = {
-        winbar = false,
-        statusline = false,
-      },
-    },
-  },
-  {
     "folke/edgy.nvim",
-    event = "VeryLazy",
-    keys = {
-      -- stylua: ignore
-      { "<leader>E", function() require("edgy").toggle() end, desc = "Toggle Sidebars" },
-      { "<leader>F", function() require("edgy").select() end, desc = "Pick Sidebar" },
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<Leader>F"] = { function() require("edgy").toggle() end, desc = "Toggle Sidebars" },
+              ["<Leader>f"] = { function() require("edgy").select() end, desc = "Pick Sidebar" },
+            },
+          },
+        },
+      },
     },
     opts = {
       exit_when_last = true,
@@ -69,6 +67,16 @@ return {
         ["<C-Up>"] = function(win) win:resize("height", 2) end,
         -- decrease height
         ["<C-Down>"] = function(win) win:resize("height", -2) end,
+      },
+    },
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    optional = true,
+    opts = {
+      source_selector = {
+        winbar = false,
+        statusline = false,
       },
     },
   },

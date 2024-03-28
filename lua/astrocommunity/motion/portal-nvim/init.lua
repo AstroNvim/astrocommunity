@@ -1,9 +1,18 @@
 return {
   "cbochs/portal.nvim",
+  dependencies = {
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>o"] = { "<Cmd>Portal jumplist backward<CR>", desc = "Portal Jump backward" },
+            ["<Leader>i"] = { "<Cmd>Portal jumplist forward<CR>", desc = "Portal Jump forward" },
+          },
+        },
+      },
+    },
+  },
   cmd = "Portal",
   opts = {},
-  keys = {
-    { "<leader>o", "<cmd>Portal jumplist backward<cr>", desc = "Portal Jump backward" },
-    { "<leader>i", "<cmd>Portal jumplist forward<cr>", desc = "Portal Jump forward" },
-  },
 }

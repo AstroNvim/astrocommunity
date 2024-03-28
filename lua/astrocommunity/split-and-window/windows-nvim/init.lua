@@ -3,6 +3,18 @@ return {
   dependencies = {
     "anuvyklack/middleclass",
     "anuvyklack/animation.nvim",
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        options = {
+          opt = {
+            winwidth = 10,
+            winminwidth = 10,
+            equalalways = false,
+          },
+        },
+      },
+    },
   },
   opts = {},
   cmd = {
@@ -14,9 +26,4 @@ return {
     "WindowsDisableAutowidth",
     "WindowsToggleAutowidth",
   },
-  init = function()
-    vim.o.winwidth = 10
-    vim.o.winminwidth = 10
-    vim.o.equalalways = false
-  end,
 }

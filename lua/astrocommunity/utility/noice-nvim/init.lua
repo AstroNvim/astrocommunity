@@ -1,11 +1,38 @@
-local utils = require "astronvim.utils"
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed =
-          utils.list_insert_unique(opts.ensure_installed, { "bash", "markdown", "markdown_inline", "regex", "vim" })
+        opts.ensure_installed = require("astrocore").list_insert_unique(
+          opts.ensure_installed,
+          { "bash", "markdown", "markdown_inline", "regex", "vim" }
+        )
+      end
+    end,
+  },
+  {
+    "AstroNvim/astrolsp",
+    optional = true,
+    ---@param opts AstroLSPOpts
+    opts = function(_, opts)
+      local noice_opts = require("astrocore").plugin_opts "noice.nvim"
+      -- disable the necessary handlers in AstroLSP
+      if not opts.lsp_handlers then opts.lsp_handlers = {} end
+      if vim.tbl_get(noice_opts, "lsp", "hover", "enabled") ~= false then
+        opts.lsp_handlers["textDocument/hover"] = false
+      end
+      if vim.tbl_get(noice_opts, "lsp", "signature", "enabled") ~= false then
+        opts.lsp_handlers["textDocument/signatureHelp"] = false
+      end
+    end,
+  },
+  {
+    "heirline.nvim",
+    optional = true,
+    opts = function(_, opts)
+      local noice_opts = require("astrocore").plugin_opts "noice.nvim"
+      if vim.tbl_get(noice_opts, "lsp", "progress", "enabled") ~= false then -- check if lsp progress is enabled
+        opts.statusline[9] = require("astroui.status").component.lsp { lsp_progress = false }
       end
     end,
   },
@@ -14,6 +41,7 @@ return {
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = function(_, opts)
+      local utils = require "astrocore"
       return utils.extend_tbl(opts, {
         lsp = {
           -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -32,7 +60,6 @@ return {
         },
       })
     end,
-    init = function() vim.g.lsp_handlers_enabled = false end,
   },
   {
     "folke/edgy.nvim",

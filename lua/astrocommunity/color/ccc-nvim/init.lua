@@ -4,10 +4,19 @@ return {
     "uga-rosa/ccc.nvim",
     event = { "User AstroFile", "InsertEnter" },
     cmd = { "CccPick", "CccConvert", "CccHighlighterEnable", "CccHighlighterDisable", "CccHighlighterToggle" },
-    keys = {
-      { "<leader>uC", "<cmd>CccHighlighterToggle<cr>", desc = "Toggle colorizer" },
-      { "<leader>zc", "<cmd>CccConvert<cr>", desc = "Convert color" },
-      { "<leader>zp", "<cmd>CccPick<cr>", desc = "Pick Color" },
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<Leader>uC"] = { "<Cmd>CccHighlighterToggle<CR>", desc = "Toggle colorizer" },
+              ["<Leader>zc"] = { "<Cmd>CccConvert<CR>", desc = "Convert color" },
+              ["<Leader>zp"] = { "<Cmd>CccPick<CR>", desc = "Pick Color" },
+            },
+          },
+        },
+      },
     },
     opts = {
       highlighter = {

@@ -1,20 +1,33 @@
-local utils = require "astronvim.utils"
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "swift")
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "swift" })
       end
     end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "codelldb" })
+    end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    init = function() require("astronvim.utils.lsp").setup "sourcekit" end,
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "codelldb" })
+    end,
+  },
+  {
+    "AstroNvim/astrolsp",
+    optional = true,
+    ---@type AstroLSPOpts
+    opts = {
+      servers = { "sourcekit" },
+    },
   },
 }

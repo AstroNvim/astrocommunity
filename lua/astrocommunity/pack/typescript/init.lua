@@ -1,20 +1,3 @@
-local utils = require "astronvim.utils"
-
-local function on_file_remove(args)
-  local ts_clients = vim.lsp.get_active_clients { name = "tsserver" }
-  for _, ts_client in ipairs(ts_clients) do
-    ts_client.request("workspace/executeCommand", {
-      command = "_typescript.applyRenameFile",
-      arguments = {
-        {
-          sourceUri = vim.uri_from_fname(args.source),
-          targetUri = vim.uri_from_fname(args.destination),
-        },
-      },
-    })
-  end
-end
-
 local function check_json_key_exists(filename, key)
   -- Open the file in read mode
   local file = io.open(filename, "r")
@@ -38,43 +21,28 @@ end
 
 return {
   { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   {
     "nvim-treesitter/nvim-treesitter",
+    optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed =
-          utils.list_insert_unique(opts.ensure_installed, { "javascript", "typescript", "tsx", "jsdoc" })
+          require("astrocore").list_insert_unique(opts.ensure_installed, { "javascript", "typescript", "tsx", "jsdoc" })
       end
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "tsserver", "eslint" })
-
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("eslint_fix_creator", { clear = true }),
-        desc = "Create autocommand in buffers where eslint attaches",
-        callback = function(args)
-          if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "eslint" then
-            vim.api.nvim_create_autocmd("BufWritePost", {
-              desc = "Fix all eslint errors",
-              buffer = args.buf,
-              group = vim.api.nvim_create_augroup(("eslint_fix_%d"):format(args.buf), { clear = true }),
-              callback = function()
-                if vim.fn.exists ":EslintFixAll" > 0 then vim.cmd.EslintFixAll() end
-              end,
-            })
-          end
-        end,
-      })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "tsserver", "eslint" })
     end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
-
+    optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "prettierd", "eslint-lsp" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "prettierd" })
       if not opts.handlers then opts.handlers = {} end
 
       local has_prettier = function(util)
@@ -101,7 +69,20 @@ return {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "js") end,
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "js" })
+    end,
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(
+        opts.ensure_installed,
+        { "typescript-language-server", "eslint-lsp", "prettierd", "js-debug-adapter" }
+      )
+    end,
   },
   {
     "vuki656/package-info.nvim",
@@ -110,36 +91,52 @@ return {
     event = "BufRead package.json",
   },
   {
-    "jose-elias-alvarez/typescript.nvim",
-    init = function() astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "tsserver") end,
-    ft = {
-      "typescript",
-      "typescriptreact",
-      "javascript",
-      "javascriptreact",
+    "pmizio/typescript-tools.nvim",
+    dependencies = {
+      ---@type AstroLSPOpts
+      "AstroNvim/astrolsp",
+      optional = true,
+      ---@diagnostic disable: missing-fields
+      opts = {
+        autocmds = {
+          eslint_fix_on_save = {
+            cond = function(client) return client.name == "eslint" and vim.fn.exists ":EslintFixAll" > 0 end,
+            {
+              event = "BufWritePost",
+              desc = "Fix all eslint errors",
+              callback = function() vim.cmd.EslintFixAll() end,
+            },
+          },
+        },
+        handlers = { tsserver = false }, -- disable tsserver setup, this plugin does it
+        config = {
+          ["typescript-tools"] = { -- enable inlay hints by default for `typescript-tools`
+            settings = {
+              tsserver_file_preferences = {
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+          },
+        },
+      },
     },
-    opts = function() return { server = require("astronvim.utils.lsp").config "tsserver" } end,
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = function(_, opts)
-      opts.sources = utils.list_insert_unique(opts.sources, require "typescript.extensions.null-ls.code-actions")
-    end,
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = function(_, opts)
-      local events = require "neo-tree.events"
-      if not opts.event_handlers then opts.event_handlers = {} end
-      vim.list_extend(opts.event_handlers, {
-        { event = events.FILE_MOVED, handler = on_file_remove },
-        { event = events.FILE_RENAMED, handler = on_file_remove },
-      })
+    ft = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+    -- get AstroLSP provided options like `on_attach` and `capabilities`
+    opts = function()
+      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
+      if astrolsp_avail then return astrolsp.lsp_opts "typescript-tools" end
     end,
   },
   {
     "dmmulroy/tsc.nvim",
-    cmd = { "TSC" },
+    cmd = "TSC",
     opts = {},
   },
 }

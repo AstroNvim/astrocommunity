@@ -17,7 +17,7 @@ return {
             end)
             -- if tsserver attached, stop it if there is a denols server attached
           elseif curr_client.name == "tsserver" then
-            for _, client in ipairs(vim.lsp.get_active_clients { bufnr = bufnr }) do
+            for _, client in ipairs(vim.lsp.get_clients { bufnr = bufnr }) do
               if client.name == "denols" then
                 vim.lsp.stop_client(curr_client.id, true)
                 break
@@ -26,7 +26,8 @@ return {
           end
         end,
       })
-      opts.server = require("astronvim.utils.lsp").config "denols"
+      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
+      opts.server = astrolsp_avail and astrolsp.lsp_opts "denols"
       opts.server.root_dir = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
     end,
   },

@@ -4,4 +4,4 @@
 
 - Replace nvim-autopairs with ultimate-autopair.nvim.
 - Setup rule to automatically disable pairing while editing comments.
-- Maintain `<leader>ua` UI toggle keymap and notification previously used for nvim-autopair.
+- Maintain `<Leader>ua` UI toggle keymap and notification previously used for nvim-autopair.
