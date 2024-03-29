@@ -8,16 +8,10 @@ return {
     end,
   },
   {
-    "nvimtools/none-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      local nls = require "null-ls"
-      if type(opts.sources) == "table" then
-        opts.sources = vim.list_extend(opts.sources, {
-          nls.builtins.formatting.fish_indent,
-          nls.builtins.diagnostics.fish,
-        })
-      end
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "fish_indent", "fish" })
     end,
   },
   {
