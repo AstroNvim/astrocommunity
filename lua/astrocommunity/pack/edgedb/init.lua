@@ -1,10 +1,14 @@
 return {
-  "edgedb/edgedb-vim",
-  ft = "edgeql",
-  config = function()
-    vim.api.nvim_create_autocmd(
-      { "BufRead", "BufNewFile" },
-      { pattern = { "*.esdl", "*.edgeql" }, command = "setf edgeql" }
-    )
-  end,
+  {
+    "AstroNvim/astrocore",
+    ---@type AstroCoreOpts
+    opts = { filetypes = { extensions = {
+      esdl = "edgeql",
+      edgeql = "edgeql",
+    } } },
+  },
+  {
+    "edgedb/edgedb-vim",
+    ft = "edgeql",
+  },
 }

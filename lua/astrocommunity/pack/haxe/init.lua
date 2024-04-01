@@ -1,6 +1,3 @@
-local utils = require "astronvim.utils"
-vim.filetype.add { extension = { hx = "haxe" } }
-
 return {
   "nvim-treesitter/nvim-treesitter",
   optional = true,
@@ -16,6 +13,6 @@ return {
       filetype = "haxe",
     }
 
-    opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "haxe")
+    opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "haxe" })
   end,
 }

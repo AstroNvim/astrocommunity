@@ -1,27 +1,27 @@
-local prefix = "<leader>s"
-local maps = { n = {}, x = {} }
-
-local icon = vim.g.icons_enabled and "󰛔 " or ""
-maps.n[prefix] = { desc = icon .. "Search / Replace" }
-maps.x[prefix] = { desc = icon .. "Search / Replace" }
-
-require("astronvim.utils").set_mappings(maps)
-
 return {
   {
     "nvim-pack/nvim-spectre",
     cmd = "Spectre",
-    keys = {
-      { prefix .. "s", function() require("spectre").toggle() end, desc = "Toggle Spectre" },
+    dependencies = {
+      { "AstroNvim/astroui", opts = { icons = { Spectre = "󰛔" } } },
       {
-        prefix .. "w",
-        mode = "x",
-        function() require("spectre").open_visual { select_word = true } end,
-        desc = "Spectre (current word)",
-      },
-      { prefix .. "f", function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
-    },
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          local prefix = "<Leader>s"
+          maps.n[prefix] = { desc = require("astroui").get_icon("Spectre", 1, true) .. "Search / Replace" }
+          maps.n[prefix .. "s"] = { function() require("spectre").open() end, desc = "Spectre" }
+          maps.n[prefix .. "f"] =
+            { function() require("spectre").open_file_search() end, desc = "Spectre (current file)" }
 
+          maps.x[prefix] = maps.n[prefix]
+          maps.x[prefix .. "w"] = {
+            function() require("spectre").open_visual { select_word = true } end,
+            desc = "Spectre (current word)",
+          }
+        end,
+      },
+    },
     opts = function()
       return {
         mapping = {
