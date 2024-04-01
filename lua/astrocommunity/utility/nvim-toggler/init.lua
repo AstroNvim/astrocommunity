@@ -6,13 +6,13 @@ return {
       "AstroNvim/astrocore",
       opts = {
         mappings = {
-          n = {
-            ["<Leader>i"] = { desc = "Toggle CursorWord" },
-          },
+          n = { ["<Leader>i"] = { function() require("nvim-toggler").toggle() end, desc = "Toggle CursorWord" } },
+          v = { ["<Leader>i"] = { function() require("nvim-toggler").toggle() end, desc = "Toggle CursorWord" } },
         },
       },
     },
   },
-
-  opts = {},
+  opts = {
+    remove_default_keybinds = true,
+  },
 }
