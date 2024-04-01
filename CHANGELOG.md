@@ -1,5 +1,23 @@
 # Changelog
 
+## [7.0.0](https://github.com/AstroNvim/astrocommunity/compare/v6.0.1...v7.0.0) (2024-04-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* **neorg:** fix breaking change in v8.0.0 ([#813](https://github.com/AstroNvim/astrocommunity/issues/813))
+
+### Features
+
+* **file-explorer:** Add telescope-file-browser.nvim ([#818](https://github.com/AstroNvim/astrocommunity/issues/818)) ([5de68a2](https://github.com/AstroNvim/astrocommunity/commit/5de68a202b4a44ff2c5665a5a5f80b18e21bc4d1))
+* **pack:** add fish pack ([#817](https://github.com/AstroNvim/astrocommunity/issues/817)) ([b1584b9](https://github.com/AstroNvim/astrocommunity/commit/b1584b9ea0731f39950af1473c10043be0aa3fec))
+
+
+### Bug Fixes
+
+* **java:** `clang_format` renamed to `clang-format` in conform ([f87424b](https://github.com/AstroNvim/astrocommunity/commit/f87424b508a06200d667156e7cac4dffbd5c1fae))
+* **neorg:** fix breaking change in v8.0.0 ([#813](https://github.com/AstroNvim/astrocommunity/issues/813)) ([34a09c9](https://github.com/AstroNvim/astrocommunity/commit/34a09c9c042c860107659ac1c322860050f8ef62))
+
 ## [6.0.1](https://github.com/AstroNvim/astrocommunity/compare/v6.0.0...v6.0.1) (2024-03-25)
 
 
