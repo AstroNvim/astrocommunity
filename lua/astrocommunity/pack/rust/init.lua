@@ -10,6 +10,13 @@ return {
     end,
   },
   {
+    "williamboman/mason-lspconfig.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "rust_analyzer" })
+    end,
+  },
+  {
     "AstroNvim/astrolsp",
     optional = true,
     ---@param opts AstroLSPOpts
