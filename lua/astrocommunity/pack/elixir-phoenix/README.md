@@ -2,7 +2,7 @@
 
 Adds baseline support for Elixir/Phoenix projects.
 
-It:
+This plugin pack does the following:
 
 - Adds the `tailwindcss` AstroCommunity pack
 - Adds the `elixirls` language server
