@@ -11,7 +11,17 @@ return {
       local orig = opts.lsp_handlers[event] or vim.lsp.handlers[event]
       opts.lsp_handlers[event] = function(err, result, ctx, config)
         local client = vim.lsp.get_client_by_id(ctx.client_id)
-        if client and vim.tbl_contains({ "tsserver", "vtsls", "typescript-tools", "volar" }, client.name) then
+        if
+          client
+          and vim.tbl_contains({
+            "astro",
+            "svelte",
+            "tsserver",
+            "typescript-tools",
+            "volar",
+            "vtsls",
+          }, client.name)
+        then
           vim.tbl_map(require("ts-error-translator").translate, result.diagnostics)
         end
         orig(err, result, ctx, config)
