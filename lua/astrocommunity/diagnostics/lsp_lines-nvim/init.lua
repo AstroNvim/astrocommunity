@@ -13,7 +13,7 @@ return {
       },
     },
     {
-      "AstroNvim/astrolsp",
+      "AstroNvim/astrocore",
       optional = true,
       opts = {
         diagnostics = {
