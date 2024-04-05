@@ -34,6 +34,9 @@ return {
       cmd_args = { "-s", "dark", "-w", "80" },
       picker_cmd = true,
       picker_cmd_args = { "-p" },
+      filetypes = {
+        typescript = { "node", "javascript", "typescript" },
+      },
     },
   },
 }
