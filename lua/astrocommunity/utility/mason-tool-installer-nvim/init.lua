@@ -24,11 +24,17 @@ return {
           if plugin == "mason-lspconfig.nvim" then
             mappings = require("mason-lspconfig").get_mappings().lspconfig_to_mason
           elseif plugin == "mason-null-ls.nvim" then
-            mappings = require("mason-null-ls.mappings.source").null_ls_to_package
+            mappings = require("mason-null-ls.mappings.source").getPackageFromNullLs
           elseif plugin == "mason-nvim-dap.nvim" then
             mappings = require("mason-nvim-dap.mappings.source").nvim_dap_to_package
           end
-          if mappings and mappings[target] then target = mappings[target] end
+          if mappings then
+            if type(mappings) == "table" and mappings[target] then
+              target = mappings[target]
+            elseif type(mappings) == "function" and mappings(target) then
+              target = mappings(target)
+            end
+          end
           if not target_lookup[target] then table.insert(opts.ensure_installed, target) end
         end
       end
