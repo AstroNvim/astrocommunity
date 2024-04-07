@@ -13,11 +13,8 @@ It can also render image files as images when opened.
 
 These are things you have to setup on your own
 
-* ImageMagick - **mandatory**
-* magick LuaRock - **mandatory** (luarocks --local --lua-version=5.1 install magick)
-    - Magick LuaRock requires Lua 5.1 
-* Kitty >= 28.0 - for the kitty backend
-* ueberzugpp - for the ueberzug backend
-* curl - for remote images
+- Kitty >= 28.0 - for the kitty backend
+- ueberzugpp - for the ueberzug backend
+- curl - for remote images
 
-**This plugin is configured to be used with kitty terminal and lua 5.1**
+**This plugin is configured to be used with kitty terminal**
