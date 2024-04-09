@@ -2,6 +2,7 @@
 return {
   "andersevenrud/nvim_context_vt",
   event = "User AstroFile",
+  cmd = {"NvimContextVtToggle"},
   dependencies = {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
