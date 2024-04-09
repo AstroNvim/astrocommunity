@@ -2,7 +2,7 @@ return {
   {
     "HiPhish/rainbow-delimiters.nvim",
     dependencies = "nvim-treesitter/nvim-treesitter",
-    event = "VeryLazy",
+    event = "User AstroFile",
     main = "rainbow-delimiters.setup",
   },
   {
