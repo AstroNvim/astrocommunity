@@ -4,4 +4,4 @@
 
 This plugin specification configures the `statusline` in AstroNvim to show the mode text
 
-![Screenshot of the statusline with mode text](https://docs.astronvim.com/assets/images/mode_text_statusline-151d63106be999f3ac1ec3147b4e4f5a.png)
+![Screenshot of the statusline with mode text](https://docs.astronvim.com/_astro/mode_text_statusline.DlqW7EsX_ZxzX4i.webp)
