@@ -2,6 +2,7 @@
 return {
   "nvim-treesitter/nvim-treesitter-context",
   event = "User AstroFile",
+  cmd = { "TSContextToggle" },
   dependencies = {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
