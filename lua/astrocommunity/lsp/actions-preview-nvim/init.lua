@@ -14,7 +14,7 @@ local mappings = {
 ---@type LazySpec
 return {
   "aznhe21/actions-preview.nvim",
-  event = "User AstroLspSetup",
+  lazy = true,
   dependencies = {
     "nvim-telescope/telescope.nvim",
     {
