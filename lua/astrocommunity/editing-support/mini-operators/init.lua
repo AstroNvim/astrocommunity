@@ -1,14 +1,5 @@
--- NOTE: this will override the default AstroNvim keybinding for opening neo-tree.
---       the default prefix would be g, but this will also override some bindings.
-local prefix = "<Leader>o"
-
-local mappings = {
-  n = {
-    [prefix] = {
-      name = "Text edit operators",
-    },
-  },
-}
+-- NOTE: the default prefix is `g`, but this will override some bindings.
+local prefix = "g"
 
 ---@type LazySpec
 return {
@@ -18,7 +9,18 @@ return {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
     opts = {
-      mappings = mappings,
+      mappings = {
+        n = {
+          [prefix] = {
+            name = "Text edit operators",
+          },
+        },
+        v = {
+          [prefix] = {
+            name = "Text edit operators",
+          },
+        },
+      },
     },
   },
   opts = {
