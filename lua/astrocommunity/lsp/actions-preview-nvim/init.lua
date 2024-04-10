@@ -1,16 +1,3 @@
-local keymaps = {
-  ["<Leader>la"] = {
-    function() require("actions-preview").code_actions() end,
-    desc = "LSP code action",
-    cond = "testDocument/codeAction",
-  },
-}
-
-local mappings = {
-  n = keymaps,
-  v = keymaps,
-}
-
 ---@type LazySpec
 return {
   "aznhe21/actions-preview.nvim",
@@ -21,7 +8,22 @@ return {
       "AstroNvim/astrolsp",
       ---@type AstroLSPOpts
       opts = {
-        mappings = mappings,
+        mappings = {
+          n = {
+            ["<Leader>la"] = {
+              function() require("actions-preview").code_actions() end,
+              desc = "LSP code action",
+              cond = "testDocument/codeAction",
+            },
+          },
+          v = {
+            ["<Leader>la"] = {
+              function() require("actions-preview").code_actions() end,
+              desc = "LSP code action",
+              cond = "testDocument/codeAction",
+            },
+          },
+        },
       },
     },
   },
