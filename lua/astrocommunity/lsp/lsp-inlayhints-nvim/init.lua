@@ -1,6 +1,7 @@
 return {
   {
     "lvimuser/lsp-inlayhints.nvim",
+    lazy = true,
     dependencies = {
       "AstroNvim/astrocore",
       opts = {

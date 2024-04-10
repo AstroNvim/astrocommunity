@@ -1,4 +1,4 @@
 return {
   "matze/vim-move",
-  event = "BufEnter",
+  event = { "User AstroFile", "InsertEnter" },
 }
