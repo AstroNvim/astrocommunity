@@ -9,6 +9,7 @@ return {
       opts = {
         mappings = {
           n = {
+            ["<Leader>r"] = { name = "󰣪 Refactor" },
             ["<Leader>rb"] = {
               function() require("refactoring").refactor "Extract Block" end,
               desc = "Extract Block",
@@ -35,6 +36,7 @@ return {
             },
           },
           x = {
+            ["<Leader>r"] = { name = "󰣪 Refactor" },
             ["<Leader>re"] = {
               function() require("refactoring").refactor "Extract Function" end,
               desc = "Extract Function",
@@ -53,6 +55,7 @@ return {
             },
           },
           v = {
+            ["<Leader>r"] = { name = "󰣪 Refactor" },
             ["<Leader>re"] = {
               function() require("refactoring").refactor "Extract Function" end,
               desc = "Extract Function",
