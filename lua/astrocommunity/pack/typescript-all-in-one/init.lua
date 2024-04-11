@@ -10,14 +10,31 @@ return {
         callback = function(args)
           local bufnr = args.buf
           local curr_client = vim.lsp.get_client_by_id(args.data.client_id)
-          -- if deno attached, stop all typescript servers
-          if curr_client.name == "denols" then
-            vim.lsp.for_each_buffer_client(bufnr, function(client, client_id)
-              if client.name == "tsserver" then vim.lsp.stop_client(client_id, true) end
-            end)
-            -- if tsserver attached, stop it if there is a denols server attached
-          elseif curr_client.name == "tsserver" then
-            for _, client in ipairs(vim.lsp.get_clients { bufnr = bufnr }) do
+
+          if curr_client and curr_client.name == "denols" then
+            local clients = vim.lsp.get_clients { bufnr = bufnr }
+            for _, client in ipairs(clients) do
+              if client.name == "tsserver" or client.name == "typescript-tools" then
+                vim.lsp.stop_client(client.id, true)
+              end
+            end
+          end
+
+          -- if tsserver attached, stop it if there is a denols server attached
+          if curr_client and curr_client.name == "tsserver" then
+            local clients = vim.lsp.get_clients { bufnr = bufnr }
+            for _, client in ipairs(clients) do
+              if client.name == "denols" then
+                vim.lsp.stop_client(curr_client.id, true)
+                break
+              end
+            end
+          end
+
+          -- if typescript-tools attached, stop it if there is a denols server attached
+          if curr_client and curr_client.name == "typescript-tools" then
+            local clients = vim.lsp.get_clients { bufnr = bufnr }
+            for _, client in ipairs(clients) do
               if client.name == "denols" then
                 vim.lsp.stop_client(curr_client.id, true)
                 break
