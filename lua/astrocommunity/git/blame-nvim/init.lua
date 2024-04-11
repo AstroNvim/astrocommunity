@@ -24,7 +24,7 @@ return {
         return require("astrocore").extend_tbl(opts, {
           opts = {
             disable_winbar_cb = function(args)
-              if vim.bo[args.buf].filetype == "blame" then return false end
+              if vim.api.nvim_buf_is_valid(args.buf) and vim.bo[args.buf].filetype == "blame" then return false end
               if disable_winbar_cb then return disable_winbar_cb(args) end
             end,
           },
