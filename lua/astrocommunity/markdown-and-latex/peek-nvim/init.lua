@@ -1,5 +1,6 @@
 return {
   "toppair/peek.nvim",
+  lazy = true,
   build = "deno task --quiet build:fast",
   dependencies = {
     "AstroNvim/astrocore",
