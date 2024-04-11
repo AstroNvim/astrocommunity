@@ -9,7 +9,7 @@ return {
       ---@param opts AstroCoreOpts
       opts = function(_, opts)
         local get_icon = require("astroui").get_icon
-        return vim.tbl_deep_extend("force", opts, {
+        return require("astrocore").extend_tbl(opts, {
           mappings = {
             n = {
               ["<Leader>r"] = { name = get_icon("Refactoring", 1, true) .. "Refactor" },
