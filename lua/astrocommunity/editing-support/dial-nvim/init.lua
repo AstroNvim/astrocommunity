@@ -1,5 +1,27 @@
 return {
   "monaqa/dial.nvim",
+  keys = {
+    "<C-a>",
+    "<C-x>",
+    "g<C-a>",
+    "g<C-x>",
+    {
+      mode = "v",
+      "<C-a>",
+    },
+    {
+      mode = "v",
+      "<C-x>",
+    },
+    {
+      mode = "x",
+      "g<C-a>",
+    },
+    {
+      mode = "x",
+      "g<C-x>",
+    },
+  },
   dependencies = {
     {
       "AstroNvim/astrocore",
@@ -14,6 +36,8 @@ return {
               function() return require("dial.map").manipulate("decrement", "visual") end,
               desc = "Decrement",
             },
+          },
+          x = {
             ["g<C-a>"] = {
               function() return require("dial.map").manipulate("increment", "gvisual") end,
               desc = "Increment",
