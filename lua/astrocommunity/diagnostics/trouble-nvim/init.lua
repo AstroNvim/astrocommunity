@@ -16,6 +16,16 @@ return {
             { "<Cmd>TroubleToggle document_diagnostics<CR>", desc = "Document Diagnostics (Trouble)" }
           maps.n[prefix .. "l"] = { "<Cmd>TroubleToggle loclist<CR>", desc = "Location List (Trouble)" }
           maps.n[prefix .. "q"] = { "<Cmd>TroubleToggle quickfix<CR>", desc = "Quickfix List (Trouble)" }
+          if require("astrocore").is_available "todo-comments.nvim" then
+            maps.n["<leader>xt"] = {
+              "<cmd>TodoTrouble<cr>",
+              desc = "Todo (Trouble)",
+            }
+            maps.n["<leader>xT"] = {
+              "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",
+              desc = "Todo/Fix/Fixme (Trouble)",
+            }
+          end
         end,
       },
     },
