@@ -1,28 +1,6 @@
 return {
   "monaqa/dial.nvim",
   lazy = true,
-  keys = {
-    "<C-a>",
-    "<C-x>",
-    "g<C-a>",
-    "g<C-x>",
-    {
-      mode = "v",
-      "<C-a>",
-    },
-    {
-      mode = "v",
-      "<C-x>",
-    },
-    {
-      mode = "x",
-      "g<C-a>",
-    },
-    {
-      mode = "x",
-      "g<C-x>",
-    },
-  },
   dependencies = {
     {
       "AstroNvim/astrocore",
