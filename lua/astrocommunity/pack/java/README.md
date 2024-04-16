@@ -44,7 +44,7 @@ Here is a simple example:
         format = {
           enabled = true,
           settings = { -- you can use your preferred format style
-            url = os.getenv "HOME" .. ".config/nvim/formatter/eclipse-java-google-style.xml",
+            url = "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
             profile = "GoogleStyle",
           },
         },
