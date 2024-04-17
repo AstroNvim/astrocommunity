@@ -1,6 +1,7 @@
 return {
   "FabijanZulj/blame.nvim",
-  event = "User AstroGitFile",
+  cmd = "BlameToggle",
+  opts = {},
   dependencies = {
     {
       "AstroNvim/astrocore",
@@ -9,7 +10,7 @@ return {
         mappings = {
           n = {
             ["<Leader>gB"] = {
-              "<cmd>ToggleBlame<cr>",
+              "<cmd>BlameToggle<cr>",
               desc = "Toggle git blame",
             },
           },
