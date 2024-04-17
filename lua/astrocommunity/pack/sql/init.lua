@@ -30,6 +30,15 @@ return {
     end,
   },
   {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        sql = { "sqlfluff" },
+      },
+    },
+  },
+  {
     "nanotee/sqls.nvim",
     lazy = true,
     dependencies = {
