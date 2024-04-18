@@ -8,7 +8,7 @@ return {
         local maps = opts.mappings
         local prefix = "<Leader>a"
         maps.n[prefix] = { desc = require("astroui").get_icon("Neogen", 1, true) .. "Annotation" }
-        maps.n[prefix .. "<CR>"] = { function() require("neogen").generate { type = "current" } end, desc = "Current" }
+        maps.n[prefix .. "<CR>"] = { function() require("neogen").generate { type = "any" } end, desc = "Current" }
         maps.n[prefix .. "c"] = { function() require("neogen").generate { type = "class" } end, desc = "Class" }
         maps.n[prefix .. "f"] = { function() require("neogen").generate { type = "func" } end, desc = "Function" }
         maps.n[prefix .. "t"] = { function() require("neogen").generate { type = "type" } end, desc = "Type" }

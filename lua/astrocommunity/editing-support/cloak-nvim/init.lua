@@ -2,6 +2,6 @@
 return {
   "laytan/cloak.nvim",
   opts = {},
-  event = "User AstroFile",
+  event = { "BufReadPre", "BufNewFile" },
   cmd = { "CloakDisable", "CloakEnable", "CloakToggle" },
 }
