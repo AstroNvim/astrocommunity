@@ -28,22 +28,18 @@ return {
           },
           mappings = {
             n = {
-              ["s"] = { "<Plug>(leap-forward-to)", desc = "Leap forward to" },
-              ["S"] = { "<Plug>(leap-backward-to)", desc = "Leap backward to" },
+              ["s"] = { "<Plug>(leap-forward)", desc = "Leap forward" },
+              ["S"] = { "<Plug>(leap-backward)", desc = "Leap backward" },
               ["gs"] = { "<Plug>(leap-from-window)", desc = "Leap from window" },
             },
             x = {
-              ["s"] = { "<Plug>(leap-forward-to)", desc = "Leap forward to" },
-              ["S"] = { "<Plug>(leap-backward-to)", desc = "Leap backward to" },
-              ["x"] = { "<Plug>(leap-forward-till)", desc = "Leap forward till" },
-              ["X"] = { "<Plug>(leap-backward-till)", desc = "Leap backward till" },
+              ["s"] = { "<Plug>(leap-forward)", desc = "Leap forward" },
+              ["S"] = { "<Plug>(leap-backward)", desc = "Leap backward" },
               ["gs"] = { "<Plug>(leap-from-window)", desc = "Leap from window" },
             },
             o = {
-              ["s"] = { "<Plug>(leap-forward-to)", desc = "Leap forward to" },
-              ["S"] = { "<Plug>(leap-backward-to)", desc = "Leap backward to" },
-              ["x"] = { "<Plug>(leap-forward-till)", desc = "Leap forward till" },
-              ["X"] = { "<Plug>(leap-backward-till)", desc = "Leap backward till" },
+              ["s"] = { "<Plug>(leap-forward)", desc = "Leap forward" },
+              ["S"] = { "<Plug>(leap-backward)", desc = "Leap backward" },
               ["gs"] = { "<Plug>(leap-from-window)", desc = "Leap from window" },
             },
           },
