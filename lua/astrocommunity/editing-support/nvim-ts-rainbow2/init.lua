@@ -15,6 +15,7 @@ return {
   {
     "catppuccin/nvim",
     optional = true,
+    name = "catppuccin",
     ---@type CatppuccinOptions
     opts = { integrations = { ts_rainbow2 = true } },
   },

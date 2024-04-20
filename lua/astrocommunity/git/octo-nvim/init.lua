@@ -83,6 +83,7 @@ return {
   {
     "catppuccin/nvim",
     optional = true,
+    name = "catppuccin",
     ---@type CatppuccinOptions
     opts = { integrations = { octo = true } },
   },
