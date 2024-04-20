@@ -17,13 +17,18 @@ return {
         vim.notify("enabled Venn mode", "info", { title = "Venn" })
         vim.b.venn_enabled = true
         vim.cmd [[setlocal ve=all]]
-        -- draw a line on HJKL keystokes
-        vim.api.nvim_buf_set_keymap(0, "n", "J", "<C-v>j:VBox<CR>", { noremap = true })
-        vim.api.nvim_buf_set_keymap(0, "n", "K", "<C-v>k:VBox<CR>", { noremap = true })
-        vim.api.nvim_buf_set_keymap(0, "n", "L", "<C-v>l:VBox<CR>", { noremap = true })
-        vim.api.nvim_buf_set_keymap(0, "n", "H", "<C-v>h:VBox<CR>", { noremap = true })
-        -- draw a box by pressing "f" with visual selection
-        vim.api.nvim_buf_set_keymap(0, "v", "f", ":VBox<CR>", { noremap = true })
+        require("astrocore").set_mappings({
+          n = {
+            ["J"] = "<C-v>j:VBox<CR>",
+            ["K"] = "<C-v>k:VBox<CR>",
+            ["L"] = "<C-v>l:VBox<CR>",
+            ["H"] = "<C-v>h:VBox<CR>",
+          },
+          v = {
+            -- draw a box by pressing "f" with visual selection
+            ["f"] = ":VBox<CR>",
+          },
+        }, {})
       else
         vim.notify("disabled Venn mode", "info", { title = "Venn" })
         vim.cmd [[setlocal ve=]]
