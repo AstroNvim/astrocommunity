@@ -46,12 +46,14 @@ return {
                 if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "clangd" then
                   require "clangd_extensions"
                   vim.api.nvim_del_augroup_by_name "clangd_extensions"
-                  vim.keymap.set(
-                    "n",
-                    "<Leader>lw",
-                    "<cmd>ClangdSwitchSourceHeader<CR>",
-                    { silent = true, desc = "Clangd: Switch source/header file" }
-                  )
+                  require("astrocore").set_mappings({
+                    n = {
+                      ["<Leader>lw"] = {
+                        "<cmd>ClangdSwitchSourceHeader<CR>",
+                        desc = "Clangd: Switch source/header file",
+                      },
+                    },
+                  }, {})
                 end
               end,
             },
