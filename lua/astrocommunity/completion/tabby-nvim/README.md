@@ -1,6 +1,6 @@
 # Installation
 
-https://tabby.tabbyml.com/docs/installation/
+**Repository:** <https://github.com/TabbyML/vim-tabby>
 
 ## Known Conflicts
 
