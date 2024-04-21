@@ -1,6 +1,19 @@
-# Installation
+# tabby-nvim
+
+Tabby is a self-hosted AI coding assistant that can suggest multi-line code or full functions in real-time.
 
 **Repository:** <https://github.com/TabbyML/vim-tabby>
+
+## Installation
+
+**Repository:** <https://github.com/TabbyML/vim-tabby>
+
+### Default Mappings
+
+| Mappings    | Action                 |
+|-------------|------------------------|
+| `Tab`       | Accept all suggestions |
+| `Ctrl + \` | Accept line            |
 
 ## Known Conflicts
 
