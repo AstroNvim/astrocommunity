@@ -1,4 +1,5 @@
-# fittencode.nvim
+
+# codeium.vim
 
 Fitten Code AI Programming Assistant for Neovim
 
@@ -7,9 +8,10 @@ Fitten Code AI Programming Assistant for Neovim
 ### Default Mappings
 
 | Mappings    | Action                 |
-| ----------- | ---------------------- |
+|-------------|------------------------|
 | `Tab`       | Accept all suggestions |
 | `Ctrl + ⬇️` | Accept line            |
 | `Ctrl + ➡️` | Accept word            |
+
 
 _Note_: You need to auth first before usage - Run Fitten login <user> <password>
