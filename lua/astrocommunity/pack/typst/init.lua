@@ -13,4 +13,11 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "typst-lsp" })
     end,
   },
+  {
+    "chomosuke/typst-preview.nvim",
+    cmd = { "TypstPreview", "TypstPreviewToggle" },
+    version = "0.1.*",
+    build = function() require("typst-preview").update() end,
+    opts = {},
+  },
 }
