@@ -2,6 +2,8 @@
 
 Draw ASCII diagrams in Neovim with ease.
 
+**Repository:** <https://github.com/jbyuki/venn.nvim>
+
 1. Enable venn mode with `:ToggleVenn`
    - note this enable vim virtual edit mode which allows editing anywhere in the window
 2. now click any place and write down the texts
@@ -21,5 +23,3 @@ Draw ASCII diagrams in Neovim with ease.
                         │ E │◄─────────┘
                         └───┘
 ```
-
-**Repository:** <https://github.com/jbyuki/venn.nvim>
