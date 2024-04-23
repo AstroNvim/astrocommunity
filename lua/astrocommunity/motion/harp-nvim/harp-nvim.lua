@@ -1,7 +1,7 @@
 return {
     {
         "Thorinori/harp-nvim",
-        lazy = false,
+        lazy = true,
         dependencies = {
             "AstroNvim/astrocore",
             opts = {

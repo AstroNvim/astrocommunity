@@ -4,7 +4,8 @@
 
 Harp: https://github.com/Axlefublr/harp (**Required to use the plugin**)
 
-Plugin: https://github.com/Thorinori/harp-nvim
+**Repository:** <https://github.com/Thorinori/harp-nvim>
+
 
 
 
