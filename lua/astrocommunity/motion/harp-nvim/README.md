@@ -2,7 +2,7 @@
 
 **Dependencies:**
 
-[harp]<https://github.com/Axlefublr/harp>
+[harp](https://github.com/Axlefublr/harp)
 
 
 **Repository:** <https://github.com/Thorinori/harp-nvim>
