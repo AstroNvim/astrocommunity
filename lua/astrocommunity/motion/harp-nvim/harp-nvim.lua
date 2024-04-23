@@ -7,8 +7,8 @@ return {
             opts = {
                 mappings = {
                     n = {
-                        ["<Leader>i"] = {function() require("harp").get() end,desc = ":edit file in given register"},
-                        ["<Leader>I"] = {function() require("harp").set() end,desc = "Store current buffer path in given register"},
+                        ["<Leader>i"] = {function() require("harp").default_get() end,desc = ":edit file in given register"},
+                        ["<Leader>I"] = {function() require("harp").default_set() end,desc = "Store current buffer path in given register"},
                         ["<Leader>x"] = {function() require("harp").percwd_get() end,desc = ":edit file in given register, specific to this project"},
                         ["<Leader>X"] = {function() require("harp").percwd_set() end,desc = "Store current buffer path in given register, specific to this project"},
                         ["'"] = {function() require("harp").perbuffer_mark_get() end,desc = "Show local marks"},
