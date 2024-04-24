@@ -1,6 +1,6 @@
 return {
   "TabbyML/vim-tabby",
-  event = "User AstroFile",
+  lazy = false,
   dependencies = {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
