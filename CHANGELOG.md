@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.1.1](https://github.com/AstroNvim/astrocommunity/compare/v8.1.0...v8.1.1) (2024-04-25)
+
+
+### Bug Fixes
+
+* **pack:** update typescript-all-in-one disable typescript-tools to denols ([#876](https://github.com/AstroNvim/astrocommunity/issues/876)) ([4bccd65](https://github.com/AstroNvim/astrocommunity/commit/4bccd6591d90cc5defe6355d634be4b0c562d832))
+* **typst:** added missing command to typst-preview.nvim ([#913](https://github.com/AstroNvim/astrocommunity/issues/913)) ([83cb7e6](https://github.com/AstroNvim/astrocommunity/commit/83cb7e6047c5bcbaf03700f176a45ba33ec4bccf))
+
 ## [8.1.0](https://github.com/AstroNvim/astrocommunity/compare/v8.0.0...v8.1.0) (2024-04-25)
 
 
