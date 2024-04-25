@@ -18,6 +18,7 @@ return {
   },
   {
     "AstroNvim/astrolsp",
+    optional = true,
     opts = {
       config = {
         tailwindcss = {

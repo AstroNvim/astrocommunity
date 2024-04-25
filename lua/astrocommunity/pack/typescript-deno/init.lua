@@ -35,17 +35,7 @@ return {
   {
     "sigmasd/deno-nvim",
     ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-    dependencies = {
-      {
-        "AstroNvim/astrolsp",
-        optional = true,
-        ---@type AstroLSPOpts
-        opts = {
-          ---@diagnostic disable: missing-fields
-          handlers = { denols = false },
-        },
-      },
-    },
+    dependencies = { { "AstroNvim/astrolsp", optional = true, opts = { handlers = { denols = false } } } },
     opts = function(_, opts)
       local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
       if astrolsp_avail then opts.server = astrolsp.lsp_opts "denols" end

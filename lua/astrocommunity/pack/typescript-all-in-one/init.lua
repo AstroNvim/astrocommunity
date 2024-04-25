@@ -3,6 +3,7 @@ return {
   { import = "astrocommunity.pack.typescript-deno" },
   {
     "AstroNvim/astrolsp",
+    optional = true,
     opts = {
       config = {
         denols = {
