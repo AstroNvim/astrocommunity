@@ -6,6 +6,28 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "tailwindcss" })
     end,
+    dependencies = {
+      {
+        "AstroNvim/astrolsp",
+        optional = true,
+        ---@type AstroLSPOpts
+        opts = {
+          config = {
+            tailwindcss = {
+              root_dir = function(fname)
+                local root_pattern = require("lspconfig").util.root_pattern(
+                  "tailwind.config.cjs",
+                  "tailwind.config.js",
+                  "tailwind.config.ts",
+                  "postcss.config.js"
+                )
+                return root_pattern(fname)
+              end,
+            },
+          },
+        },
+      },
+    },
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
