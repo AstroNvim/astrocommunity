@@ -14,6 +14,7 @@ return {
     dependencies = {
       {
         "nvim-treesitter/nvim-treesitter",
+        optional = true,
         opts = function(_, opts)
           local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
