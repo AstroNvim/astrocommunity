@@ -15,7 +15,7 @@ return {
   },
   {
     "chomosuke/typst-preview.nvim",
-    cmd = { "TypstPreview", "TypstPreviewToggle" },
+    cmd = { "TypstPreview", "TypstPreviewToggle", "TypstPreviewUpdate" },
     version = "0.1.*",
     build = function() require("typst-preview").update() end,
     opts = {},
