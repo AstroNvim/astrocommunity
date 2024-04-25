@@ -50,6 +50,21 @@ return {
               end,
             },
           },
+          clangd_extension_mappings = {
+            {
+              event = "LspAttach",
+              desc = "Load clangd_extensions with clangd",
+              callback = function(args)
+                if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "clangd" then
+                  require("astrocore").set_mappings({
+                    n = {
+                      ["<Leader>lw"] = { "<Cmd>ClangdSwitchSourceHeader<CR>", desc = "Switch source/header file" },
+                    },
+                  }, { buffer = args.buf })
+                end
+              end,
+            },
+          },
         },
       },
     },
