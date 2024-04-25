@@ -1,13 +1,4 @@
 return {
-  {
-    "AstroNvim/astrolsp",
-    optional = true,
-    ---@type AstroLSPOpts
-    opts = {
-      ---@diagnostic disable: missing-fields
-      handlers = { denols = false },
-    },
-  },
   { import = "astrocommunity.pack.json" },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -44,6 +35,17 @@ return {
   {
     "sigmasd/deno-nvim",
     ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    dependencies = {
+      {
+        "AstroNvim/astrolsp",
+        optional = true,
+        ---@type AstroLSPOpts
+        opts = {
+          ---@diagnostic disable: missing-fields
+          handlers = { denols = false },
+        },
+      },
+    },
     opts = function(_, opts)
       local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
       if astrolsp_avail then opts.server = astrolsp.lsp_opts "denols" end
