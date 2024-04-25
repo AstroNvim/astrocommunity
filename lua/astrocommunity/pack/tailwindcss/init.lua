@@ -19,7 +19,8 @@ return {
                   "tailwind.config.cjs",
                   "tailwind.config.js",
                   "tailwind.config.ts",
-                  "postcss.config.js"
+                  "postcss.config.js",
+                  "config/tailwind.config.js"
                 )
                 return root_pattern(fname)
               end,
