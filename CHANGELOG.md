@@ -1,5 +1,35 @@
 # Changelog
 
+## [8.1.0](https://github.com/AstroNvim/astrocommunity/compare/v8.0.0...v8.1.0) (2024-04-25)
+
+
+### Features
+
+* **completion:** Add `vim-tabby` ([#904](https://github.com/AstroNvim/astrocommunity/issues/904)) ([93b0b67](https://github.com/AstroNvim/astrocommunity/commit/93b0b67cbd156636df5d4789bd26c52270671f98))
+* **completion:** added fitten ([#905](https://github.com/AstroNvim/astrocommunity/issues/905)) ([41f7a6a](https://github.com/AstroNvim/astrocommunity/commit/41f7a6ada19c4cd60e985feb7d4e1da395e596a7))
+* **cpp:** Add `&lt;Leader&gt;lw` keymap to switch between source and header ([#900](https://github.com/AstroNvim/astrocommunity/issues/900)) ([9371f0c](https://github.com/AstroNvim/astrocommunity/commit/9371f0cdf5781f8fadd9a412b1d3019e2716206b))
+* **editing-support:** add `multiple-cursors.nvim` ([#911](https://github.com/AstroNvim/astrocommunity/issues/911)) ([0a9b35e](https://github.com/AstroNvim/astrocommunity/commit/0a9b35ee72c9f3faa3be89895c567d71fec4543b))
+* **media:** add `cord.nvim` ([#896](https://github.com/AstroNvim/astrocommunity/issues/896)) ([c211cc5](https://github.com/AstroNvim/astrocommunity/commit/c211cc5f7d622d6f90f879329d59dd55f1932308))
+* **motion:** add `nvim-tree-pairs` ([ca3dafc](https://github.com/AstroNvim/astrocommunity/commit/ca3dafc1c4db8f5ae128c147f72d4a10eaf83a12))
+* **motion:** Added harp.nvim plugin ([#910](https://github.com/AstroNvim/astrocommunity/issues/910)) ([e7f1e11](https://github.com/AstroNvim/astrocommunity/commit/e7f1e11e855f658b31c790a481a218ae0e15ba29))
+* **note-taking:** Add venn-nvim ([#901](https://github.com/AstroNvim/astrocommunity/issues/901)) ([6bb14a2](https://github.com/AstroNvim/astrocommunity/commit/6bb14a21ce7c8b2aacfe999a57b6a7a051da2693))
+* **pack:** added rainbow-delimiter.nvim integration for indent-blankline.nvim ([#899](https://github.com/AstroNvim/astrocommunity/issues/899)) ([2bf7cfa](https://github.com/AstroNvim/astrocommunity/commit/2bf7cfaae59012d6e6910a556f2b7878d0c903f4))
+* **sql:** add `sqls.nvim` plugin for `sqls` LSP extensions ([91e6578](https://github.com/AstroNvim/astrocommunity/commit/91e6578be315dd9e70072be2c08b658a5137a938))
+* **typst:** added typst-preview.nvim plugin support ([#907](https://github.com/AstroNvim/astrocommunity/issues/907)) ([1ad2d81](https://github.com/AstroNvim/astrocommunity/commit/1ad2d812c496eea96ac8dfa564d1ba860238dcf0))
+
+
+### Bug Fixes
+
+* **blame-nvim:** adjust to the new rewrite ([#892](https://github.com/AstroNvim/astrocommunity/issues/892)) ([8fd4f99](https://github.com/AstroNvim/astrocommunity/commit/8fd4f99da37a1911ef78e36dec79d6b3fe07723f))
+* **dial-nvim:** remove unnecessary `keys` table ([ea92faa](https://github.com/AstroNvim/astrocommunity/commit/ea92faa8cc4317fd9cf9774d9ebfd2008b63d578))
+* **fish:** none-ls `opts.sources` not being created if it doesn't exist ([#893](https://github.com/AstroNvim/astrocommunity/issues/893)) ([13b816d](https://github.com/AstroNvim/astrocommunity/commit/13b816d7277b36f504afa20f99b83410de33276a))
+* **java:** use `jdtls` for formatting instead of `clang-format` ([#888](https://github.com/AstroNvim/astrocommunity/issues/888)) ([70754e5](https://github.com/AstroNvim/astrocommunity/commit/70754e5af8cc827d8858f441ec24d4d194d3bc8d))
+* **leap-nvim:** only set recommended mappings from `leap.nvim` ([90614b9](https://github.com/AstroNvim/astrocommunity/commit/90614b98656d6f86d024d753a556bce4c73869a9))
+* **neogen:** keymap for type-aware automatic comment generation ([#889](https://github.com/AstroNvim/astrocommunity/issues/889)) ([f70a57d](https://github.com/AstroNvim/astrocommunity/commit/f70a57dc616a8010db634966a22e70df251bdf6b))
+* **sql:** drop `sqlfluff` as `sqls` supports formatting ([#890](https://github.com/AstroNvim/astrocommunity/issues/890)) ([738444a](https://github.com/AstroNvim/astrocommunity/commit/738444aa292a34473a68ace6a53c144b28bc3ad6))
+* **tailwindcss:** add root_dir detection to tailwindcss pack ([#912](https://github.com/AstroNvim/astrocommunity/issues/912)) ([364a595](https://github.com/AstroNvim/astrocommunity/commit/364a5950018f495652b593ecc6964a71860d8e40))
+* **vue:** disable volar hybrid mode by default ([37e6d23](https://github.com/AstroNvim/astrocommunity/commit/37e6d23906b46f2c0d7a783f2850c875ed632a91))
+
 ## [8.0.0](https://github.com/AstroNvim/astrocommunity/compare/v7.0.0...v8.0.0) (2024-04-15)
 
 
