@@ -39,9 +39,9 @@ return {
       filetypes = {
         typescript = { "node", "javascript", "typescript" },
       },
+      after_open = function()
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true), "n", true)
+      end,
     },
-    after_open = function()
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true), "n", true)
-    end,
   },
 }
