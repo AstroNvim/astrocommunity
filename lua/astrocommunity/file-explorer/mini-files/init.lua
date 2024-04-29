@@ -9,7 +9,11 @@ return {
         opts = {
           mappings = {
             n = {
-              ["<Leader>e"] = { function() require("mini.files").open() end, desc = "Explorer" },
+              ["<Leader>e"] = {
+                function()
+                  if not require("mini.files").close() then require("mini.files").open() end
+                end,
+                desc = "Explorer",
             },
           },
         },
