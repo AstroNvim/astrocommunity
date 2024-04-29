@@ -6,7 +6,7 @@
 - curl / wget (required by zig-tools)
 - Neovim (>= 0.7.x)
 - ripgrep (>= 11.0)
-- Zig (>= 0.12.0)
+- Zig (>= 0.12.0 required for Neotest support)
 
 This plugin pack does the following:
 
