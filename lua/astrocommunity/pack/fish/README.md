@@ -1,4 +1,4 @@
-# Elm Language Pack
+# Fish Language Pack
 
 Requires the following in your `PATH`
 

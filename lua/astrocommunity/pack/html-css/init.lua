@@ -18,6 +18,15 @@ return {
     end,
   },
   {
+    "AstroNvim/astrolsp",
+    opts = {
+      config = {
+        html = { init_options = { provideFormatter = false } },
+        cssls = { init_options = { provideFormatter = false } },
+      },
+    },
+  },
+  {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)

@@ -6,6 +6,7 @@ return {
     "nvim-telescope/telescope.nvim",
     {
       "AstroNvim/astrolsp",
+      optional = true,
       ---@type AstroLSPOpts
       opts = {
         mappings = {

@@ -24,9 +24,11 @@ return {
       "DevdocsOpenFloat",
       "DevdocsUpdate",
       "DevdocsUpdateAll",
+      "DevdocsToggle",
     },
     keys = {
-      { prefix .. "d", "<Cmd>DevdocsOpenCurrentFloat<CR>", desc = "Find Devdocs for current file", mode = { "n" } },
+      { prefix .. "dd", "<Cmd>DevdocsOpenCurrentFloat<CR>", desc = "Find Devdocs for current file", mode = { "n" } },
+      { prefix .. "dt", "<Cmd>DevdocsToggle<CR>", desc = "Toggle last Devdocs item", mode = { "n" } },
       { prefix .. "D", "<Cmd>DevdocsOpenFloat<CR>", desc = "Find Devdocs", mode = { "n" } },
     },
     opts = {
@@ -37,6 +39,9 @@ return {
       filetypes = {
         typescript = { "node", "javascript", "typescript" },
       },
+      after_open = function()
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true), "n", true)
+      end,
     },
   },
 }
