@@ -26,13 +26,4 @@ return {
       desc = "Conditional Breakpoint",
     },
   },
-  {
-    "Weissle/persistent-breakpoints.nvim",
-    event = "BufReadPost",
-    opts = function(_, opts)
-      return require("astrocore").extend_tbl(opts, {
-        load_breakpoints_event = { "BufReadPost" },
-      })
-    end,
-  },
 }
