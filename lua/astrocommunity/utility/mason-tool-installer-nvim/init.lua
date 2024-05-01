@@ -11,6 +11,7 @@ return {
     cmd = { "MasonToolsInstall", "MasonToolsUpdate", "MasonToolsClean" },
     dependencies = { "williamboman/mason.nvim" },
     init = function(plugin) require("astrocore").on_load("mason.nvim", plugin.name) end,
+    opts = { ensure_installed = {} },
     config = function(_, opts)
       -- integrate other installer plugins into mason-tool-installer
       if not opts.ensure_installed then opts.ensure_installed = {} end
