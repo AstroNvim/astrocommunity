@@ -1,5 +1,32 @@
 # Changelog
 
+## [8.2.0](https://github.com/AstroNvim/astrocommunity/compare/v8.1.1...v8.2.0) (2024-05-02)
+
+
+### Features
+
+* **colorscheme:** add multiple color schemes ([#922](https://github.com/AstroNvim/astrocommunity/issues/922)) ([6bedf02](https://github.com/AstroNvim/astrocommunity/commit/6bedf02cf910c0a247074159393dd8df786d3a65))
+* **keybinding:** add `Hydra.nvim` ([237daaf](https://github.com/AstroNvim/astrocommunity/commit/237daaf06104cb2d17ad86097d1ec348fbc23765))
+* **mini-files:** replicate toggling behaviour of astronvim neotree ([#926](https://github.com/AstroNvim/astrocommunity/issues/926)) ([c0718c8](https://github.com/AstroNvim/astrocommunity/commit/c0718c84676055919ba0be5d9565607902a9bc10))
+* **mini.files:** replicate toggling behaviour of astronvim neotree ([c0718c8](https://github.com/AstroNvim/astrocommunity/commit/c0718c84676055919ba0be5d9565607902a9bc10))
+* **note-taking:** added global-note.nvim plugin ([#934](https://github.com/AstroNvim/astrocommunity/issues/934)) ([af44ee3](https://github.com/AstroNvim/astrocommunity/commit/af44ee31f5523e5408b929a104af9f4a8df3ca72))
+* **overseer-nvim:** Add &lt;Leader&gt;T keymaps ([#924](https://github.com/AstroNvim/astrocommunity/issues/924)) ([c1f1a26](https://github.com/AstroNvim/astrocommunity/commit/c1f1a26b144f55270639330cd65535451f18eca4))
+* **venn-nvim:** allow using Hydra if it's available to create a drawing submode ([ab4e806](https://github.com/AstroNvim/astrocommunity/commit/ab4e806d14f6b77f5664e92fd8673bffe989b155))
+* **zig:** add neotest support for zig ([#928](https://github.com/AstroNvim/astrocommunity/issues/928)) ([23d141b](https://github.com/AstroNvim/astrocommunity/commit/23d141b68f69f28f0f642745e74abf2276797ca0))
+
+
+### Bug Fixes
+
+* **dart:** correct optional plugins loading ([#932](https://github.com/AstroNvim/astrocommunity/issues/932)) ([c1b32ac](https://github.com/AstroNvim/astrocommunity/commit/c1b32acb74ce7dcb48bf3dfee6146c4a9ccb74c2))
+* **fish:** fix typo ([9f1afcb](https://github.com/AstroNvim/astrocommunity/commit/9f1afcb43e3f5b232fac0f250ea8714a25ac82e5))
+* **gitlinker-nvim:** Point repository link to correct repository ([#917](https://github.com/AstroNvim/astrocommunity/issues/917)) ([793a668](https://github.com/AstroNvim/astrocommunity/commit/793a668b7384851745f7322e8615eb449bb147fa))
+* **harp-nvim:** Updated spec for plugin repo transfer ([#935](https://github.com/AstroNvim/astrocommunity/issues/935)) ([b2023db](https://github.com/AstroNvim/astrocommunity/commit/b2023db22855046db5d39afab7c7add93488ed8e))
+* **html-css:** disable `provideFormatter` for `html` and `cssls` language servers ([75e79ac](https://github.com/AstroNvim/astrocommunity/commit/75e79ac9a5c5c29ae9e38df35432aa295ee2afce))
+* **mason-tool-installer-nvim:** initialize an empty `ensure_installed` table ([a2c1002](https://github.com/AstroNvim/astrocommunity/commit/a2c1002633afa8c5b152ba1f96891db1aa36ed81))
+* **nvim-devdocs:** focus float and toggle ([#921](https://github.com/AstroNvim/astrocommunity/issues/921)) ([c24f6b6](https://github.com/AstroNvim/astrocommunity/commit/c24f6b608d61fca19057d0785f49042ebea451ba))
+* **persistent-breakpoints-nvim:** remove unnecessary code ([#933](https://github.com/AstroNvim/astrocommunity/issues/933)) ([e375a0e](https://github.com/AstroNvim/astrocommunity/commit/e375a0e84627f8a12c668eeff16ebab82195cf23))
+* **tailwindcss:** fix TailwindCSS pack not loading when using tailwindcss-rails Ruby Gem ([#915](https://github.com/AstroNvim/astrocommunity/issues/915)) ([6626739](https://github.com/AstroNvim/astrocommunity/commit/6626739dd67999dff6478441177383fbec86df53))
+
 ## [8.1.1](https://github.com/AstroNvim/astrocommunity/compare/v8.1.0...v8.1.1) (2024-04-25)
 
 
