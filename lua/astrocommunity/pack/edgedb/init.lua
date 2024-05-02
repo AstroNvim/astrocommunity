@@ -2,7 +2,7 @@ return {
   {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
-    opts = { filetypes = { extensions = {
+    opts = { filetypes = { extension = {
       esdl = "edgeql",
       edgeql = "edgeql",
     } } },
