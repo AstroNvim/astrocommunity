@@ -1,6 +1,6 @@
 return {
   {
-    "Thorinori/harp-nvim",
+    "Axlefublr/harp-nvim",
     lazy = true,
     dependencies = {
       "AstroNvim/astrocore",
