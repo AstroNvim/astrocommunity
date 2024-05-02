@@ -1,5 +1,15 @@
 # Changelog
 
+## [8.2.1](https://github.com/AstroNvim/astrocommunity/compare/v8.2.0...v8.2.1) (2024-05-02)
+
+
+### Bug Fixes
+
+* **edgedb:** typo in filetype definition ([e01ebf1](https://github.com/AstroNvim/astrocommunity/commit/e01ebf161be3f3fdc6202e10e5b37548bb8c8ab6))
+* **pack:** remove non-existant branch ([#936](https://github.com/AstroNvim/astrocommunity/issues/936)) ([8dac439](https://github.com/AstroNvim/astrocommunity/commit/8dac43951c6d1d9d365c3088acd30330023d1b41))
+* **templ:** updated to AstroNvim v4 ([f44fdf0](https://github.com/AstroNvim/astrocommunity/commit/f44fdf056734f01c18f6b334a9bd45bb4c75bb74))
+* **templ:** Use astrocore instead of `astronvim.utils` ([#937](https://github.com/AstroNvim/astrocommunity/issues/937)) ([afca1e4](https://github.com/AstroNvim/astrocommunity/commit/afca1e47e97138163094599888a396f14387685f))
+
 ## [8.2.0](https://github.com/AstroNvim/astrocommunity/compare/v8.1.1...v8.2.0) (2024-05-02)
 
 
