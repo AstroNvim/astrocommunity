@@ -1,5 +1,5 @@
 vim.filetype.add { extension = { templ = "templ" } }
-local utils = require "astronvim.utils"
+local utils = require "astrocore"
 
 return {
   {
