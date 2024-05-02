@@ -1,3 +1,7 @@
+local is_available = function(plugin)
+  local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
+  return (lazy_config_avail and lazy_config.spec.plugins[plugin] or nil) ~= nil
+end
 local haskell_ft = { "haskell", "lhaskell", "cabal", "cabalproject" }
 
 return {
@@ -66,7 +70,7 @@ return {
   },
   {
     "mrcjkb/haskell-snippets.nvim",
-    enabled = function() return require("astrocore").is_available "LuaSnip" end,
+    enabled = function() return is_available "LuaSnip" end,
     ft = haskell_ft,
     dependencies = { "L3MON4D3/LuaSnip" },
     config = function()
@@ -76,7 +80,7 @@ return {
   },
   {
     "luc-tielen/telescope_hoogle",
-    enabled = function() return require("astrocore").is_available "telescope.nvim" end,
+    enabled = function() return is_available "telescope.nvim" end,
     ft = haskell_ft,
     dependencies = {
       { "nvim-telescope/telescope.nvim" },
