@@ -1,15 +1,14 @@
 local get_project_name = function()
+  local project_name
+
   local project_directory, err = vim.loop.cwd()
-  if project_directory == nil then
+  if not project_directory then
     vim.notify(err, vim.log.levels.WARN)
-    return nil
+  else
+    project_name = vim.fs.basename(project_directory)
   end
 
-  local project_name = vim.fs.basename(project_directory)
-  if project_name == nil then
-    vim.notify("Unable to get the project name", vim.log.levels.WARN)
-    return nil
-  end
+  if not project_name then vim.notify("Unable to get the project name", vim.log.levels.WARN) end
 
   return project_name
 end
