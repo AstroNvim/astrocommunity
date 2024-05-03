@@ -1,6 +1,6 @@
 # heirline.nvim mode text statusline
 
-**Website:** <https://docs.astronvim.com/Recipes/status#default-statusline-with-mode-text>
+**Website:** <https://docs.astronvim.com/recipes/status#default-statusline-with-mode-text>
 
 This plugin specification configures the `statusline` in AstroNvim to show the mode text
 
