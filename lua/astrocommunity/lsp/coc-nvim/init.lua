@@ -24,6 +24,37 @@ return {
       "CocWatch",
     },
     event = { "User AstroFile", "InsertEnter" },
+    config = function()
+      vim.fn["coc#config"]("coc.preferences.currentFunctionSymbolAutoUpdate", true)
+      vim.fn["coc#config"]("coc.preferences.enableLinkedEditing", true)
+      vim.fn["coc#config"]("coc.preferences.formatOnType", true)
+      vim.fn["coc#config"]("suggest.asciiCharactersOnly", true)
+      vim.fn["coc#config"]("suggest.removeDuplicateItems", true)
+      vim.fn["coc#config"]("list.statusLineSegments", nil)
+      vim.fn["coc#config"]("notification.disabledProgressSources", { "*" })
+      vim.fn["coc#config"]("codeLens.enable", false)       -- PERF: opt-in
+      vim.fn["coc#config"]("inlayHint.enable", false)      -- PERF: ^
+      vim.fn["coc#config"]("diagnostic.enableSign", false) -- PERF: ^
+      local is_available = function(plugin)
+        local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
+        return (lazy_config_avail and lazy_config.spec.plugins[plugin] or nil) ~= nil
+      end
+      if is_available "neodev.nvim" then
+        local library = {}
+        if vim.fn.has "win32" ~= 1 then
+          table.insert(library, "/usr/lib/nvim")
+          table.insert(library, "/usr/share/nvim/runtime")
+        end
+        if vim.version().minor >= 10 then
+          table.insert(library, vim.fn.expand "$HOME/.local/share/nvim/lazy/neodev.nvim/types/nightly")
+        else
+          table.insert(library, vim.fn.expand "$HOME/.local/share/nvim/lazy/neodev.nvim/types/stable")
+        end
+        table.insert(library, vim.fn.expand "$HOME/.local/share/nvim/lazy/")
+        vim.fn["coc#config"]("Lua.workspace.checkThirdParty", false)
+        vim.fn["coc#config"]("Lua.workspace.library", library)
+      end
+    end,
     dependencies = {
       "AstroNvim/astrocore",
       ---@param opts AstroCoreOpts
@@ -41,6 +72,13 @@ return {
         opts.commands.Format = { function() vim.fn.CocAction "format" end, desc = "Format file with LSP" }
         if not opts.mappings then opts.mappings = require("astrocore").empty_map_table() end
         local maps = assert(opts.mappings)
+        maps.i["<Tab>"] = {
+          [[coc#pum#visible() ? coc#pum#confirm() : "<Tab>"]],
+          silent = true,
+          noremap = true,
+          expr = true,
+          replace_keycodes = false,
+        }
         maps.n["[d"] = { "<Plug>(coc-diagnostic-prev)", desc = "Previous diagnostic" }
         maps.n["]d"] = { "<Plug>(coc-diagnostic-next)", desc = "Next diagnostic" }
         maps.n["gD"] = { "<Plug>(coc-declaration)", desc = "Show the declaration of current symbol" }
@@ -140,7 +178,6 @@ return {
   -- disable core lsp plugins
   { "AstroNvim/astrolsp", enabled = false },
   { "folke/neoconf.nvim", enabled = false },
-  { "folke/neodev.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },
   { "neovim/nvim-lspconfig", enabled = false },
   { "nvimtools/none-ls.nvim", enabled = false },
