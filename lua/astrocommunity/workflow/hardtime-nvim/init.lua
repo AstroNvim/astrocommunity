@@ -2,6 +2,7 @@ return {
   "m4xshen/hardtime.nvim",
   event = "User AstroFile",
   opts = {
+    disabled_filetypes = { "qf", "netrw", "lazy", "mason", "neo-tree" },
     disabled_keys = {
       ["<Insert>"] = { "", "i" },
       ["<Home>"] = { "", "i" },
