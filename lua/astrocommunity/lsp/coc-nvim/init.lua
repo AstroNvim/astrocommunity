@@ -32,9 +32,10 @@ return {
       vim.fn["coc#config"]("suggest.removeDuplicateItems", true)
       vim.fn["coc#config"]("list.statusLineSegments", nil)
       vim.fn["coc#config"]("notification.disabledProgressSources", { "*" })
-      vim.fn["coc#config"]("codeLens.enable", false)       -- PERF: opt-in
-      vim.fn["coc#config"]("inlayHint.enable", false)      -- PERF: ^
-      vim.fn["coc#config"]("diagnostic.enableSign", false) -- PERF: ^
+      -- PERF: opt-in
+      vim.fn["coc#config"]("codeLens.enable", false)
+      vim.fn["coc#config"]("inlayHint.enable", false)
+      vim.fn["coc#config"]("diagnostic.enableSign", false)
       local is_available = function(plugin)
         local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
         return (lazy_config_avail and lazy_config.spec.plugins[plugin] or nil) ~= nil
@@ -42,15 +43,17 @@ return {
       if is_available "neodev.nvim" then
         local library = {}
         if vim.fn.has "win32" ~= 1 then
-          table.insert(library, "/usr/lib/nvim")
-          table.insert(library, "/usr/share/nvim/runtime")
+          table.insert(library, {
+            "/usr/lib/nvim",
+            "/usr/share/nvim/runtime",
+          })
         end
         if vim.version().minor >= 10 then
-          table.insert(library, vim.fn.expand "$HOME/.local/share/nvim/lazy/neodev.nvim/types/nightly")
+          table.insert(library, vim.fn.stdpath "data" .. "/lazy/neodev.nvim/types/nightly")
         else
-          table.insert(library, vim.fn.expand "$HOME/.local/share/nvim/lazy/neodev.nvim/types/stable")
+          table.insert(library, vim.fn.stdpath "data" .. "/lazy/neodev.nvim/types/stable")
         end
-        table.insert(library, vim.fn.expand "$HOME/.local/share/nvim/lazy/")
+        table.insert(library, vim.fn.stdpath "data" .. "/lazy")
         vim.fn["coc#config"]("Lua.workspace.checkThirdParty", false)
         vim.fn["coc#config"]("Lua.workspace.library", library)
       end
