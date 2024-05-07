@@ -4,7 +4,7 @@
 
 This plugin pack does the following:
 
-- Adds `php` Treesitter parsers
+- Adds `php` and `phpdoc` Treesitter parsers
 - Adds `phpactor` language servers
 - Adds `php-cs-fixer` for formatting
 - Adds `php-debug-adapter` for debugging
