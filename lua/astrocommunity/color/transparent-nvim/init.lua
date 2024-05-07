@@ -19,7 +19,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>uT"] = { desc = "Toggle transparency" },
+            ["<Leader>uT"] = { "<Cmd>TransparentToggle<CR>", desc = "Toggle transparency" },
           },
         },
       },
