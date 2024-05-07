@@ -178,6 +178,12 @@ return {
       -- }
     end,
   },
+  {
+    "catppuccin/nvim",
+    optional = true,
+    ---@type CatppuccinOptions
+    opts = { integrations = { coc_nvim = true } },
+  },
   -- disable core lsp plugins
   { "AstroNvim/astrolsp", enabled = false },
   { "folke/neoconf.nvim", enabled = false },
