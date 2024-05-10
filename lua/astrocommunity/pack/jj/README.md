@@ -9,3 +9,4 @@ This plugin pack does the following:
   - `<Leader>jf` for files in repository (falls back to git files if not in jj repo), like `jj files`
   - `<Leader>jd` for files with changes, like `jj diff`
   - `<Leader>jc` for files with conflicts, like `jj resolve --list`
+- Adds syntax highlighting for `.jjdescription` files (for use with `jj describe`) with [vim-jjdescription](https://github.com/avm99963/vim-jjdescription)
