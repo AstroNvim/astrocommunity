@@ -19,6 +19,25 @@ local function check_json_key_exists(filename, key)
   return json[key] ~= nil
 end
 
+local root_has_file = function(file) return vim.loop.fs_stat(vim.fn.getcwd() .. "/" .. file) ~= nil end
+local has_prettier = function()
+  return check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
+    or root_has_file ".prettierrc"
+    or root_has_file ".prettierrc.json"
+    or root_has_file ".prettierrc.yml"
+    or root_has_file ".prettierrc.yaml"
+    or root_has_file ".prettierrc.json5"
+    or root_has_file ".prettierrc.js"
+    or root_has_file ".prettierrc.cjs"
+    or root_has_file "prettier.config.js"
+    or root_has_file ".prettierrc.mjs"
+    or root_has_file "prettier.config.mjs"
+    or root_has_file "prettier.config.cjs"
+    or root_has_file ".prettierrc.toml"
+end
+
+local conform_formatter = function() return has_prettier() and { "prettierd" } or {} end
+
 return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
@@ -45,27 +64,25 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "prettierd" })
       if not opts.handlers then opts.handlers = {} end
 
-      local has_prettier = function(util)
-        return check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
-          or util.root_has_file ".prettierrc"
-          or util.root_has_file ".prettierrc.json"
-          or util.root_has_file ".prettierrc.yml"
-          or util.root_has_file ".prettierrc.yaml"
-          or util.root_has_file ".prettierrc.json5"
-          or util.root_has_file ".prettierrc.js"
-          or util.root_has_file ".prettierrc.cjs"
-          or util.root_has_file "prettier.config.js"
-          or util.root_has_file ".prettierrc.mjs"
-          or util.root_has_file "prettier.config.mjs"
-          or util.root_has_file "prettier.config.cjs"
-          or util.root_has_file ".prettierrc.toml"
-      end
-
-      opts.handlers.prettierd = function()
+      opts.handlers.prettierd = function(source_name, methods)
         local null_ls = require "null-ls"
-        null_ls.register(null_ls.builtins.formatting.prettierd.with { condition = has_prettier })
+        for _, method in ipairs(methods) do
+          null_ls.register(null_ls.builtins[method][source_name].with { condition = has_prettier })
+        end
       end
     end,
+  },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        typescriptreact = conform_formatter,
+        typescript = conform_formatter,
+        javascriptreact = conform_formatter,
+        javascript = conform_formatter,
+      },
+    },
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
