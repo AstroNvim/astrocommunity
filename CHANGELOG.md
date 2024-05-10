@@ -1,5 +1,25 @@
 # Changelog
 
+## [8.3.0](https://github.com/AstroNvim/astrocommunity/compare/v8.2.1...v8.3.0) (2024-05-08)
+
+
+### Features
+
+* **coc-nvim:** add catppuccin integration ([#949](https://github.com/AstroNvim/astrocommunity/issues/949)) ([33c53e1](https://github.com/AstroNvim/astrocommunity/commit/33c53e1b1d01290ebcdc78623f9c0c60344a6604))
+* **codesnap-nvim:** add keymaps for snapshots with highlight ([#944](https://github.com/AstroNvim/astrocommunity/issues/944)) ([392038c](https://github.com/AstroNvim/astrocommunity/commit/392038c30c077aa80e1b3f6aab417432fbcdd196))
+* **completion:** add `cmp-git` ([#950](https://github.com/AstroNvim/astrocommunity/issues/950)) ([a22872f](https://github.com/AstroNvim/astrocommunity/commit/a22872fb929fa59fa239546cd2dee6a489d1e623))
+* **php:** adds `phpdoc` treesitter parser ([#947](https://github.com/AstroNvim/astrocommunity/issues/947)) ([3a84cdd](https://github.com/AstroNvim/astrocommunity/commit/3a84cdd0ad9b71e3bf2b0a1e72565c835b507903))
+* **recipes:** add recipe for toggling inlay hints when entering/leaving insert mode ([fd3bac1](https://github.com/AstroNvim/astrocommunity/commit/fd3bac12ae7f405ab93c2a2e646b161ce103bbe2))
+
+
+### Bug Fixes
+
+* **coc-nvim:** disable heirline coc_status update ([#948](https://github.com/AstroNvim/astrocommunity/issues/948)) ([b9d224a](https://github.com/AstroNvim/astrocommunity/commit/b9d224a652110a9c179810bb7e83790438466f93))
+* **haskell:** don't use `astrocore` in `enabled` function ([804a1af](https://github.com/AstroNvim/astrocommunity/commit/804a1af48bb53f21e8c21312329b828189da5e33))
+* **heirline-vscode-winbar:** add missing `fallback` key to `path_func` ([a751246](https://github.com/AstroNvim/astrocommunity/commit/a751246104d1020bcaca9539204a3801be1d8bbc))
+* **scala:** only initialize metals once per buffer ([29ace38](https://github.com/AstroNvim/astrocommunity/commit/29ace3888f2258f0ba98683008573a4d6c2935ba))
+* **transparent-nvim:** transparent keymap ([#945](https://github.com/AstroNvim/astrocommunity/issues/945)) ([ba1a98f](https://github.com/AstroNvim/astrocommunity/commit/ba1a98fc2340df132df0f6c295f30ae2a3d82b6b))
+
 ## [8.2.1](https://github.com/AstroNvim/astrocommunity/compare/v8.2.0...v8.2.1) (2024-05-02)
 
 
