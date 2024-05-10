@@ -43,8 +43,21 @@ return {
       mappings = {
         n = {
           ["<Leader>ff"] = "<Cmd>Find<CR>",
-          ["<Leader>fw"] = "<Cmd>call VSCodeNotify('workbench.action.findInFiles')<CR>",
-          ["<Leader>ls"] = "<Cmd>call VSCodeNotify('workbench.action.gotoSymbol')<CR>",
+          ["<Leader>fw"] = function() require("vscode-neovim").action "workbench.action.findInFiles" end,
+
+          -- LSP Mappings
+          ["K"] = function() require("vscode-neovim").action "editor.action.showHover" end,
+          ["gI"] = function() require("vscode-neovim").action "editor.action.goToImplementation" end,
+          ["gd"] = function() require("vscode-neovim").action "editor.action.revealDefinition" end,
+          ["gD"] = function() require("vscode-neovim").action "editor.action.revealDeclaration" end,
+          ["gr"] = function() require("vscode-neovim").action "editor.action.goToReferences" end,
+          ["gy"] = function() require("vscode-neovim").action "editor.action.goToTypeDefinition" end,
+          ["<Leader>la"] = function() require("vscode-neovim").action "editor.action.quickFix" end,
+          ["<Leader>lG"] = function() require("vscode-neovim").action "workbench.action.showAllSymbols" end,
+          ["<Leader>lR"] = function() require("vscode-neovim").action "editor.action.goToReferences" end,
+          ["<Leader>lr"] = function() require("vscode-neovim").action "editor.action.rename" end,
+          ["<Leader>ls"] = function() require("vscode-neovim").action "workbench.action.gotoSymbol" end,
+          ["<Leader>lf"] = function() require("vscode-neovim").action "editor.action.formatDocument" end,
         },
       },
     },
