@@ -1,4 +1,4 @@
-local function check_json_key_exists(filename, key)
+local function decode_json(filename)
   -- Open the file in read mode
   local file = io.open(filename, "r")
   if not file then
@@ -14,14 +14,19 @@ local function check_json_key_exists(filename, key)
   if not json_parsed or type(json) ~= "table" then
     return false -- Invalid JSON format
   end
-
-  -- Check if the key exists in the JSON object
-  return json[key] ~= nil
+  return json
 end
 
 local root_has_file = function(file) return vim.loop.fs_stat(vim.fn.getcwd() .. "/" .. file) ~= nil end
+local function check_json_key_exists(json, ...) return vim.tbl_get(json, ...) ~= nil end
 local has_prettier = function()
-  return check_json_key_exists(vim.fn.getcwd() .. "/package.json", "prettier")
+  local package_json = decode_json(vim.fn.getcwd() .. "/package.json")
+  local prettier_dependency = package_json
+    and (
+      check_json_key_exists(package_json, "dependencies", "prettier")
+      or check_json_key_exists(package_json, "devDependencies", "prettier")
+    )
+  return prettier_dependency
     or root_has_file ".prettierrc"
     or root_has_file ".prettierrc.json"
     or root_has_file ".prettierrc.yml"
