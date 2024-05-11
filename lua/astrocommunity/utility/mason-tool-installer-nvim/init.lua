@@ -13,35 +13,9 @@ return {
     init = function(plugin) require("astrocore").on_load("mason.nvim", plugin.name) end,
     opts = { ensure_installed = {} },
     config = function(_, opts)
-      -- integrate other installer plugins into mason-tool-installer
-      if not opts.ensure_installed then opts.ensure_installed = {} end
-      local target_lookup = {}
-      for _, target in ipairs(opts.ensure_installed) do
-        target_lookup[target] = true
-      end
-      for _, plugin in ipairs { "mason-nvim-dap.nvim", "mason-lspconfig.nvim", "mason-null-ls.nvim" } do
-        for _, target in ipairs(require("astrocore").plugin_opts(plugin).ensure_installed or {}) do
-          local mappings
-          if plugin == "mason-lspconfig.nvim" then
-            mappings = require("mason-lspconfig").get_mappings().lspconfig_to_mason
-          elseif plugin == "mason-null-ls.nvim" then
-            mappings = require("mason-null-ls.mappings.source").getPackageFromNullLs
-          elseif plugin == "mason-nvim-dap.nvim" then
-            mappings = require("mason-nvim-dap.mappings.source").nvim_dap_to_package
-          end
-          if mappings then
-            if type(mappings) == "table" and mappings[target] then
-              target = mappings[target]
-            elseif type(mappings) == "function" and mappings(target) then
-              target = mappings(target)
-            end
-          end
-          if not target_lookup[target] then table.insert(opts.ensure_installed, target) end
-        end
-      end
       local mason_tool_installer = require "mason-tool-installer"
       mason_tool_installer.setup(opts)
-      mason_tool_installer.run_on_start()
+      if opts.run_on_start ~= false then mason_tool_installer.run_on_start() end
     end,
   },
   -- disable init and ensure installed of other plugins
