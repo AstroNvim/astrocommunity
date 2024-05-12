@@ -17,7 +17,10 @@ return {
     },
     dependencies = { "williamboman/mason.nvim" },
     init = function(plugin) require("astrocore").on_load("mason.nvim", plugin.name) end,
-    opts = { ensure_installed = {} },
+    opts = {
+      ensure_installed = {},
+      integrations = { ["mason-lspconfig"] = false, ["mason-null-ls"] = false, ["mason-nvim-dap"] = false },
+    },
     config = function(_, opts)
       local mason_tool_installer = require "mason-tool-installer"
       mason_tool_installer.setup(opts)
