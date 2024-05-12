@@ -8,7 +8,13 @@ end
 return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    cmd = { "MasonToolsInstall", "MasonToolsUpdate", "MasonToolsClean" },
+    cmd = {
+      "MasonToolsInstall",
+      "MasonToolsInstallSync",
+      "MasonToolsUpdate",
+      "MasonToolsUpdateSync",
+      "MasonToolsClean",
+    },
     dependencies = { "williamboman/mason.nvim" },
     init = function(plugin) require("astrocore").on_load("mason.nvim", plugin.name) end,
     opts = { ensure_installed = {} },
