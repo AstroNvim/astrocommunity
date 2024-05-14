@@ -20,6 +20,7 @@ end
 local function check_json_key_exists(json, ...) return vim.tbl_get(json, ...) ~= nil end
 local lsp_rooter, prettierrc_rooter
 local has_prettier = function(bufnr)
+  if type(bufnr) == "table" then bufnr = bufnr.bufnr end
   if type(bufnr) ~= "number" then bufnr = vim.api.nvim_get_current_buf() end
   local rooter = require "astrocore.rooter"
   if not lsp_rooter then lsp_rooter = rooter.resolve "lsp" end
@@ -87,7 +88,7 @@ return {
       opts.handlers.prettierd = function(source_name, methods)
         local null_ls = require "null-ls"
         for _, method in ipairs(methods) do
-          null_ls.register(null_ls.builtins[method][source_name].with { condition = has_prettier })
+          null_ls.register(null_ls.builtins[method][source_name].with { runtime_condition = has_prettier })
         end
       end
     end,
