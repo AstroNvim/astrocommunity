@@ -17,31 +17,47 @@ local function decode_json(filename)
   return json
 end
 
-local root_has_file = function(file) return vim.loop.fs_stat(vim.fn.getcwd() .. "/" .. file) ~= nil end
 local function check_json_key_exists(json, ...) return vim.tbl_get(json, ...) ~= nil end
-local has_prettier = function()
-  local package_json = decode_json(vim.fn.getcwd() .. "/package.json")
-  local prettier_dependency = package_json
-    and (
-      check_json_key_exists(package_json, "dependencies", "prettier")
-      or check_json_key_exists(package_json, "devDependencies", "prettier")
-    )
-  return prettier_dependency
-    or root_has_file ".prettierrc"
-    or root_has_file ".prettierrc.json"
-    or root_has_file ".prettierrc.yml"
-    or root_has_file ".prettierrc.yaml"
-    or root_has_file ".prettierrc.json5"
-    or root_has_file ".prettierrc.js"
-    or root_has_file ".prettierrc.cjs"
-    or root_has_file "prettier.config.js"
-    or root_has_file ".prettierrc.mjs"
-    or root_has_file "prettier.config.mjs"
-    or root_has_file "prettier.config.cjs"
-    or root_has_file ".prettierrc.toml"
+local lsp_rooter, prettierrc_rooter
+local has_prettier = function(bufnr)
+  if type(bufnr) == "table" then bufnr = bufnr.bufnr end
+  if type(bufnr) ~= "number" then bufnr = vim.api.nvim_get_current_buf() end
+  local rooter = require "astrocore.rooter"
+  if not lsp_rooter then lsp_rooter = rooter.resolve "lsp" end
+  if not prettierrc_rooter then
+    prettierrc_rooter = rooter.resolve {
+      ".prettierrc",
+      ".prettierrc.json",
+      ".prettierrc.yml",
+      ".prettierrc.yaml",
+      ".prettierrc.json5",
+      ".prettierrc.js",
+      ".prettierrc.cjs",
+      "prettier.config.js",
+      ".prettierrc.mjs",
+      "prettier.config.mjs",
+      "prettier.config.cjs",
+      ".prettierrc.toml",
+    }
+  end
+  local prettier_dependency = false
+  for _, root in ipairs(require("astrocore").list_insert_unique(lsp_rooter(bufnr), { vim.fn.getcwd() })) do
+    local package_json = decode_json(root .. "/package.json")
+    if
+      package_json
+      and (
+        check_json_key_exists(package_json, "dependencies", "prettier")
+        or check_json_key_exists(package_json, "devDependencies", "prettier")
+      )
+    then
+      prettier_dependency = true
+      break
+    end
+  end
+  return prettier_dependency or next(prettierrc_rooter(bufnr))
 end
 
-local conform_formatter = function() return has_prettier() and { "prettierd" } or {} end
+local conform_formatter = function(bufnr) return has_prettier(bufnr) and { "prettierd" } or {} end
 
 return {
   { import = "astrocommunity.pack.json" },
@@ -72,7 +88,7 @@ return {
       opts.handlers.prettierd = function(source_name, methods)
         local null_ls = require "null-ls"
         for _, method in ipairs(methods) do
-          null_ls.register(null_ls.builtins[method][source_name].with { condition = has_prettier })
+          null_ls.register(null_ls.builtins[method][source_name].with { runtime_condition = has_prettier })
         end
       end
     end,
