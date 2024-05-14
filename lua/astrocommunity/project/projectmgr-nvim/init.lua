@@ -1,7 +1,6 @@
 return {
   {
     "charludo/projectmgr.nvim",
-    event = "VeryLazy",
     lazy = false, -- important!
     dependencies = {
       {
