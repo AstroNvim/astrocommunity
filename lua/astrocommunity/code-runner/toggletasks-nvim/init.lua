@@ -1,5 +1,6 @@
 return {
   "jedrzejboczar/toggletasks.nvim",
+  lazy = true,
   dependencies = {
     { "nvim-lua/plenary.nvim" },
     { "akinsho/toggleterm.nvim" },
