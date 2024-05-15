@@ -1,5 +1,41 @@
 # Changelog
 
+## [8.4.0](https://github.com/AstroNvim/astrocommunity/compare/v8.3.0...v8.4.0) (2024-05-15)
+
+
+### Features
+
+* **code-runner:** added the toggletasks.nvim plugin ([#965](https://github.com/AstroNvim/astrocommunity/issues/965)) ([665bf35](https://github.com/AstroNvim/astrocommunity/commit/665bf359e0a825acb60a37ae7de48fc8af31a950))
+* **jj:** Add Jujutsu/jj pack ([58cf301](https://github.com/AstroNvim/astrocommunity/commit/58cf3019fb74035ef13b0ba9b00ce3c0ded05854))
+* **jj:** Add vim-jjdescription to jj pack ([#956](https://github.com/AstroNvim/astrocommunity/issues/956)) ([a6e6bbb](https://github.com/AstroNvim/astrocommunity/commit/a6e6bbb55b5be688b5a91907bfcb4c07a97344ab))
+* **pack:** Add Jujutsu/jj pack ([#954](https://github.com/AstroNvim/astrocommunity/issues/954)) ([58cf301](https://github.com/AstroNvim/astrocommunity/commit/58cf3019fb74035ef13b0ba9b00ce3c0ded05854))
+* **pack:** add Lean language pack ([#957](https://github.com/AstroNvim/astrocommunity/issues/957)) ([b90565c](https://github.com/AstroNvim/astrocommunity/commit/b90565c623ed3b2e36689100b6e485df9dc9fef4))
+* **pack:** add Rego language pack ([#931](https://github.com/AstroNvim/astrocommunity/issues/931)) ([9018562](https://github.com/AstroNvim/astrocommunity/commit/901856216305bbf1ae31087addc3fd63a3a2acf4))
+* **terminal-integration:** add `toggleterm-manager.nvim` ([#959](https://github.com/AstroNvim/astrocommunity/issues/959)) ([22a9151](https://github.com/AstroNvim/astrocommunity/commit/22a91513c2e638c6c3662b2e3b3f34b1b458794b))
+* **typescript:** add `conform.nvim` support to typescript pack ([#955](https://github.com/AstroNvim/astrocommunity/issues/955)) ([50208df](https://github.com/AstroNvim/astrocommunity/commit/50208df88190f2083d06c5845cfc7a1080aae8b0))
+* **utility:** add `vim-fetch` ([172024f](https://github.com/AstroNvim/astrocommunity/commit/172024f8cc0f12b401c8994b21c714742115cf82))
+* **vscode:** add more default mappings to vscode integration ([#952](https://github.com/AstroNvim/astrocommunity/issues/952)) ([1c7fb28](https://github.com/AstroNvim/astrocommunity/commit/1c7fb28b371331684de3504acdd9b1026ab2f969))
+
+
+### Bug Fixes
+
+* **mason-tool-installer-nvim:** add missing user commands for lazy loading ([add4111](https://github.com/AstroNvim/astrocommunity/commit/add41119c85b115040d81f8261e7b5db5d85445b))
+* **projectmgr-nvim:** disable lazy loading ([#961](https://github.com/AstroNvim/astrocommunity/issues/961)) ([9bbab93](https://github.com/AstroNvim/astrocommunity/commit/9bbab939f83d7b6e79e805c0b8d4f650faf8835b))
+* **typescript:** `prettier` should be detected if it is a project dependency ([2662403](https://github.com/AstroNvim/astrocommunity/commit/26624039aa5fbd54097afa52ffe9f6369115039a))
+* **typescript:** improve `prettier` detection with `astrocore.rooter` ([#960](https://github.com/AstroNvim/astrocommunity/issues/960)) ([3f9e967](https://github.com/AstroNvim/astrocommunity/commit/3f9e96712bbb7d983551fb2685b1d876d4004a97))
+* **typescript:** only check for `prettier` dependency for JavaScript or TypeScript files ([5c186d9](https://github.com/AstroNvim/astrocommunity/commit/5c186d976c51f17b868ed97c83694be97df9d73e))
+* **vscode-icons:** add missing VS Code icons ([cb43f34](https://github.com/AstroNvim/astrocommunity/commit/cb43f3493cb9f2b426d7b851544ed623e5165fd8))
+
+
+### Performance Improvements
+
+* **mason-tool-installer-nvim:** by default disable other mason plugin integrations for better lazy loading ([bbf59b2](https://github.com/AstroNvim/astrocommunity/commit/bbf59b2ae3a5fa7b06865dd525eb90f484670efe))
+
+
+### Reverts
+
+* codicons are specified in `lspkind` preset and we need to set _missing_ lsp kinds ([df5475b](https://github.com/AstroNvim/astrocommunity/commit/df5475b047290e880a8cc02fb8d36d65eec8a5a1))
+
 ## [8.3.0](https://github.com/AstroNvim/astrocommunity/compare/v8.2.1...v8.3.0) (2024-05-08)
 
 
