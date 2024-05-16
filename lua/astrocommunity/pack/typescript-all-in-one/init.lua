@@ -29,7 +29,7 @@ return {
               if curr_client and curr_client.name == "denols" then
                 local clients = (vim.lsp.get_clients or vim.lsp.get_active_clients) {
                   bufnr = bufnr,
-                  name = "typescript-tools",
+                  name = "vtsls",
                 }
                 for _, client in ipairs(clients) do
                   vim.lsp.stop_client(client.id, true)
@@ -37,7 +37,7 @@ return {
               end
 
               -- if tsserver attached, stop it if there is a denols server attached
-              if curr_client and curr_client.name == "typescript-tools" then
+              if curr_client and curr_client.name == "vtsls" then
                 if next((vim.lsp.get_clients or vim.lsp.get_active_clients) { bufnr = bufnr, name = "denols" }) then
                   vim.lsp.stop_client(curr_client.id, true)
                 end
