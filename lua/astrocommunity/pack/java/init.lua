@@ -1,5 +1,25 @@
 return {
   {
+    "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
+    opts = {
+      mappings = {
+        n = {
+          gD = {
+            function() vim.lsp.buf.declaration() end,
+            desc = "Declaration of current symbol",
+            cond = "textDocument/declaration",
+          },
+          gd = {
+            function() vim.lsp.buf.definition() end,
+            desc = "Show definition of current symbol",
+            cond = "textDocument/declaration",
+          },
+        },
+      },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
