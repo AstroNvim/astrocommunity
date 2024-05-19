@@ -7,6 +7,7 @@ return {
   },
   {
     "catppuccin/nvim",
+    name = "catppuccin",
     optional = true,
     ---@type CatppuccinOptions
     opts = { integrations = { illuminate = true } },
