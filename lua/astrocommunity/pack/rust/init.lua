@@ -22,6 +22,9 @@ return {
             ["rust-analyzer"] = {
               check = {
                 command = "clippy",
+                extraArgs = {
+                  "--no-deps",
+                },
               },
               assist = {
                 importEnforceGranularity = true,
@@ -102,7 +105,7 @@ return {
         end,
       }
       local final_server = require("astrocore").extend_tbl(astrolsp_opts, server)
-      return { server = final_server, dap = { adapter = adapter } }
+      return { server = final_server, dap = { adapter = adapter }, tools = { enable_clippy = false } }
     end,
     config = function(_, opts) vim.g.rustaceanvim = require("astrocore").extend_tbl(opts, vim.g.rustaceanvim) end,
   },
