@@ -6,8 +6,7 @@ return {
     config = function(_, opts) require("illuminate").configure(opts) end,
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "catppuccin",
     optional = true,
     ---@type CatppuccinOptions
     opts = { integrations = { illuminate = true } },

@@ -6,8 +6,7 @@ return {
     opts = function(_, opts) opts.winbar = nil end,
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "catppuccin",
     optional = true,
     ---@type CatppuccinOptions
     opts = { integrations = { dropbar = { enabled = true } } },
