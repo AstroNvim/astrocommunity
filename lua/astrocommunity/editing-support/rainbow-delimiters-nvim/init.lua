@@ -6,7 +6,7 @@ return {
     main = "rainbow-delimiters.setup",
   },
   {
-    "catppuccin/nvim",
+    "catppuccin",
     optional = true,
     ---@type CatppuccinOptions
     opts = { integrations = { rainbow_delimiters = true } },

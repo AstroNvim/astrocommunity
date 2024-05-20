@@ -31,7 +31,7 @@ return {
     end,
   },
   {
-    "catppuccin/nvim",
+    "catppuccin",
     optional = true,
     ---@type CatppuccinOptions
     opts = { integrations = { mini = true } },

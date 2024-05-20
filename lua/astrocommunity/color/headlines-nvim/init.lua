@@ -6,7 +6,7 @@ return {
     opts = {},
   },
   {
-    "catppuccin/nvim",
+    "catppuccin",
     optional = true,
     ---@type CatppuccinOptions
     opts = { integrations = { headlines = true } },

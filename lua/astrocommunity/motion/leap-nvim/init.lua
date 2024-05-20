@@ -49,7 +49,7 @@ return {
     opts = {},
   },
   {
-    "catppuccin/nvim",
+    "catppuccin",
     optional = true,
     ---@type CatppuccinOptions
     opts = { integrations = { leap = true } },

@@ -19,7 +19,7 @@ return {
     },
   },
   {
-    "catppuccin/nvim",
+    "catppuccin",
     optional = true,
     ---@type CatppuccinOptions
     opts = { integrations = { sandwich = true } },
