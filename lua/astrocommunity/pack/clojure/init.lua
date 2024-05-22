@@ -1,5 +1,14 @@
--- Clojure support with Conjure plugin
-return {
+-- ------------------------------------------
+-- Clojure language pack
+--
+-- clojure-lsp server via mason
+-- treesitter clojure parser
+-- ts-comment.nvim with `;;` and `;` support
+-- structured editing with parinfer and treesitter-sexp plugins
+-- REPL connected editor with Conjure plugin (log HUD hidden by default)
+-- ------------------------------------------
+
+local plugins = {
   -- Clojure Language Server
   {
     "williamboman/mason-lspconfig.nvim",
@@ -25,60 +34,17 @@ return {
       end
     end,
   },
-  -- Parinfer parens management for Clojure
-  {
-    "gpanders/nvim-parinfer",
-    ft = { "clojure" },
-    dependencies = {
-      "AstroNvim/astrocore",
-      opts = {
-        options = { g = {
-          parinfer_force_balance = true,
-          parinfer_comment_chars = ";;",
-        } },
-      },
-    },
-  },
+
   -- Conjure plugin for Clojure REPL
-  {
-    "Olical/conjure",
-    -- load plugin on filetypes
-    ft = { "clojure" },
-    dependencies = {
-      "AstroNvim/astrocore",
-      opts = {
-        autocmds = {
-          conjure_log_disable_lsp = {
-            {
-              event = "BufNewFile",
-              pattern = { "conjure-log-*" },
-              callback = function() vim.diagnostic.disable(0) end,
-              desc = "Conjure Log disable LSP diagnostics",
-            },
-            {
-              event = "FileType",
-              pattern = { "clojure" },
-              callback = function() vim.bo.commentstring = ";; %s" end,
-              desc = "Lisp style line comment",
-            },
-          },
-        },
-        options = {
-          g = {
-            ["conjure#log#hud#width"] = 1,
-            ["conjure#log#hud#enabled"] = false,
-            ["conjure#log#hud#anchor"] = "SE",
-            ["conjure#log#botright"] = true,
-            ["conjure#extract#context_header_lines"] = 100,
-            ["conjure#eval#comment_prefix"] = ";; ",
-            ["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false,
-            ["conjure#client#clojure#nrepl#connection#auto_repl#hidden"] = true,
-            ["conjure#client#clojure#nrepl#connection#auto_repl#cmd"] = nil,
-            ["conjure#client#clojure#nrepl#eval#auto_require"] = false,
-            ["conjure#client#clojure#nrepl#test#runner"] = "kaocha",
-          },
-        },
-      },
-    },
-  },
+  { import = "astrocommunity.code-runner.conjure" },
+
+  -- Parinfer parens management for Clojure
+  { import = "astrocommunity.editing-support.nvim-parinfer" },
+
+  -- Treesitter structural editing
+  { import = "astrocommunity.editing-support.nvim-treesitter-sexp" },
 }
+
+if vim.fn.has "nvim-0.10" then table.insert(plugins, { import = "astrocommunity.comment.ts-comments-nvim" }) end
+
+return plugins
