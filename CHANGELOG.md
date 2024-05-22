@@ -1,5 +1,23 @@
 # Changelog
 
+## [8.5.0](https://github.com/AstroNvim/astrocommunity/compare/v8.4.0...v8.5.0) (2024-05-22)
+
+
+### Features
+
+* **comment:** add `ts-comments.nvim` ([df6fce9](https://github.com/AstroNvim/astrocommunity/commit/df6fce9a679d7f016e17c2223fccd307dfb177bc))
+* **completion:** add `copilot-cmp` ([#967](https://github.com/AstroNvim/astrocommunity/issues/967)) ([00836c2](https://github.com/AstroNvim/astrocommunity/commit/00836c2e7ec4ea32fbf11742dc23d6eb420c2b7b))
+* **workflow:** add `precognition.nvim` ([#981](https://github.com/AstroNvim/astrocommunity/issues/981)) ([ffb4edd](https://github.com/AstroNvim/astrocommunity/commit/ffb4edd5af3758db602d7dae3f996619bfcf2c6d))
+
+
+### Bug Fixes
+
+* **catppuccin:** set name to "catppuccin" ([#976](https://github.com/AstroNvim/astrocommunity/issues/976)) ([e8ee25f](https://github.com/AstroNvim/astrocommunity/commit/e8ee25f8d5febb97d0fccd76607cdec15fff4ac6))
+* **go:** modify the `build` callback to avoid freezing on `go.nvim` installation ([#980](https://github.com/AstroNvim/astrocommunity/issues/980)) ([06fbacf](https://github.com/AstroNvim/astrocommunity/commit/06fbacfbd28b1a399fc16ca9e9d2092dbb40db2e))
+* **rust:** fix clippy config, add `--no-deps` arg ([#978](https://github.com/AstroNvim/astrocommunity/issues/978)) ([b092e34](https://github.com/AstroNvim/astrocommunity/commit/b092e348cab557e46918a1d89293327081c0a32d))
+* **rust:** Fix rust-analyzer check to clippy ([#973](https://github.com/AstroNvim/astrocommunity/issues/973)) ([c64ad78](https://github.com/AstroNvim/astrocommunity/commit/c64ad78e1253be3c664e0df9868ed433e420e39e))
+* **rust:** preserve loading of rust-analyzer.json ([#977](https://github.com/AstroNvim/astrocommunity/issues/977)) ([33d4209](https://github.com/AstroNvim/astrocommunity/commit/33d420956aeab3f3159ce1fd7ead997f45024a55))
+
 ## [8.4.0](https://github.com/AstroNvim/astrocommunity/compare/v8.3.0...v8.4.0) (2024-05-15)
 
 
