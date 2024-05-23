@@ -14,15 +14,19 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "nvim-treesitter-textobjects",
   "nvim-ts-context-commentstring",
   -- more known working
+  "dial.nvim",
   "flash.nvim",
   "flit.nvim",
   "leap.nvim",
   "mini.ai",
   "mini.comment",
+  "mini.move",
+  "mini.pairs",
   "mini.surround",
   "vim-easy-align",
   "vim-repeat",
   "vim-sandwich",
+  "yanky.nvim",
   -- feel free to open PRs to add more support!
 })
 
