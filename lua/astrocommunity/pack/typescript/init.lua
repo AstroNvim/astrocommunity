@@ -134,34 +134,45 @@ return {
   {
     "pmizio/typescript-tools.nvim",
     dependencies = {
-      ---@type AstroLSPOpts
-      "AstroNvim/astrolsp",
-      optional = true,
-      ---@diagnostic disable: missing-fields
-      opts = {
-        autocmds = {
-          eslint_fix_on_save = {
-            cond = function(client) return client.name == "eslint" and vim.fn.exists ":EslintFixAll" > 0 end,
-            {
-              event = "BufWritePost",
-              desc = "Fix all eslint errors",
-              callback = function() vim.cmd.EslintFixAll() end,
+      {
+        -- HACK: fix issue where `shiftwidth = 0` isn't correctly handled by typescript-tools.nvim
+        --       Remove when PR merged: https://github.com/pmizio/typescript-tools.nvim/pull/270
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local local_vim = opts.options
+          if local_vim.opt.shiftwidth == 0 then local_vim.opt.shiftwidth = local_vim.opt.tabstop end
+        end,
+      },
+      {
+        ---@type AstroLSPOpts
+        "AstroNvim/astrolsp",
+        optional = true,
+        ---@diagnostic disable: missing-fields
+        opts = {
+          autocmds = {
+            eslint_fix_on_save = {
+              cond = function(client) return client.name == "eslint" and vim.fn.exists ":EslintFixAll" > 0 end,
+              {
+                event = "BufWritePost",
+                desc = "Fix all eslint errors",
+                callback = function() vim.cmd.EslintFixAll() end,
+              },
             },
           },
-        },
-        handlers = { tsserver = false }, -- disable tsserver setup, this plugin does it
-        config = {
-          ["typescript-tools"] = { -- enable inlay hints by default for `typescript-tools`
-            settings = {
-              tsserver_file_preferences = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+          handlers = { tsserver = false }, -- disable tsserver setup, this plugin does it
+          config = {
+            ["typescript-tools"] = { -- enable inlay hints by default for `typescript-tools`
+              settings = {
+                tsserver_file_preferences = {
+                  includeInlayParameterNameHints = "all",
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                  includeInlayFunctionParameterTypeHints = true,
+                  includeInlayVariableTypeHints = true,
+                  includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                  includeInlayPropertyDeclarationTypeHints = true,
+                  includeInlayFunctionLikeReturnTypeHints = true,
+                  includeInlayEnumMemberValueHints = true,
+                },
               },
             },
           },
