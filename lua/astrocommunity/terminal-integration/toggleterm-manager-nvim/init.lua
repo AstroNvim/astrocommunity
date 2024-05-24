@@ -32,6 +32,12 @@ return {
           ["d"] = { action = actions.delete_term, exit_on_action = false }, -- deletes a terminal buffer
           ["n"] = { action = actions.create_term, exit_on_action = false }, -- creates a new terminal buffer
         },
+        i = {
+          ["<CR>"] = { action = actions.toggle_term, exit_on_action = true }, -- toggles terminal open/closed
+          ["<C-r>"] = { action = actions.rename_term, exit_on_action = false }, -- provides a prompt to rename a terminal
+          ["<C-d>"] = { action = actions.delete_term, exit_on_action = false }, -- deletes a terminal buffer
+          ["<C-n>"] = { action = actions.create_term, exit_on_action = false }, -- creates a new terminal buffer
+        },
       },
     })
   end,
