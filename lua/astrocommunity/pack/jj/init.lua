@@ -58,4 +58,23 @@ return {
     },
   },
   { "avm99963/vim-jjdescription", lazy = false },
+  {
+    "AstroNvim/astrocore",
+    ---@param opts AstroCoreOpts
+    opts = function(_, opts)
+      local maps = assert(opts.mappings)
+
+      if vim.fn.executable "lazyjj" == 1 then
+        maps.n["<Leader>jl"] = {
+          function()
+            local astro = require "astrocore"
+            local worktree = astro.file_worktree()
+            local flags = worktree and ("--path '%s'"):format(worktree.toplevel, worktree.gitdir) or ""
+            astro.toggle_term_cmd("lazyjj " .. flags)
+          end,
+          desc = "lazyjj",
+        }
+      end
+    end,
+  },
 }
