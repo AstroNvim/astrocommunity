@@ -15,7 +15,7 @@ return {
         indent_blankline = true,
         markdown = true,
         mason = true,
-        native_lsp = true,
+        native_lsp = { enabled = true },
         neotree = true,
         notify = true,
         semantic_tokens = true,
