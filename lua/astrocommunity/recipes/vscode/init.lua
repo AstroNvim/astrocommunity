@@ -23,6 +23,7 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "mini.move",
   "mini.pairs",
   "mini.surround",
+  "ts-comments.nvim",
   "vim-easy-align",
   "vim-repeat",
   "vim-sandwich",
