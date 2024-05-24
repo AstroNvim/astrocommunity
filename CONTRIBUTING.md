@@ -191,4 +191,4 @@ $ git push origin --force-with-lease
 
 ## Help
 
-For help with contributing and anything else AstroNvim related join the [discord](https://discord.gg/UcZutyeaFW)
+For help with contributing and anything else AstroNvim related join the [discord](https://discord.gg/astronvim-939594913560031363)
