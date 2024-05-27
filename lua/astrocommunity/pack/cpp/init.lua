@@ -1,18 +1,24 @@
+local machine = vim.loop.os_uname().machine
+local is_arm = machine == "aarch64" or machine.starts "arm"
+
 return {
   {
     "AstroNvim/astrolsp",
     optional = true,
-    ---@type AstroLSPOpts
-    opts = {
+    opts = function(_, opts)
       ---@diagnostic disable: missing-fields
-      config = {
+      opts = vim.tbl_deep_extend("keep", opts, {
         clangd = {
           capabilities = {
             offsetEncoding = "utf-8",
           },
         },
-      },
-    },
+        servers = {},
+      })
+      -- opts.clangd.capabilities.offsetEncoding = "utf-8"
+      if is_arm then opts.servers = require("astrocore").list_insert_unique(opts.servers, { "clangd" }) end
+      return opts
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -28,7 +34,9 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "clangd" })
+      if not is_arm then
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "clangd" })
+      end
     end,
   },
   {
@@ -86,7 +94,11 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "clangd", "codelldb" })
+      if not is_arm then
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "clangd", "codelldb" })
+      else
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "codelldb" })
+      end
     end,
   },
 }
