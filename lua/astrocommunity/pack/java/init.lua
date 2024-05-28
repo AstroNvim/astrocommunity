@@ -92,6 +92,7 @@ return {
             maven = { downloadSources = true },
             implementationsCodeLens = { enabled = true },
             referencesCodeLens = { enabled = true },
+            inlayHints = { parameterNames = { enabled = "all" } },
           },
           signatureHelp = { enabled = true },
           completion = {
