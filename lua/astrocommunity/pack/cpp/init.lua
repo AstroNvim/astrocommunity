@@ -1,5 +1,5 @@
-local machine = vim.loop.os_uname().machine
-local is_arm = machine == "aarch64" or vim.startswith(machine, "arm")
+local uname = (vim.uv or vim.loop).os_uname()
+local is_linux_arm = uname.sysname == "Linux" and (uname.machine == "aarch64" or vim.startswith(uname.machine, "arm"))
 
 return {
   {
@@ -13,7 +13,7 @@ return {
           },
         },
       })
-      if is_arm then opts.servers = require("astrocore").list_insert_unique(opts.servers, { "clangd" }) end
+      if is_linux_arm then opts.servers = require("astrocore").list_insert_unique(opts.servers, { "clangd" }) end
     end,
   },
   {
@@ -30,7 +30,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      if not is_arm then
+      if not is_linux_arm then
         opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "clangd" })
       end
     end,
@@ -91,7 +91,7 @@ return {
     optional = true,
     opts = function(_, opts)
       local tools = { "codelldb" }
-      if not is_arm then table.insert(tools, "clangd") end
+      if not is_linux_arm then table.insert(tools, "clangd") end
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, tools)
     end,
   },
