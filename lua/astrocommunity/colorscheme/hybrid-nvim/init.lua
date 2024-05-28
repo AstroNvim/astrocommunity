@@ -1,0 +1,3 @@
+return {
+  "HoNamDuong/hybrid.nvim",
+}
