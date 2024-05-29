@@ -55,10 +55,16 @@ return {
     },
   },
   opts = function()
+    local astroui = require "astroui"
+    local get_icon = function(icon) return astroui.get_icon(icon, 0, true) end
     return {
       code_action = { extend_gitsigns = require("astrocore").is_available "gitsigns.nvim" },
       lightbulb = { sign = false },
-      ui = { code_action = require("astroui").get_icon("DiagnosticHint", 0, true) },
+      ui = {
+        code_action = get_icon "DiagnosticHint",
+        expand = get_icon "FoldClosed",
+        collapse = get_icon "FoldOpened",
+      },
     }
   end,
 }
