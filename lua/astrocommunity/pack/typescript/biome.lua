@@ -22,7 +22,7 @@ return {
     opts = function(_, opts)
       if not opts.handlers then opts.handlers = {} end
 
-      if ~has_biome() then return end
+      if not has_biome() then return end
 
       -- TODO: prettier should be off for all filetypes that biome supports,
       -- currently this is { "javascript", "javascriptreact", "typescript", "typescriptreact", "json" }
