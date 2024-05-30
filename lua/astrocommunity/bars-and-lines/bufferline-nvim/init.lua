@@ -1,6 +1,19 @@
 return {
   {
     "akinsho/bufferline.nvim",
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["]b"] = { function() require("bufferline.commands").cycle(1) end, desc = "Next buffer" },
+              ["[b"] = { function() require("bufferline.commands").cycle(-1) end, desc = "Previous buffer" },
+            },
+          },
+        },
+      },
+    },
     event = "VeryLazy",
     opts = {
       options = {
