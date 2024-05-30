@@ -1,27 +1,26 @@
 return {
+  { import = "astrocommunity.recipes.disable-tabline" },
   {
     "akinsho/bufferline.nvim",
     dependencies = {
       {
         "AstroNvim/astrocore",
-        opts = function(_, opts)
-          local maps = opts.mappings
-          maps.n["]b"] = { function() require("bufferline.commands").cycle(vim.v.count1) end, desc = "Next buffer" }
-          maps.n["[b"] =
-            { function() require("bufferline.commands").cycle(-vim.v.count1) end, desc = "Previous buffer" }
-          maps.n[">b"] = {
-            function() require("bufferline.commands").move(vim.v.count1) end,
-            desc = "Move buffer tab right",
-          }
-          maps.n["<b"] = {
-            function() require("bufferline.commands").move(-vim.v.count1) end,
-            desc = "Move buffer tab left",
-          }
-
-          for k, _ in pairs(maps.n) do
-            if k:find "^<Leader>b" then maps.n[k] = false end
-          end
-        end,
+        opts = {
+          mappings = {
+            n = {
+              ["]b"] = { function() require("bufferline.commands").cycle(vim.v.count1) end, desc = "Next buffer" },
+              ["[b"] = { function() require("bufferline.commands").cycle(-vim.v.count1) end, desc = "Previous buffer" },
+              [">b"] = {
+                function() require("bufferline.commands").move(vim.v.count1) end,
+                desc = "Move buffer tab right",
+              },
+              ["<b"] = {
+                function() require("bufferline.commands").move(-vim.v.count1) end,
+                desc = "Move buffer tab left",
+              },
+            },
+          },
+        },
       },
     },
     event = "VeryLazy",
@@ -37,10 +36,5 @@ return {
         },
       },
     },
-  },
-  {
-    "rebelot/heirline.nvim",
-    optional = true,
-    opts = function(_, opts) opts.tabline = nil end,
   },
 }
