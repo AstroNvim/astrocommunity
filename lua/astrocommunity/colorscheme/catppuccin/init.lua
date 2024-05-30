@@ -30,6 +30,15 @@ return {
     },
   },
   {
+    "akinsho/bufferline.nvim",
+    optional = true,
+    opts = function(_, opts)
+      return require("astrocore").extend_tbl(opts, {
+        highlights = require("catppuccin.groups.integrations.bufferline").get(),
+      })
+    end,
+  },
+  {
     "nvim-telescope/telescope.nvim",
     optional = true,
     opts = {
