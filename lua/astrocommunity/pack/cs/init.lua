@@ -24,6 +24,24 @@ return {
     end,
   },
   {
+    "Decodetalkers/csharpls-extended-lsp.nvim",
+    dependencies = {
+      {
+        "AstroNvim/astrolsp",
+        opts = {
+          config = {
+            csharp_ls = {
+              handlers = {
+                ["textDocument/definition"] = function(...) require("csharpls_extended").handler(...) end,
+                ["textDocument/typeDefinition"] = function(...) require("csharpls_extended").handler(...) end,
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     "jay-babu/mason-nvim-dap.nvim",
     optional = true,
     opts = function(_, opts)
