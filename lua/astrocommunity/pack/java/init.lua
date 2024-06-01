@@ -93,23 +93,23 @@ return {
             implementationsCodeLens = { enabled = true },
             referencesCodeLens = { enabled = true },
             inlayHints = { parameterNames = { enabled = "all" } },
-          },
-          signatureHelp = { enabled = true },
-          completion = {
-            favoriteStaticMembers = {
-              "org.hamcrest.MatcherAssert.assertThat",
-              "org.hamcrest.Matchers.*",
-              "org.hamcrest.CoreMatchers.*",
-              "org.junit.jupiter.api.Assertions.*",
-              "java.util.Objects.requireNonNull",
-              "java.util.Objects.requireNonNullElse",
-              "org.mockito.Mockito.*",
+            signatureHelp = { enabled = true },
+            completion = {
+              favoriteStaticMembers = {
+                "org.hamcrest.MatcherAssert.assertThat",
+                "org.hamcrest.Matchers.*",
+                "org.hamcrest.CoreMatchers.*",
+                "org.junit.jupiter.api.Assertions.*",
+                "java.util.Objects.requireNonNull",
+                "java.util.Objects.requireNonNullElse",
+                "org.mockito.Mockito.*",
+              },
             },
-          },
-          sources = {
-            organizeImports = {
-              starThreshold = 9999,
-              staticStarThreshold = 9999,
+            sources = {
+              organizeImports = {
+                starThreshold = 9999,
+                staticStarThreshold = 9999,
+              },
             },
           },
         },
