@@ -54,7 +54,9 @@ return {
   },
   {
     "linux-cultist/venv-selector.nvim",
+    branch = "regexp",
     dependencies = {
+      { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
       {
         "AstroNvim/astrocore",
         opts = {
@@ -67,7 +69,7 @@ return {
       },
     },
     opts = {},
-    cmd = { "VenvSelect", "VenvSelectCached" },
+    cmd = "VenvSelect",
   },
   {
     "mfussenegger/nvim-dap-python",
