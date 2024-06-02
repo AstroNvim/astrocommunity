@@ -72,7 +72,7 @@ return {
     cmd = "VenvSelect",
   },
   {
-    "mfusseegger/nvim-dap-python",
+    "mfussenegger/nvim-dap-python",
     dependencies = "mfussenegger/nvim-dap",
     ft = "python", -- NOTE: ft: lazy-load on filetype
     config = function(_, opts)
