@@ -54,7 +54,6 @@ return {
   },
   {
     "linux-cultist/venv-selector.nvim",
-    lazy = false,
     branch = "regexp",
     dependencies = {
       { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
@@ -70,10 +69,10 @@ return {
       },
     },
     opts = {},
-    cmd = { "VenvSelect" },
+    cmd = "VenvSelect",
   },
   {
-    "mfussenegger/nvim-dap-python",
+    "mfusseegger/nvim-dap-python",
     dependencies = "mfussenegger/nvim-dap",
     ft = "python", -- NOTE: ft: lazy-load on filetype
     config = function(_, opts)
