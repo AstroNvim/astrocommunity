@@ -1,5 +1,81 @@
 # Changelog
 
+## [9.0.0](https://github.com/AstroNvim/astrocommunity/compare/v8.5.0...v9.0.0) (2024-06-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **trouble-nvim:** update to `trouble.nvim` v3 ([#1014](https://github.com/AstroNvim/astrocommunity/issues/1014))
+* **colorscheme:** `onigiri.nvim` repo is deleted
+* **typescript:** replace `typescript-tools` with `vtsls` ([#969](https://github.com/AstroNvim/astrocommunity/issues/969))
+
+### Features
+
+* **astro:** enable inlay hints by default ([7f1e024](https://github.com/AstroNvim/astrocommunity/commit/7f1e0247a919c7997bd6616f6159703112d453ca))
+* **catppuccin:** add bufferline integration ([#1015](https://github.com/AstroNvim/astrocommunity/issues/1015)) ([ce8b54a](https://github.com/AstroNvim/astrocommunity/commit/ce8b54a95a5e634e1afccc82289b64577aae8425))
+* **clojure:** modularize pack, add ts-comment, add ts-sexp, add docs ([a34848c](https://github.com/AstroNvim/astrocommunity/commit/a34848c1f7030288b5c37a8022e2cff79f0a574e))
+* **code-runner:** add `conjure` ([67d93c5](https://github.com/AstroNvim/astrocommunity/commit/67d93c5f5d9317f9370511d69f1d77fb88775c4a))
+* **color:** add `huez.nvim` ([3d06ab9](https://github.com/AstroNvim/astrocommunity/commit/3d06ab9fd0abd29d60f9d0d2c277e2e5e3e4c86c))
+* **colorscheme:** add aurora ([#1003](https://github.com/AstroNvim/astrocommunity/issues/1003)) ([cf9dfd2](https://github.com/AstroNvim/astrocommunity/commit/cf9dfd21f3c5b277f41d9f9514d10118f1e638ee))
+* **colorscheme:** add bluloco-nvim ([#1011](https://github.com/AstroNvim/astrocommunity/issues/1011)) ([37f0c1d](https://github.com/AstroNvim/astrocommunity/commit/37f0c1ded5932038ac114903e39e5438fe484930))
+* **colorscheme:** add citruszest-nvim ([#1010](https://github.com/AstroNvim/astrocommunity/issues/1010)) ([b45874f](https://github.com/AstroNvim/astrocommunity/commit/b45874f09bc40a028bcf23149dcdd9dcdd6f6645))
+* **colorscheme:** add eldritch-nvim ([#999](https://github.com/AstroNvim/astrocommunity/issues/999)) ([416d0c6](https://github.com/AstroNvim/astrocommunity/commit/416d0c6f3f6bf614a7d007b16b066fe6c10226b8))
+* **colorscheme:** add hybrid.nvim ([#998](https://github.com/AstroNvim/astrocommunity/issues/998)) ([6d7a243](https://github.com/AstroNvim/astrocommunity/commit/6d7a243be56fd3b6c2aa002b8e172e183e6290a1))
+* **colorscheme:** add lackluster-nvim ([#1001](https://github.com/AstroNvim/astrocommunity/issues/1001)) ([0d644e7](https://github.com/AstroNvim/astrocommunity/commit/0d644e72c756de53eeaebd525ab5a629b0e184b4))
+* **colorscheme:** add modus-themes.nvim ([#1002](https://github.com/AstroNvim/astrocommunity/issues/1002)) ([7ad964c](https://github.com/AstroNvim/astrocommunity/commit/7ad964c061c25be065ceebc99e52b5ad632b6af2))
+* **colorscheme:** add neofusion ([0be15e1](https://github.com/AstroNvim/astrocommunity/commit/0be15e1f991ef98dd833dc6f87dc4d106218c65e))
+* **colorscheme:** add neofusion-nvim ([#995](https://github.com/AstroNvim/astrocommunity/issues/995)) ([0be15e1](https://github.com/AstroNvim/astrocommunity/commit/0be15e1f991ef98dd833dc6f87dc4d106218c65e))
+* **colorscheme:** add oldworld ([cf27447](https://github.com/AstroNvim/astrocommunity/commit/cf274479d9fdfb18ac7c946599b915c31e8a3746))
+* **colorscheme:** add oldworld-nvim ([#996](https://github.com/AstroNvim/astrocommunity/issues/996)) ([cf27447](https://github.com/AstroNvim/astrocommunity/commit/cf274479d9fdfb18ac7c946599b915c31e8a3746))
+* **colorscheme:** add solarized-osaka.nvim ([#1000](https://github.com/AstroNvim/astrocommunity/issues/1000)) ([c2de1f4](https://github.com/AstroNvim/astrocommunity/commit/c2de1f4cac235c0b46109d188c7de318742e6944))
+* **completion:** add `cmp-emoji` completion source ([4b6110e](https://github.com/AstroNvim/astrocommunity/commit/4b6110e6a3c36c6b9d893623f553102d2c711fe5))
+* **completion:** add `cmp-latex-symbols` completion source ([8c4c003](https://github.com/AstroNvim/astrocommunity/commit/8c4c003eb1e4773928cf6d80f11a6ebd8c33eaf4))
+* **editing-support:** add `nvim-parinfer` ([2196cee](https://github.com/AstroNvim/astrocommunity/commit/2196ceedca58ec44ef093affa2375e14c7ca2631))
+* **editing-support:** add `nvim-treesitter-sexp` ([8075351](https://github.com/AstroNvim/astrocommunity/commit/807535168e954973508f76aed187c6c094e2ab96))
+* **game:** Add `leetcode.nvim` ([#1016](https://github.com/AstroNvim/astrocommunity/issues/1016)) ([f8f6c34](https://github.com/AstroNvim/astrocommunity/commit/f8f6c34824b1cc0b445aecf1c80c21a33a21f01a))
+* **git:** Add `mini.git` ([#1012](https://github.com/AstroNvim/astrocommunity/issues/1012)) ([b85974c](https://github.com/AstroNvim/astrocommunity/commit/b85974cb2c0a15dc76c1c3eecc6861644dfc0222))
+* **huez-nvim:** override `&lt;Leader&gt;ft` mapping for picking themes ([2953062](https://github.com/AstroNvim/astrocommunity/commit/29530620c3edbf124c194fc44920bb63230c031e))
+* **java:** enable inlay hints by default ([#1004](https://github.com/AstroNvim/astrocommunity/issues/1004)) ([a58ec9a](https://github.com/AstroNvim/astrocommunity/commit/a58ec9af20ef58a511579c02712c42e7be6a4eeb))
+* **jj:** Add lazyjj ([#986](https://github.com/AstroNvim/astrocommunity/issues/986)) ([a7dfa7b](https://github.com/AstroNvim/astrocommunity/commit/a7dfa7b7544c0be53d3299a60324ab2d3c7a3631))
+* **lsp:** add `lspsaga.nvim` ([#1005](https://github.com/AstroNvim/astrocommunity/issues/1005)) ([7d841f5](https://github.com/AstroNvim/astrocommunity/commit/7d841f54684590787d842744556868f58e8cadd8))
+* **neovim-lua-development:** add `lazydev.nvim` ([ca06cc7](https://github.com/AstroNvim/astrocommunity/commit/ca06cc7271fda81743fc1f938e177a55036e2dfc))
+* **pack:** Add `verilog` pack ([#1017](https://github.com/AstroNvim/astrocommunity/issues/1017)) ([4510889](https://github.com/AstroNvim/astrocommunity/commit/4510889fee173207908103ef27a224448aa8ba1b))
+* **svelte:** enable inlay hints by default ([334e5d1](https://github.com/AstroNvim/astrocommunity/commit/334e5d19d3a9da9dc7fce2710a907398955215c3))
+* **terminal-integration:** add `vim-tmux-navigator` plugin ([#984](https://github.com/AstroNvim/astrocommunity/issues/984)) ([2dfc54b](https://github.com/AstroNvim/astrocommunity/commit/2dfc54bf4387c76e1174db877581d0a40cefeaf6))
+* **typescript:** replace `typescript-tools` with `vtsls` ([#969](https://github.com/AstroNvim/astrocommunity/issues/969)) ([300a8c6](https://github.com/AstroNvim/astrocommunity/commit/300a8c63eca98593036f358e406cca09d59d241e))
+* **utility:** Add telescope-lazy.nvim ([#1024](https://github.com/AstroNvim/astrocommunity/issues/1024)) ([abd0cb9](https://github.com/AstroNvim/astrocommunity/commit/abd0cb98d0cbfdf7b3a1c248495e05329604106d))
+* **vscode:** add `ts-comments.nvim` to enabled in vs code ([23d8e14](https://github.com/AstroNvim/astrocommunity/commit/23d8e1447f459548e155bb54ae4305e2b4d4fb07))
+* **vscode:** add more known working plugins to enable in VS Code ([544998e](https://github.com/AstroNvim/astrocommunity/commit/544998e706f6477ff0f2812771cbcd1d66b33c52))
+* **vue:** configure volar as tsserver plugin ([#1007](https://github.com/AstroNvim/astrocommunity/issues/1007)) ([4b149f1](https://github.com/AstroNvim/astrocommunity/commit/4b149f1021263fcdbd7d43ea0bd796a20862f615))
+* **vue:** enable inlay hints by default ([ac9457f](https://github.com/AstroNvim/astrocommunity/commit/ac9457fbcc2b802d3edfe4ef8aae1f958a0aa038))
+
+
+### Bug Fixes
+
+* **bufferline-nvim:** add bufferline cycle bindings ([#1009](https://github.com/AstroNvim/astrocommunity/issues/1009)) ([f34cd1c](https://github.com/AstroNvim/astrocommunity/commit/f34cd1cf0078ed49562f9a256e1c5382e693b175))
+* **bufferline-nvim:** remove default unapplicable buffer mappings and add move bindings ([3ec0709](https://github.com/AstroNvim/astrocommunity/commit/3ec07095a7d14f8fa9477fdbc00010d9cdbf49c4))
+* **catppuccin:** update `native_lsp` integration ([8aeb3e8](https://github.com/AstroNvim/astrocommunity/commit/8aeb3e873a0f8d0a3855e80ba0a8ddbb786a08a6))
+* **clojure:** clean up clojure pack and fix bugs ([a34848c](https://github.com/AstroNvim/astrocommunity/commit/a34848c1f7030288b5c37a8022e2cff79f0a574e))
+* **colorscheme:** `onigiri.nvim` repo is deleted ([e2cf3fd](https://github.com/AstroNvim/astrocommunity/commit/e2cf3fd99ee08d4701fa9f10f9240529968aec75))
+* **cpp:** fix support for `linux/arm64` architecture ([7de5e2f](https://github.com/AstroNvim/astrocommunity/commit/7de5e2fcc06f6bcc7073451474a113583d90067a)), closes [#997](https://github.com/AstroNvim/astrocommunity/issues/997)
+* **cpp:** only check for Linux ARM for disabling/enabling clangd installation ([519be02](https://github.com/AstroNvim/astrocommunity/commit/519be0280502aa332964243e9105c9f2bbaa7c05))
+* **cutlass-nvim:** fix incorrect lazy loading ([fd6104a](https://github.com/AstroNvim/astrocommunity/commit/fd6104aa9b05a99e04cf6bd22cbcf45ad7de2bcc))
+* **fluoromachine-nvim:** make sure to call setup with `opts` ([511d232](https://github.com/AstroNvim/astrocommunity/commit/511d232b08aed58c18bf4b61752879226374b36b))
+* **go:** disable diagnostics getting configured ([c12216c](https://github.com/AstroNvim/astrocommunity/commit/c12216c538088c5ec892b1c3cf616ca882a7d22e))
+* **java:** update for the latest settings hierarchy ([#1020](https://github.com/AstroNvim/astrocommunity/issues/1020)) ([95e8b3f](https://github.com/AstroNvim/astrocommunity/commit/95e8b3f9050cf8fde3c8ac402e2c6f7826f05b92))
+* **lspsaga:** unify expand/collapse icons with folds ([b2c7a4b](https://github.com/AstroNvim/astrocommunity/commit/b2c7a4b43244316262872ea67ee82fead0f6f377))
+* **neosolarized-nvim:** default to background being set ([e6158dd](https://github.com/AstroNvim/astrocommunity/commit/e6158dded2e3c885fd17e20d474e9ba32db94287))
+* **project-nvim:** use new rooter enable notation ([9c3208f](https://github.com/AstroNvim/astrocommunity/commit/9c3208faecd9bc86fad06183432bf4b44c62c1f6))
+* **python:** update venv-selector to new branch ([#1022](https://github.com/AstroNvim/astrocommunity/issues/1022)) ([4a839df](https://github.com/AstroNvim/astrocommunity/commit/4a839df246f0286bdf592f598059e09a3f660ed1))
+* **toggleterm-manager-nvim:** add missing keybindings documented ([#988](https://github.com/AstroNvim/astrocommunity/issues/988)) ([d7b784a](https://github.com/AstroNvim/astrocommunity/commit/d7b784aae38a2e5f3340778e82b96e3cd4ea8888))
+* **toggleterm-manager:** add missing keybindings documented ([d7b784a](https://github.com/AstroNvim/astrocommunity/commit/d7b784aae38a2e5f3340778e82b96e3cd4ea8888))
+* **trouble-nvim:** update to `trouble.nvim` v3 ([#1014](https://github.com/AstroNvim/astrocommunity/issues/1014)) ([7385130](https://github.com/AstroNvim/astrocommunity/commit/738513042549ff27b877671469e351a75d4584be))
+* **trouble-nvim:** update todo-comments integration ([4b39843](https://github.com/AstroNvim/astrocommunity/commit/4b39843a2f1a33d638504e81fec29f5403194f45))
+* **typescript:** fix bug in `typescript-tools.nvim` where indentation gets treated as 0 ([259ae0f](https://github.com/AstroNvim/astrocommunity/commit/259ae0fefa286fbc12dc1c58d072e34324250e77))
+* **typescript:** only search for `package.json` files in typescript language servers ([6b8503f](https://github.com/AstroNvim/astrocommunity/commit/6b8503ffaa01ec0e50c9e044011db9c659fe2932))
+* **vim-visual-multi:** dependencies name correction ([#992](https://github.com/AstroNvim/astrocommunity/issues/992)) ([2c803a9](https://github.com/AstroNvim/astrocommunity/commit/2c803a9fb52b981547aff402d56bbf04a9018655))
+* **zk-nvim:** update to new organization and setup ([042f851](https://github.com/AstroNvim/astrocommunity/commit/042f8513b80ea21f9aed163518d7a1043b7b7364))
+
 ## [8.5.0](https://github.com/AstroNvim/astrocommunity/compare/v8.4.0...v8.5.0) (2024-05-22)
 
 
