@@ -8,6 +8,14 @@ return {
     end,
   },
   {
+    "AstroNvim/astrolsp",
+    opts = {
+      config = {
+        ruff = { on_attach = function(client) client.server_capabilities.hoverProvider = false end },
+      },
+    },
+  },
+  {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
