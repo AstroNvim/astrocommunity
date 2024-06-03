@@ -17,11 +17,11 @@ return {
           maps.n[prefix .. "q"] = { "<Cmd>Trouble quickfix toggle<CR>", desc = "Quickfix List (Trouble)" }
           if require("astrocore").is_available "todo-comments.nvim" then
             maps.n[prefix .. "t"] = {
-              "<cmd>TodoTrouble<cr>",
+              "<cmd>Trouble todo<cr>",
               desc = "Todo (Trouble)",
             }
             maps.n[prefix .. "T"] = {
-              "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",
+              "<cmd>Trouble todo filter={tag={TODO,FIX,FIXME}}<cr>",
               desc = "Todo/Fix/Fixme (Trouble)",
             }
           end
