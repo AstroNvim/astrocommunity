@@ -1,6 +1,11 @@
 return {
   { import = "astrocommunity.pack.toml" },
-  { "tjdevries/ocaml.nvim", lazy = false, opts = {} },
+  {
+    "tjdevries/ocaml.nvim",
+    lazy = false,
+    build = function() require("ocaml").update() end,
+    opts = {},
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
