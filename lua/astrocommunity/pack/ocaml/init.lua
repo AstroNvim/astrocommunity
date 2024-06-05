@@ -1,6 +1,6 @@
 return {
   { import = "astrocommunity.pack.toml" },
-  { "tjdevries/ocaml.nvim", opts = {} },
+  { "tjdevries/ocaml.nvim", lazy = false, opts = {} },
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
@@ -11,6 +11,20 @@ return {
           { "ocaml", "ocaml_interface", "ocamllex", "menhir" }
         )
       end
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "ocamllsp" })
+    end,
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "ocaml-lsp" })
     end,
   },
   {
