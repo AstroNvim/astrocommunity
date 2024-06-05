@@ -1,0 +1,28 @@
+return {
+  { import = "astrocommunity.pack.toml" },
+  { "tjdevries/ocaml.nvim", opts = {} },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    optional = true,
+    opts = function(_, opts)
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = require("astrocore").list_insert_unique(
+          opts.ensure_installed,
+          { "ocaml", "ocaml_interface", "ocamllex", "menhir" }
+        )
+      end
+    end,
+  },
+  {
+    "AstroNvim/astrolsp",
+    optional = true,
+    ---@param opts AstroLSPOpts
+    opts = {
+      config = {
+        ocamllsp = {
+          get_language_id = function(_, ftype) return ftype end,
+        },
+      },
+    },
+  },
+}
