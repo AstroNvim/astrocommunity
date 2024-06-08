@@ -2,11 +2,9 @@
 return {
   {
     "Exafunction/codeium.nvim",
-    config = function()
-      require("codeium").setup {
-        enable_chat = true,
-      }
-    end,
+    opts = {
+      enable_chat = true,
+    },
   },
   {
     "hrsh7th/nvim-cmp",
