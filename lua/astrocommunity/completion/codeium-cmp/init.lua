@@ -8,6 +8,7 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    optional = true,
     dependencies = { "Exafunction/codeium.nvim" },
     opts = function(_, opts)
       -- Inject codeium into cmp sources, with high priority
