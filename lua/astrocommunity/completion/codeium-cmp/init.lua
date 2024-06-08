@@ -26,9 +26,10 @@ return {
     opts = function(_, opts) opts.symbol_map = { Codeium = "" } end,
   },
   {
+    "AstroNvim/astrocore",
     event = "User AstroFile",
     dependencies = { "Exafunction/codeium.nvim" },
-    "AstroNvim/astrocore",
+
     ---@param opts AstroCoreOpts
     opts = function(_, opts)
       return require("astrocore").extend_tbl(opts, {
