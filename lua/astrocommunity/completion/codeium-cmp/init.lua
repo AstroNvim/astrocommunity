@@ -25,4 +25,29 @@ return {
     -- Adds icon for codeium using lspkind
     opts = function(_, opts) opts.symbol_map = { Codeium = "" } end,
   },
+  {
+    event = "User AstroFile",
+    dependencies = { "Exafunction/codeium.nvim" },
+    "AstroNvim/astrocore",
+    ---@param opts AstroCoreOpts
+    opts = function(_, opts)
+      return require("astrocore").extend_tbl(opts, {
+        mappings = {
+          n = {
+            ["<Leader>;"] = {
+              name = " Codeium",
+            },
+            ["<Leader>;o"] = {
+              desc = "Open Chat",
+              function() vim.cmd "Codeium Chat" end,
+            },
+            ["<Leader>;a"] = {
+              desc = "Auth",
+              function() vim.cmd "Codeium Auth" end,
+            },
+          },
+        },
+      })
+    end,
+  },
 }
