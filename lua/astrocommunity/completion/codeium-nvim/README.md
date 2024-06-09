@@ -1,10 +1,10 @@
-# codeium-cmp
+# codeium-nvim
 
-Add native codeium plugin for neovim.
+A native neovim extension for Codeium
 
 Usage:
 
 - `:Codeium Auth` - to set up the plugin
 - `:Codeium Chat` - Open chat in browser
 
-_Repository_: https://github.com/Exafunction/codeium.nvim
+**Repository**: <https://github.com/Exafunction/codeium.nvim>
