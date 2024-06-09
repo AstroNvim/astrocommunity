@@ -8,3 +8,6 @@ Usage:
 - `:Codeium Chat` - Open chat in browser
 
 **Repository**: <https://github.com/Exafunction/codeium.nvim>
+
+
+_Note_: You need to auth first before usage
