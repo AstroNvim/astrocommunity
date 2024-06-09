@@ -1,4 +1,4 @@
-# cyberdream.nvim
+# modus.nvim
 
 Highly accessible themes for Neovim, conforming with the highest standard for color contrast between background and foreground values (WCAG AAA). A Neovim port of the original Modus Themes built for GNU Emacs.
 
