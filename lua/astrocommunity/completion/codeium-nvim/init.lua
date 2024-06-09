@@ -1,9 +1,25 @@
----@type LazySpec
 return {
   {
     "Exafunction/codeium.nvim",
     opts = {
       enable_chat = true,
+    },
+    dependencies = {
+      "AstroNvim/astrocore",
+      ---@param opts AstroCoreOpts
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>;"] = {
+              name = " Codeium",
+            },
+            ["<Leader>;o"] = {
+              desc = "Open Chat",
+              function() vim.cmd "Codeium Chat" end,
+            },
+          },
+        },
+      },
     },
   },
   {
@@ -27,9 +43,6 @@ return {
   },
   {
     "AstroNvim/astrocore",
-    event = "User AstroFile",
-    dependencies = { "Exafunction/codeium.nvim" },
-
     ---@param opts AstroCoreOpts
     opts = function(_, opts)
       return require("astrocore").extend_tbl(opts, {
