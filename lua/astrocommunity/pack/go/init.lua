@@ -72,7 +72,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
+        { "gomodifytags", "gofumpt", "impl", "goimports" }
       )
     end,
   },
@@ -89,7 +89,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "delve", "gopls", "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
+        { "delve", "gopls", "gomodifytags", "gofumpt", "impl", "goimports" }
       )
     end,
   },
