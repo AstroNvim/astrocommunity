@@ -131,7 +131,7 @@ return {
       },
     },
     opts = {
-      src = {
+      completion = {
         cmp = { enabled = true },
       },
       null_ls = {
