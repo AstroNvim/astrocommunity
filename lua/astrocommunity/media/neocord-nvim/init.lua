@@ -1,1 +1,1 @@
-return {"logaMaster/neocord", build = "./build", event = "VeryLazy"}
+return { "logaMaster/neocord", build = "./build", event = "VeryLazy" }
