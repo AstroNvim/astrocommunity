@@ -116,7 +116,6 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     opts = {
-      disable_defaults = true,
       diagnostic = false,
       go = "go",
     },
