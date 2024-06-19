@@ -118,6 +118,7 @@ return {
     opts = {
       disable_defaults = true,
       diagnostic = false,
+      go = "go",
     },
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
