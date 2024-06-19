@@ -35,6 +35,7 @@ return {
         },
       },
     },
+    { "AstroNvim/astroui", opts = { icons = { ChatGPT = "󰭹" } } },
   },
   opts = {},
 }
