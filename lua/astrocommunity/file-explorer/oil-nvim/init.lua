@@ -44,18 +44,12 @@ return {
   {
     "rebelot/heirline.nvim",
     optional = true,
+    dependencies = { "AstroNvim/astroui", opts = { status = { winbar = { enabled = { filetype = { "^oil$" } } } } } },
     opts = function(_, opts)
-      local status = require "astroui.status"
-      local is_oil = function(bufnr) return status.condition.buffer_matches({ filetype = "^oil$" }, bufnr) end
-      local disable_winbar_cb = opts.opts.disable_winbar_cb
-      opts.opts.disable_winbar_cb = function(args)
-        if is_oil(args.buf) then return false end
-        return disable_winbar_cb(args)
-      end
-
       if opts.winbar then
+        local status = require "astroui.status"
         table.insert(opts.winbar, 1, {
-          condition = function(self) return is_oil(self.bufnr) end,
+          condition = function(self) return status.condition.buffer_matches({ filetype = "^oil$" }, self.bufnr) end,
           status.component.separated_path {
             padding = { left = 2 },
             max_depth = false,
