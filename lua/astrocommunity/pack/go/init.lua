@@ -70,10 +70,8 @@ return {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
-        { "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
-      )
+      opts.ensure_installed =
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "gomodifytags", "iferr", "impl", "gotests" })
     end,
   },
   {
@@ -89,7 +87,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "delve", "gopls", "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
+        { "delve", "gopls", "gomodifytags", "gotests", "iferr", "impl" }
       )
     end,
   },
@@ -109,22 +107,14 @@ return {
     opts = {},
   },
   {
-    "ray-x/go.nvim",
+    "olexsmir/gopher.nvim",
+    ft = "go",
     dependencies = {
-      "ray-x/guihua.lua",
-      "neovim/nvim-lspconfig",
+      "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      { "williamboman/mason.nvim", optional = true }, -- by default use Mason for go dependencies
     },
-    opts = {
-      disable_defaults = true,
-      diagnostic = false,
-      go = "go",
-    },
-    event = { "CmdlineEnter" },
-    ft = { "go", "gomod" },
-    -- Prevents Neovim from freezing on plugin installation/update.
-    -- See: <https://github.com/ray-x/go.nvim/issues/433>
-    build = function() require("go.install").update_all() end,
+    opts = {},
   },
   {
     "nvim-neotest/neotest",
