@@ -20,8 +20,8 @@ return {
           hl = "hyprlang",
         },
         pattern = {
-          ["*/hypr/*.conf"] = "hyprlang",
-          ["hypr*.conf"] = "hyprlang",
+          [".*/hypr/.*.conf"] = "hyprlang",
+          ["hypr.*.conf"] = "hyprlang",
         },
       },
     },
