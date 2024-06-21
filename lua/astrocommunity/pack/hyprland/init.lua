@@ -19,9 +19,6 @@ return {
         extension = {
           hl = "hyprlang",
         },
-        filename = {
-          ["hyprland.conf"] = "hyprlang",
-        },
         pattern = {
           ["*/hypr/*.conf"] = "hyprlang",
           ["hypr*.conf"] = "hyprlang",
