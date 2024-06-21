@@ -26,7 +26,19 @@ return {
       },
     },
   },
+  {
+    "AstroNvim/astrolsp",
+    opts = function(_, opts)
+      local astrocore = require "astrocore"
+      opts.servers = astrocore.list_insert_unique(opts.servers, { "hyprls" })
 
+      return astrocore.extend_tbl(opts, {
+        config = {
+          hyprls = { filetypes = { "hyprlang" } },
+        },
+      })
+    end,
+  },
   -- treesitter support for hyprlang
   {
     "nvim-treesitter/nvim-treesitter",
