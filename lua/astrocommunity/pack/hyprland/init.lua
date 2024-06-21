@@ -24,28 +24,6 @@ return {
           ["hypr*.conf"] = "hyprlang",
         },
       },
-
-      -- hyprls client auto-attach by filetype
-      autocmds = {
-        hyprland_support = {
-          {
-            desc = "Hyprls auto-attach",
-            event = { "FileType" },
-            pattern = { "hyprlang" },
-            callback = function()
-              local core = require "astrocore"
-              if vim.fn.executable "hyprls" ~= 0 then
-                vim.lsp.start { name = "hyprls", cmd = { "hyprls" }, root_dir = vim.fn.getcwd() }
-              else
-                core.notify(
-                  "`hyprls` not installed yet. Install it by Mason or running `go install hyprls` to enable hyprland language support!",
-                  vim.log.levels.WARN
-                )
-              end
-            end,
-          },
-        },
-      },
     },
   },
 
