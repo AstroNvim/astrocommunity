@@ -6,7 +6,6 @@ This plugin pack offers language support for Hyprland config file. It does the f
     - `*.hl` extension
     - `.*/hypr/.*.conf`, `hypr.*.conf`
 - Adds `hyprlang` Treesitter parsers
-- Create autocmd for `hyprls` lsp auto-attach
 
 ## Requirement
 - Need to install `hyprls` tool first
