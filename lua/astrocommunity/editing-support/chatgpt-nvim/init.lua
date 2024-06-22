@@ -1,6 +1,6 @@
 return {
   "jackMort/ChatGPT.nvim",
-  cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTEditWithInstructions", "ChatGPTRun" },
+  cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions", "ChatGPTRun" },
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
@@ -13,7 +13,8 @@ return {
         maps.n[prefix] = { desc = require("astroui").get_icon("ChatGPT", 1, true) .. "ChatGPT" }
         maps.v[prefix] = { desc = require("astroui").get_icon("ChatGPT", 1, true) .. "ChatGPT" }
         maps.n[prefix .. "c"] = { "<cmd>ChatGPT<CR>", desc = "ChatGPT" }
-        maps.n[prefix .. "C"] = { "<Cmd>ChatGPTActAs<CR>", desc = "ChatGPT Acts As ..." }
+        maps.n[prefix .. "C"] = { "<cmd>ChatGPTActAs<CR>", desc = "ChatGPT Acts As ..." }
+        maps.n[prefix .. "m"] = { "<cmd>ChatGPTCompleteCode<CR>", desc = "Complete Code" }
 
         maps.n[prefix .. "e"] = { "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" }
         maps.v[prefix .. "e"] = { "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" }
