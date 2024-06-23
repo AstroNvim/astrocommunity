@@ -4,6 +4,7 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
+    { "folke/trouble.nvim", cmd = "Trouble", opts = {} },
     "nvim-telescope/telescope.nvim",
     {
       "AstroNvim/astrocore",
