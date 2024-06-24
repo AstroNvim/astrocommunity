@@ -4,21 +4,15 @@ return {
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter",
-      build = ":TSUpdate",
-      config = function()
-        require("nvim-treesitter.configs").setup {
-          ensure_installed = { "markdown" },
-          highlight = { enable = true },
-        }
+      optional = true,
+      opts = function(_, opts)
+        if opts.ensure_installed ~= "all" then
+          opts.ensure_installed =
+            require("astrocore").list_insert_unique(opts.ensure_installed, { "markdown", "markdown_inline" })
+        end
       end,
     },
-    {
-      "vhyrro/luarocks.nvim",
-      priority = 1000, -- this plugin needs to run before anything else
-      opts = {
-        rocks = { "magick" },
-      },
-    },
+    "https://github.com/leafo/magick",
   },
   opts = {
     backend = "kitty",
