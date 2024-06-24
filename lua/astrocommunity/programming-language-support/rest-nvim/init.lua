@@ -5,11 +5,6 @@ return {
     cmd = "Rest",
     dependencies = {
       {
-        "vhyrro/luarocks.nvim",
-        priority = 1000,
-        config = true,
-      },
-      {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = opts.mappings
