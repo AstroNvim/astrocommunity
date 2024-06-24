@@ -1,14 +1,8 @@
 return {
   "nvim-neorg/neorg",
   version = "^8",
-  dependencies = {
-    {
-      "vhyrro/luarocks.nvim",
-      priority = 1000, -- We'd like this plugin to load first out of the rest
-      config = true,
-    },
-  },
   event = "VeryLazy",
+  dependencies = { "nvim-treesitter/nvim-treesitter" },
   opts = {
     load = {
       ["core.defaults"] = {}, -- Loads default behaviour
