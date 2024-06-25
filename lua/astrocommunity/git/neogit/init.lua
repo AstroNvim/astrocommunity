@@ -22,8 +22,7 @@ return {
     opts = function(_, opts)
       local utils = require "astrocore"
       local disable_builtin_notifications = utils.is_available "nvim-notify" or utils.is_available "noice.nvim"
-      local ui_utils = require "astroui"
-      local fold_signs = { ui_utils.get_icon "FoldClosed", ui_utils.get_icon "FoldOpened" }
+      local fold_signs = { "", "" }
 
       return utils.extend_tbl(opts, {
         disable_builtin_notifications = disable_builtin_notifications,
