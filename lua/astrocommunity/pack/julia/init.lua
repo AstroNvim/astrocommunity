@@ -1,3 +1,9 @@
+-- Julia language server may be setup manually to use local system images. We should ignore installing the package
+-- from Mason if that's the case because it completely changes how the Julia Language Server works
+local function julials_manually_setup()
+  return vim.tbl_contains(vim.tbl_get(require("astrocore").plugin_opts "astrolsp", "servers") or {}, "julials")
+end
+
 return {
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.completion.cmp-latex-symbols" },
@@ -14,14 +20,18 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "julials" })
+      if not julials_manually_setup() then
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "julials" })
+      end
     end,
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "julia-lsp" })
+      if not julials_manually_setup() then
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "julia-lsp" })
+      end
     end,
   },
 }
