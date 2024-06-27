@@ -133,6 +133,9 @@ return {
     opts = {
       completion = {
         cmp = { enabled = true },
+        crates = {
+          enabled = true,
+        },
       },
       null_ls = {
         enabled = true,
