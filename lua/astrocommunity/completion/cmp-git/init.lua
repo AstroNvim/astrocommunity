@@ -1,6 +1,6 @@
 return {
   "petertriho/cmp-git",
-  ft = { "gitcommit", "octo" },
+  ft = { "gitcommit", "octo", "NeogitCommitMessage" },
   dependencies = { "hrsh7th/nvim-cmp" },
   opts = function(_, opts)
     opts.filetypes = require("lazy.core.plugin").values(assert(require("astrocore").get_plugin "cmp-git"), "ft")
