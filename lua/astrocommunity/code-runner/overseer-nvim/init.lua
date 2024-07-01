@@ -16,7 +16,25 @@ return {
       "OverseerTaskAction ",
       "OverseerClearCache",
     },
-    opts = {},
+    ---@param opts overseer.Config
+    opts = function(_, opts)
+      local astrocore = require "astrocore"
+      if astrocore.is_available "toggleterm.nvim" then opts.strategy = "toggleterm" end
+      opts.task_list = {
+        direction = "bottom",
+        bindings = {
+          ["<C-l>"] = false,
+          ["<C-h>"] = false,
+          ["<C-k>"] = false,
+          ["<C-j>"] = false,
+          q = "<Cmd>close<CR>",
+          K = "IncreaseDetail",
+          J = "DecreaseDetail",
+          ["<C-p>"] = "ScrollOutputUp",
+          ["<C-n>"] = "ScrollOutputDown",
+        },
+      }
+    end,
     dependencies = {
       { "AstroNvim/astroui", opts = { icons = { Overseer = "" } } },
       {
