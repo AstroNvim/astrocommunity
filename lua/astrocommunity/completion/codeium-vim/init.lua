@@ -1,6 +1,14 @@
 return {
   "Exafunction/codeium.vim",
-  event = "User AstroFile",
+  cmd = {
+    "Codeium",
+    "CodeiumEnable",
+    "CodeiumDisable",
+    "CodeiumToggle",
+    "CodeiumAuto",
+    "CodeiumManual",
+  },
+  event = "BufEnter",
   dependencies = {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
