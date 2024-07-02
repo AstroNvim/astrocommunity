@@ -1,5 +1,61 @@
 # Changelog
 
+## [11.0.0](https://github.com/AstroNvim/astrocommunity/compare/v10.0.0...v11.0.0) (2024-07-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **overseer-nvim:** change overseer prefix to not conflict with neotest
+* **go:** move from `go.nvim` to `gopher.nvim` ([#1059](https://github.com/AstroNvim/astrocommunity/issues/1059))
+
+### Features
+
+* **chatgpt-nvim:** add which-key mappings below &lt;leader&gt;G ([#1051](https://github.com/AstroNvim/astrocommunity/issues/1051)) ([e48e840](https://github.com/AstroNvim/astrocommunity/commit/e48e840ebcd5ec31fd6a1bd6e9acb63f503a2223))
+* **cmp-git:** add Neogit integration ([77ee4b6](https://github.com/AstroNvim/astrocommunity/commit/77ee4b65c21c59f242dd22764e771b28d3c02df5))
+* **code-runner:** add `vim-slime` ([#1065](https://github.com/AstroNvim/astrocommunity/issues/1065)) ([9ad5b67](https://github.com/AstroNvim/astrocommunity/commit/9ad5b67d06ef41e1ec58eb89d66704e0eb436228))
+* **codeium-nvim:** use `astroui` for the symbols ([#1076](https://github.com/AstroNvim/astrocommunity/issues/1076)) ([b5a3aa4](https://github.com/AstroNvim/astrocommunity/commit/b5a3aa4dab905a4a94f37b33ead86fa355675c4b))
+* **completion:** add `cmp-nerdfont` ([#1074](https://github.com/AstroNvim/astrocommunity/issues/1074)) ([3cbe80a](https://github.com/AstroNvim/astrocommunity/commit/3cbe80a6f6ab4f6e35d07f1fc0028fedd4b92abe))
+* **completion:** add `nvim-cmp-buffer-lines` ([#1056](https://github.com/AstroNvim/astrocommunity/issues/1056)) ([07ddd3d](https://github.com/AstroNvim/astrocommunity/commit/07ddd3d2782dca0920faf74be072cb748633a8a1))
+* **completion:** add cmp-nvim-lua ([#1050](https://github.com/AstroNvim/astrocommunity/issues/1050)) ([c127e71](https://github.com/AstroNvim/astrocommunity/commit/c127e7145c44ad0128a121def6e74fd8f270c053))
+* **completion:** add cmp-tmux ([#1068](https://github.com/AstroNvim/astrocommunity/issues/1068)) ([6bfc094](https://github.com/AstroNvim/astrocommunity/commit/6bfc09446916d75dfe3e1a77adcba3ba4e844631))
+* **go:** move from `go.nvim` to `gopher.nvim` ([#1059](https://github.com/AstroNvim/astrocommunity/issues/1059)) ([5adae48](https://github.com/AstroNvim/astrocommunity/commit/5adae485bb20927859aa5f8be300cfd9fd219705))
+* **media:** add `neocord.nvim` ([#1049](https://github.com/AstroNvim/astrocommunity/issues/1049)) ([11217da](https://github.com/AstroNvim/astrocommunity/commit/11217dabdf24bf4c06322830b0dc90b73e176061))
+* **nvim-highlight-colors:** add `nvim-cmp` completion integration ([90ff9f2](https://github.com/AstroNvim/astrocommunity/commit/90ff9f23f98c4265b37091c6077744b48c19e324))
+* **pack:** add hyprlang config file language support ([#1063](https://github.com/AstroNvim/astrocommunity/issues/1063)) ([e2a5562](https://github.com/AstroNvim/astrocommunity/commit/e2a55628fc919fd98a286f731e742b3500468bf4))
+* **project:** add `grug-far-nvim` ([#1075](https://github.com/AstroNvim/astrocommunity/issues/1075)) ([22e2c58](https://github.com/AstroNvim/astrocommunity/commit/22e2c58c5fae44ea7f7be29a3514ef8ea562d218))
+* **rainbow-delimiters-nvim:** add `&lt;Leader&gt;u(` to toggle rainbow delimiters ([afe4a72](https://github.com/AstroNvim/astrocommunity/commit/afe4a726975a4cc2233cc4366c5beb2b22e52653))
+* **rust:** Add cmp support for crates name ([#1073](https://github.com/AstroNvim/astrocommunity/issues/1073)) ([37b18d9](https://github.com/AstroNvim/astrocommunity/commit/37b18d9e6d4c897939711407f36660bf10b58cce))
+
+
+### Bug Fixes
+
+* **bash:** `bashls` automatically uses `shellcheck` and `shfmt` ([2353882](https://github.com/AstroNvim/astrocommunity/commit/23538823fa42513ac721a66f4c089c0c6dbaf853))
+* **bash:** `shfmt` indentation detection implemented upstream ([ce626bc](https://github.com/AstroNvim/astrocommunity/commit/ce626bc1aaeb234aef14c91156d64fe3974e06bc))
+* **bash:** make `shfmt` respect indentation settings with conform ([e0596e0](https://github.com/AstroNvim/astrocommunity/commit/e0596e0ec1ef24c7607d9dbd7692b06b95686c8b))
+* **chatgpt-nvim:** Add missing cmd and bindings ([#1067](https://github.com/AstroNvim/astrocommunity/issues/1067)) ([1a27778](https://github.com/AstroNvim/astrocommunity/commit/1a2777801c6322d8f0d02862e08f7aa5ecc8886a))
+* **chatgpt-nvim:** add trouble.nvim dependency ([#1066](https://github.com/AstroNvim/astrocommunity/issues/1066)) ([1f3a6ec](https://github.com/AstroNvim/astrocommunity/commit/1f3a6ec008b404c72f84093fe25c574ba63fc256))
+* **chatgpt-nvim:** lazy loading and binding for ChatGPTCompleteCode cmd ([1a27778](https://github.com/AstroNvim/astrocommunity/commit/1a2777801c6322d8f0d02862e08f7aa5ecc8886a))
+* **codeium-vim:** port mappings to `astrocore` and fix lazy loading event ([#1077](https://github.com/AstroNvim/astrocommunity/issues/1077)) ([5a7a7fa](https://github.com/AstroNvim/astrocommunity/commit/5a7a7fab6a52d4c45cf3352459e88bb2a7972876))
+* **go:** install go dependencies if mason isn't available ([58be28a](https://github.com/AstroNvim/astrocommunity/commit/58be28a129aeaaad74fb608b3a9f05e0214aab99))
+* **go:** set default go binary to `"go"` ([#1053](https://github.com/AstroNvim/astrocommunity/issues/1053)) ([67268b2](https://github.com/AstroNvim/astrocommunity/commit/67268b2dd256599b21496aa4e63a3974a4554c13))
+* **julia:** only install the julia language server from Mason if not setup manually ([68b8e32](https://github.com/AstroNvim/astrocommunity/commit/68b8e323f474b59c87f54aacfade9f6667dd0ae6))
+* **lsp-signature-nvim:** corrected lazy spec and disable conflicts features from `noice-nvim` ([#1079](https://github.com/AstroNvim/astrocommunity/issues/1079)) ([03bf3a5](https://github.com/AstroNvim/astrocommunity/commit/03bf3a5a0bc0040f0aed02f2b569cb544ed2d610))
+* **neogit:** add missing command for lazy loading ([cbb114c](https://github.com/AstroNvim/astrocommunity/commit/cbb114c4ccc057e661faa6786505ce552ae1a142))
+* **neogit:** disable signs as `foldcolumn` handles this out of the box ([9b791f1](https://github.com/AstroNvim/astrocommunity/commit/9b791f15f7bfaeb7b6d82f41373e99aba4070521))
+* **neogit:** explicitly disable signs since foldcolumn is used by default ([899d0bd](https://github.com/AstroNvim/astrocommunity/commit/899d0bdf0c3ce0d5887af1c8a3653c223661281a))
+* **oil-nvim:** integrate icons with AstroUI ([c2a7f0a](https://github.com/AstroNvim/astrocommunity/commit/c2a7f0ac9558b4f67fc70ce0e01449909e2d30cb))
+* **overseer-nvim:** change overseer prefix to not conflict with neotest ([2685d11](https://github.com/AstroNvim/astrocommunity/commit/2685d1130b5eb4b28e7558404502651affcff3af))
+* **overseer-nvim:** fix conflicting overseer bindings ([1e74889](https://github.com/AstroNvim/astrocommunity/commit/1e74889fdae5ee38ecf41e7ec9bd4888a284ad2e))
+* **python-ruff:** organize imports before formatting by default ([52544fe](https://github.com/AstroNvim/astrocommunity/commit/52544fe7695673c28f424e99e429518250c38d4b))
+* **tailwindcss:** add mjs support for tailwind root dir detection ([#1070](https://github.com/AstroNvim/astrocommunity/issues/1070)) ([54cf316](https://github.com/AstroNvim/astrocommunity/commit/54cf3160da6f01d48306979c7d80e3955dab01c5))
+* **vim-sandwich:** fix lazy loading and mapping setup ([6aa6aad](https://github.com/AstroNvim/astrocommunity/commit/6aa6aad7b86f59fd622dc405171d912edb734c11))
+
+
+### Performance Improvements
+
+* **codeium-nvim:** add `event` and `cmd` fields for improved lazy-loading ([#1078](https://github.com/AstroNvim/astrocommunity/issues/1078)) ([6a1b312](https://github.com/AstroNvim/astrocommunity/commit/6a1b312391258573abcc8fa7aa0a732e2c123344))
+* **codeium-nvim:** add missing lazy spec events ([6a1b312](https://github.com/AstroNvim/astrocommunity/commit/6a1b312391258573abcc8fa7aa0a732e2c123344))
+
 ## [10.0.0](https://github.com/AstroNvim/astrocommunity/compare/v9.0.0...v10.0.0) (2024-06-17)
 
 
