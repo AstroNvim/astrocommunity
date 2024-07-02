@@ -16,13 +16,7 @@ return {
       mappings = {
         n = {
           ["<Leader>;"] = {
-            function()
-              if vim.g.codeium_enabled == true then
-                vim.cmd "CodeiumDisable"
-              else
-                vim.cmd "CodeiumEnable"
-              end
-            end,
+            "<Cmd>CodeiumToggle<CR>",
             noremap = true,
             desc = "Toggle Codeium active",
           },
