@@ -1,6 +1,8 @@
 return {
   {
     "Exafunction/codeium.nvim",
+    event = "User AstroFile",
+    cmd = "Codeium",
     opts = {
       enable_chat = true,
     },
