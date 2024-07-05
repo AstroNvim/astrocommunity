@@ -1,6 +1,8 @@
 return {
   "echasnovski/mini.icons",
-  opts = {},
+  opts = function(_, opts)
+    if vim.g.icons_enabled == false then opts.style = "ascii" end
+  end,
   lazy = true,
   specs = {
     { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
