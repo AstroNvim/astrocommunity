@@ -1,4 +1,4 @@
-# mini.icon
+# mini.icons
 
 Icon provider. Part of 'mini.nvim' library.
 
