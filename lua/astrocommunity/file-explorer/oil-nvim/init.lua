@@ -50,7 +50,7 @@ return {
               padding = { left = 2 },
               max_depth = false,
               suffix = false,
-              path_func = function() return require("oil").get_current_dir() end,
+              path_func = function(self) return require("oil").get_current_dir(self.bufnr) end,
             },
           })
         end
