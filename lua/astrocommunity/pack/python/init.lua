@@ -6,7 +6,7 @@ return {
     opts = {
       ---@diagnostic disable: missing-fields
       config = {
-        pyright = {
+        basedpyright = {
           before_init = function(_, c) c.settings.python.pythonPath = vim.fn.exepath "python" end,
         },
       },
@@ -25,7 +25,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "pyright" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "basedpyright" })
     end,
   },
   {
@@ -49,7 +49,7 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, { "pyright", "black", "isort", "debugpy" })
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "basedpyright", "black", "isort", "debugpy" })
     end,
   },
   {
