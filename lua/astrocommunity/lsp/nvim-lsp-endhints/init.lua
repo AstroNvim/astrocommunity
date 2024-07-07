@@ -1,5 +1,5 @@
 return {
   "chrisgrieser/nvim-lsp-endhints",
-  event = "User AstroLsp",
+  event = "LspAttach",
   opts = {},
 }
