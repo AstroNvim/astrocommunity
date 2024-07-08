@@ -39,6 +39,8 @@ jobs:
 
             - [ ] Pull request title has the appropriate conventional commit type and **scope** where the scope is the name of the _pre-existing_ directory in the project as described above
             - [ ] \`README\` is properly formatted and uses fenced in links with \`<url>\` unless they are inside a \`[title](url)\`
+            - [ ] Entry returns a single plugin spec with the _new plugin_ as the only top level spec (not applicable for recipes or packs).
             - [ ] Proper usage of \`opts\` table rather than setting things up with the \`config\` function.
+            - [ ] Proper usage of \`specs\` table for all specs that are not dependencies of a given plugin (not applicable for recipes or packs).
             `,
             })

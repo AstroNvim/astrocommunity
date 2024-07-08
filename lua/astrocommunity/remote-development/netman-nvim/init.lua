@@ -1,21 +1,21 @@
 return {
-  {
-    "miversen33/netman.nvim",
-    cmd = {
-      "NmloadProvider",
-      "Nmlogs",
-      "Nmdelete",
-      "Nmread",
-      "Nmwrite",
-    },
-    opts = {},
+  "miversen33/netman.nvim",
+  cmd = {
+    "NmloadProvider",
+    "Nmlogs",
+    "Nmdelete",
+    "Nmread",
+    "Nmwrite",
   },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    dependencies = { "netman.nvim" },
-    optional = true,
-    opts = function(_, opts)
-      opts.sources = require("astrocore").list_insert_unique(opts.sources, { "netman.ui.neo-tree" })
-    end,
+  opts = {},
+  specs = {
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      dependencies = { "netman.nvim" },
+      optional = true,
+      opts = function(_, opts)
+        opts.sources = require("astrocore").list_insert_unique(opts.sources, { "netman.ui.neo-tree" })
+      end,
+    },
   },
 }
