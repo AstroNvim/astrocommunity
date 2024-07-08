@@ -26,14 +26,16 @@ return {
         },
       },
     },
+    specs = {
+      {
+        "catppuccin",
+        optional = true,
+        ---@type CatppuccinOptions
+        opts = { integrations = { rainbow_delimiters = true } },
+      },
+    },
     event = "User AstroFile",
     main = "rainbow-delimiters.setup",
     opts = {},
-  },
-  {
-    "catppuccin",
-    optional = true,
-    ---@type CatppuccinOptions
-    opts = { integrations = { rainbow_delimiters = true } },
   },
 }

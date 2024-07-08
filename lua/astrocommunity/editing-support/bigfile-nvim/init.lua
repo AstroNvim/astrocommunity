@@ -1,11 +1,11 @@
 return {
-  {
-    "AstroNvim/astrocore",
-    opts = { features = { large_buf = false } } --[[@as AstroCoreOpts]],
-  },
-  {
-    "LunarVim/bigfile.nvim",
-    event = "BufReadPre",
-    opts = {},
+  "LunarVim/bigfile.nvim",
+  event = "BufReadPre",
+  opts = {},
+  specs = {
+    {
+      "AstroNvim/astrocore",
+      opts = { features = { large_buf = false } } --[[@as AstroCoreOpts]],
+    },
   },
 }

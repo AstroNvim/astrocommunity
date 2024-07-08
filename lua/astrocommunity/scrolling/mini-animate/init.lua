@@ -1,47 +1,47 @@
 return {
-  {
-    "echasnovski/mini.animate",
-    event = "VeryLazy",
-    cond = not (vim.g.neovide or vim.g.vscode),
-    -- enabled = false,
-    opts = function()
-      -- don't use animate when scrolling with the mouse
-      local mouse_scrolled = false
-      for _, scroll in ipairs { "Up", "Down" } do
-        local key = "<ScrollWheel" .. scroll .. ">"
-        vim.keymap.set({ "", "i" }, key, function()
-          mouse_scrolled = true
-          return key
-        end, { expr = true })
-      end
+  "echasnovski/mini.animate",
+  event = "VeryLazy",
+  cond = not (vim.g.neovide or vim.g.vscode),
+  -- enabled = false,
+  opts = function()
+    -- don't use animate when scrolling with the mouse
+    local mouse_scrolled = false
+    for _, scroll in ipairs { "Up", "Down" } do
+      local key = "<ScrollWheel" .. scroll .. ">"
+      vim.keymap.set({ "", "i" }, key, function()
+        mouse_scrolled = true
+        return key
+      end, { expr = true })
+    end
 
-      local animate = require "mini.animate"
-      return {
-        resize = {
-          timing = animate.gen_timing.linear { duration = 100, unit = "total" },
+    local animate = require "mini.animate"
+    return {
+      resize = {
+        timing = animate.gen_timing.linear { duration = 100, unit = "total" },
+      },
+      scroll = {
+        timing = animate.gen_timing.linear { duration = 150, unit = "total" },
+        subscroll = animate.gen_subscroll.equal {
+          predicate = function(total_scroll)
+            if mouse_scrolled then
+              mouse_scrolled = false
+              return false
+            end
+            return total_scroll > 1
+          end,
         },
-        scroll = {
-          timing = animate.gen_timing.linear { duration = 150, unit = "total" },
-          subscroll = animate.gen_subscroll.equal {
-            predicate = function(total_scroll)
-              if mouse_scrolled then
-                mouse_scrolled = false
-                return false
-              end
-              return total_scroll > 1
-            end,
-          },
-        },
-        cursor = {
-          timing = animate.gen_timing.linear { duration = 80, unit = "total" },
-        },
-      }
-    end,
-  },
-  {
-    "catppuccin",
-    optional = true,
-    ---@type CatppuccinOptions
-    opts = { integrations = { mini = true } },
+      },
+      cursor = {
+        timing = animate.gen_timing.linear { duration = 80, unit = "total" },
+      },
+    }
+  end,
+  specs = {
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { mini = true } },
+    },
   },
 }
