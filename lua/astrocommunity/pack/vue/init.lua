@@ -4,69 +4,58 @@ return {
     "AstroNvim/astrolsp",
     optional = true,
     ---@type AstroLSPOpts
-    opts = {
-      ---@diagnostic disable: missing-fields
-      config = {
-        volar = {
-          init_options = {
-            vue = {
-              hybridMode = false,
+    opts = function(_, opts)
+      local astrocore = require "astrocore"
+      local vtsls_ft = astrocore.list_insert_unique(vim.tbl_get(opts, "config", "vtsls", "filetypes") or {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+      }, { "vue" })
+      return astrocore.extend_tbl(opts, {
+        ---@diagnostic disable: missing-fields
+        config = {
+          volar = {
+            init_options = {
+              vue = {
+                hybridMode = true,
+              },
             },
           },
-          settings = {
-            typescript = {
-              updateImportsOnFileMove = { enabled = "always" },
-              inlayHints = {
-                parameterNames = { enabled = "all" },
-                parameterTypes = { enabled = true },
-                variableTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                enumMemberValues = { enabled = true },
+          vtsls = {
+            filetypes = vtsls_ft,
+            settings = {
+              vtsls = {
+                tsserver = {
+                  globalPlugins = {},
+                },
               },
             },
-            javascript = {
-              updateImportsOnFileMove = { enabled = "always" },
-              inlayHints = {
-                parameterNames = { enabled = "literals" },
-                parameterTypes = { enabled = true },
-                variableTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                enumMemberValues = { enabled = true },
-              },
-            },
+            before_init = function(_, config)
+              local registry_ok, registry = pcall(require, "mason-registry")
+              if not registry_ok then return end
+              local vuels = registry.get_package "vue-language-server"
+
+              if vuels:is_installed() then
+                local volar_install_path = vuels:get_install_path() .. "/node_modules/@vue/language-server"
+
+                local vue_plugin_config = {
+                  name = "@vue/typescript-plugin",
+                  location = volar_install_path,
+                  languages = { "vue" },
+                  configNamespace = "typescript",
+                  enableForWorkspaceTypeScriptVersions = true,
+                }
+
+                astrocore.list_insert_unique(config.settings.vtsls.tsserver.globalPlugins, { vue_plugin_config })
+              end
+            end,
           },
         },
-        vtsls = {
-          settings = {
-            vtsls = {
-              tsserver = {
-                globalPlugins = {},
-              },
-            },
-          },
-          before_init = function(_, config)
-            local astrocore_ok, astrocore = pcall(require, "astrocore")
-            local registry_ok, registry = pcall(require, "mason-registry")
-            if not astrocore_ok or not registry_ok then return end
-
-            local volar_install_path = registry.get_package("vue-language-server"):get_install_path()
-              .. "/node_modules/@vue/language-server"
-
-            local vue_plugin_config = {
-              name = "@vue/typescript-plugin",
-              location = volar_install_path,
-              languages = { "vue" },
-              configNamespace = "typescript",
-              enableForWorkspaceTypeScriptVersions = true,
-            }
-
-            astrocore.list_insert_unique(config.settings.vtsls.tsserver.globalPlugins, { vue_plugin_config })
-          end,
-        },
-      },
-    },
+      })
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
