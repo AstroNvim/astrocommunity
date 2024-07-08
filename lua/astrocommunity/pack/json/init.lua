@@ -2,9 +2,8 @@ return {
   {
     "b0o/SchemaStore.nvim",
     lazy = true,
-    dependencies = {
+    specs = {
       {
-
         "AstroNvim/astrolsp",
         optional = true,
         ---@type AstroLSPOpts

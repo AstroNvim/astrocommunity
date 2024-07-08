@@ -50,7 +50,7 @@ return {
     optional = true,
     opts = {
       linters_by_ft = {
-        nix = { "statix" },
+        nix = { "statix", "deadnix" },
       },
     },
   },
