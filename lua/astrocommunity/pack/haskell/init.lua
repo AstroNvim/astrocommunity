@@ -9,15 +9,6 @@ return {
   { import = "astrocommunity.pack.json" }, -- hls.json
   { import = "astrocommunity.test.neotest" }, -- neotest-haskell
   {
-    "AstroNvim/astrolsp",
-    optional = true,
-    ---@type AstroLSPOpts
-    opts = {
-      ---@diagnostic disable: missing-fields
-      handlers = { hls = false },
-    },
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
@@ -31,9 +22,17 @@ return {
     ft = haskell_ft,
     dependencies = {
       -- vim.fn.has >= nvim 0.9 removes plenary dependency
-      { "nvim-lua/plenary.nvim", optional = vim.fn.has "nvim-0.9" == 1 and true or false },
+      { "nvim-lua/plenary.nvim", optional = vim.fn.has "nvim-0.9" == 1 },
       { "nvim-telescope/telescope.nvim", optional = true },
       { "mfussenegger/nvim-dap", optional = true },
+      {
+        "AstroNvim/astrolsp",
+        ---@type AstroLSPOpts
+        opts = {
+          ---@diagnostic disable: missing-fields
+          handlers = { hls = false },
+        },
+      },
     },
     -- vim.fn.has >= nvim 0.9 installs version 3
     version = vim.fn.has "nvim-0.9" == 1 and "^3" or "^2",

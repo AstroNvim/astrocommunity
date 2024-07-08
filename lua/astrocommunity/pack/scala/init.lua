@@ -1,14 +1,5 @@
 return {
   {
-    "AstroNvim/astrolsp",
-    optional = true,
-    ---@type AstroLSPOpts
-    opts = {
-      ---@diagnostic disable: missing-fields
-      handlers = { metals = false },
-    },
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
@@ -20,6 +11,17 @@ return {
   {
     "scalameta/nvim-metals",
     ft = { "scala", "sbt", "java" },
+    dependencies = {
+      {
+        "AstroNvim/astrolsp",
+        optional = true,
+        ---@type AstroLSPOpts
+        opts = {
+          ---@diagnostic disable: missing-fields
+          handlers = { metals = false },
+        },
+      },
+    },
     opts = function()
       local metals = require "metals"
       local astrolsp_avail, astrolsp = pcall(require, "astrolsp")

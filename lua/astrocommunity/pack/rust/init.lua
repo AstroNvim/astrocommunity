@@ -65,6 +65,16 @@ return {
     "mrcjkb/rustaceanvim",
     version = "^4",
     ft = "rust",
+    specs = {
+      {
+        "AstroNvim/astrolsp",
+        optional = true,
+        ---@param opts AstroLSPOpts
+        opts = {
+          handlers = { rust_analyzer = false }, -- disable setup of `rust_analyzer`
+        },
+      },
+    },
     opts = function()
       local adapter
       local success, package = pcall(function() return require("mason-registry").get_package "codelldb" end)

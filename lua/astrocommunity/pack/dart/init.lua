@@ -27,12 +27,14 @@ return {
       opts.debugger = { enabled = true }
     end,
     dependencies = { "nvim-lua/plenary.nvim" },
-  },
-  -- Add "flutter" extension to "telescope"
-  {
-    "nvim-telescope/telescope.nvim",
-    optional = true,
-    opts = function() require("telescope").load_extension "flutter" end,
+    specs = {
+      -- Add "flutter" extension to "telescope"
+      {
+        "nvim-telescope/telescope.nvim",
+        optional = true,
+        opts = function() require("telescope").load_extension "flutter" end,
+      },
+    },
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",

@@ -1,13 +1,3 @@
-vim.filetype.add {
-  extension = { just = "just" },
-  filename = {
-    justfile = "just",
-    Justfile = "just",
-    [".Justfile"] = "just",
-    [".justfile"] = "just",
-  },
-}
-
 return {
   {
     "AstroNvim/astrocore",
