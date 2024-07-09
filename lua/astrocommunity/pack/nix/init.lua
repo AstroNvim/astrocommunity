@@ -23,6 +23,10 @@ return {
     end,
   },
   {
+    "AstroNvim/astrolsp",
+    opts = function(_, opts) opts.servers = require("astrocore").extend_tbl(opts.servers, { "nixd" }) end,
+  },
+  {
     "stevearc/conform.nvim",
     optional = true,
     opts = {
