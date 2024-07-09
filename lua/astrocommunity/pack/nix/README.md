@@ -2,6 +2,7 @@
 
 Requires the following in your `PATH`
 
+- [nixd](https://github.com/nix-community/nixd)
 - [alejandra](https://github.com/kamadorueda/alejandra)
 - [deadnix](https://github.com/astro/deadnix)
 - [statix](https://github.com/nerdypepper/statix)
