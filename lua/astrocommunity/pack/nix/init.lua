@@ -24,7 +24,7 @@ return {
   },
   {
     "AstroNvim/astrolsp",
-    opts = function(_, opts) opts.servers = require("astrocore").extend_tbl(opts.servers, { "nixd" }) end,
+    opts = function(_, opts) opts.servers = require("astrocore").list_insert_unique(opts.servers, { "nixd" }) end,
   },
   {
     "stevearc/conform.nvim",
