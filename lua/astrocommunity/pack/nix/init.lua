@@ -12,15 +12,17 @@ return {
     "nvimtools/none-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      local nls = require "null-ls"
-      if type(opts.sources) == "table" then
-        vim.list_extend(opts.sources, {
-          nls.builtins.code_actions.statix,
-          nls.builtins.formatting.alejandra,
-          nls.builtins.diagnostics.deadnix,
-        })
-      end
+      local builtins = require("null-ls").builtins
+      opts.sources = require("astrocore").list_insert_unique(opts.sources, {
+        builtins.code_actions.statix,
+        builtins.formatting.alejandra,
+        builtins.diagnostics.deadnix,
+      })
     end,
+  },
+  {
+    "AstroNvim/astrolsp",
+    opts = function(_, opts) opts.servers = require("astrocore").list_insert_unique(opts.servers, { "nixd" }) end,
   },
   {
     "stevearc/conform.nvim",
