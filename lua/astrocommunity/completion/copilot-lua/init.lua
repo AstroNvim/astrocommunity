@@ -2,5 +2,14 @@ return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
   event = "User AstroFile",
-  opts = { suggestion = { auto_trigger = true, debounce = 150 } },
+  opts = {
+    filetypes = {
+      ["grug-far"] = false,
+      ["grug-far-history"] = false,
+    },
+    suggestion = {
+      auto_trigger = true,
+      debounce = 150,
+    },
+  },
 }
