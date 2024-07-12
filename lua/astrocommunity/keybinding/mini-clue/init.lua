@@ -11,16 +11,15 @@ return {
     return vim.tbl_map(function(trigger) return { trigger.keys, mode = trigger.mode } end, opts.triggers or {})
   end,
   opts = function()
-    local miniclue = require "mini.clue"
+    local miniclue, astrocore = require "mini.clue", require "astrocore"
     local astrocore_clues = {}
-    for mode, maps in pairs(require("astrocore").which_key_queue or {}) do
-      for keys, map in pairs(maps) do
-        if type(map) == "table" then
-          local desc = map.name or map.desc
-          if desc then table.insert(astrocore_clues, { mode = mode, keys = keys, desc = desc }) end
-        end
+    for _, map in ipairs(astrocore.which_key_queue or {}) do
+      local desc = map.group or map.desc
+      if type(map) == "table" and map[1] and desc then
+        table.insert(astrocore_clues, { mode = map.mode, keys = map[1], desc = desc })
       end
     end
+    astrocore.which_key_queue = nil
     return {
       window = { config = { row = "auto", col = "auto" } },
       triggers = {
