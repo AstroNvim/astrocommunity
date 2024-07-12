@@ -2,7 +2,7 @@
 return {
   "MagicDuck/grug-far.nvim",
   cmd = "GrugFar",
-  dependencies = {
+  specs = {
     {
       "AstroNvim/astroui",
       ---@type AstroUIOpts
@@ -29,6 +29,15 @@ return {
           desc = require("astroui").get_icon("GrugFar", 1, true) .. "Search and Replace (current word)",
         }
       end,
+    },
+    {
+      "zbirenbaum/copilot.lua",
+      opts = {
+        filetypes = {
+          ["grug-far"] = false,
+          ["grug-far-history"] = false,
+        },
+      },
     },
   },
   ---@param opts GrugFarOptionsOverride
