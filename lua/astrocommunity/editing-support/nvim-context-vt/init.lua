@@ -11,7 +11,7 @@ return {
         n = {
           ["<Leader>uv"] = {
             function() require("nvim_context_vt").toggle() end,
-            name = "Toggle virutal text context",
+            desc = "Toggle virutal text context",
           },
         },
       },
