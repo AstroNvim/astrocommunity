@@ -1,0 +1,16 @@
+# Laravel Pack
+
+**Note:** Installation of `phpactor` requires `composer`
+
+This plugin pack does the following:
+
+- Adds [php pack](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/pack/php)
+  - Adds php and phpdoc Treesitter parsers
+  - Adds phpactor language servers
+  - Adds php-cs-fixer for formatting
+  - Adds php-debug-adapter for debugging
+- Adds [blade pack](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/pack/blade)
+  - Adds blade Treesitter parser: https://github.com/EmranMR/tree-sitter-blade
+  - Adds blade language server: https://github.com/haringsrob/laravel-dev-tools
+  - Adds blade-formatter to null-ls or conform
+- Adds `laravel.nvim` for laravel specific tools
