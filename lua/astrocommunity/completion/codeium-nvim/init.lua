@@ -23,7 +23,7 @@ return {
           mappings = {
             n = {
               ["<Leader>;"] = {
-                name = require("astroui").get_icon("Codeium", 1, true) .. "Codeium",
+                desc = require("astroui").get_icon("Codeium", 1, true) .. "Codeium",
               },
               ["<Leader>;o"] = {
                 desc = "Open Chat",
