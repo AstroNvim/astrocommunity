@@ -2,7 +2,7 @@ return {
   {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
-    opts = { filetypes = { pattern = { [".*%.php%.blade"] = "blade" } } },
+    opts = { filetypes = { pattern = { [".*%.blade%.php"] = "blade" } } },
   },
   {
     "AstroNvim/astrolsp",
