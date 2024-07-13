@@ -1,6 +1,7 @@
 # Laravel Pack
 
 **Note:** Installation of `phpactor` requires `composer`
+**Note:** For proper blade template highlighting, you'll need to update the queries file https://github.com/EmranMR/tree-sitter-blade/discussions/20
 
 This plugin pack does the following:
 
