@@ -26,21 +26,6 @@ return {
                   "--no-deps",
                 },
               },
-              assist = {
-                importEnforceGranularity = true,
-                importPrefix = "crate",
-              },
-              completion = {
-                postfix = {
-                  enable = false,
-                },
-              },
-              inlayHints = {
-                lifetimeElisionHints = {
-                  enable = true,
-                  useParameterNames = true,
-                },
-              },
             },
           },
         },
