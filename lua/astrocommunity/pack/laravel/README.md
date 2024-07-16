@@ -15,3 +15,4 @@ This plugin pack does the following:
   - Adds blade language server: https://github.com/haringsrob/laravel-dev-tools
   - Adds blade-formatter to null-ls or conform
 - Adds `laravel.nvim` for laravel specific tools
+- Adds `laravel-ide-helper.nvim` for laravel model info

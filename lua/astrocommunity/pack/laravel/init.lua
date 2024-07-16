@@ -30,4 +30,26 @@ return {
     event = { "VeryLazy" },
     config = true,
   },
+  {
+    "Bleksak/laravel-ide-helper.nvim",
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          local prefix = "<Leader>Li"
+          maps.n[prefix] = { desc = "Laravel Ide Helper" }
+
+          maps.n[prefix .. "m"] = {
+            function() require("laravel-ide-helper").generate_models(vim.fn.expand "%") end,
+            desc = "Generate Model Info for current model",
+          }
+          maps.n[prefix .. "M"] = {
+            function() require("laravel-ide-helper").generate_models() end,
+            desc = "Generate Model Info for all models",
+          }
+        end,
+      },
+    },
+  },
 }
