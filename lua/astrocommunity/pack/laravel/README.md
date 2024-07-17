@@ -16,3 +16,4 @@ This plugin pack does the following:
   - Adds blade-formatter to null-ls or conform
 - Adds `laravel.nvim` for laravel specific tools
 - Adds `laravel-ide-helper.nvim` for laravel model info
+- Adds `blade-nav.nvim` for cmp and gf for views/routes/configs and more
