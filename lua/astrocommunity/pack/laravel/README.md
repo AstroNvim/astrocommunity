@@ -18,4 +18,3 @@ This plugin pack does the following:
 - Adds `laravel.nvim` for laravel specific tools
 - Adds `laravel-ide-helper.nvim` for laravel model info
 - Adds `blade-nav.nvim` for cmp and gf for views/routes/configs and more
-- Adds `vim-test` for PHPUit and Pest test support
