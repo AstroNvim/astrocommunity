@@ -1,6 +1,7 @@
 # Laravel Pack
 
 **Note:** Installation of `phpactor` requires `composer`
+**Note:** `laravel-dev-generators` in your path. See the releases section of https://github.com/haringsrob/laravel-dev-tool
 **Note:** For proper blade template highlighting, you'll need to update the queries file https://github.com/EmranMR/tree-sitter-blade/discussions/20
 
 This plugin pack does the following:
@@ -17,3 +18,4 @@ This plugin pack does the following:
 - Adds `laravel.nvim` for laravel specific tools
 - Adds `laravel-ide-helper.nvim` for laravel model info
 - Adds `blade-nav.nvim` for cmp and gf for views/routes/configs and more
+- Adds `vim-test` for PHPUit and Pest test support

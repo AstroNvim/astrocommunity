@@ -26,7 +26,6 @@ return {
       },
       { "AstroNvim/astroui", opts = { icons = { Laravel = "󰫐" } } },
     },
-
     event = { "VeryLazy" },
     config = true,
   },
@@ -38,7 +37,7 @@ return {
         opts = function(_, opts)
           local maps = opts.mappings
           local prefix = "<Leader>Li"
-          maps.n[prefix] = { desc = "Laravel Ide Helper" }
+          maps.n[prefix] = { desc = require("astroui").get_icon("IdeHelper", 1, true) .. "Laravel Ide Helper" }
 
           maps.n[prefix .. "m"] = {
             function() require("laravel-ide-helper").generate_models(vim.fn.expand "%") end,
@@ -50,6 +49,7 @@ return {
           }
         end,
       },
+      { "AstroNvim/astroui", opts = { icons = { IdeHelper = "󱚌" } } },
     },
   },
   {
@@ -58,5 +58,32 @@ return {
       "hrsh7th/nvim-cmp",
     },
     ft = { "blade", "php" },
+  },
+  {
+    "vim-test/vim-test",
+    cmd = { "TestNearest", "TestFile", "TestLast", "TestClass", "TestSuite", "TestVist" },
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          local prefix = "<Leader>Lt"
+          maps.n[prefix] = { desc = require("astroui").get_icon("Testing", 1, true) .. "Testing" }
+
+          maps.n[prefix .. "n"] = { ":TestNearest<CR>", desc = "Test Nearest" }
+          maps.n[prefix .. "f"] = { ":TestFile<CR>", desc = "Test File" }
+          maps.n[prefix .. "l"] = { ":TestLast<CR>", desc = "Test Last" }
+          maps.n[prefix .. "c"] = { ":TestClass<CR>", desc = "Test Class" }
+          maps.n[prefix .. "s"] = { ":TestSuite<CR>", desc = "Test Suite" }
+          maps.n[prefix .. "v"] = { ":TestVisit<CR>", desc = "Test Visit" }
+
+          -- Set the strategy to open results in a vertical split
+          vim.g["test#strategy"] = "neovim"
+          vim.g["test#neovim#term_position"] = "vert"
+        end,
+      },
+      { "AstroNvim/astroui", opts = { icons = { Testing = "󰙨" } } },
+    },
+    event = { "VeryLazy" },
   },
 }
