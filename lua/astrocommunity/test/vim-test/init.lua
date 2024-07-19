@@ -18,8 +18,8 @@ return {
           maps.n[prefix .. "v"] = { ":TestVisit<CR>", desc = "Test Visit" }
 
           -- Set the strategy to open results in a vertical split
-          vim.g["test#strategy"] = "neovim"
-          vim.g["test#neovim#term_position"] = "vert"
+          opts.options.g["test#strategy"] = "neovim"
+          opts.options.g["test#neovim#term_position"] = "vert"
         end,
       },
       { "AstroNvim/astroui", opts = { icons = { VimTest = "󰙨" } } },
