@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   {
     "vim-test/vim-test",
@@ -5,8 +6,10 @@ return {
     dependencies = {
       {
         "AstroNvim/astrocore",
+        ---@param opts AstroCoreOpts
         opts = function(_, opts)
-          local maps = opts.mappings
+          local maps = assert(opts.mappings)
+
           local prefix = "<Leader>T"
           maps.n[prefix] = { desc = require("astroui").get_icon("VimTest", 1, true) .. "Testing" }
 
@@ -18,6 +21,8 @@ return {
           maps.n[prefix .. "v"] = { ":TestVisit<CR>", desc = "Test Visit" }
 
           -- Set the strategy to open results in a vertical split
+          if not opts.options then opts.options = {} end
+          if not opts.options.g then opts.options.g = {} end
           opts.options.g["test#strategy"] = "neovim"
           opts.options.g["test#neovim#term_position"] = "vert"
         end,
