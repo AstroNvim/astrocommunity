@@ -1,10 +1,8 @@
 ---@type LazySpec
 return {
-  {
-    "ThePrimeagen/htmx-lsp",
-    ft = { "htmx" },
-  },
-  {
+  "ThePrimeagen/htmx-lsp",
+  ft = { "htmx" },
+  specs = {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
