@@ -12,8 +12,9 @@ return {
       "nvimtools/none-ls.nvim",
       {
         "AstroNvim/astrocore",
+        ---@param opts AstroCoreOpts
         opts = function(_, opts)
-          local maps = opts.mappings
+          local maps = assert(opts.mappings)
           local prefix = "<Leader>L"
           maps.n[prefix] = { desc = require("astroui").get_icon("Laravel", 1, true) .. "Laravel" }
 
@@ -34,8 +35,9 @@ return {
     dependencies = {
       {
         "AstroNvim/astrocore",
+        ---@param opts AstroCoreOpts
         opts = function(_, opts)
-          local maps = opts.mappings
+          local maps = assert(opts.mappings)
           local prefix = "<Leader>Li"
           maps.n[prefix] = { desc = require("astroui").get_icon("IdeHelper", 1, true) .. "Laravel Ide Helper" }
 
