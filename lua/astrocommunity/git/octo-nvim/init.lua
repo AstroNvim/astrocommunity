@@ -40,7 +40,7 @@ return {
         maps.n[prefix .. "p"] = { desc = "Pull requests" }
         maps.n[prefix .. "pc"] = { "<Cmd>Octo pr close<CR>", desc = "Close current PR" }
         maps.n[prefix .. "pd"] = { "<Cmd>Octo pr diff<CR>", desc = "Show PR diff" }
-        maps.n[prefix .. "pl"] = { "<Cmd>Octo pr commits<CR>", desc = "List changed files in PR" }
+        maps.n[prefix .. "pl"] = { "<Cmd>Octo pr changes<CR>", desc = "List changed files in PR" }
         maps.n[prefix .. "pm"] = { desc = "Merge current PR" }
         maps.n[prefix .. "pmd"] = { "<Cmd>Octo pr merge delete<CR>", desc = "Delete merge PR" }
         maps.n[prefix .. "pmm"] = { "<Cmd>Octo pr merge commit<CR>", desc = "Merge commit PR" }
