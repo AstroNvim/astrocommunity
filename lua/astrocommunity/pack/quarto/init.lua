@@ -1,7 +1,19 @@
 return {
   {
     "quarto-dev/quarto-nvim",
-    cmd = "QuartoPreview",
+    cmd = {
+      "QuartoPreview",
+      "QuartoClosePreview",
+      "QuartoHelp",
+      "QuartoActivate",
+      "QuartoDiagnostics",
+      "QuartoHover",
+      "QuartoSend",
+      "QuartoSendAbove",
+      "QuartoSendBelow",
+      "QuartoSendAll",
+      "QuartoSendLine",
+    },
     ft = { "quarto", "qmd" },
     opts = {},
     dependencies = {
