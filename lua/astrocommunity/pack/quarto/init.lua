@@ -1,6 +1,7 @@
 return {
   {
     "quarto-dev/quarto-nvim",
+    cmd = "QuartoPreview",
     ft = { "quarto", "qmd" },
     opts = {},
     dependencies = {
