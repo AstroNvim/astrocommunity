@@ -20,7 +20,6 @@ return {
     local astrocore = require "astrocore"
     if astrocore.is_available "toggleterm.nvim" then opts.strategy = "toggleterm" end
     opts.task_list = {
-      direction = "bottom",
       bindings = {
         ["<C-l>"] = false,
         ["<C-h>"] = false,
