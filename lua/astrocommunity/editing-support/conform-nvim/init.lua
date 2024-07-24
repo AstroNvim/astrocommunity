@@ -62,7 +62,7 @@ return {
     },
   },
   opts = {
-    default_format_opts = { lsp = "fallback" },
+    default_format_opts = { lsp_format = "fallback" },
     format_on_save = function(bufnr)
       if vim.g.autoformat == nil then vim.g.autoformat = true end
       local autoformat = vim.b[bufnr].autoformat
