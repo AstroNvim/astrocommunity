@@ -136,7 +136,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        go = { "goimports", "gofumpt" },
+        go = { "goimports", "gofumpt", stop_after_first = true },
       },
     },
   },

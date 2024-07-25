@@ -25,7 +25,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        fish = { "fish_indent" },
+        fish = { "fish_indent", stop_after_first = true },
       },
     },
   },

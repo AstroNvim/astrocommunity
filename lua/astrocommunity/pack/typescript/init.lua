@@ -70,7 +70,7 @@ local null_ls_formatter = function(params)
   if vim.tbl_contains(format_filetypes, params.filetype) then return has_prettier(params.bufnr) end
   return true
 end
-local conform_formatter = function(bufnr) return has_prettier(bufnr) and { "prettierd" } or {} end
+local conform_formatter = function(bufnr) return has_prettier(bufnr) and { "prettierd", stop_after_first = true } or {} end
 
 return {
   { import = "astrocommunity.pack.json" },

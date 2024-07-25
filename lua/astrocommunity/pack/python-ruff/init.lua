@@ -41,7 +41,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        python = { "ruff_organize_imports", "ruff_format" },
+        python = { "ruff_organize_imports", "ruff_format", stop_after_first = true },
       },
     },
   },

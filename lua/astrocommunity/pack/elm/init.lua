@@ -35,7 +35,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        elm = { "elm_format" },
+        elm = { "elm_format", stop_after_first = true },
       },
     },
   },

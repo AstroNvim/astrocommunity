@@ -44,7 +44,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        php = { "php_cs_fixer" },
+        php = { "php_cs_fixer", stop_after_first = true },
       },
     },
   },

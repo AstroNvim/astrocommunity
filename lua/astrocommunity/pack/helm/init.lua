@@ -50,7 +50,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        helm = { "prettierd", "prettier" },
+        helm = { "prettierd", "prettier", stop_after_first = true },
       },
     },
   },
