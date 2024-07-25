@@ -131,7 +131,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        python = { "isort", "black", stop_after_first = true },
+        python = { "isort", "black" },
       },
     },
   },
