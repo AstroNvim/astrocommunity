@@ -36,7 +36,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        proto = { "buf", stop_after_first = true },
+        proto = { "buf" },
       },
     },
   },

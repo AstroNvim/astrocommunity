@@ -35,9 +35,9 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        tf = { "terraform_fmt", stop_after_first = true },
-        terraform = { "terraform_fmt", stop_after_first = true },
-        ["terraform-vars"] = { "terraform_fmt", stop_after_first = true },
+        tf = { "terraform_fmt" },
+        terraform = { "terraform_fmt" },
+        ["terraform-vars"] = { "terraform_fmt" },
       },
     },
   },

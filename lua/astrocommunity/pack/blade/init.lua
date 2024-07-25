@@ -57,7 +57,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        blade = { "blade-formatter", stop_after_first = true },
+        blade = { "blade-formatter" },
       },
     },
   },

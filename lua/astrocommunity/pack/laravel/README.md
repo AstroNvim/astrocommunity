@@ -1,8 +1,10 @@
 # Laravel Pack
 
 **Note:** Installation of `phpactor` requires `composer`
+
 **Note:** `laravel-dev-generators` in your path. See the releases section of https://github.com/haringsrob/laravel-dev-tools
-**Note:** For proper blade template highlighting, you'll need to update the queries file https://github.com/EmranMR/tree-sitter-blade/discussions/20
+
+**Note:** For proper blade template highlighting, you'll need to manually add the queries file https://github.com/EmranMR/tree-sitter-blade/discussions/19#discussion-5400675
 
 This plugin pack does the following:
 
