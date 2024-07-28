@@ -24,6 +24,7 @@ return {
     },
   },
   opts = {
+    save_path = "~/Pictures",
     mac_window_bar = false,
     watermark = "",
   },
