@@ -1,6 +1,6 @@
 return {
   "vyfor/cord.nvim",
-  build = "./build",
+  build = vim.fn.has "win32" == 0 and "./build" or ".\\build",
   event = "VeryLazy",
   opts = {
     editor = {
