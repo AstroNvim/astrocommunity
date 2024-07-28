@@ -61,7 +61,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        yaml = { { "prettierd", "prettier" } },
+        yaml = { "prettierd", "prettier", stop_after_first = true },
       },
     },
   },

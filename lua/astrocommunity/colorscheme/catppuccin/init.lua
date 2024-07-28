@@ -25,6 +25,7 @@ return {
       ufo = true,
       which_key = true,
       window_picker = true,
+      colorful_winsep = { enabled = true, color = "lavender" },
     },
   },
   specs = {
