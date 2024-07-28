@@ -3,7 +3,7 @@
 This plugin pack does the following:
 
 - Adds `rust` Treesitter parsers
-- Adds [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) for language specific tooling
+- Adds [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) for language specific tooling (v4 or v5 depending on nvim version)
 - Adds [crates.nvim](https://github.com/Saecki/crates.nvim) for crate management
 - Adds [TOML language support](../toml)
 
