@@ -4,7 +4,9 @@
 
 **Repository:** <https://github.com/mistricky/codesnap.nvim>
 
-**Notes:** This plugin spec defaults the `save_path` to `~/Pictures`.
+This plugin spec defaults the `save_path` to `~/Pictures`.
+
+
 
 > [!NOTE]
 >
