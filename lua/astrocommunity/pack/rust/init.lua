@@ -91,7 +91,7 @@ local pack = {
   },
 }
 
-if vim.fn.has "nvim-0.10" then
+if vim.fn.has "nvim-0.10" == 1 then
   -- Rustaceanvim v5 supports neovim v0.10+
   table.insert(pack, {
     "mrcjkb/rustaceanvim",
