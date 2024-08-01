@@ -47,6 +47,8 @@ return {
         end
         if vim.tbl_get(noice_opts, "lsp", "signature", "enabled") ~= false then
           opts.lsp_handlers["textDocument/signatureHelp"] = false
+          if not opts.features then opts.features = {} end
+          opts.features.signature_help = false
         end
       end,
     },

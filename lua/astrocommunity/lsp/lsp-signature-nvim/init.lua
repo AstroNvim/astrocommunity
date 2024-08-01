@@ -18,5 +18,6 @@ return {
         },
       },
     },
+    { "AstroNvim/astrolsp", optional = true, opts = { features = { signature_help = false } } },
   },
 }
