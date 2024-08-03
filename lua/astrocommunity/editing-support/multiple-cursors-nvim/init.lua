@@ -22,7 +22,7 @@ return {
         maps.n[lhs] = map
         maps.i[lhs] = map
       end
-      local prefix = "<Leader>c"
+      local prefix = "<Leader>m"
       for lhs, map in pairs {
         [prefix .. "a"] = { "<Cmd>MultipleCursorsAddMatches<CR>", desc = "Add cursor matches" },
         [prefix .. "A"] = { "<Cmd>MultipleCursorsAddMatchesV<CR>", desc = "Add cursor matches in previous visual area" },
