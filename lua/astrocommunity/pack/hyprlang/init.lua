@@ -2,13 +2,19 @@
 return {
   -- mason ensure install hyprls
   {
+    "williamboman/mason-lspconfig.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "hyprls" })
+    end,
+  },
+  {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "hyprls" })
     end,
   },
-
   {
     "AstroNvim/astrocore",
     optional = true,
@@ -25,13 +31,6 @@ return {
         },
       },
     },
-  },
-  {
-    "AstroNvim/astrolsp",
-    opts = function(_, opts)
-      local astrocore = require "astrocore"
-      opts.servers = astrocore.list_insert_unique(opts.servers, { "hyprls" })
-    end,
   },
   -- treesitter support for hyprlang
   {
