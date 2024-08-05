@@ -26,7 +26,7 @@ return {
     "MoltenExportOutput",
     "MoltenImportOutput",
   },
-  version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+  version = "^1", -- use version <2.0.0 to avoid breaking changes
   build = ":UpdateRemotePlugins",
   specs = {
     {
