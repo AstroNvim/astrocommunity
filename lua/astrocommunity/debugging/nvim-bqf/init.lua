@@ -1,13 +1,5 @@
-return {
-  "kevinhwang91/nvim-bqf",
-  ft = "qf",
-  dependencies = {
-    "AstroNvim/astrocore",
-    ---@param opts AstroCoreOpts
-    opts = function(_, opts)
-      if not opts.signs then opts.signs = {} end
-      opts.signs.BqfSign = { text = " " .. require("astroui").get_icon "Selected", texthl = "BqfSign" }
-    end,
-  },
-  opts = {},
-}
+vim.notify(
+  "**DEPRECATED** astrocommunity.debugging.nvim-bqf\n\nPlease use new location:\n`astrocommunity.quickfix.nvim-bqf`",
+  vim.log.levels.ERROR
+)
+return { import = "astrocommunity.quickfix.nvim-bqf" }
