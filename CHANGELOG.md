@@ -1,5 +1,39 @@
 # Changelog
 
+## [13.0.0](https://github.com/AstroNvim/astrocommunity/compare/v12.0.0...v13.0.0) (2024-08-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **multiple-cursors-nvim:** Change prefix to `<Leader>m` ([#1141](https://github.com/AstroNvim/astrocommunity/issues/1141))
+
+### Features
+
+* **completion:** add supermaven-nvim ([#1140](https://github.com/AstroNvim/astrocommunity/issues/1140)) ([5f43a6c](https://github.com/AstroNvim/astrocommunity/commit/5f43a6cb4f7c60fe0bf83468e96f8537e47da10d))
+* **cs:** add neotest integration with `neotest-dotnet` ([#1147](https://github.com/AstroNvim/astrocommunity/issues/1147)) ([6c55d15](https://github.com/AstroNvim/astrocommunity/commit/6c55d155ed36fcd6b6437987d301007a2718466b))
+* **debugging:** add `quicker.nvim` ([#1146](https://github.com/AstroNvim/astrocommunity/issues/1146)) ([7c3ec48](https://github.com/AstroNvim/astrocommunity/commit/7c3ec48585fde573a5c1b83f98cec1a24b72fc18))
+* **haskell:** update `haskell-tools` to v4 ([#1135](https://github.com/AstroNvim/astrocommunity/issues/1135)) ([933a8d4](https://github.com/AstroNvim/astrocommunity/commit/933a8d4a84f90748bed0e5895ab575fa685e171a))
+* **hyprlang:** use `mason-lspconfig` for managing `hyprls` installation and setup ([3c72999](https://github.com/AstroNvim/astrocommunity/commit/3c7299991f735f376eb30adbccc3ec09efa41fd2))
+* **pack/cs:** add neotest dotnet ([6c55d15](https://github.com/AstroNvim/astrocommunity/commit/6c55d155ed36fcd6b6437987d301007a2718466b))
+* **pack:** add `mdx` language pack ([#1142](https://github.com/AstroNvim/astrocommunity/issues/1142)) ([be08022](https://github.com/AstroNvim/astrocommunity/commit/be08022d7c6c350a26abd758192e5f0d04561fe5))
+* **recipes:** add recipe for automatically triggering lsp signature help ([cd285bc](https://github.com/AstroNvim/astrocommunity/commit/cd285bc913e393a9020a2818a95396b9919a5ffb))
+* **rust:** update `rustaceanvim` to v5 ([#1133](https://github.com/AstroNvim/astrocommunity/issues/1133)) ([45c60e7](https://github.com/AstroNvim/astrocommunity/commit/45c60e745235798b6fdc7508e454239ef61b9d91))
+* **split-and-window:** add colorful-winsep.nvim plugin ([#1132](https://github.com/AstroNvim/astrocommunity/issues/1132)) ([612a061](https://github.com/AstroNvim/astrocommunity/commit/612a0619e13d32431e2ebe95f166a9aad54c2a36))
+* **utility:** add `lua-json5` ([d3463cb](https://github.com/AstroNvim/astrocommunity/commit/d3463cb7cdd796a4b2988d7615bf424dc840b474))
+
+
+### Bug Fixes
+
+* **codesnap-nvim:** Add default saving path ([#1121](https://github.com/AstroNvim/astrocommunity/issues/1121)) ([8661208](https://github.com/AstroNvim/astrocommunity/commit/8661208c7b9a06551be04d104c5bdfd37031b19f))
+* **codesnap-nvim:** Remove `save_path` now that mistricky/codesnap.nvim[#124](https://github.com/AstroNvim/astrocommunity/issues/124) is merged ([#1139](https://github.com/AstroNvim/astrocommunity/issues/1139)) ([a936028](https://github.com/AstroNvim/astrocommunity/commit/a936028c30afead22c525b82644d79b7fa448256))
+* **codesnap:** Remove dir now that mistricky/codesnap.nvim[#124](https://github.com/AstroNvim/astrocommunity/issues/124) is merged ([a936028](https://github.com/AstroNvim/astrocommunity/commit/a936028c30afead22c525b82644d79b7fa448256))
+* **cord-nvim:** build script path for windows ([7d1f69a](https://github.com/AstroNvim/astrocommunity/commit/7d1f69a4218671224675d4982b79a32d86902684))
+* **cord-nvim:** Make build command cross-platform ([#1137](https://github.com/AstroNvim/astrocommunity/issues/1137)) ([7d1f69a](https://github.com/AstroNvim/astrocommunity/commit/7d1f69a4218671224675d4982b79a32d86902684)), closes [#1136](https://github.com/AstroNvim/astrocommunity/issues/1136)
+* **multiple-cursors-nvim:** Change prefix to `&lt;Leader&gt;m` ([#1141](https://github.com/AstroNvim/astrocommunity/issues/1141)) ([96b765b](https://github.com/AstroNvim/astrocommunity/commit/96b765b737233e42df1199bab2c3b0d96a6d9e70))
+* **pack/ocaml:** fix typo at README.md ([d252a62](https://github.com/AstroNvim/astrocommunity/commit/d252a621df4c65c7ec2e4a04b5c9e22c8cadb3d9))
+* **rust:** fix check for neovim version ([166b91e](https://github.com/AstroNvim/astrocommunity/commit/166b91e10450d0fc2467b08e4230cd2d71386360))
+* **transparent-nvim:** make `transparent.nvim` actually work with Heirline (also makes the `opts` table work as well) ([#1149](https://github.com/AstroNvim/astrocommunity/issues/1149)) ([ece293a](https://github.com/AstroNvim/astrocommunity/commit/ece293a5834edb92e5812a8582b47366dc3d207c))
+
 ## [12.0.0](https://github.com/AstroNvim/astrocommunity/compare/v11.1.0...v12.0.0) (2024-07-25)
 
 
