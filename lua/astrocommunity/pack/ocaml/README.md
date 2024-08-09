@@ -1,4 +1,4 @@
-# Rust Language Pack
+# OCaml Language Pack
 
 This plugin pack does the following:
 
