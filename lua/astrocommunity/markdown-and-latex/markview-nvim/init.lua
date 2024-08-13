@@ -3,6 +3,7 @@ return {
   ft = { "markdown", "markdown.mdx" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = "astrocore",
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
