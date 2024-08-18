@@ -47,5 +47,14 @@ return {
   opts = function(_, opts)
     if not opts.icons then opts.icons = {} end
     opts.icons.enabled = vim.g.icons_enabled
+    if not vim.g.icons_enabled then
+      opts.resultsSeparatorLineChar = "-"
+      opts.spinnerStates = {
+        "|",
+        "\\",
+        "-",
+        "/",
+      }
+    end
   end,
 }
