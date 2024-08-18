@@ -132,15 +132,6 @@ return {
     end,
   },
   {
-    "stevearc/conform.nvim",
-    optional = true,
-    opts = {
-      formatters_by_ft = {
-        go = { "goimports", "gofumpt" },
-      },
-    },
-  },
-  {
     "echasnovski/mini.icons",
     optional = true,
     opts = {
