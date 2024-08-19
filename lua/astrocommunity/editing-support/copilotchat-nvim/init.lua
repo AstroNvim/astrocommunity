@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
-  branch = "canary",
+  version = "*",
   cmd = {
     "CopilotChat",
     "CopilotChatOpen",
@@ -25,39 +25,60 @@ return {
   dependencies = {
     { "zbirenbaum/copilot.lua" },
     { "nvim-lua/plenary.nvim" },
+    { "nvim-telescope/telescope.nvim" },
     {
       "AstroNvim/astrocore",
       ---@param opts AstroCoreOpts
       opts = function(_, opts)
         local maps = assert(opts.mappings)
 
-        local prefix = "<Leader>A"
+        local prefix = "<Leader>P"
         maps.n[prefix] = { desc = require("astroui").get_icon("CopilotChat", 1, true) .. "CopilotChat" }
         maps.v[prefix] = { desc = require("astroui").get_icon("CopilotChat", 1, true) .. "CopilotChat" }
 
-        maps.n[prefix .. "x"] = { ":CopilotChatExplain<CR>", desc = "Explain" }
-        maps.v[prefix .. "x"] = { ":CopilotChatExplain<CR>", desc = "Explain" }
+        maps.n[prefix .. "t"] = { ":CopilotChatToggle<CR>", desc = "Toggle Chat" }
+        maps.n[prefix .. "r"] = { ":CopilotChatReset<CR>", desc = "Reset Chat" }
+        maps.n[prefix .. "s"] = { ":CopilotChatStop<CR>", desc = "Stop Chat" }
 
-        maps.n[prefix .. "r"] = { ":CopilotChatReview<CR>", desc = "Review" }
-        maps.v[prefix .. "r"] = { ":CopilotChatReview<CR>", desc = "Review" }
+        -- TODO: look into window stying.
+        -- Look into saving chats
+        -- See if there is anythig else we can use from this
+        -- cmp?
+        -- https://github.com/jellydn/lazy-nvim-ide/blob/main/lua/plugins/extras/copilot-chat-v2.lua
 
-        maps.n[prefix .. "f"] = { ":CopilotChatFix<CR>", desc = "Fix" }
-        maps.v[prefix .. "f"] = { ":CopilotChatFix<CR>", desc = "Fix" }
+        maps.v[prefix .. "p"] = {
+          function()
+            require("CopilotChat.integrations.telescope").pick(require("CopilotChat.actions").prompt_actions())
+          end,
+          desc = "Prompt actions",
+        }
 
-        maps.n[prefix .. "o"] = { ":CopilotChatOptimize<CR>", desc = "Optimize" }
-        maps.v[prefix .. "o"] = { ":CopilotChatOptimize<CR>", desc = "Optimize" }
+        maps.v[prefix .. "h"] = {
+          function() require("CopilotChat.integrations.telescope").pick(require("CopilotChat.actions").help_actions()) end,
+          desc = "Help actions",
+        }
 
-        maps.n[prefix .. "t"] = { ":CopilotChatDocs<CR>", desc = "Tests" }
-        maps.v[prefix .. "t"] = { ":CopilotChatDocs<CR>", desc = "Tests" }
+        maps.n[prefix .. "q"] = {
+          function()
+            vim.ui.input({ prompt = "Quick Chat: " }, function(input)
+              if input ~= nil and input ~= "" then
+                require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+              end
+            end)
+          end,
+          desc = "Quick Chat",
+        }
 
-        maps.n[prefix .. "d"] = { ":CopilotChatFixDiagnostic<CR>", desc = "Diagnostic" }
-        maps.v[prefix .. "d"] = { ":CopilotChatFixDiagnostic<CR>", desc = "Diagnostic" }
-
-        maps.n[prefix .. "c"] = { ":CopilotChatCommit<CR>", desc = "Commit Message" }
-        maps.v[prefix .. "c"] = { ":CopilotChatCommit<CR>", desc = "Commit Message" }
-
-        maps.n[prefix .. "C"] = { ":CopilotChatCommitStaged<CR>", desc = "Commitizen Convention Commit Message" }
-        maps.v[prefix .. "C"] = { ":CopilotChatCommitStaged<CR>", desc = "Commitizen Convention Commit Message" }
+        maps.v[prefix .. "q"] = {
+          function()
+            vim.ui.input({ prompt = "Quick Chat: " }, function(input)
+              if input ~= nil and input ~= "" then
+                require("CopilotChat").ask(input, { selection = require("CopilotChat.select").visual })
+              end
+            end)
+          end,
+          desc = "Quick Chat",
+        }
       end,
     },
     { "AstroNvim/astroui", opts = { icons = { CopilotChat = "" } } },
