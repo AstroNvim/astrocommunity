@@ -43,6 +43,7 @@ return {
               buildFlags = { "-tags", "integration" },
               completeUnimported = true,
               diagnosticsDelay = "500ms",
+              gofumpt = true,
               matcher = "Fuzzy",
               semanticTokens = true,
               staticcheck = true,
