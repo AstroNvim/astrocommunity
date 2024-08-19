@@ -1,5 +1,57 @@
 # Changelog
 
+## [13.0.0](https://github.com/AstroNvim/astrocommunity/compare/v12.0.0...v13.0.0) (2024-08-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **multiple-cursors-nvim:** Change prefix to `<Leader>m` ([#1141](https://github.com/AstroNvim/astrocommunity/issues/1141))
+
+### Features
+
+* **code-runner:** Add `molten-nvim` ([#1143](https://github.com/AstroNvim/astrocommunity/issues/1143)) ([76f4f81](https://github.com/AstroNvim/astrocommunity/commit/76f4f81b5da0f1573a2d7040d7909e11f1239fac))
+* **completion:** add supermaven-nvim ([#1140](https://github.com/AstroNvim/astrocommunity/issues/1140)) ([5f43a6c](https://github.com/AstroNvim/astrocommunity/commit/5f43a6cb4f7c60fe0bf83468e96f8537e47da10d))
+* **cs:** add neotest integration with `neotest-dotnet` ([#1147](https://github.com/AstroNvim/astrocommunity/issues/1147)) ([6c55d15](https://github.com/AstroNvim/astrocommunity/commit/6c55d155ed36fcd6b6437987d301007a2718466b))
+* **debugging:** add `quicker.nvim` ([#1146](https://github.com/AstroNvim/astrocommunity/issues/1146)) ([7c3ec48](https://github.com/AstroNvim/astrocommunity/commit/7c3ec48585fde573a5c1b83f98cec1a24b72fc18))
+* **git:** add `gitgraph.nvim` ([#1157](https://github.com/AstroNvim/astrocommunity/issues/1157)) ([21251ca](https://github.com/AstroNvim/astrocommunity/commit/21251ca595a7fe9f16232c44302eee46d6269d2c))
+* **haskell:** update `haskell-tools` to v4 ([#1135](https://github.com/AstroNvim/astrocommunity/issues/1135)) ([933a8d4](https://github.com/AstroNvim/astrocommunity/commit/933a8d4a84f90748bed0e5895ab575fa685e171a))
+* **hyprlang:** use `mason-lspconfig` for managing `hyprls` installation and setup ([3c72999](https://github.com/AstroNvim/astrocommunity/commit/3c7299991f735f376eb30adbccc3ec09efa41fd2))
+* **markdown-and-latex:** add `markview.nvim` ([#1155](https://github.com/AstroNvim/astrocommunity/issues/1155)) ([2ea16f7](https://github.com/AstroNvim/astrocommunity/commit/2ea16f78e2d864667277a7a35d331302e1f5707b))
+* **neovim-lua-development:** add `helpview.nvim` ([#1156](https://github.com/AstroNvim/astrocommunity/issues/1156)) ([ad68f73](https://github.com/AstroNvim/astrocommunity/commit/ad68f73978bcf068d9a7427fbceee96722a115da))
+* **pack/cs:** add neotest dotnet ([6c55d15](https://github.com/AstroNvim/astrocommunity/commit/6c55d155ed36fcd6b6437987d301007a2718466b))
+* **pack:** add `mdx` language pack ([#1142](https://github.com/AstroNvim/astrocommunity/issues/1142)) ([be08022](https://github.com/AstroNvim/astrocommunity/commit/be08022d7c6c350a26abd758192e5f0d04561fe5))
+* **pack:** remove pinned version of `typst-preview.nvim` in `typst` pack ([#1151](https://github.com/AstroNvim/astrocommunity/issues/1151)) ([56031b4](https://github.com/AstroNvim/astrocommunity/commit/56031b4e44f9232f971120df31d1085a0b0ae47b))
+* **recipes:** add recipe for automatically triggering lsp signature help ([cd285bc](https://github.com/AstroNvim/astrocommunity/commit/cd285bc913e393a9020a2818a95396b9919a5ffb))
+* **rust:** update `rustaceanvim` to v5 ([#1133](https://github.com/AstroNvim/astrocommunity/issues/1133)) ([45c60e7](https://github.com/AstroNvim/astrocommunity/commit/45c60e745235798b6fdc7508e454239ef61b9d91))
+* **split-and-window:** add colorful-winsep.nvim plugin ([#1132](https://github.com/AstroNvim/astrocommunity/issues/1132)) ([612a061](https://github.com/AstroNvim/astrocommunity/commit/612a0619e13d32431e2ebe95f166a9aad54c2a36))
+* **utility:** add `lua-json5` ([d3463cb](https://github.com/AstroNvim/astrocommunity/commit/d3463cb7cdd796a4b2988d7615bf424dc840b474))
+
+
+### Bug Fixes
+
+* **codesnap-nvim:** Add default saving path ([#1121](https://github.com/AstroNvim/astrocommunity/issues/1121)) ([8661208](https://github.com/AstroNvim/astrocommunity/commit/8661208c7b9a06551be04d104c5bdfd37031b19f))
+* **codesnap-nvim:** Remove `save_path` now that mistricky/codesnap.nvim[#124](https://github.com/AstroNvim/astrocommunity/issues/124) is merged ([#1139](https://github.com/AstroNvim/astrocommunity/issues/1139)) ([a936028](https://github.com/AstroNvim/astrocommunity/commit/a936028c30afead22c525b82644d79b7fa448256))
+* **codesnap:** Remove dir now that mistricky/codesnap.nvim[#124](https://github.com/AstroNvim/astrocommunity/issues/124) is merged ([a936028](https://github.com/AstroNvim/astrocommunity/commit/a936028c30afead22c525b82644d79b7fa448256))
+* **conform-nvim:** limit updates for nvim 0.9 ([59ea70f](https://github.com/AstroNvim/astrocommunity/commit/59ea70fef37b19958f8b1056fac46f9f857c8b10))
+* **cord-nvim:** build script path for windows ([7d1f69a](https://github.com/AstroNvim/astrocommunity/commit/7d1f69a4218671224675d4982b79a32d86902684))
+* **cord-nvim:** Make build command cross-platform ([#1137](https://github.com/AstroNvim/astrocommunity/issues/1137)) ([7d1f69a](https://github.com/AstroNvim/astrocommunity/commit/7d1f69a4218671224675d4982b79a32d86902684)), closes [#1136](https://github.com/AstroNvim/astrocommunity/issues/1136)
+* **go:** enable `gofumpt` in `gopls` by default ([#1167](https://github.com/AstroNvim/astrocommunity/issues/1167)) ([e61ce28](https://github.com/AstroNvim/astrocommunity/commit/e61ce28300856c65f23471827c0f10514b8a1e5a))
+* **go:** install missing `goimports` ([#1166](https://github.com/AstroNvim/astrocommunity/issues/1166)) ([50ad0af](https://github.com/AstroNvim/astrocommunity/commit/50ad0aff7faaf5640888fcaad6db91e4f260bfa1))
+* **grug-far-nvim:** fix icon disabled options ([#1163](https://github.com/AstroNvim/astrocommunity/issues/1163)) ([db8a939](https://github.com/AstroNvim/astrocommunity/commit/db8a9390666bb93d039837d561d5b2648018712a))
+* **helpview-nvim:** add missing treesitter parser ([#1159](https://github.com/AstroNvim/astrocommunity/issues/1159)) ([ee47571](https://github.com/AstroNvim/astrocommunity/commit/ee47571fdbe1872a57a6a647446cbfd9dc510f21))
+* **helpview-nvim:** fix incorrect treesitter configuration ([af70b37](https://github.com/AstroNvim/astrocommunity/commit/af70b374142976d45c267006026cd536a509bbc1))
+* **markdown-and-latex:** improve installation process and lazy loading ([7da567d](https://github.com/AstroNvim/astrocommunity/commit/7da567d6ff8d4073b05c84fce3b01dc95d0607ea))
+* **markview-nvim:** Add missing treesitter parsers ([#1158](https://github.com/AstroNvim/astrocommunity/issues/1158)) ([8d92792](https://github.com/AstroNvim/astrocommunity/commit/8d9279212c537584507feac556e8720133712dfd))
+* **markview-nvim:** fix incorrect treesitter configuration ([0f562df](https://github.com/AstroNvim/astrocommunity/commit/0f562dfcaa5df1e2336010d1f6051d2a57048072))
+* **multiple-cursors-nvim:** Change prefix to `&lt;Leader&gt;m` ([#1141](https://github.com/AstroNvim/astrocommunity/issues/1141)) ([96b765b](https://github.com/AstroNvim/astrocommunity/commit/96b765b737233e42df1199bab2c3b0d96a6d9e70))
+* **pack/ocaml:** fix typo at README.md ([d252a62](https://github.com/AstroNvim/astrocommunity/commit/d252a621df4c65c7ec2e4a04b5c9e22c8cadb3d9))
+* **python:** disable `venv-selector` if `fd` isn't installed ([5dac4da](https://github.com/AstroNvim/astrocommunity/commit/5dac4da763aa6220757cf0864f24130ec69b54db))
+* **python:** remove unnecessary `stubPath` setting ([bb8089b](https://github.com/AstroNvim/astrocommunity/commit/bb8089b72bbb11ad850902ce58a9f1fc64277563))
+* **rust:** fix check for neovim version ([166b91e](https://github.com/AstroNvim/astrocommunity/commit/166b91e10450d0fc2467b08e4230cd2d71386360))
+* **smartcolumn-nvim:** Disable on more filetypes ([#1165](https://github.com/AstroNvim/astrocommunity/issues/1165)) ([f39a93e](https://github.com/AstroNvim/astrocommunity/commit/f39a93eae6d632858acd38f5f91c5598083a05cf))
+* **transparent-nvim:** make `transparent.nvim` actually work with Heirline (also makes the `opts` table work as well) ([#1149](https://github.com/AstroNvim/astrocommunity/issues/1149)) ([ece293a](https://github.com/AstroNvim/astrocommunity/commit/ece293a5834edb92e5812a8582b47366dc3d207c))
+* **vimtex:** update `which-key.nvim` to new syntax ([1e93b21](https://github.com/AstroNvim/astrocommunity/commit/1e93b217a596bfe39f06e98903990b1a38b7f119))
+
 ## [12.0.0](https://github.com/AstroNvim/astrocommunity/compare/v11.1.0...v12.0.0) (2024-07-25)
 
 
