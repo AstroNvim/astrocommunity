@@ -40,21 +40,43 @@ return {
         maps.n[prefix .. "r"] = { ":CopilotChatReset<CR>", desc = "Reset Chat" }
         maps.n[prefix .. "s"] = { ":CopilotChatStop<CR>", desc = "Stop Chat" }
 
-        -- TODO: look into window stying.
         -- Look into saving chats
         -- See if there is anythig else we can use from this
         -- cmp?
         -- https://github.com/jellydn/lazy-nvim-ide/blob/main/lua/plugins/extras/copilot-chat-v2.lua
 
-        maps.v[prefix .. "p"] = {
+        maps.n[prefix .. "p"] = {
           function()
-            require("CopilotChat.integrations.telescope").pick(require("CopilotChat.actions").prompt_actions())
+            require("CopilotChat.integrations.telescope").pick(require("CopilotChat.actions").prompt_actions {
+              selection = require("CopilotChat.select").buffer,
+            })
           end,
           desc = "Prompt actions",
         }
 
+        maps.v[prefix .. "p"] = {
+          function()
+            require("CopilotChat.integrations.telescope").pick(require("CopilotChat.actions").prompt_actions {
+              selection = require("CopilotChat.select").visual,
+            })
+          end,
+          desc = "Prompt actions",
+        }
+
+        maps.n[prefix .. "h"] = {
+          function()
+            require("CopilotChat.integrations.telescope").pick(require("CopilotChat.actions").help_actions {
+              selection = require("CopilotChat.select").buffer,
+            })
+          end,
+          desc = "Help actions",
+        }
         maps.v[prefix .. "h"] = {
-          function() require("CopilotChat.integrations.telescope").pick(require("CopilotChat.actions").help_actions()) end,
+          function()
+            require("CopilotChat.integrations.telescope").pick(require("CopilotChat.actions").help_actions {
+              selection = require("CopilotChat.select").visual,
+            })
+          end,
           desc = "Help actions",
         }
 
