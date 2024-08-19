@@ -70,8 +70,10 @@ return {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, { "gomodifytags", "iferr", "impl", "gotests" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(
+        opts.ensure_installed,
+        { "gomodifytags", "iferr", "impl", "gotests", "goimports" }
+      )
     end,
   },
   {
@@ -87,7 +89,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "delve", "gopls", "gomodifytags", "gotests", "iferr", "impl" }
+        { "delve", "gopls", "gomodifytags", "gotests", "iferr", "impl", "goimports" }
       )
     end,
   },
@@ -136,7 +138,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        go = { "goimports", "gofumpt" },
+        go = { "goimports", lsp_format = "last" },
       },
     },
   },

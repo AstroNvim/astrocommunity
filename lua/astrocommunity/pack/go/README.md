@@ -7,6 +7,7 @@ This plugin pack does the following:
 - Adds `go` Treesitter parsers
 - Adds `gopls` language server
 - Adds the following go packages:
+  - [goimports](https://pkg.go.dev/golang.org/x/tools/cmd/goimports?utm_source=godoc)
   - [gomodifytags](https://github.com/fatih/gomodifytags)
   - [gotests](https://github.com/cweill/gotests)
   - [iferr](https://github.com/koron/iferr)
