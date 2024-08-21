@@ -1,3 +1,37 @@
+local M = {}
+
+function M.setup()
+  vim.filetype.add {
+    extension = {
+      yaml = M.yaml_filetype,
+      yml = M.yaml_filetype,
+      tmpl = M.tmpl_filetype,
+      tpl = M.tpl_filetype,
+    },
+    filename = {
+      ["Chart.yaml"] = "yaml",
+      ["Chart.lock"] = "yaml",
+    },
+  }
+end
+
+function M.is_helm_file(path)
+  local check = vim.fs.find("Chart.yaml", { path = vim.fs.dirname(path), upward = true })
+  return not vim.tbl_isempty(check)
+end
+
+--@private
+--@return string
+function M.yaml_filetype(path, _) return M.is_helm_file(path) and "helm.yaml" or "yaml" end
+
+--@private
+--@return string
+function M.tmpl_filetype(path, _) return M.is_helm_file(path) and "helm.tmpl" or "template" end
+
+--@private
+--@return string
+function M.tpl_filetype(path, _) return M.is_helm_file(path) and "helm.tmpl" or "smarty" end
+
 return {
   {
     "AstroNvim/astrocore",
@@ -13,10 +47,18 @@ return {
         },
       },
       filetypes = {
-        extension = { gotmpl = "helm" },
+        extension = {
+          gotmpl = "helm",
+          yaml = M.yaml_filetype,
+          yml = M.yaml_filetype,
+          tmpl = M.tmpl_filetype,
+          tpl = M.tpl_filetype,
+        },
+        filename = {
+          ["Chart.yaml"] = "yaml",
+          ["Chart.lock"] = "yaml",
+        },
         pattern = {
-          [".*/templates/.*%.ya?ml"] = "helm",
-          [".*/templates/.*%.tpl"] = "helm",
           ["helmfile.*%.ya?ml"] = "helm",
         },
       },
