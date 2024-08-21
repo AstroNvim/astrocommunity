@@ -1,20 +1,5 @@
 local M = {}
 
-function M.setup()
-  vim.filetype.add {
-    extension = {
-      yaml = M.yaml_filetype,
-      yml = M.yaml_filetype,
-      tmpl = M.tmpl_filetype,
-      tpl = M.tpl_filetype,
-    },
-    filename = {
-      ["Chart.yaml"] = "yaml",
-      ["Chart.lock"] = "yaml",
-    },
-  }
-end
-
 function M.is_helm_file(path)
   local check = vim.fs.find("Chart.yaml", { path = vim.fs.dirname(path), upward = true })
   return not vim.tbl_isempty(check)
