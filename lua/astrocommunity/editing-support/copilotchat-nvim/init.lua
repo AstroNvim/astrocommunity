@@ -121,5 +121,13 @@ return {
     },
     { "AstroNvim/astroui", opts = { icons = { CopilotChat = "" } } },
   },
-  opts = {},
+  opts = {
+    window = {
+      layout = "float",
+      width = 74, -- absolute width in columns
+      height = vim.o.lines - 4, -- absolute height in rows, subtract for command line and status line
+      row = 1, -- row position of the window, starting from the top
+      col = vim.o.columns - 74, -- column position of the window, aligned to the right
+    },
+  },
 }
