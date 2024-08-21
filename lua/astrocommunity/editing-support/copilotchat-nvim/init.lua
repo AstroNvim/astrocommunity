@@ -30,11 +30,6 @@ return {
       "AstroNvim/astrocore",
       ---@param opts AstroCoreOpts
       opts = function(_, opts)
-        local copilot_chat = require "CopilotChat"
-        local telescope = require "CopilotChat.integrations.telescope"
-        local actions = require "CopilotChat.actions"
-        local select = require "CopilotChat.select"
-
         local maps = assert(opts.mappings)
         local prefix = "<Leader>P"
         local astroui = require "astroui"
@@ -51,7 +46,7 @@ return {
         maps.n[prefix .. "S"] = {
           function()
             vim.ui.input({ prompt = "Save Chat: " }, function(input)
-              if input ~= nil and input ~= "" then copilot_chat.save(input) end
+              if input ~= nil and input ~= "" then require("CopilotChat").save(input) end
             end)
           end,
           desc = "Save Chat",
@@ -59,6 +54,7 @@ return {
 
         maps.n[prefix .. "L"] = {
           function()
+            local copilot_chat = require "CopilotChat"
             local path = copilot_chat.config.history_path
             local chats = require("plenary.scandir").scan_dir(path, { depth = 1, hidden = true })
             -- Remove the path from the chat names and .json
@@ -75,8 +71,8 @@ return {
         -- Helper function to create mappings
         local function create_mapping(action_type, selection_type)
           return function()
-            telescope.pick(actions[action_type] {
-              selection = select[selection_type],
+            require("CopilotChat.integrations.telescope").pick(require("CopilotChat.actions")[action_type] {
+              selection = require("CopilotChat.select")[selection_type],
             })
           end
         end
@@ -105,18 +101,20 @@ return {
         local function quick_chat(selection_type)
           return function()
             vim.ui.input({ prompt = "Quick Chat: " }, function(input)
-              if input ~= nil and input ~= "" then copilot_chat.ask(input, { selection = selection_type }) end
+              if input ~= nil and input ~= "" then
+                require("CopilotChat").ask(input, { selection = require("CopilotChat.select")[selection_type] })
+              end
             end)
           end
         end
 
         maps.n[prefix .. "q"] = {
-          quick_chat(select.buffer),
+          quick_chat "buffer",
           desc = "Quick Chat",
         }
 
         maps.v[prefix .. "q"] = {
-          quick_chat(select.visual),
+          quick_chat "visual",
           desc = "Quick Chat",
         }
       end,
