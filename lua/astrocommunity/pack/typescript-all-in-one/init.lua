@@ -36,7 +36,7 @@ return {
                 end
               end
 
-              -- if tsserver attached, stop it if there is a denols server attached
+              -- if vtsls attached, stop it if there is a denols server attached
               if curr_client and curr_client.name == "vtsls" then
                 if next((vim.lsp.get_clients or vim.lsp.get_active_clients) { bufnr = bufnr, name = "denols" }) then
                   vim.lsp.stop_client(curr_client.id, true)
