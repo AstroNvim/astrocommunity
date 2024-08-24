@@ -1,4 +1,3 @@
-local prefix = "<Leader>t"
 return {
   {
     "mgierada/lazydocker.nvim",
@@ -9,7 +8,7 @@ return {
         opts = {
           mappings = {
             n = {
-              [prefix .. "d"] = {
+              ["<Leader>t" .. "d"] = {
                 function() require("lazydocker").open() end,
                 desc = "ToggleTerm LazyDocker",
               },
