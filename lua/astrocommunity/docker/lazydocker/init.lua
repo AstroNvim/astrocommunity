@@ -18,8 +18,6 @@ return {
         },
       },
     },
-    opts = {
-      function() require("lazydocker").setup() end,
-    },
+    opts = {},
   },
 }
