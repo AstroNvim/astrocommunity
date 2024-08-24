@@ -2,6 +2,6 @@
 
 This plugin pack does the following:
 
-- Adds [tsserver pack](../typescript)
+- Adds [typescript pack](../typescript)
 - Adds [denols pack](../typescript-deno)
-- Enables either `denols` or `tsserver` based on the project
+- Enables either `denols` or `vtsls` based on the project
