@@ -1,5 +1,24 @@
 # Changelog
 
+## [13.1.0](https://github.com/AstroNvim/astrocommunity/compare/v13.0.0...v13.1.0) (2024-08-28)
+
+
+### Features
+
+* **bufferline-nvim:** add buffer toggle pin binding ([#1179](https://github.com/AstroNvim/astrocommunity/issues/1179)) ([53f6dc3](https://github.com/AstroNvim/astrocommunity/commit/53f6dc3560982fd00d6164b9efac0a4088ab330e))
+* **docker:** Add `lazydocker.nvim` ([#1176](https://github.com/AstroNvim/astrocommunity/issues/1176)) ([b2d1e01](https://github.com/AstroNvim/astrocommunity/commit/b2d1e018289613bc3d9aa96c2ca3188f4aed6dca))
+* **editing-support:** add `CopilotChat.nvim` ([#1169](https://github.com/AstroNvim/astrocommunity/issues/1169)) ([8b25521](https://github.com/AstroNvim/astrocommunity/commit/8b25521fe34ce787a93235bb05e2c1540d78bb6c))
+* **gitgraph-nvim:** if using kitty terminal, use nicer commit symbols ([9149d61](https://github.com/AstroNvim/astrocommunity/commit/9149d61b458aa66ac74d1e5a14f112cc17321be2))
+* **split-and-window:** add `neominimap.nvim` ([#1175](https://github.com/AstroNvim/astrocommunity/issues/1175)) ([c2ee7e0](https://github.com/AstroNvim/astrocommunity/commit/c2ee7e01e4b04418341d8f626f1caeb4953f703c))
+
+
+### Bug Fixes
+
+* **bufferline-nvim:** add buffer toggle pin binding ([53f6dc3](https://github.com/AstroNvim/astrocommunity/commit/53f6dc3560982fd00d6164b9efac0a4088ab330e))
+* neo-tree -&gt; NeoTree in ignore_patterns ([1abfba5](https://github.com/AstroNvim/astrocommunity/commit/1abfba5d3f57d969c1e7d8fc51e81a926e7c20e5))
+* **rest-nvim:** update to v3 ([#1174](https://github.com/AstroNvim/astrocommunity/issues/1174)) ([d4d3420](https://github.com/AstroNvim/astrocommunity/commit/d4d3420b46f79c6ad8ac12451ce0817a7d737675))
+* **tint-nvim:** update neo-tree → NeoTree (ignore_patterns) ([#1172](https://github.com/AstroNvim/astrocommunity/issues/1172)) ([1abfba5](https://github.com/AstroNvim/astrocommunity/commit/1abfba5d3f57d969c1e7d8fc51e81a926e7c20e5))
+
 ## [13.0.0](https://github.com/AstroNvim/astrocommunity/compare/v12.0.0...v13.0.0) (2024-08-19)
 
 
