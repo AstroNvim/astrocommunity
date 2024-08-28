@@ -17,11 +17,17 @@ end
 return {
   {
     "AstroNvim/astrocore",
-    ---@type AstroCoreOpts
-    opts = { filetypes = { extension = {
-      yml = yaml_ft,
-      yaml = yaml_ft,
-    } } },
+    opts = function(_, opts)
+      local utils = require "astrocommunity"
+      return require("astrocore").extend_tbl(opts, {
+        filetypes = {
+          extension = {
+            yml = utils.merge_filetype("yaml", vim.tbl_get(opts, "filetypes", "extension", "yml"), yaml_ft),
+            yaml = utils.merge_filetype("yaml", vim.tbl_get(opts, "filetypes", "extension", "yaml"), yaml_ft),
+          },
+        },
+      })
+    end,
   },
   { import = "astrocommunity.pack.yaml" },
   {
