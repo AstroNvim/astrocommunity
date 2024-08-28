@@ -38,6 +38,7 @@ return {
               function() require("bufferline.commands").close_in_direction "right" end,
               desc = "Close all buffers to the right of the current",
             },
+            ["<Leader>bp"] = { "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin buffer" },
             ["<Leader>bse"] = {
               function() require("bufferline.commands").sort_by "extension" end,
               desc = "Sort buffers by extension",
