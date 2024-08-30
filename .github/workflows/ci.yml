@@ -44,3 +44,5 @@ jobs:
     uses: AstroNvim/.github/.github/workflows/discord_announcement.yml@main
     if: ${{ github.event_name == 'release' }}
     secrets: inherit
+    with:
+      plugin_name: AstroCommunity
