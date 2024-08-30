@@ -1,31 +1,7 @@
 ---@type LazySpec
 return {
   "benlubas/molten-nvim",
-  cmd = {
-    "MoltenInfo",
-    "MoltenInit",
-    "MoltenDein",
-    "MoltenGoto",
-    "MoltenNext",
-    "MoltenPrev",
-    "MoltenEvaluateLine",
-    "MoltenEvaluateVisual",
-    "MoltenEvaluateOperator",
-    "MoltenEvaluateArgument",
-    "MoltenReevaluateCell",
-    "MoltenDelete",
-    "MoltenShowOutput",
-    "MoltenHideOutput",
-    "MoltenEnterOutput",
-    "MoltenInterrupt",
-    "MoltenOpenInBrowser",
-    "MoltenImagePopup",
-    "MoltenRestart",
-    "MoltenSave",
-    "MoltenLoad",
-    "MoltenExportOutput",
-    "MoltenImportOutput",
-  },
+  lazy = false,
   version = "^1", -- use version <2.0.0 to avoid breaking changes
   build = ":UpdateRemotePlugins",
   dependencies = {
