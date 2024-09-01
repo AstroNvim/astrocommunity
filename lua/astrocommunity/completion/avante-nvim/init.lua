@@ -11,7 +11,7 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     -- optional dependencies
-    "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+    "echasnovski/mini.icons", -- or "nvim-tree/nvim-web-devicons",
     "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
       -- support for image pasting
