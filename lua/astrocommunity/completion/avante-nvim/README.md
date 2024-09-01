@@ -26,4 +26,4 @@ export AZURE_OPENAI_API_KEY=your-api-key
 
 For more information, please refer to:
 
-Repository: [https://github.com/yetone/avante.nvim](https://github.com/yetone/avante.nvim)
+Repository: <https://github.com/yetone/avante.nvim>
