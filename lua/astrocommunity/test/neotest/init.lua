@@ -1,4 +1,6 @@
 local prefix = "<Leader>T"
+local watch_prefix = prefix .. "W"
+
 return {
   "nvim-neotest/neotest",
   lazy = true,
@@ -26,6 +28,29 @@ return {
             [prefix .. "O"] = { function() require("neotest").output_panel.toggle() end, desc = "Output window" },
             ["]T"] = { function() require("neotest").jump.next() end, desc = "Next test" },
             ["[T"] = { function() require("neotest").jump.prev() end, desc = "previous test" },
+
+            [watch_prefix] = { desc = " Watch" },
+            [watch_prefix .. "t"] = {
+              function() require("neotest").watch.toggle() end,
+              desc = "Toggle watch test",
+            },
+            [watch_prefix .. "f"] = {
+              function() require("neotest").watch.toggle(vim.fn.expand "%") end,
+              desc = "Toggle watch all test in file",
+            },
+            [watch_prefix .. "p"] = {
+              function() require("neotest").watch.toggle(vim.fn.getcwd()) end,
+              desc = "Toggle watch all tests in project",
+            },
+            [watch_prefix .. "S"] = {
+              function()
+                --- NOTE: The proper type of the argument is missing in the documentation
+                ---@see https://github.com/nvim-neotest/neotest/blob/master/doc/neotest.txt#L626
+                ---@diagnostic disable-next-line: missing-parameter
+                require("neotest").watch.stop()
+              end,
+              desc = "Stop all watches",
+            },
           },
         },
       },
