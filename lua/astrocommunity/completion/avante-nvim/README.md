@@ -1,8 +1,6 @@
-# Avante.nvim
+Avante.nvim is a Neovim plugin that emulates the Cursor AI IDE's functionality. It provides AI-driven code suggestions and allows users to apply these recommendations directly to their source files with minimal effort.
 
-avante.nvim is a Neovim plugin designed to emulate the behaviour of the Cursor AI IDE. It provides users with AI-driven code suggestions and the ability to apply these recommendations directly to their source files with minimal effort.
-
-Everytime you open a file, the plugin will ask you to enter a Anthropic API key for Claude 3.5 Sonnet model. To avoid this, set an environment variable to store your API key:
+Everytime you open a file, the plugin will ask you to enter an Anthropic API key for Claude 3.5 Sonnet. To avoid repeating this, set an environment variable to store your API key locally:
 
 For Claude:
 
