@@ -2,7 +2,9 @@
 return {
   "andythigpen/nvim-coverage",
   event = "User AstroFile",
-  opts = {},
+  opts = {
+    auto_reload = true,
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     {
