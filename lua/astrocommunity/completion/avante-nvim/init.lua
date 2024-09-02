@@ -22,6 +22,23 @@ return {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
+    {
+      "AstroNvim/astrocore",
+      opts = function(_, opts)
+        local maps = assert(opts.mappings)
+        local prefix = "<Leader>a"
+
+        maps.n[prefix] = { desc = "Avante functionalities" }
+
+        maps.n[prefix .. "a"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
+        maps.v[prefix .. "a"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
+
+        maps.v[prefix .. "r"] = { function() require("avante.api").refresh() end, desc = "Avante refresh" }
+
+        maps.n[prefix .. "e"] = { function() require("avante.api").edit() end, desc = "Avante edit" }
+        maps.v[prefix .. "e"] = { function() require("avante.api").edit() end, desc = "Avante edit" }
+      end,
+    },
     -- optional dependencies
     "echasnovski/mini.icons", -- or "nvim-tree/nvim-web-devicons",
     "zbirenbaum/copilot.lua", -- for providers='copilot'
