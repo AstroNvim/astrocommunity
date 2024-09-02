@@ -10,6 +10,7 @@ This plugin pack does the following:
 - Adds [nvim-vtsls](https://github.com/yioneko/nvim-vtsls) for language specific tooling
 - Adds [package-info.nvim](https://github.com/vuki656/package-info.nvim) for project package management
 - Adds [nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations) to handles file imports on rename or move within neo-tree
+- Adds [neotest-jest](https://github.com/nvim-neotest/neotest-jest) to ease the test running if `neotest` is installed
 
 ## How do I disable Eslint format on save?
 
@@ -24,5 +25,25 @@ return {
       eslint_fix_on_save = false,
     },
   },
+}
+```
+
+## How do I customize `neotest-jest`?
+
+To customize the `neotest-jest` plugin, you need to configure it like you would with any other plugin,
+but with a small twist: add a `config` key with an empty function. This step is necessary to prevent
+`lazy` from attempting to call a non-existent `require("neotest-jest").setup()` function, as this plugin
+doesn’t use that setup method.
+
+> Learn more about the spec setup used by `lazy` [here](https://lazy.folke.io/spec#spec-setup).
+
+```lua
+---@type LazySpec
+return {
+  "nvim-neotest/neotest-jest",
+  config = function() end, -- You need to add this line!
+  opts = function(_, opts)
+    -- Add your opts
+  end,
 }
 ```
