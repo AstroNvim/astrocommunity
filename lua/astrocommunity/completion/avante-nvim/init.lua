@@ -1,5 +1,7 @@
 return {
   "yetone/avante.nvim",
+  event = "VeryLazy",
+  lazy = false,
   build = ":AvanteBuild",
   cmd = {
     "AvanteAsk",
