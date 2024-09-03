@@ -1,6 +1,23 @@
 return {
   "yetone/avante.nvim",
   build = ":AvanteBuild",
+  cmd = {
+    "AvanteAsk",
+    "AvanteBuild",
+    "AvanteConflictChooseAllTheirs",
+    "AvanteConflictChooseBase",
+    "AvanteConflictChooseBoth",
+    "AvanteConflictChooseCursor",
+    "AvanteConflictChooseNone",
+    "AvanteConflictChooseOurs",
+    "AvanteConflictChooseTheirs",
+    "AvanteConflictListQf",
+    "AvanteConflictNextConflict",
+    "AvanteConflictPrevConflict",
+    "AvanteEdit",
+    "AvanteRefresh",
+    "AvanteSwitchProvider",
+  },
   dependencies = {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
