@@ -1,7 +1,5 @@
 return {
   "yetone/avante.nvim",
-  event = "VeryLazy",
-  lazy = false,
   build = ":AvanteBuild",
   dependencies = {
     "stevearc/dressing.nvim",
@@ -55,7 +53,6 @@ return {
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
-      event = "VeryLazy",
       opts = {
         -- recommended settings
         default = {
