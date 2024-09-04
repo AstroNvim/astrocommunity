@@ -65,7 +65,6 @@ return {
       end,
     },
     -- optional dependencies
-    "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
