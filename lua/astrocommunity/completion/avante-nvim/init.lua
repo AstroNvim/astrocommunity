@@ -65,7 +65,6 @@ return {
       end,
     },
     -- optional dependencies
-    "echasnovski/mini.icons", -- or "nvim-tree/nvim-web-devicons",
     "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
       -- support for image pasting
