@@ -16,7 +16,7 @@ return {
           and vim.tbl_contains({
             "astro",
             "svelte",
-            "tsserver",
+            "ts_ls",
             "typescript-tools",
             "volar",
             "vtsls",
