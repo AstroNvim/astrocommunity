@@ -66,4 +66,36 @@ return {
     },
   },
   opts = {},
+  specs = { -- configure optional plugins
+    { -- if copilot.lua is available, default to copilot provider
+      "zbirenbaum/copilot.lua",
+      optional = true,
+      specs = {
+        {
+          "yetone/avante.nvim",
+          opts = {
+            provider = "copilot",
+          },
+        },
+      },
+    },
+    {
+      -- make sure `Avante` is added as a filetype
+      "MeanderingProgrammer/render-markdown.nvim",
+      optional = true,
+      opts = function(_, opts)
+        if not opts.file_types then opts.filetypes = { "markdown" } end
+        opts.file_types = require("astrocore").list_insert_unique(opts.file_types, { "Avante" })
+      end,
+    },
+    {
+      -- make sure `Avante` is added as a filetype
+      "OXY2DEV/markview.nvim",
+      optional = true,
+      opts = function(_, opts)
+        if not opts.filetypes then opts.filetypes = { "markdown", "quarto", "rmd" } end
+        opts.filetypes = require("astrocore").list_insert_unique(opts.filetypes, { "Avante" })
+      end,
+    },
+  },
 }
