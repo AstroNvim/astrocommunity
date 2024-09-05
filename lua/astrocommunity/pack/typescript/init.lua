@@ -28,7 +28,7 @@ local has_prettier = function(bufnr)
     lsp_rooter = rooter.resolve("lsp", {
       ignore = {
         servers = function(client)
-          return not vim.tbl_contains({ "vtsls", "typescript-tools", "volar", "eslint", "tsserver" }, client.name)
+          return not vim.tbl_contains({ "eslint", "ts_ls", "typescript-tools", "volar", "vtsls" }, client.name)
         end,
       },
     })
