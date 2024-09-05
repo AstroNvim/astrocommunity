@@ -1,6 +1,10 @@
 return {
   "OXY2DEV/markview.nvim",
-  ft = { "markdown", "markdown.mdx" },
+  ft = function()
+    local plugin = require("lazy.core.config").spec.plugins["render-markdown.nvim"]
+    local opts = require("lazy.core.plugin").values(plugin, "opts", false)
+    return opts.filetypes or { "markdown", "quarto", "rmd" }
+  end,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
