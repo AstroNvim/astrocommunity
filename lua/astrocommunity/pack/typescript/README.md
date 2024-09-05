@@ -30,10 +30,7 @@ return {
 
 ## How do I customize `neotest-jest`?
 
-To customize the `neotest-jest` plugin, you need to configure it like you would with any other plugin,
-but with a small twist: add a `config` key with an empty function. This step is necessary to prevent
-`lazy` from attempting to call a non-existent `require("neotest-jest").setup()` function, as this plugin
-doesn’t use that setup method.
+To customize the `neotest-jest` plugin, you need to configure it like you would with any other plugin
 
 > Learn more about the spec setup used by `lazy` [here](https://lazy.folke.io/spec#spec-setup).
 
@@ -41,9 +38,7 @@ doesn’t use that setup method.
 ---@type LazySpec
 return {
   "nvim-neotest/neotest-jest",
-  config = function() end, -- You need to add this line!
   opts = function(_, opts)
     -- Add your opts
   end,
 }
-```
