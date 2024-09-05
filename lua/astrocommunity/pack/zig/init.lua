@@ -11,10 +11,10 @@ return {
   {
     "nvim-neotest/neotest",
     optional = true,
-    dependencies = { "lawrence-laz/neotest-zig", version = "^1" },
+    dependencies = { "lawrence-laz/neotest-zig", version = "^1", config = function() end },
     opts = function(_, opts)
       if not opts.adapters then opts.adapters = {} end
-      table.insert(opts.adapters, require "neotest-zig")
+      table.insert(opts.adapters, require "neotest-zig"(require("astrocore").plugin_opts "neotest-zig"))
     end,
   },
   {
