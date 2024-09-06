@@ -1,17 +1,11 @@
 return {
   "stevearc/quicker.nvim",
-  ft = "qf",
+  event = "VeryLazy",
   specs = {
     {
       "AstroNvim/astrocore",
       ---@type AstroCoreOpts
       opts = {
-        options = {
-          opt = {
-            -- allow lazy loading on quickfix opening
-            quickfixtextfunc = "v:lua.require'quicker.display'.quickfixtextfunc",
-          },
-        },
         mappings = {
           n = {
             ["<Leader>xq"] = { function() require("quicker").toggle { focus = true } end, desc = "Toggle quickfix" },
