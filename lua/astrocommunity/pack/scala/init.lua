@@ -52,7 +52,7 @@ return {
   {
     "mfussenegger/nvim-dap",
     optional = true,
-    config = function()
+    opts = function()
       local scala_config = {
         {
           type = "scala",
