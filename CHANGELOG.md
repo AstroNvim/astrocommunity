@@ -1,5 +1,41 @@
 # Changelog
 
+## [13.2.0](https://github.com/AstroNvim/astrocommunity/compare/v13.1.0...v13.2.0) (2024-09-09)
+
+
+### Features
+
+* **completion:** added `avante-nvim` plugin ([#1184](https://github.com/AstroNvim/astrocommunity/issues/1184)) ([331bf6f](https://github.com/AstroNvim/astrocommunity/commit/331bf6f859112dd109442bc70d67ff4f48d0268f))
+* **markdown-and-latex:** add `render-markdown.nvim` ([#1193](https://github.com/AstroNvim/astrocommunity/issues/1193)) ([c5cae1f](https://github.com/AstroNvim/astrocommunity/commit/c5cae1f71052a675df21472122ae4dc796b399d3))
+* **markdown-preview-nvim:** add keybindings ([#1188](https://github.com/AstroNvim/astrocommunity/issues/1188)) ([61f1f57](https://github.com/AstroNvim/astrocommunity/commit/61f1f57a2ea471644ecb4f25fafa15aa03f7ad2e))
+* **markdown-preview-nvim:** add mappings ([61f1f57](https://github.com/AstroNvim/astrocommunity/commit/61f1f57a2ea471644ecb4f25fafa15aa03f7ad2e))
+* **media:** add `img-clip.nvim` ([#1194](https://github.com/AstroNvim/astrocommunity/issues/1194)) ([d61303f](https://github.com/AstroNvim/astrocommunity/commit/d61303fa5b11168b2f68b2f13209f7d36204f374))
+* **mini-icons:** add `neo-tree.nvim` integration ([#1195](https://github.com/AstroNvim/astrocommunity/issues/1195)) ([6a79a8b](https://github.com/AstroNvim/astrocommunity/commit/6a79a8bf3c0637066e2aa97fbaaf0e7e95a03027))
+* **neotest:** add watch keybindings ([#1185](https://github.com/AstroNvim/astrocommunity/issues/1185)) ([09e9359](https://github.com/AstroNvim/astrocommunity/commit/09e93597c9aed1111abe20e4a9dfa255702ba3cf))
+* **nvim-coverage:** add keybindings ([#1186](https://github.com/AstroNvim/astrocommunity/issues/1186)) ([07ff0d8](https://github.com/AstroNvim/astrocommunity/commit/07ff0d8ad84fb7987a5e49e3abfc55869b61cabc))
+* **remote-development:** added remote-sshfs plugin ([#1180](https://github.com/AstroNvim/astrocommunity/issues/1180)) ([6c9b679](https://github.com/AstroNvim/astrocommunity/commit/6c9b6796b5891793825de48e3dea9ed44c3b1f24))
+* **typescript:** add neotest-jest support ([#1189](https://github.com/AstroNvim/astrocommunity/issues/1189)) ([19a23e9](https://github.com/AstroNvim/astrocommunity/commit/19a23e9dad94815c8c665d7d96428c08c6b61b11))
+
+
+### Bug Fixes
+
+* **ci:** update CI/CD for discord announcements ([0817e01](https://github.com/AstroNvim/astrocommunity/commit/0817e0181f6ca9ce7d5e4c5a738bedc1c947ed51))
+* **cs:** add empty config function for neotest adapter ([6de464e](https://github.com/AstroNvim/astrocommunity/commit/6de464e9f9a52772d9d0bed112b39cec839c2a06))
+* **go:** add empty config function for neotest adapter ([5cd235f](https://github.com/AstroNvim/astrocommunity/commit/5cd235f05fc9f57bf49c516a8ab0147e2ac232e8))
+* **haskell:** add empty config function for neotest adapter ([c9c5f7a](https://github.com/AstroNvim/astrocommunity/commit/c9c5f7a42d83ef33301a516b28e97c01057d1fec))
+* **helm:** better file type detection ([#1171](https://github.com/AstroNvim/astrocommunity/issues/1171)) ([bfbbe67](https://github.com/AstroNvim/astrocommunity/commit/bfbbe67ba22f6014619139b81d3f3223eb7e41bd))
+* **markdown-preview-nvim:** build using yarn when possible ([#1187](https://github.com/AstroNvim/astrocommunity/issues/1187)) ([cd45acc](https://github.com/AstroNvim/astrocommunity/commit/cd45acc67759cb3dec87fc6fcb475c5de7f609cf))
+* **markdown-preview-nvim:** build using yarn when possible, else throw ([cd45acc](https://github.com/AstroNvim/astrocommunity/commit/cd45acc67759cb3dec87fc6fcb475c5de7f609cf))
+* **markview-nvim:** add smarter lazy loading on filetype ([40497b1](https://github.com/AstroNvim/astrocommunity/commit/40497b16b028c607e787dbdab174ded541ed08bd))
+* **markview-nvim:** fix copy pasta ([d4bd90e](https://github.com/AstroNvim/astrocommunity/commit/d4bd90ee4e2d12a094ac6aab29e69cf0b2cde12b))
+* **molten-nvim:** disable lazy loading ([2932a1b](https://github.com/AstroNvim/astrocommunity/commit/2932a1bddcc0ac5f44c1d42ebf069880e355f483))
+* **python:** add empty config function for neotest adapter ([d6c380a](https://github.com/AstroNvim/astrocommunity/commit/d6c380a87ef4a592a58327b6580cb056c4887804))
+* **quicker-nvim:** lazy loading doesn't work on filetype seamlessly ([05a4e24](https://github.com/AstroNvim/astrocommunity/commit/05a4e24865805b178e69f359685d0357fc705c45))
+* **scala:** add empty config function for neotest adapter ([eb47a87](https://github.com/AstroNvim/astrocommunity/commit/eb47a875a49eab7d2e8bb8a09731d8d2e234c3fb))
+* **scala:** use `opts` instead of `config` since they merge for configuring `nvim-dap` ([b6f8a51](https://github.com/AstroNvim/astrocommunity/commit/b6f8a518e527d5372e42cec767d211bb969fb6a6))
+* **tailwindcss:** fix TailwindCSS pack not loading in Phoenix projects ([#1196](https://github.com/AstroNvim/astrocommunity/issues/1196)) ([5b25511](https://github.com/AstroNvim/astrocommunity/commit/5b255115e77be8b8737f043ceb7b566ef491072b))
+* **zig:** add empty config function for neotest adapter ([898e8f7](https://github.com/AstroNvim/astrocommunity/commit/898e8f755208f08979d6ee5d4407e0b68424833f))
+
 ## [13.1.0](https://github.com/AstroNvim/astrocommunity/compare/v13.0.0...v13.1.0) (2024-08-28)
 
 
