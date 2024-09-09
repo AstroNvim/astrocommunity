@@ -46,9 +46,9 @@ return {
     optional = true,
     opts = {
       linters_by_ft = {
-        tf = { "tfsec" },
-        terraform = { "tfsec" },
-        ["terraform-vars"] = { "tfsec" },
+        tf = { "tflint", "tfsec" },
+        terraform = { "tflint", "tfsec" },
+        ["terraform-vars"] = { "tflint", "tfsec" },
       },
     },
   },
