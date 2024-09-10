@@ -1,6 +1,7 @@
 return {
   {
     "mgierada/lazydocker.nvim",
+    lazy = true,
     dependencies = {
       "akinsho/toggleterm.nvim",
       {
