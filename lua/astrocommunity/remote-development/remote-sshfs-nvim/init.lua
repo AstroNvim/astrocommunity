@@ -28,7 +28,7 @@ return {
         if type(find_files) == "table" then
           local orig_find_files = find_files[1]
           find_files[1] = function()
-            if require("remote-sshfs.connections").is_connected then
+            if require("remote-sshfs.connections").is_connected() then
               require("remote-sshfs.api").find_files()
             elseif type(orig_find_files) == "function" then
               orig_find_files()
@@ -41,7 +41,7 @@ return {
         if type(live_grep) == "table" then
           local orig_live_grep = live_grep[1]
           live_grep[1] = function()
-            if require("remote-sshfs.connections").is_connected then
+            if require("remote-sshfs.connections").is_connected() then
               require("remote-sshfs.api").live_grep()
             elseif type(orig_live_grep) == "function" then
               orig_live_grep()
