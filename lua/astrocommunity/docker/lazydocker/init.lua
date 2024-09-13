@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   {
     "mgierada/lazydocker.nvim",
@@ -6,18 +7,18 @@ return {
       "akinsho/toggleterm.nvim",
       {
         "AstroNvim/astrocore",
-        opts = {
-          mappings = {
-            n = {
-              ["<Leader>t" .. "d"] = {
-                function() require("lazydocker").open() end,
-                desc = "ToggleTerm LazyDocker",
-              },
-            },
-          },
-        },
+        opts = function(_, opts)
+          local maps = opts.mappings
+
+          -- INFO: Default prefix of toggleterm-related actions
+          local prefix = "<Leader>t"
+
+          maps.n[prefix .. "d"] = {
+            function() require("lazydocker").open() end,
+            desc = "ToggleTerm LazyDocker",
+          }
+        end,
       },
     },
-    opts = {},
   },
 }
