@@ -4,19 +4,12 @@ return {
   cmd = {
     "AvanteAsk",
     "AvanteBuild",
-    "AvanteConflictChooseAllTheirs",
-    "AvanteConflictChooseBase",
-    "AvanteConflictChooseBoth",
-    "AvanteConflictChooseCursor",
-    "AvanteConflictChooseNone",
-    "AvanteConflictChooseOurs",
-    "AvanteConflictChooseTheirs",
-    "AvanteConflictListQf",
-    "AvanteConflictNextConflict",
-    "AvanteConflictPrevConflict",
     "AvanteEdit",
     "AvanteRefresh",
     "AvanteSwitchProvider",
+    "AvanteChat",
+    "AvanteToggle",
+    "AvanteClear",
   },
   dependencies = {
     "stevearc/dressing.nvim",
@@ -39,29 +32,24 @@ return {
         maps.v[prefix .. "e"] = { function() require("avante.api").edit() end, desc = "Avante edit" }
 
         -- the following key bindings do not have an official api implementation
-        maps.n.co = { ":AvanteConflictChooseOurs<CR>", desc = "Choose ours" }
-        maps.v.co = { ":AvanteConflictChooseOurs<CR>", desc = "Choose ours" }
+        maps.n.co = { "<Plug>(AvanteConflictOurs)", desc = "Choose ours", expr = true }
+        maps.v.co = { "<Plug>(AvanteConflictOurs)", desc = "Choose ours", expr = true }
 
-        maps.n.ct = { ":AvanteConflictChooseTheirs<CR>", desc = "Choose theirs" }
-        maps.v.ct = { ":AvanteConflictChooseTheirs<CR>", desc = "Choose theirs" }
+        maps.n.ct = { "<Plug>(AvanteConflictTheirs)", desc = "Choose theirs", expr = true }
+        maps.v.ct = { "<Plug>(AvanteConflictTheirs)", desc = "Choose theirs", expr = true }
 
-        maps.n.ca = { ":AvanteConflictChooseAllTheirs<CR>", desc = "Choose all theirs" }
-        maps.v.ca = { ":AvanteConflictChooseAllTheirs<CR>", desc = "Choose all theirs" }
+        maps.n.ca = { "<Plug>(AvanteConflictAllTheirs)", desc = "Choose all theirs", expr = true }
+        maps.v.ca = { "<Plug>(AvanteConflictAllTheirs)", desc = "Choose all theirs", expr = true }
 
-        maps.n.c0 = { ":AvanteConflictChooseNone<CR>", desc = "Choose none" }
-        maps.v.c0 = { ":AvanteConflictChooseNone<CR>", desc = "Choose none" }
+        maps.n.cb = { "<Plug>(AvanteConflictBoth)", desc = "Choose both", expr = true }
+        maps.v.cb = { "<Plug>(AvanteConflictBoth)", desc = "Choose both", expr = true }
 
-        maps.n.cb = { ":AvanteConflictChooseBoth<CR>", desc = "Choose both" }
-        maps.v.cb = { ":AvanteConflictChooseBoth<CR>", desc = "Choose both" }
+        maps.n.cc = { "<Plug>(AvanteConflictCursor)", desc = "Choose cursor", expr = true }
+        maps.v.cc = { "<Plug>(AvanteConflictCursor)", desc = "Choose cursor", expr = true }
 
-        maps.n.cc = { ":AvanteConflictChooseCursor<CR>", desc = "Choose cursor" }
-        maps.v.cc = { ":AvanteConflictChooseCursor<CR>", desc = "Choose cursor" }
+        maps.n["]x"] = { "<Plug>(AvanteConflictPrevConflict)", desc = "Move to previous conflict", expr = true }
 
-        maps.n["]x"] = { ":AvanteConflictPrevConflict<CR>", desc = "Move to previous conflict" }
-        maps.v["]x"] = { ":AvanteConflictPrevConflict<CR>", desc = "Move to previous conflict" }
-
-        maps.n["[x"] = { ":AvanteConflictNextConflict<CR>", desc = "Move to next conflict" }
-        maps.x["[x"] = { ":AvanteConflictNextConflict<CR>", desc = "Move to next conflict" }
+        maps.n["[x"] = { "<Plug>(AvanteConflictNextConflict)", desc = "Move to next conflict", expr = true }
       end,
     },
   },
