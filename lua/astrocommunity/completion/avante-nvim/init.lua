@@ -7,6 +7,9 @@ return {
     "AvanteEdit",
     "AvanteRefresh",
     "AvanteSwitchProvider",
+    "AvanteChat",
+    "AvanteToggle",
+    "AvanteClear",
   },
   dependencies = {
     "stevearc/dressing.nvim",
