@@ -94,6 +94,7 @@ return {
     },
     {
       "folke/neodev.nvim",
+      optional = true,
       opts = function(_, opts)
         opts.library = opts.library or {}
         if opts.library.plugins ~= true then
