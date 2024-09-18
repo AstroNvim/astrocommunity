@@ -112,6 +112,19 @@ return {
       opts = { integrations = { neotest = true } },
     },
   },
+  opts = function(_, opts)
+    if vim.g.icons_enabled == false then
+      opts.icons = {
+        failed = "X",
+        notify = "!",
+        passed = "O",
+        running = "*",
+        skipped = "-",
+        unknown = "?",
+        watching = "W",
+      }
+    end
+  end,
   config = function(_, opts)
     vim.diagnostic.config({
       virtual_text = {
