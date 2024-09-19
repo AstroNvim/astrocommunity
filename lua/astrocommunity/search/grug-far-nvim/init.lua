@@ -1,3 +1,17 @@
+local function grug_far_explorer(dir)
+  local grug_far, prefills = require "grug-far", { paths = dir }
+  if not grug_far.has_instance "explorer" then
+    grug_far.open {
+      instanceName = "explorer",
+      prefills = prefills,
+      staticTitle = "Find and Replace from Explorer",
+    }
+  else
+    grug_far.open_instance "explorer"
+    grug_far.update_instance_prefills("explorer", prefills, false)
+  end
+end
+
 ---@type LazySpec
 return {
   "MagicDuck/grug-far.nvim",
@@ -88,20 +102,24 @@ return {
         commands = {
           grug_far_replace = function(state)
             local node = state.tree:get_node()
-            local prefills = { paths = node:get_id() }
-            if node.type ~= "directory" then prefills.paths = vim.fn.fnamemodify(prefills.paths, ":h") end
-            local grug_far = require "grug-far"
-            if not grug_far.has_instance "tree" then
-              grug_far.open { instanceName = "tree", prefills = prefills, staticTitle = "Find and Replace from Tree" }
-            else
-              grug_far.open_instance "tree"
-              grug_far.update_instance_prefills("tree", prefills, false)
-            end
+            grug_far_explorer(node.type == "directory" and node:get_id() or vim.fn.fnamemodify(node:get_id(), ":h"))
           end,
         },
         window = {
           mappings = {
-            gs = "grug_far_replace",
+            gS = "grug_far_replace",
+          },
+        },
+      },
+    },
+    {
+      "stevearc/oil.nvim",
+      optional = true,
+      opts = {
+        keymaps = {
+          gS = {
+            function() grug_far_explorer(require("oil").get_current_dir()) end,
+            desc = "Search/Replace in directory",
           },
         },
       },
