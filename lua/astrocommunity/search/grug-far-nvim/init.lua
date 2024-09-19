@@ -16,12 +16,12 @@ return {
         local maps, prefix = opts.mappings, "<Leader>r"
 
         maps.n[prefix] = {
-          function() require("grug-far").grug_far { transient = true } end,
+          function() require("grug-far").open { transient = true } end,
           desc = require("astroui").get_icon("GrugFar", 1, true) .. "Search and Replace",
         }
 
         maps.x[prefix] = {
-          function() require("grug-far").grug_far { transient = true, startCursorRow = 4 } end,
+          function() require("grug-far").open { transient = true, startCursorRow = 4 } end,
           desc = require("astroui").get_icon("GrugFar", 1, true) .. "Search and Replace (current word)",
         }
       end,
