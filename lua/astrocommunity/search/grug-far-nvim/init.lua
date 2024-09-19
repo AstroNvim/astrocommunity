@@ -81,10 +81,34 @@ return {
         opts.disable.ft = require("astrocore").list_insert_unique(opts.disable.ft, { "grug-far" })
       end,
     },
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      optional = true,
+      opts = {
+        commands = {
+          grug_far_replace = function(state)
+            local node = state.tree:get_node()
+            local prefills = { paths = node:get_id() }
+            if node.type ~= "directory" then prefills.paths = vim.fn.fnamemodify(prefills.paths, ":h") end
+            local grug_far = require "grug-far"
+            if not grug_far.has_instance "tree" then
+              grug_far.open { instanceName = "tree", prefills = prefills, staticTitle = "Find and Replace from Tree" }
+            else
+              grug_far.open_instance "tree"
+              grug_far.update_instance_prefills("tree", prefills, false)
+            end
+          end,
+        },
+        window = {
+          mappings = {
+            gs = "grug_far_replace",
+          },
+        },
+      },
+    },
   },
   ---@param opts GrugFarOptionsOverride
   opts = function(_, opts)
-    opts.windowCreationCommand = "split"
     if not opts.icons then opts.icons = {} end
     opts.icons.enabled = vim.g.icons_enabled
     if not vim.g.icons_enabled then
