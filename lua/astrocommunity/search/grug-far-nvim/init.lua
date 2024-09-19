@@ -105,7 +105,7 @@ return {
             local node = state.tree:get_node()
             grug_far_open {
               prefills = {
-                path = node.type == "directory" and node:get_id() or vim.fn.fnamemodify(node:get_id(), ":h"),
+                paths = node.type == "directory" and node:get_id() or vim.fn.fnamemodify(node:get_id(), ":h"),
               },
             }
           end,
@@ -123,7 +123,7 @@ return {
       opts = {
         keymaps = {
           gS = {
-            function() grug_far_open { prefills = { path = require("oil").get_current_dir() } } end,
+            function() grug_far_open { prefills = { paths = require("oil").get_current_dir() } } end,
             desc = "Search/Replace in directory",
           },
         },
