@@ -34,4 +34,20 @@ return {
       end
     end,
   },
+  {
+    "AstroNvim/astrolsp",
+    opts = {
+      config = {
+        julials = {
+          settings = {
+            julia = {
+              lint = {
+                missingrefs = "none",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
 }
