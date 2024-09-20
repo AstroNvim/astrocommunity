@@ -49,6 +49,29 @@ By default, this pack configures `rust-analyzer.check.command` to use `cargo cli
 
 In some cases (for example, on large projects where `cargo clippy` is slow), you may want to use `cargo check` instead.
 
+### Global default
+
+You can configure the settings with AstroLSP similar to the instructions shown above:
+
+```lua
+return {
+  "AstroNvim/astrolsp",
+  opts = {
+    config = {
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            check = { command = "check", extraArgs = {} },
+          },
+        },
+      },
+    },
+  },
+}
+```
+
+### Per Project
+
 Currently, `rust-analyzer` itself cannot be configured per project, [adding `rust-analyzer.toml` support is still in progress](https://github.com/rust-lang/rust-analyzer/issues/13529).
 However, `rustaceanvim` [supports loading `rust-analyzer.json` files from the root of your project.](https://github.com/mrcjkb/rustaceanvim#how-to-dynamically-load-different-rust-analyzer-settings-per-project)
 If you want to use `cargo check` as your default `rust-analyzer.check.command`, you can create a `rust-analyzer.json` file in the root of your project with the following contents:
