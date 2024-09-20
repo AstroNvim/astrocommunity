@@ -125,6 +125,34 @@ return {
         },
       },
     },
+    {
+      "echasnovski/mini.files",
+      optional = true,
+      specs = {
+        "AstroNvim/astrocore",
+        opts = {
+          autocmds = {
+            mini_files_grug_far = {
+              {
+                event = "User",
+                pattern = "MiniFilesBufferCreate",
+                desc = "Create `gS` mapping in `mini.files` for searching in directory",
+                callback = function(args)
+                  vim.keymap.set(
+                    "n",
+                    "gS",
+                    function()
+                      grug_far_open { prefills = { paths = vim.fs.dirname(require("mini.files").get_fs_entry().path) } }
+                    end,
+                    { buffer = args.data.buf_id, desc = "Search/Replace in directory" }
+                  )
+                end,
+              },
+            },
+          },
+        },
+      },
+    },
   },
   ---@param opts GrugFarOptionsOverride
   opts = function(_, opts)
