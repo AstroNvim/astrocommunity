@@ -130,15 +130,10 @@ return {
   opts = function(_, opts)
     opts.transient = true
     if not opts.icons then opts.icons = {} end
-    opts.icons.enabled = vim.g.icons_enabled
-    if not vim.g.icons_enabled then
+    if vim.g.icons_enabled == false then
+      opts.icons.enabled = false
       opts.resultsSeparatorLineChar = "-"
-      opts.spinnerStates = {
-        "|",
-        "\\",
-        "-",
-        "/",
-      }
+      opts.spinnerStates = { "|", "\\", "-", "/" }
     end
   end,
 }
