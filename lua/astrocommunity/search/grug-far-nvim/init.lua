@@ -1,10 +1,14 @@
 local default_opts = { instanceName = "main", transient = true }
-local function grug_far_open(opts)
+local function grug_far_open(opts, with_visual)
   local grug_far = require "grug-far"
   opts = require("astrocore").extend_tbl(default_opts, opts)
   if not grug_far.has_instance(opts.instanceName) then
     grug_far.open(opts)
   else
+    if with_visual then
+      if not opts.prefills then opts.prefills = {} end
+      opts.prefills.search = grug_far.get_current_visual_selection()
+    end
     grug_far.open_instance(opts.instanceName)
     if opts.prefills then grug_far.update_instance_prefills(opts.instanceName, opts.prefills, false) end
   end
@@ -61,15 +65,7 @@ return {
           end,
           desc = "Replace current word",
         }
-        maps.x[prefix] = {
-          function()
-            local grug_far = require "grug-far"
-            local grug_opts = require("astrocore").extend_tbl(default_opts, { startCursorRow = 4 })
-            if grug_far.has_instance(grug_opts.instanceName) then grug_far.close_instance(grug_opts.instanceName) end
-            grug_far.with_visual_selection(grug_opts)
-          end,
-          desc = "Replace selection",
-        }
+        maps.x[prefix] = { function() grug_far_open(nil, true) end, desc = "Replace selection" }
       end,
     },
     {
