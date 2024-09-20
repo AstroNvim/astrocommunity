@@ -40,9 +40,15 @@ return {
       config = {
         julials = {
           settings = {
+            -- use the same default settings as the Julia VS Code extension
             julia = {
-              lint = {
-                missingrefs = "none",
+              completionmode = "qualify",
+              lint = { missingrefs = "none" },
+              inlayHints = {
+                static = {
+                  enabled = false,
+                  variableTypes = { enabled = true },
+                },
               },
             },
           },
