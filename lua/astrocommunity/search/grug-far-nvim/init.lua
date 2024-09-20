@@ -1,4 +1,4 @@
-local default_opts = { instanceName = "main", transient = true }
+local default_opts = { instanceName = "main" }
 local function grug_far_open(opts, with_visual)
   local grug_far = require "grug-far"
   opts = require("astrocore").extend_tbl(default_opts, opts)
@@ -128,6 +128,7 @@ return {
   },
   ---@param opts GrugFarOptionsOverride
   opts = function(_, opts)
+    opts.transient = true
     if not opts.icons then opts.icons = {} end
     opts.icons.enabled = vim.g.icons_enabled
     if not vim.g.icons_enabled then
