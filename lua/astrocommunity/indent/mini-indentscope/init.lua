@@ -26,6 +26,10 @@ return {
   event = "User AstroFile",
   opts = function()
     return {
+      draw = {
+        delay = 100,
+        animation = function(s, n) return s / n * 10 end,
+      },
       options = { try_as_border = true },
       symbol = require("astrocore").plugin_opts("indent-blankline.nvim").context_char or char,
     }
