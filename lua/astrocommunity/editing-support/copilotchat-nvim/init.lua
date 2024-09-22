@@ -31,7 +31,7 @@ return {
       ---@param opts AstroCoreOpts
       opts = function(_, opts)
         local maps = assert(opts.mappings)
-        local prefix = "<Leader>P"
+        local prefix = opts.options.g.copilot_chat_prefix or "<Leader>P"
         local astroui = require "astroui"
 
         maps.n[prefix] = { desc = astroui.get_icon("CopilotChat", 1, true) .. "CopilotChat" }
