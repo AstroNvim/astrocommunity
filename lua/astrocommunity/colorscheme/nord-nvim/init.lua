@@ -1,5 +1,6 @@
 return {
   "shaunsingh/nord.nvim",
+  lazy = true,
   dependencies = {
     "AstroNvim/astrocore",
     opts = {

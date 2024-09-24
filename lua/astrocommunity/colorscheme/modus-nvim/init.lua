@@ -1,3 +1,1 @@
-return {
-  "miikanissi/modus-themes.nvim",
-}
+return { "miikanissi/modus-themes.nvim", lazy = true }

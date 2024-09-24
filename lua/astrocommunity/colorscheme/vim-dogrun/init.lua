@@ -1,1 +1,1 @@
-return { "wadackel/vim-dogrun" }
+return { "wadackel/vim-dogrun", lazy = true }

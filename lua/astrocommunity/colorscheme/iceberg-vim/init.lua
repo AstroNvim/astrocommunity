@@ -1,1 +1,1 @@
-return { "cocopon/iceberg.vim" }
+return { "cocopon/iceberg.vim", lazy = true }

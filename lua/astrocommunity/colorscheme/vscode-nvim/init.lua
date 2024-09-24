@@ -1,1 +1,1 @@
-return { "Mofiqul/vscode.nvim" }
+return { "Mofiqul/vscode.nvim", lazy = true }

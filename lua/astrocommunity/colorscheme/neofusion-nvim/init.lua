@@ -1,6 +1,6 @@
 return {
   "diegoulloao/neofusion.nvim",
-  priority = 1000,
+  lazy = true,
   config = true,
   opts = {
     terminal_colors = true, -- add neovim terminal colors

@@ -1,5 +1,6 @@
 return {
   "echasnovski/mini.base16",
+  lazy = true,
   specs = {
     {
       "catppuccin",

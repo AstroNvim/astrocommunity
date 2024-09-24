@@ -1,4 +1,1 @@
-return {
-  "maxmx03/fluoromachine.nvim",
-  opts = {},
-}
+return { "maxmx03/fluoromachine.nvim", lazy = true, opts = {} }

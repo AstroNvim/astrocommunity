@@ -1,4 +1,1 @@
-return {
-  "HoNamDuong/hybrid.nvim",
-  opts = {},
-}
+return { "HoNamDuong/hybrid.nvim", lazy = true, opts = {} }
