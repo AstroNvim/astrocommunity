@@ -1,3 +1,1 @@
-return {
-  "slugbyte/lackluster.nvim",
-}
+return { "slugbyte/lackluster.nvim", lazy = true }

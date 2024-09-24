@@ -1,1 +1,1 @@
-return { "ramojus/mellifluous.nvim" }
+return { "ramojus/mellifluous.nvim", lazy = true }

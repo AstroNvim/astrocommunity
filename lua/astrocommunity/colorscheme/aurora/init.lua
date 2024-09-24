@@ -1,3 +1,1 @@
-return {
-  "ray-x/aurora",
-}
+return { "ray-x/aurora", lazy = true }

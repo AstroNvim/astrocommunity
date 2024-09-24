@@ -1,5 +1,6 @@
 return {
   "scottmckendry/cyberdream.nvim",
+  lazy = true,
   opts = {
     transparent = true,
     italic_comments = true,

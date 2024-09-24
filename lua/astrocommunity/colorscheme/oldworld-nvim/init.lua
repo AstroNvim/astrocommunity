@@ -1,3 +1,1 @@
-return {
-  "dgox16/oldworld.nvim",
-}
+return { "dgox16/oldworld.nvim", lazy = true }

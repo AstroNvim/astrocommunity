@@ -1,5 +1,6 @@
 return {
   "EdenEast/nightfox.nvim",
+  lazy = true,
   opts = {
     options = {
       module_default = false,

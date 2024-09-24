@@ -1,1 +1,1 @@
-return { "tiagovla/tokyodark.nvim" }
+return { "tiagovla/tokyodark.nvim", lazy = true }

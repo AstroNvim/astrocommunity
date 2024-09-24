@@ -1,1 +1,1 @@
-return { "xero/miasma.nvim" }
+return { "xero/miasma.nvim", lazy = true }
