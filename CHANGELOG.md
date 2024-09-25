@@ -1,5 +1,58 @@
 # Changelog
 
+## [14.0.0](https://github.com/AstroNvim/astrocommunity/compare/v13.2.0...v14.0.0) (2024-09-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* **grug-far-nvim:** add more features and align with recommended `spectre.nvim` mappings ([#1212](https://github.com/AstroNvim/astrocommunity/issues/1212))
+
+### Features
+
+* **colorscheme:** Add Everblush ([#1221](https://github.com/AstroNvim/astrocommunity/issues/1221)) ([554bb1d](https://github.com/AstroNvim/astrocommunity/commit/554bb1d3dab36efd3d5250a01808e585b8a38a23))
+* **copilot-cmp:** load when opening a file ([#1205](https://github.com/AstroNvim/astrocommunity/issues/1205)) ([b7e5b28](https://github.com/AstroNvim/astrocommunity/commit/b7e5b282ec9a52cff5633417abba80f59766fe04))
+* **go:** Add golangcilint as default linter ([#1213](https://github.com/AstroNvim/astrocommunity/issues/1213)) ([2467e24](https://github.com/AstroNvim/astrocommunity/commit/2467e248b5b7766bfb4944362e90afb211e15063))
+* **grug-far-nvim:** add `mini.files` integration ([b0ae1be](https://github.com/AstroNvim/astrocommunity/commit/b0ae1bee733be5d3e28609327ad80fb182e83d81))
+* **grug-far-nvim:** add more features and align with recommended `spectre.nvim` mappings ([#1212](https://github.com/AstroNvim/astrocommunity/issues/1212)) ([8100fe5](https://github.com/AstroNvim/astrocommunity/commit/8100fe53fdd934d4ca3ebe985db3ba3728dfafb3))
+* **julia:** add `JuliaActivateEnv` command for activating an environment ([0bf6660](https://github.com/AstroNvim/astrocommunity/commit/0bf6660f600d9e451b1ffe3deeb18b7c0aa1baf8))
+* **lazydocker:** load when required only ([#1203](https://github.com/AstroNvim/astrocommunity/issues/1203)) ([283ca3c](https://github.com/AstroNvim/astrocommunity/commit/283ca3c0b1b06216860475834501628482e7c3c5))
+* **lua:** only enable `selene` linting if `selene.toml` exists ([5b06dd4](https://github.com/AstroNvim/astrocommunity/commit/5b06dd4052a13a81993ed83849a18408fd465c06))
+* **neotest:** respect `vim.g.icons_enabled` ([2197737](https://github.com/AstroNvim/astrocommunity/commit/219773776bf1b75fcfd0885937db8cbde42aa5a0)), closes [#1207](https://github.com/AstroNvim/astrocommunity/issues/1207)
+* **pack:** add Harper  ([#1199](https://github.com/AstroNvim/astrocommunity/issues/1199)) ([84ecff9](https://github.com/AstroNvim/astrocommunity/commit/84ecff964e25ceaa3957722e4e003ef1875489c7))
+* **recipes:** add recipe for caching colorscheme settings ([aabcbf1](https://github.com/AstroNvim/astrocommunity/commit/aabcbf1e66800fb073623dbeb995aa90b0dc860b))
+* **utility:** add `harper-ls` integration ([84ecff9](https://github.com/AstroNvim/astrocommunity/commit/84ecff964e25ceaa3957722e4e003ef1875489c7))
+* **utility:** add `hover.nvim` ([f6dafcf](https://github.com/AstroNvim/astrocommunity/commit/f6dafcfc27e1ff1a3d67dcdb54ec260b8ef22eb3))
+
+
+### Bug Fixes
+
+* **avante-nvim:** update correct plug mappings ([#1210](https://github.com/AstroNvim/astrocommunity/issues/1210)) ([6f7ecaf](https://github.com/AstroNvim/astrocommunity/commit/6f7ecaf8f769fad4a4894208666be4474f8c9f63))
+* **colorscheme:** lazy load all colorschemes ([#1218](https://github.com/AstroNvim/astrocommunity/issues/1218)) ([1d9046c](https://github.com/AstroNvim/astrocommunity/commit/1d9046c28f37efc587af4ba0a8237726ddcd86e3))
+* **copilotchat-nvim:** use custom prefix from astro core if defined ([#1217](https://github.com/AstroNvim/astrocommunity/issues/1217)) ([a577479](https://github.com/AstroNvim/astrocommunity/commit/a57747934b66c95b585cd55217324db99f95d00b))
+* **dart:** disable treesitter textobjects for Dart ([#1211](https://github.com/AstroNvim/astrocommunity/issues/1211)) ([9b7efc7](https://github.com/AstroNvim/astrocommunity/commit/9b7efc7f2066edd84621861d217a3449262fac8e))
+* **grug-far-nvim:** fix icon disabling ([d64a67e](https://github.com/AstroNvim/astrocommunity/commit/d64a67e63d08aef1c3021536f72ffed9c85bbfbf))
+* **grug-far-nvim:** fix typos in configuration ([2294ae8](https://github.com/AstroNvim/astrocommunity/commit/2294ae827c7318ab20b0730846748e143ee8e9bc))
+* **grug-far-nvim:** improve visual mode mapping ([4ce0029](https://github.com/AstroNvim/astrocommunity/commit/4ce002969a7ffe45898ad65455b899acceb7f1f7))
+* **grug-far-nvim:** make `transient` a truly default option ([8e6982b](https://github.com/AstroNvim/astrocommunity/commit/8e6982b27175df92b6e5226adfe985ab3dec56cd))
+* **grug-far-nvim:** update deprecated function to new name ([323743a](https://github.com/AstroNvim/astrocommunity/commit/323743aff6f42349c61342188f00294cd86120b0))
+* **julia:** add missing julia vs code extension defaults ([c8c6c6c](https://github.com/AstroNvim/astrocommunity/commit/c8c6c6c20eaa8a7d38e6078a0146f5f0968ec734))
+* **julia:** add support on attach to activate configured julia environment ([795d194](https://github.com/AstroNvim/astrocommunity/commit/795d194f724e92a19fae9d81f2260e3b5d0e648e))
+* **julia:** disable `missingrefs` linting as recommended by the vscode Julia extension ([bcbad7e](https://github.com/AstroNvim/astrocommunity/commit/bcbad7e2e21e2a361f6d6c6513d7812c534928b4))
+* **julia:** enable inlay hints in the julia language server ([f4a19c4](https://github.com/AstroNvim/astrocommunity/commit/f4a19c410fdcf778d44a8b9ece55e529df7a0274))
+* **neotest:** `neodev` should not be a hard dependency ([d14b5c5](https://github.com/AstroNvim/astrocommunity/commit/d14b5c5a3725eeab6979f769b943ee9b4376bcbf))
+* **remote-sshfs-nvim:** use function call result ([#1208](https://github.com/AstroNvim/astrocommunity/issues/1208)) ([62e1768](https://github.com/AstroNvim/astrocommunity/commit/62e1768b21698079ef7a5653e3ebfba427174a4c))
+* **tabout-nvim:** make `nvim-cmp` optional and add support for `vim.snippet` ([#1220](https://github.com/AstroNvim/astrocommunity/issues/1220)) ([237c689](https://github.com/AstroNvim/astrocommunity/commit/237c689d186d7e6809317782d33aa5e1edb7b4d6))
+* **terraform:** add missing `tflint` in `nvim-lint` configuration ([7c2d273](https://github.com/AstroNvim/astrocommunity/commit/7c2d273ab163d9482ada84c0a2c3c0e6434fa6ca))
+* **ts-error-translator-nvim:** add `ts_ls` to list of filetypes ([2367b0e](https://github.com/AstroNvim/astrocommunity/commit/2367b0ebbccda401f315606ed2bcf4697e1ef356))
+* **typescript:** add `ts_ls` to list of typescript language servers ([785b833](https://github.com/AstroNvim/astrocommunity/commit/785b833ea712e6959cf04a2704278d45315c79e9))
+* **verilog:** remove non-existent packages ([fda1a1d](https://github.com/AstroNvim/astrocommunity/commit/fda1a1db322767b996a530494d52d6322fb99b53)), closes [#1202](https://github.com/AstroNvim/astrocommunity/issues/1202)
+* **vim-matchup:** improve compatibility with `nvim-cmp` ([aa3ddb8](https://github.com/AstroNvim/astrocommunity/commit/aa3ddb8d10b5a04f6224d168465d4ef364f9cff9))
+
+
+### Reverts
+
+* **go:** remove golangcilint as default linter ([#1215](https://github.com/AstroNvim/astrocommunity/issues/1215)) ([ed63ebc](https://github.com/AstroNvim/astrocommunity/commit/ed63ebc00ec1519b4f3b948c568fe7e39bcbdce6))
+
 ## [13.2.0](https://github.com/AstroNvim/astrocommunity/compare/v13.1.0...v13.2.0) (2024-09-09)
 
 
