@@ -12,7 +12,10 @@ return {
       -- only enable the LSP if the lsp command is executable
       if vim.fn.executable "moonbit-lsp" == 1 then
         local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-        if astrolsp_avail then opts.lsp = astrolsp.lsp_opts "moonbit" end
+        if astrolsp_avail then
+          opts.lsp = astrolsp.lsp_opts "moonbit"
+          opts.on_attach = astrolsp.on_attach
+        end
       else
         opts.lsp = false
       end
