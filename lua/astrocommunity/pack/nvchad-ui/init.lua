@@ -103,8 +103,6 @@ return {
     -- add lazy loaded dependencies
     { "nvim-lua/plenary.nvim", lazy = true },
     { "NvChad/volt", lazy = true },
-    { "NvChad/minty", lazy = true },
-    { "NvChad/menu", lazy = true },
     {
       "NvChad/base46",
       lazy = true,
