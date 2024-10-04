@@ -1,5 +1,25 @@
 # Changelog
 
+## [14.1.0](https://github.com/AstroNvim/astrocommunity/compare/v14.0.0...v14.1.0) (2024-10-04)
+
+
+### Features
+
+* **colorscheme:** add `vim-nightly-colors` ([d2fb231](https://github.com/AstroNvim/astrocommunity/commit/d2fb2317623131866ff82c68eb7b8334be54df80))
+* **colorscheme:** Add Horizon ([#1232](https://github.com/AstroNvim/astrocommunity/issues/1232)) ([55e5f93](https://github.com/AstroNvim/astrocommunity/commit/55e5f93f5f9294753361c1a9b4a7a4755a82222e))
+* **pack:** add an NvChad UI pack ([#1230](https://github.com/AstroNvim/astrocommunity/issues/1230)) ([6c63df9](https://github.com/AstroNvim/astrocommunity/commit/6c63df91724e4c2c8c582861350766fd8b39ee4b))
+* **pack:** add Moonbit language support ([#1224](https://github.com/AstroNvim/astrocommunity/issues/1224)) ([e457eac](https://github.com/AstroNvim/astrocommunity/commit/e457eacee37d10eb0a9b77503a3a5b6e62f0360e))
+
+
+### Bug Fixes
+
+* **colorscheme:** fix name of `moonfly` to `vim-moonfly-colors` ([e8a3283](https://github.com/AstroNvim/astrocommunity/commit/e8a3283d1cef4bbf30bfa342fb1adb5ef287024c))
+* **cpp:** tbl extend on opts.config instead of opts ([#1228](https://github.com/AstroNvim/astrocommunity/issues/1228)) ([ed524d2](https://github.com/AstroNvim/astrocommunity/commit/ed524d2b47756f3df4f2c727509de80f22af8cfa))
+* **julia:** fix infinite recursion ([19a9c61](https://github.com/AstroNvim/astrocommunity/commit/19a9c61883713e1acdb6ee799f2ba221b2886460))
+* **lsp_lines-nvim:** disable plugin in `lazy` UI ([#1226](https://github.com/AstroNvim/astrocommunity/issues/1226)) ([baeee61](https://github.com/AstroNvim/astrocommunity/commit/baeee6187eaaff79b773ad71ccf8eecbc308a8d8))
+* **pack:** make sure custom treesitter parsers correctly handle `all` setting ([c2d1a80](https://github.com/AstroNvim/astrocommunity/commit/c2d1a80af03b5d1380c21f306c087367ce8ea649))
+* **vue:** correct typo in vue-language-server ([#1227](https://github.com/AstroNvim/astrocommunity/issues/1227)) ([dc65561](https://github.com/AstroNvim/astrocommunity/commit/dc655615d539213c09dcd155bfd476763e800767))
+
 ## [14.0.0](https://github.com/AstroNvim/astrocommunity/compare/v13.2.0...v14.0.0) (2024-09-25)
 
 
