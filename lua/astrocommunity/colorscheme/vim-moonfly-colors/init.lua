@@ -7,17 +7,6 @@ return {
       "AstroNvim/astrocore",
       opts = {
         options = {
-          opt = {
-            fillchars = {
-              horiz = "━",
-              horizup = "┻",
-              horizdown = "┳",
-              vert = "┃",
-              vertleft = "┫",
-              vertright = "┣",
-              verthoriz = "╋",
-            },
-          },
           g = {
             moonflyCursorColor = true,
             moonflyNormalFloat = true,

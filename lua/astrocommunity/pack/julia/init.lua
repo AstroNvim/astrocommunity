@@ -128,16 +128,11 @@ return {
         },
       })
 
-      if julials_manually_setup() then
-        opts.config.julials.on_attach = astrocore.patch_func(
-          opts.config.julials.on_attach,
-          function(orig, client, bufnr)
-            local environment = vim.tbl_get(client, "settings", "julia", "environmentPath")
-            if environment then client.notify("julia/activateenvironment", { envPath = environment }) end
-            orig(client, bufnr)
-          end
-        )
-      end
+      opts.config.julials.on_attach = astrocore.patch_func(opts.config.julials.on_attach, function(orig, client, bufnr)
+        local environment = vim.tbl_get(client, "settings", "julia", "environmentPath")
+        if environment then client.notify("julia/activateenvironment", { envPath = environment }) end
+        orig(client, bufnr)
+      end)
 
       return opts
     end,

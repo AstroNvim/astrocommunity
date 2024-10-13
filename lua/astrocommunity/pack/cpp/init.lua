@@ -6,7 +6,7 @@ return {
     "AstroNvim/astrolsp",
     optional = true,
     opts = function(_, opts)
-      opts.config = vim.tbl_deep_extend("keep", opts, {
+      opts.config = vim.tbl_deep_extend("keep", opts.config, {
         clangd = {
           capabilities = {
             offsetEncoding = "utf-8",
