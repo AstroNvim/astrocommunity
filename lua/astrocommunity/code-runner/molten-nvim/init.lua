@@ -42,9 +42,8 @@ local function ensure_kernel_for_venv()
   -- Create the kernel spec with the unique name
   print "Creating a new kernel spec for this virtual environment..."
   local cmd = string.format(
-    '%s -m ipykernel install --user --name="%s" --display-name="%s"',
+    '%s -m ipykernel install --user --name="%s"',
     vim.fn.shellescape(venv_path .. "/bin/python"),
-    new_kernel_name,
     new_kernel_name
   )
 
@@ -68,6 +67,8 @@ return {
 
         opts.mappings.n[prefix] = { desc = "󱓞 Molten" }
         opts.mappings.n[prefix .. "e"] = { "<Cmd>MoltenEvaluateOperator<CR>", desc = "Run operator selection" }
+        opts.mappings.n[prefix .. "l"] = { "<Cmd>MoltenEvaluateLine<CR>", desc = "Evaluate line" }
+        opts.mappings.n[prefix .. "c"] = { "<Cmd>MoltenReevaluateCell<CR>", desc = "Re-evaluate cell" }
 
         opts.mappings.n[prefix .. "m"] = { desc = "Commands" }
         opts.mappings.n[prefix .. "mi"] = { "<Cmd>MoltenInit<CR>", desc = "Initialize the plugin" }
@@ -83,10 +84,6 @@ return {
           desc = "Initialize for Python venv",
           silent = true,
         }
-
-        opts.mappings.n[prefix .. "e"] = { "<Cmd>MoltenEvaluateOperator<CR>", desc = "Run operator selection" }
-        opts.mappings.n[prefix .. "l"] = { "<Cmd>MoltenEvaluateLine<CR>", desc = "Evaluate line" }
-        opts.mappings.n[prefix .. "c"] = { "<Cmd>MoltenReevaluateCell<CR>", desc = "Re-evaluate cell" }
 
         opts.mappings.v[prefix] = { desc = "󱓞 Molten" }
         opts.mappings.v[prefix .. "r"] = { ":<C-u>MoltenEvaluateVisual<CR>gv", desc = "Evaluate visual selection" }
