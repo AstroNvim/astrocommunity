@@ -59,13 +59,14 @@ return {
   version = "^1", -- use version <2.0.0 to avoid breaking changes
   build = ":UpdateRemotePlugins",
   dependencies = {
+    { "AstroNvim/astroui", opts = { icons = { Molten = "󱓞" } } },
     {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         if not opts.mappings then opts.mappings = {} end
         local prefix = "<leader>m"
 
-        opts.mappings.n[prefix] = { desc = "󱓞 Molten" }
+        opts.mappings.n[prefix] = { desc = require("astroui").get_icon("Molten", 1, true) .. "Molten" }
         opts.mappings.n[prefix .. "e"] = { "<Cmd>MoltenEvaluateOperator<CR>", desc = "Run operator selection" }
         opts.mappings.n[prefix .. "l"] = { "<Cmd>MoltenEvaluateLine<CR>", desc = "Evaluate line" }
         opts.mappings.n[prefix .. "c"] = { "<Cmd>MoltenReevaluateCell<CR>", desc = "Re-evaluate cell" }
@@ -85,7 +86,7 @@ return {
           silent = true,
         }
 
-        opts.mappings.v[prefix] = { desc = "󱓞 Molten" }
+        opts.mappings.v[prefix] = { desc = require("astroui").get_icon("Molten", 1, true) .. "Molten" }
         opts.mappings.v[prefix .. "r"] = { ":<C-u>MoltenEvaluateVisual<CR>gv", desc = "Evaluate visual selection" }
 
         opts.mappings.n["]c"] = { "<Cmd>MoltenNext<CR>", desc = "Next Molten Cel" }
