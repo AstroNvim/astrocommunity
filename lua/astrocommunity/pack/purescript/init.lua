@@ -1,14 +1,3 @@
-local on_attach = function(_, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local opts = { noremap = true, silent = true }
-
-  buf_set_keymap("n", "<space>ai", '<Cmd>lua require("nvimmer-ps").add_ident_import()<CR>', opts)
-  buf_set_keymap("n", "<space>am", '<Cmd>lua require("nvimmer-ps").add_module_import()<CR>', opts)
-  buf_set_keymap("n", "<space>as", '<Cmd>lua require("nvimmer-ps").case_split()<CR>', opts)
-  buf_set_keymap("n", "<space>aa", '<Cmd>lua require("nvimmer-ps").add_clause()<CR>', opts)
-  buf_set_keymap("n", "<space>at", '<Cmd>lua require("nvimmer-ps").typed_hole()<CR>', opts)
-end
-
 return {
   {
     "srghma/nvimmer-ps",
@@ -71,16 +60,18 @@ return {
       ---@diagnostic disable: missing-fields
       config = {
         purescriptls = {
+          flags = {
+            debounce_text_changes = 150,
+          },
           -- root_dir fixes
           -- "Problem running build: Reading Spago workspace configuration...\n\n✘ Your spago.yaml doesn't contain a workspace section."
           -- when language server is being run in a monorepo (lot of spago.yaml files, but only the top one has "workspace section")
           root_dir = function(_) return vim.fn.getcwd() end,
-          on_attach = on_attach,
+          on_attach = function(client, bufnr) require("nvimmer-ps").setup_on_attach(client, bufnr) end,
+          on_init = function(client, _) require("nvimmer-ps").setup_on_init(client) end,
           settings = {
             purescript = {
-              flags = {
-                debounce_text_changes = 150,
-              },
+              addSpagoSources = true,
             },
           },
         },
