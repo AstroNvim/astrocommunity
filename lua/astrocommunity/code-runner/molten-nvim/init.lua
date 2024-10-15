@@ -83,7 +83,11 @@ return {
         opts.mappings.n[prefix .. "mp"] = {
           function()
             local kernel_name = ensure_kernel_for_venv()
-            vim.cmd(("MoltenInit %s"):format(kernel_name))
+            if kernel_name then
+              vim.cmd(("MoltenInit %s"):format(kernel_name))
+            else
+              vim.notify("No kernel to initialize.", vim.log.levels.WARN)
+            end
           end,
           desc = "Initialize for Python venv",
           silent = true,
