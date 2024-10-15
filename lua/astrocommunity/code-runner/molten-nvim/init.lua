@@ -1,7 +1,7 @@
 local function ensure_kernel_for_venv()
   local venv_path = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX"
   if not venv_path then
-    print "No virtual environment found."
+    vim.notify("No virtual environment found.", vim.log.levels.WARN)
     return
   end
 
@@ -20,7 +20,7 @@ local function ensure_kernel_for_venv()
       existing_kernels[kernel_name] = true -- Store existing kernel names for validation
       local kernel_path = vim.fn.fnamemodify(data.spec.argv[1], ":p") -- Canonicalize the kernel path
       if kernel_path:find(venv_path, 1, true) then
-        print "Kernel spec for this virtual environment already exists."
+        vim.notify("Kernel spec for this virtual environment already exists.", vim.log.levels.INFO)
         return kernel_name
       end
     end
@@ -31,10 +31,13 @@ local function ensure_kernel_for_venv()
   repeat
     new_kernel_name = vim.fn.input "Enter a unique name for the new kernel spec: "
     if new_kernel_name == "" then
-      print "Please provide a valid kernel name."
+      vim.notify("Please provide a valid kernel name.", vim.log.levels.ERROR)
       return
     elseif existing_kernels[new_kernel_name] then
-      print("Kernel name '" .. new_kernel_name .. "' already exists. Please choose another name.")
+      vim.notify(
+        "Kernel name '" .. new_kernel_name .. "' already exists. Please choose another name.",
+        vim.log.levels.WARN
+      )
       new_kernel_name = nil
     end
   until new_kernel_name
@@ -48,7 +51,7 @@ local function ensure_kernel_for_venv()
   )
 
   os.execute(cmd)
-  print(string.format("Kernel spec '%s' created successfully.", new_kernel_name))
+  vim.notify("Kernel spec '" .. new_kernel_name .. "' created successfully.", vim.log.levels.INFO)
   return new_kernel_name
 end
 
