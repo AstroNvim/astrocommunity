@@ -3,7 +3,7 @@ return {
   {
     "AstroNvim/astrolsp",
     optional = true,
-    ---@type AstroLSPOpts
+    ---@param opts AstroLSPOpts
     opts = function(_, opts)
       local astrocore = require "astrocore"
       local vtsls_ft = astrocore.list_insert_unique(vim.tbl_get(opts, "config", "vtsls", "filetypes") or {
@@ -62,7 +62,7 @@ return {
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "vue", "scss" })
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "vue" })
       end
     end,
   },
