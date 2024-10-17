@@ -35,11 +35,11 @@ return {
                     end,
                   },
                 },
-              pg_file = {
-                    event = { "BufRead", "BufNewFile" },
-                    pattern = "*.pg",
-                    command = "set filetype=sql",
-                  },
+                pg_file = {
+                  event = { "BufRead", "BufNewFile" },
+                  pattern = "*.pg",
+                  command = "set filetype=sql",
+                },
               },
             },
           },
