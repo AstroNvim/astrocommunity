@@ -1,5 +1,20 @@
 # Changelog
 
+## [14.2.0](https://github.com/AstroNvim/astrocommunity/compare/v14.1.0...v14.2.0) (2024-10-17)
+
+
+### Features
+
+* **html-css:** add full PostCSS support ([7c489c2](https://github.com/AstroNvim/astrocommunity/commit/7c489c22b137dd46f2f375de45c957794098dd73))
+
+
+### Bug Fixes
+
+* **astro:** fix various bugs and enabled better usage of other packs ([de04a80](https://github.com/AstroNvim/astrocommunity/commit/de04a80ba404adbd5a90593829dbe3e857818252))
+* **svelte:** import the typescript pack for more support ([e8933e9](https://github.com/AstroNvim/astrocommunity/commit/e8933e9c5318c05139991d5b328115b26cf90679))
+* **typescript:** import the html and css pack for full ecma support ([b3da393](https://github.com/AstroNvim/astrocommunity/commit/b3da393e6735d96ae070c3ac7f0f685b4a26e51b))
+* **vue:** scss support moved upstream to other packs ([701ea8a](https://github.com/AstroNvim/astrocommunity/commit/701ea8a2a29d9ab04f66586ecd5fd10bf9187b44))
+
 ## [14.1.0](https://github.com/AstroNvim/astrocommunity/compare/v14.0.0...v14.1.0) (2024-10-16)
 
 
