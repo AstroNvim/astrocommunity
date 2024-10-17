@@ -1,10 +1,11 @@
 return {
+  { import = "astrocommunity.pack.typescript" },
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "svelte", "scss" })
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "svelte" })
       end
     end,
   },
