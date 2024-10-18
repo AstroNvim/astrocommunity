@@ -1,4 +1,5 @@
 return {
+  { import = "astrocommunity.pack.typescript" },
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,

@@ -1,12 +1,23 @@
 return {
   { import = "astrocommunity.pack.json" },
   {
+    "AstroNvim/astrocore",
+    ---@type AstroCoreOpts
+    opts = { filetypes = { extension = {
+      pcss = "postcss",
+      postcss = "postcss",
+    } } },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "html", "css" })
+        opts.ensure_installed =
+          require("astrocore").list_insert_unique(opts.ensure_installed, { "html", "css", "scss" })
       end
+      vim.treesitter.language.register("scss", "less")
+      vim.treesitter.language.register("scss", "postcss")
     end,
   },
   {
@@ -52,6 +63,16 @@ return {
         css = { "prettierd", "prettier", stop_after_first = true },
         scss = { "prettierd", "prettier", stop_after_first = true },
         less = { "prettierd", "prettier", stop_after_first = true },
+        postcss = { "prettierd", "prettier", stop_after_first = true },
+      },
+    },
+  },
+  {
+    "echasnovski/mini.icons",
+    optional = true,
+    opts = {
+      filetype = {
+        postcss = { glyph = "󰌜", hl = "MiniIconsOrange" },
       },
     },
   },
