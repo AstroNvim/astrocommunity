@@ -68,6 +68,7 @@ return {
       "AstroNvim/astrocore",
       opts = {
         options = { opt = { showtabline = 0 } },
+        autocmds = { bufferline = false },
         mappings = {
           n = {
             ["<Leader>h"] = {
