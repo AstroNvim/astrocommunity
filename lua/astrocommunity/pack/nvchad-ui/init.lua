@@ -107,7 +107,10 @@ return {
       "NvChad/base46",
       lazy = true,
       init = function() vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/" end,
-      build = function() require("base46").load_all_highlights() end,
+      build = function()
+        vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
+        require("base46").load_all_highlights()
+      end,
       -- load base46 cache when necessary
       specs = {
         {
