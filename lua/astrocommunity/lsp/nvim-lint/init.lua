@@ -9,7 +9,7 @@ return {
   opts = {},
   config = function(_, opts)
     local lint, astrocore = require "lint", require "astrocore"
-
+    local autocmd_events = opts.events or { "BufWritePost", "BufReadPost", "InsertLeave", "TextChanged" }
     lint.linters_by_ft = opts.linters_by_ft or {}
     for name, linter in pairs(opts.linters or {}) do
       local base = lint.linters[name]
@@ -41,7 +41,7 @@ return {
 
     lint.try_lint() -- start linter immediately
     local timer = vim.loop.new_timer()
-    vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave", "TextChanged" }, {
+    vim.api.nvim_create_autocmd(autocmd_events, {
       group = vim.api.nvim_create_augroup("auto_lint", { clear = true }),
       desc = "Automatically try linting",
       callback = function()
