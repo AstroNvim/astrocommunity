@@ -41,4 +41,8 @@ return {
       integrations = { telescope = utils.is_available "telescope.nvim" },
     })
   end,
+  config = function()
+    local cmp = require("cmp")
+    cmp.setup.filetype("NeogitCommitMessage", { sources = {} })
+  end,
 }
