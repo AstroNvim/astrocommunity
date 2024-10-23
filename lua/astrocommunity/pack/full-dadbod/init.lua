@@ -44,9 +44,6 @@ return {
                   },
                 },
               },
-              filetypes = {
-                extension = { pg = "sql" },
-              },
             },
           },
         },
