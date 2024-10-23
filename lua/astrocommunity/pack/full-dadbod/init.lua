@@ -10,10 +10,18 @@ return {
         "DBUIAddConnection",
         "DBUIFindBuffer",
       },
-      init = function()
-        vim.g.db_ui_use_nerd_fonts = 1
-        vim.g.completion_matching_ignore_case = 1
-      end,
+      specs = {
+        {
+          "AstroNvim/astrocore",
+          opts = {
+            options = {
+              g = {
+                db_use_nerd_fonts = vim.g.icons_enabled and 1 or nil,
+              },
+            },
+          },
+        },
+      },
     },
     {
       "hrsh7th/nvim-cmp",
@@ -29,17 +37,15 @@ return {
                   {
                     event = "FileType",
                     desc = "dadbod completion",
-                    pattern = { "sql", "mysql", "plsql", "pg" },
+                    pattern = { "sql", "mysql", "plsql" },
                     callback = function()
                       require("cmp").setup.buffer { sources = { { name = "vim-dadbod-completion" } } }
                     end,
                   },
                 },
-                pg_file = {
-                  event = { "BufRead", "BufNewFile" },
-                  pattern = "*.pg",
-                  command = "set filetype=sql",
-                },
+              },
+              filetypes = {
+                extension = { pg = "sql" },
               },
             },
           },
