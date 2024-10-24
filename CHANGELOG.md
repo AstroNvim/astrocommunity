@@ -1,5 +1,33 @@
 # Changelog
 
+## [15.0.0](https://github.com/AstroNvim/astrocommunity/compare/v14.1.0...v15.0.0) (2024-10-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* **auto-save-nvim:** swap to okuuva repo ([#1239](https://github.com/AstroNvim/astrocommunity/issues/1239))
+
+### Features
+
+* **auto-save-nvim:** swap to okuuva repo ([#1239](https://github.com/AstroNvim/astrocommunity/issues/1239)) ([033dde8](https://github.com/AstroNvim/astrocommunity/commit/033dde89af5b9d1496c75023a0b2fb06de349941))
+* **full-dadbod:** Improve lazy loading ([#1246](https://github.com/AstroNvim/astrocommunity/issues/1246)) ([711efc3](https://github.com/AstroNvim/astrocommunity/commit/711efc3fdeeaad7a5d8bd3f391bcc8115b9a0b4c))
+* **html-css:** add full PostCSS support ([7c489c2](https://github.com/AstroNvim/astrocommunity/commit/7c489c22b137dd46f2f375de45c957794098dd73))
+* **nvim-lint:** make autocmd events configurable ([#1245](https://github.com/AstroNvim/astrocommunity/issues/1245)) ([af0f425](https://github.com/AstroNvim/astrocommunity/commit/af0f4259d418342d5c6f7951429ac9fd30500cf5))
+* **pack:** add Nextflow language pack ([58863a1](https://github.com/AstroNvim/astrocommunity/commit/58863a1ebb7daaef30fc4f174fc429b3631a6de6))
+* **pack:** replace `typst_lsp` with `tinymist` in `typst` pack ([#1248](https://github.com/AstroNvim/astrocommunity/issues/1248)) ([6c4c080](https://github.com/AstroNvim/astrocommunity/commit/6c4c08007fe2fc026c0273658a0a50dd8cabb20e))
+* **sql:** add PostgreSQL support to the SQL pack ([99cd785](https://github.com/AstroNvim/astrocommunity/commit/99cd7850eb2a8181a4e6f72f524d6f744b8f8ed6))
+
+
+### Bug Fixes
+
+* **astro:** fix various bugs and enabled better usage of other packs ([de04a80](https://github.com/AstroNvim/astrocommunity/commit/de04a80ba404adbd5a90593829dbe3e857818252))
+* **nvchad-ui:** disable bufferline autocommands ([682d77f](https://github.com/AstroNvim/astrocommunity/commit/682d77f2ba18368d96652f11fee766143e3772f4))
+* **nvchad-ui:** make sure cache is defined during `build` function for base46 ([6524602](https://github.com/AstroNvim/astrocommunity/commit/65246020a6d13ffc57091653a8018684f8ed60c1))
+* **nvchad-ui:** use `disable-tabline` plugin ([c36ef5f](https://github.com/AstroNvim/astrocommunity/commit/c36ef5f024c96dc8c3e2db412610afa1fcc8bf69))
+* **svelte:** import the typescript pack for more support ([e8933e9](https://github.com/AstroNvim/astrocommunity/commit/e8933e9c5318c05139991d5b328115b26cf90679))
+* **typescript:** import the html and css pack for full ecma support ([b3da393](https://github.com/AstroNvim/astrocommunity/commit/b3da393e6735d96ae070c3ac7f0f685b4a26e51b))
+* **vue:** scss support moved upstream to other packs ([701ea8a](https://github.com/AstroNvim/astrocommunity/commit/701ea8a2a29d9ab04f66586ecd5fd10bf9187b44))
+
 ## [14.1.0](https://github.com/AstroNvim/astrocommunity/compare/v14.0.0...v14.1.0) (2024-10-16)
 
 
