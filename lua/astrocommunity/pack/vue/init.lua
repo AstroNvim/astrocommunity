@@ -3,7 +3,7 @@ return {
   {
     "AstroNvim/astrolsp",
     optional = true,
-    ---@type AstroLSPOpts
+    ---@param opts AstroLSPOpts
     opts = function(_, opts)
       local astrocore = require "astrocore"
       local vtsls_ft = astrocore.list_insert_unique(vim.tbl_get(opts, "config", "vtsls", "filetypes") or {

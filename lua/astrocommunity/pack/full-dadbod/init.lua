@@ -4,7 +4,24 @@ return {
     {
       "kristijanhusak/vim-dadbod-ui",
       dependencies = { "tpope/vim-dadbod" },
-      event = "VeryLazy",
+      cmd = {
+        "DBUI",
+        "DBUIToggle",
+        "DBUIAddConnection",
+        "DBUIFindBuffer",
+      },
+      specs = {
+        {
+          "AstroNvim/astrocore",
+          opts = {
+            options = {
+              g = {
+                db_use_nerd_fonts = vim.g.icons_enabled and 1 or nil,
+              },
+            },
+          },
+        },
+      },
     },
     {
       "hrsh7th/nvim-cmp",

@@ -1,5 +1,15 @@
 return {
   {
+    "AstroNvim/astrocore",
+    opts = {
+      filetypes = {
+        extension = {
+          pg = "sql",
+        },
+      },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)

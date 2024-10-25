@@ -68,6 +68,7 @@ return {
       "AstroNvim/astrocore",
       opts = {
         options = { opt = { showtabline = 0 } },
+        autocmds = { bufferline = false },
         mappings = {
           n = {
             ["<Leader>h"] = {
@@ -96,7 +97,8 @@ return {
       },
     },
     -- Disable unnecessary plugins
-    { "rebelot/heirline.nvim", opts = { statusline = false, tabline = false } },
+    { import = "astrocommunity.recipes.disable-tabline" },
+    { "rebelot/heirline.nvim", opts = { statusline = false } },
     { "goolord/alpha-nvim", enabled = false },
     { "brenoprata10/nvim-highlight-colors", enabled = false },
     { "NvChad/nvim-colorizer.lua", enabled = false },
@@ -107,7 +109,10 @@ return {
       "NvChad/base46",
       lazy = true,
       init = function() vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/" end,
-      build = function() require("base46").load_all_highlights() end,
+      build = function()
+        vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
+        require("base46").load_all_highlights()
+      end,
       -- load base46 cache when necessary
       specs = {
         {
