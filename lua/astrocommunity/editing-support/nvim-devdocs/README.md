@@ -1,6 +1,6 @@
 # nvim-devdocs
 
-**Repository**: https://github.com/luckasRanarison/nvim-devdocs
+**Repository**: https://github.com/warpaint9299/nvim-devdocs
 
 nvim-devdocs is a plugin which brings [DevDocs][devdocs-site] documentations into neovim.
 Install, search and preview documentations directly inside neovim in markdown format with telescope integration.
