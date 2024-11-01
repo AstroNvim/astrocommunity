@@ -1,4 +1,4 @@
-# cmp-spell
+# cmp-tmux
 
 Tmux completion source for nvim-cmp.
 
