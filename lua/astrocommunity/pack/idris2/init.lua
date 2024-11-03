@@ -11,9 +11,11 @@ return {
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        -- , "ipkg"
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "idris2" })
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "idris2", "ipkg" })
       end
+      -- will make ```idris foo = 1 + 2 ``` in markdown work
+      -- when idris3 will be released - just replace idris2 with idris3
+      vim.treesitter.language.register('idris2', 'idris')
     end,
   },
   {
@@ -22,7 +24,7 @@ return {
     opts = {
       filetypes = {
         extension = {
-          idr = "idris",
+          idr = "idris", -- NOTE: also makes ```idr foo = 1 + 2 ``` in markdown work
           ipkg = "ipkg",
         },
       },
@@ -46,7 +48,9 @@ return {
               logSeverity = "debug",
             }
           end,
-          filetypes = { 'idris' }, -- nvim-treesitter defines idris2 files as 'idris' filetype, for more info - https://github.com/kayhide/tree-sitter-idris/issues/5
+          --| nvim-treesitter only works in 'idris2' filetypes by default,
+          --| but since we did `vim.treesitter.language.register` - this is not needed
+          -- filetypes = { 'idris2' },
           root_dir = function(...) return require('idris2').setup__root_dir_or_error(...) end,
           on_attach = function(...) return require('idris2').setup__on_attach(...) end,
         },
