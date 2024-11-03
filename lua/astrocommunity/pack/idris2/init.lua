@@ -48,9 +48,7 @@ return {
               logSeverity = "debug",
             }
           end,
-          --| nvim-treesitter only works in 'idris2' filetypes by default,
-          --| but since we did `vim.treesitter.language.register` - this is not needed
-          -- filetypes = { 'idris2' },
+          filetypes = { 'idris' }, -- nvim-treesitter only works in 'idris2' filetypes by default
           root_dir = function(...) return require('idris2').setup__root_dir_or_error(...) end,
           on_attach = function(...) return require('idris2').setup__on_attach(...) end,
         },
