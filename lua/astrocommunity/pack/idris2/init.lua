@@ -2,7 +2,7 @@ return {
   {
     -- "ShinKage/idris2-nvim",
     dir = "/home/srghma/projects/idris2-nvim",
-    config = function(_, opts)
+    config = function(_, _opts)
       -- require("idris2").setup(opts)
     end,
   },
@@ -15,7 +15,7 @@ return {
       end
       -- will make ```idris foo = 1 + 2 ``` in markdown work
       -- when idris3 will be released - just replace idris2 with idris3
-      vim.treesitter.language.register('idris2', 'idris')
+      vim.treesitter.language.register("idris2", "idris")
     end,
   },
   {
@@ -42,15 +42,15 @@ return {
       servers = { "idris2_lsp" },
       config = {
         idris2_lsp = {
-          before_init = function(init_params, config)
+          before_init = function(init_params, _config)
             init_params.initializationOptions = {
               logFile = "/tmp/idris2.log",
               logSeverity = "debug",
             }
           end,
-          filetypes = { 'idris' }, -- nvim-treesitter only works in 'idris2' filetypes by default
-          root_dir = function(...) return require('idris2').setup__root_dir_or_error(...) end,
-          on_attach = function(...) return require('idris2').setup__on_attach(...) end,
+          filetypes = { "idris" }, -- nvim-treesitter only works in "idris2" filetypes by default
+          root_dir = function(...) return require("idris2").setup__root_dir_or_error(...) end,
+          on_attach = function(...) return require("idris2").setup__on_attach(...) end,
         },
       },
     },
