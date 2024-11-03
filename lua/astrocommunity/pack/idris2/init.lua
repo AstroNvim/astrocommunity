@@ -1,23 +1,3 @@
--- nnoremap <buffer> <silent> <LocalLeader>t :call IdrisShowType()<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>r :call IdrisReload(0)<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>c :call IdrisCaseSplit()<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>a 0:call search(":")<ENTER>b:call IdrisAddClause(0)<ENTER>w
--- nnoremap <buffer> <silent> <LocalLeader>d 0:call search(":")<ENTER>b:call IdrisAddClause(0)<ENTER>w
--- nnoremap <buffer> <silent> <LocalLeader>b 0:call IdrisAddClause(0)<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>m :call IdrisAddMissing()<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>md 0:call search(":")<ENTER>b:call IdrisAddClause(1)<ENTER>w
--- nnoremap <buffer> <silent> <LocalLeader>f :call IdrisRefine()<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>o :call IdrisProofSearch(0)<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>s :call IdrisProofSearch(0)<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>g :call IdrisGenerateDef()<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>p :call IdrisProofSearch(1)<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>l :call IdrisMakeLemma()<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>e :call IdrisEval()<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>w 0:call IdrisMakeWith()<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>mc :call IdrisMakeCase()<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>i 0:call IdrisResponseWin()<ENTER>
--- nnoremap <buffer> <silent> <LocalLeader>h :call IdrisShowDoc()<ENTER>
-
 return {
   {
     -- "ShinKage/idris2-nvim",
@@ -26,11 +6,16 @@ return {
       -- require("idris2").setup(opts)
     end,
   },
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   optional = true,
-  --   opts = function(_, opts) require("astrocore").list_insert_unique(opts.ensure_installed, { "idris", "ipkg" }) end,
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    optional = true,
+    opts = function(_, opts)
+      if opts.ensure_installed ~= "all" then
+        -- , "ipkg"
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "idris2" })
+      end
+    end,
+  },
   {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
@@ -61,10 +46,8 @@ return {
               logSeverity = "debug",
             }
           end,
-          filetypes = { 'idris' }, -- nvim-treesitter defines idris2 files as 'idris' filetype
+          filetypes = { 'idris' }, -- nvim-treesitter defines idris2 files as 'idris' filetype, for more info - https://github.com/kayhide/tree-sitter-idris/issues/5
           root_dir = function(...) return require('idris2').setup__root_dir_or_error(...) end,
-          on_init = function(client)
-          end,
           on_attach = function(...) return require('idris2').setup__on_attach(...) end,
         },
       },
