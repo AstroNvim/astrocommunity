@@ -10,18 +10,32 @@ return {
   },
   { "nextflow-io/vim-language-nextflow", ft = "nextflow" },
   {
-    "L3MON4D3/LuaSnip",
-    optional = true,
-    specs = {
-      "nextflow-io/vscode-language-nextflow",
-      commit = "efc410e46db3518ec7693668e159fb7b148a0e1a",
-      ft = "nextflow",
-      dependencies = { "L3MON4D3/LuaSnip" },
-      config = function(plugin)
-        require("luasnip.loaders.from_vscode").lazy_load {
-          paths = { plugin.dir },
-        }
-      end,
+    "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
+    opts = {
+      ---@diagnostic disable-next-line: missing-fields
+      config = {
+        nextflow_ls = {
+          cmd = {
+            "java",
+            "-jar",
+            "nextflow-language-server.jar",
+          },
+          filetypes = { "nextflow" },
+          root_dir = function(fname)
+            local util = require "lspconfig.util"
+            return util.root_pattern "nextflow.config"(fname) or util.find_git_ancestor(fname)
+          end,
+          settings = {
+            nextflow = {
+              suppressFutureWarnings = true,
+              files = {
+                exclude = { ".git", ".nf-test", "work" },
+              },
+            },
+          },
+        },
+      },
     },
   },
   {
