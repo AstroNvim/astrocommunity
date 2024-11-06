@@ -48,6 +48,10 @@ return {
               logSeverity = "debug",
             }
           end,
+          cmd = { vim.fn.expand('$HOME/projects/idris2-lsp/result/bin/idris2-lsp') },
+          -- or
+          -- -- nix build --expr 'with import ./. { }; pkgs.buildEnv { name = "my-idris"; paths = [ pkgs.idris2Packages.idris2 pkgs.idris2Packages.idris2Lsp ]; }' --offline --impure
+          -- cmd = { cmd = { vim.fn.expand('$HOME/projects/idris2-lsp/result/bin/idris2-lsp') }, "/home/srghma/projects/nixpkgs/result/bin/idris2-lsp" },
           filetypes = { "idris" }, -- nvim-treesitter only works in "idris2" filetypes by default
           root_dir = function(...) return require("idris2").setup__root_dir_or_error(...) end,
           on_attach = function(...) return require("idris2").setup__on_attach(...) end,
