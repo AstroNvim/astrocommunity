@@ -67,10 +67,11 @@ return {
           -- "Problem running build: Reading Spago workspace configuration...\n\n✘ Your spago.yaml doesn't contain a workspace section."
           -- when language server is being run in a monorepo (lot of spago.yaml files, but only the top one has "workspace section")
           root_dir = function(_) return vim.fn.getcwd() end,
-          on_attach = function(client, bufnr) require("nvimmer-ps").setup_on_attach(client, bufnr) end,
-          on_init = function(client, _) require("nvimmer-ps").setup_on_init(client) end,
+          on_attach = function(...) require("nvimmer-ps").setup_on_attach(...) end,
+          on_init = function(...) require("nvimmer-ps").setup_on_init(...) end,
           settings = {
             purescript = {
+              formatter = "purs-tidy",
               addSpagoSources = true,
             },
           },
