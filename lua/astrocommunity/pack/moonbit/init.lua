@@ -1,6 +1,6 @@
 return {
   {
-    "tonyfettes/moonbit.nvim",
+    "moonbit-community/moonbit.nvim",
     ft = "moonbit",
     -- uncomment when mason support added to make sure command is available
     -- dependencies = {
