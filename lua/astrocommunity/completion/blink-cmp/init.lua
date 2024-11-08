@@ -72,17 +72,21 @@ return {
       specs = {
         {
           "Saghen/blink.cmp",
-          opts = {
-            sources = {
-              -- add lazydev to your completion providers
-              completion = { enabled_providers = { "lazydev" } },
-              providers = {
-                -- dont show LuaLS require statements when lazydev has items
-                lsp = { fallback_for = { "lazydev" } },
-                lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-              },
-            },
-          },
+          opts = function(_, opts)
+            if pcall(require, "lazydev.integrations.blink") then
+              return require("astrocore").extend_tbl(opts, {
+                sources = {
+                  -- add lazydev to your completion providers
+                  completion = { enabled_providers = { "lazydev" } },
+                  providers = {
+                    -- dont show LuaLS require statements when lazydev has items
+                    lsp = { fallback_for = { "lazydev" } },
+                    lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+                  },
+                },
+              })
+            end
+          end,
         },
       },
     },
