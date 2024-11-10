@@ -15,14 +15,17 @@ return {
               -- Save global autoformat status
               vim.g.OLD_AUTOFORMAT = vim.g.autoformat
               vim.g.autoformat = false
-              vim.g.OLD_AUTOFORMAT_BUFFERS = {}
+
+              local old_autoformat_buffers = {}
               -- Disable all manually enabled buffers
               for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
                 if vim.b[bufnr].autoformat then
-                  table.insert(vim.g.OLD_AUTOFORMAT_BUFFERS, bufnr)
+                  table.insert(old_autoformat_buffers, bufnr)
                   vim.b[bufnr].autoformat = false
                 end
               end
+
+              vim.g.OLD_AUTOFORMAT_BUFFERS = old_autoformat_buffers
             end,
           },
           -- Re-enable autoformat after saving
