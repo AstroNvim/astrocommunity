@@ -1,6 +1,7 @@
 return {
   {
     "srghma/nvimmer-ps",
+    opts = {},
   },
   {
     "AstroNvim/astrocore",
