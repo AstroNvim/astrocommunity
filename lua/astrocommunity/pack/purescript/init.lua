@@ -1,7 +1,7 @@
 return {
   {
     "srghma/nvimmer-ps",
-    opts = {},
+    opts = {} -- if nil - M.setup wont be called
   },
   {
     "AstroNvim/astrocore",
