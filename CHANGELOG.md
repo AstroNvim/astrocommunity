@@ -1,5 +1,48 @@
 # Changelog
 
+## [15.0.0](https://github.com/AstroNvim/astrocommunity/compare/v14.1.0...v15.0.0) (2024-11-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* **auto-save-nvim:** swap to okuuva repo ([#1239](https://github.com/AstroNvim/astrocommunity/issues/1239))
+
+### Features
+
+* **auto-save-nvim:** swap to okuuva repo ([#1239](https://github.com/AstroNvim/astrocommunity/issues/1239)) ([033dde8](https://github.com/AstroNvim/astrocommunity/commit/033dde89af5b9d1496c75023a0b2fb06de349941))
+* **cs-omnisharp:** add csharp support with omnisharp ([9c67bb9](https://github.com/AstroNvim/astrocommunity/commit/9c67bb9b6bd5fa2997dfcffc12faf8914d60b39b))
+* **diagnostics:** add `tiny-inline-diagnostic-nvim` ([#1251](https://github.com/AstroNvim/astrocommunity/issues/1251)) ([4bb0fa7](https://github.com/AstroNvim/astrocommunity/commit/4bb0fa7956100a9fa527a41613197d255de47fbd))
+* **full-dadbod:** Improve lazy loading ([#1246](https://github.com/AstroNvim/astrocommunity/issues/1246)) ([711efc3](https://github.com/AstroNvim/astrocommunity/commit/711efc3fdeeaad7a5d8bd3f391bcc8115b9a0b4c))
+* **html-css:** add full PostCSS support ([7c489c2](https://github.com/AstroNvim/astrocommunity/commit/7c489c22b137dd46f2f375de45c957794098dd73))
+* **moonbit:** add `neotest` integration to the `moonbit` pack ([#1261](https://github.com/AstroNvim/astrocommunity/issues/1261)) ([c811f17](https://github.com/AstroNvim/astrocommunity/commit/c811f1787ae4538b66dc3d38adb0eb5febbee9b0))
+* **moonbit:** use `moonbit.nvim` from `moonbit-community` ([#1260](https://github.com/AstroNvim/astrocommunity/issues/1260)) ([7a86fad](https://github.com/AstroNvim/astrocommunity/commit/7a86fadda435fdc4d3431577c53eaf102ab75d62))
+* **nextflow:** add configuration for the Nextflow Language Server ([fb039b5](https://github.com/AstroNvim/astrocommunity/commit/fb039b59673d4e6138279c85956bb8aabc6eaa56))
+* **nextflow:** add snippets from VS Code plugin ([1d22192](https://github.com/AstroNvim/astrocommunity/commit/1d221929e530ca20ee81155afeba6620af2cf3be))
+* **nvim-devdocs:** Update repository to a more up to date fork  ([#1254](https://github.com/AstroNvim/astrocommunity/issues/1254)) ([c4903b2](https://github.com/AstroNvim/astrocommunity/commit/c4903b23b75c0a429ebe02e1d31d1a8316d9691e))
+* **nvim-lint:** make autocmd events configurable ([#1245](https://github.com/AstroNvim/astrocommunity/issues/1245)) ([af0f425](https://github.com/AstroNvim/astrocommunity/commit/af0f4259d418342d5c6f7951429ac9fd30500cf5))
+* **pack:** add csharp support with `omnisharp` ([#1241](https://github.com/AstroNvim/astrocommunity/issues/1241)) ([9c67bb9](https://github.com/AstroNvim/astrocommunity/commit/9c67bb9b6bd5fa2997dfcffc12faf8914d60b39b))
+* **pack:** add Nextflow language pack ([58863a1](https://github.com/AstroNvim/astrocommunity/commit/58863a1ebb7daaef30fc4f174fc429b3631a6de6))
+* **pack:** replace `typst_lsp` with `tinymist` in `typst` pack ([#1248](https://github.com/AstroNvim/astrocommunity/issues/1248)) ([6c4c080](https://github.com/AstroNvim/astrocommunity/commit/6c4c08007fe2fc026c0273658a0a50dd8cabb20e))
+* **rust:** use crates in process LSP ([95cfc4c](https://github.com/AstroNvim/astrocommunity/commit/95cfc4ca1d35f6fcf4e367442884dc95ce255193))
+* **sql:** add PostgreSQL support to the SQL pack ([99cd785](https://github.com/AstroNvim/astrocommunity/commit/99cd7850eb2a8181a4e6f72f524d6f744b8f8ed6))
+* **tiny-inline-diagnostic-nvim:** add `tiny-inline-diagnostic-nvim` ([4bb0fa7](https://github.com/AstroNvim/astrocommunity/commit/4bb0fa7956100a9fa527a41613197d255de47fbd))
+
+
+### Bug Fixes
+
+* **astro:** fix various bugs and enabled better usage of other packs ([de04a80](https://github.com/AstroNvim/astrocommunity/commit/de04a80ba404adbd5a90593829dbe3e857818252))
+* **auto-save-nvim:** not restoring buffer settings ([#1265](https://github.com/AstroNvim/astrocommunity/issues/1265)) ([97ef955](https://github.com/AstroNvim/astrocommunity/commit/97ef9556767611f398d636d0dd59714a7538f69b))
+* **blink-cmp:** check for the existence of `lazydev` blink integration support ([2e2784a](https://github.com/AstroNvim/astrocommunity/commit/2e2784a1a1c817680e9dc8e802a4ba813a2bba97))
+* **blink-cmp:** update keymaps and add lazydev support ([580686c](https://github.com/AstroNvim/astrocommunity/commit/580686c9bd2396e4a3c7bb1fd071df2924e7797a))
+* **harper:** fix typo in `harper`'s `mason-lspconfig` override ([#1266](https://github.com/AstroNvim/astrocommunity/issues/1266)) ([4f1af4b](https://github.com/AstroNvim/astrocommunity/commit/4f1af4b86f97c57f383e29d990ab962867a3546c))
+* **nextflow:** pin `vscode-language-nextflow` ([6166e84](https://github.com/AstroNvim/astrocommunity/commit/6166e840d19b0f6665c8e02c76cba500fa4179b0))
+* **nvchad-ui:** disable bufferline autocommands ([682d77f](https://github.com/AstroNvim/astrocommunity/commit/682d77f2ba18368d96652f11fee766143e3772f4))
+* **nvchad-ui:** make sure cache is defined during `build` function for base46 ([6524602](https://github.com/AstroNvim/astrocommunity/commit/65246020a6d13ffc57091653a8018684f8ed60c1))
+* **nvchad-ui:** use `disable-tabline` plugin ([c36ef5f](https://github.com/AstroNvim/astrocommunity/commit/c36ef5f024c96dc8c3e2db412610afa1fcc8bf69))
+* **svelte:** import the typescript pack for more support ([e8933e9](https://github.com/AstroNvim/astrocommunity/commit/e8933e9c5318c05139991d5b328115b26cf90679))
+* **typescript:** import the html and css pack for full ecma support ([b3da393](https://github.com/AstroNvim/astrocommunity/commit/b3da393e6735d96ae070c3ac7f0f685b4a26e51b))
+* **vue:** scss support moved upstream to other packs ([701ea8a](https://github.com/AstroNvim/astrocommunity/commit/701ea8a2a29d9ab04f66586ecd5fd10bf9187b44))
+
 ## [14.1.0](https://github.com/AstroNvim/astrocommunity/compare/v14.0.0...v14.1.0) (2024-10-16)
 
 
