@@ -7,6 +7,7 @@ return {
     local astrocore = require "astrocore"
     return astrocore.extend_tbl(opts, {
       bigfile = { enabled = not vim.tbl_get(astrocore.config, "autocmds", "large_buf_settings") },
+      lazygit = { configure = not vim.tbl_get(require("astroui").config, "lazygit") },
       notifier = {
         enabled = not astrocore.is_available "nvim-notify",
         timeout = 3000,
@@ -32,6 +33,11 @@ return {
           opts.statuscolumn = false
         end
       end,
+    },
+    {
+      "AstroNvim/astroui",
+      ---@type AstroUIOpts
+      opts = { lazygit = false },
     },
   },
   dependencies = {
