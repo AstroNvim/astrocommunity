@@ -1,6 +1,8 @@
 ---
 on:
-  - push
+  push:
+    branches: [main]
+  pull_request:
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
@@ -17,7 +19,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: ${{ github.event_name == 'push' }}
     timeout-minutes: 1
     permissions:
       pages: write # to deploy to Pages
