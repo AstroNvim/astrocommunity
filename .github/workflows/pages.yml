@@ -1,4 +1,4 @@
----
+name: AstroCommunity Docs
 on:
   push:
     branches: [main]
