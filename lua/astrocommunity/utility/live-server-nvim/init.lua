@@ -1,6 +1,5 @@
 return {
   "barrett-ruth/live-server.nvim",
-  lazy = true,
   build = function()
     --- NOTE: Order of preference:
     --- bun / pnpm / yarn / npm
