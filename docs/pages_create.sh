@@ -19,9 +19,9 @@ EOF
 {
   # Generate markdown of all descriptions.
   prevsection=
-  shopt -s globstar
-  for readme in lua/astrocommunity/**/README.md; do
-    IFS=/ read -r _ _ section name _ <<<"$readme"
+  for readme in ../lua/astrocommunity/*/*/README.md; do
+    relative_path=${readme#../lua/astrocommunity/}
+    IFS=/ read -r section name _ <<<"$relative_path"
     if [[ "$prevsection" != "$section" ]]; then
       echo "# [$section]($repourl/lua/astrocommunity/$section)"
       echo
@@ -46,4 +46,6 @@ docker run -i --rm --mount type=bind,source="$PWD",target="$PWD",readonly --work
   --from markdown --standalone --toc --toc-depth 2 --number-sections \
   --metadata-file pages/metadata.yaml pages/index.md >pages/index.html
 
-echo "SUCCESS - generated pages/index.html"
+mv pages ..
+
+echo "SUCCESS - generated ../pages/index.html"

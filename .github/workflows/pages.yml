@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - run: ./pages_create.sh
+      - run: ./docs/pages_create.sh
       - uses: actions/upload-pages-artifact@v3
         with:
           path: pages
