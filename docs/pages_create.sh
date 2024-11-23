@@ -2,8 +2,8 @@
 set -xeuo pipefail
 cd "$(dirname "$(readlink -f "$0")")"
 mkdir -vp pages
-cp ./theme.css pages
-cp ./skylighting-solarized-theme.css pages
+echo "copy assets"
+cp -r assets pages
 repourl="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-AstroNvim/astrocommunity}/tree/main"
 
 {
@@ -53,12 +53,10 @@ docker run -i --rm --mount type=bind,source="$PWD",target="$PWD",readonly --work
   --number-sections \
   --metadata-file pages/metadata.yaml \
   --to html5+smart \
-  --template=./template \
-  --css=theme.css \
-  --css=skylighting-solarized-theme.css \
+  --template=assets/template \
+  --css=assets/theme.css \
+  --css=assets/fonts.css \
   pages/index.md >pages/index.html
 
 echo "SUCCESS - generated ../pages/index.html"
-mv pages ..
-echo "moved pages to"
-ls ..
+cp -r pages ..

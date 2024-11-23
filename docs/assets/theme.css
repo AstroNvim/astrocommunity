@@ -1,37 +1,120 @@
 /* ----- Global settings ----------------------------------------------- {{{ */
 
+
 :root {
-  /* --- Colors --- */
+  color-scheme: light dark;
+  /* astro docs site colors */
+  /* light */
+  --light-color-primary: #00508a;
+  --light-color-secondary: #7300b8;
+  --light-color-text: #1c1c1c;
+  --light-color-text-offset: #4c5057;
+  --light-color-background: #f7f8f8;
+  --light-color-background-offset: #f0f0f1;
+  --light-color-background-offset-secondary: #d4d7d9;
+  --light-color-border: #d4d7d9;
+  --light-color-gradient-from: #00508a;
+  --light-color-gradient-via: #7300b8;
+  --light-color-gradient-to: #9e007c;
+  --light-color-note-background: hsl(233.33, 88.24%, 90%);
+  --light-color-note-border: hsl(233.8, 90.2%, 60%);
+  /* dark */
+  --dark-color-primary: #76b6ef;
+  --dark-color-secondary: #d597e8;
+  --dark-color-text: #c5ccce;
+  --dark-color-text-offset: #afb3b6;
+  --dark-color-background-offset-secondary: #3a3e47;
+  --dark-color-background: #1a1d23;
+  --dark-color-background-offset: #1e222a;
+  --dark-color-border: #3a3e47;
+  --dark-color-gradient-from: #76b6ef;
+  --dark-color-gradient-via: #d597e8;
+  --dark-color-gradient-to: #f8919a;
+  --dark-color-note-background: hsl(233.57, 54.9%, 20%);
+  --dark-color-note-border: hsl(234.41, 100%, 60%);
+  /* astro based color redefinitions */
+  --background-color: light-dark(
+    var(--light-color-background),
+    var(--dark-color-background)
+  );
+  --color-text: light-dark(var(--light-color-text), var(--dark-color-text));
+  --color-inline-code: var(--color-text);
+  --color-text-secondary: light-dark(
+    var(--light-color-text-offset),
+    var(--dark-color-text-offset)
+  );
+  --color-link: light-dark(
+    var(--light-color-primary),
+    var(--dark-color-primary)
+  );
+  --color-sidenote: light-dark(
+    var(--light-color-text-offset),
+    var(--dark-color-text-offset)
+  );
+  --color-inline-code-bg: light-dark(
+    var(--light-color-background-offset-secondary),
+    var(--dark-color-background-offset-secondary)
+  );
+  --color-block-code-bg: light-dark(
+    var(--light-color-background-offset),
+    var(--dark-color-background-offset)
+  );
+  --color-border: light-dark(
+    var(--light-color-border),
+    var(--dark-color-border)
+  );
+  --color-border-heavy: var(--color-border);
+  --color-table-heading: var(--color-inline-code-bg);
+  --color-note-background: light-dark(
+    var(--light-color-note-background),
+    var(--dark-color-note-background)
+  );
+  --color-note-border: light-dark(
+    var(--light-color-note-border),
+    var(--dark-color-note-border)
+  );
+  /* astrodark/astrolight colors */ /* astrodark */
+  --dark-highlight-red: "#FF838B";
+  --dark-highlight-yellow: "#DFAB25";
+  --dark-highlight-green: "#87C05F";
+  --dark-highlight-blue: "#5EB7FF";
+  --dark-highlight-purple: "#DD97F1";
 
-  --background-color: #fff;
+  /* astrolight */
+  --light-highlight-red: "#990000";
+  --light-highlight-yellow: "#7300B8";
+  --light-highlight-green: "#345E00";
+  --light-highlight-blue: "#00508A";
+  --light-highlight-purple: "#9E007C";
 
-  --color-text: #1b2733;
-  --color-text-secondary: #637282;
-  --color-link: #0070e0;
-  --color-sidenote: #616970;
-
-  --highlight-red: #ea9999;
-  --highlight-yellow: #ffe599;
-  --highlight-green: #b6d7a8;
-  --highlight-blue: #a4c2f4;
-  --highlight-purple: #b4a7d6;
-
-  --color-inline-code: #1b2733;
-  --color-inline-code-bg: #f3f3f8;
-
-  --color-border: #dfdfd0;
-  --color-border-heavy: #ccccd4;
-
-  --color-table-heading: #f3f3fb;
-
+  /* astrothemed overrides */
+  --highlight-red: light-dark(
+    var(--light-highlight-red),
+    var(--dark-highlight-red)
+  );
+  --highlight-yellow: light-dark(
+    var(--light-highlight-yellow),
+    var(--dark-highlight-yellow)
+  );
+  --highlight-green: light-dark(
+    var(--light-highlight-green),
+    var(--dark-highlight-green)
+  );
+  --highlight-blue: light-dark(
+    var(--light-highlight-blue),
+    var(--dark-highlight-blue)
+  );
+  --highlight-purple: light-dark(
+    var(--light-highlight-purple),
+    var(--dark-highlight-purple)
+  );
   /* --- Text --- */
 
-  --font-family-prose: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --font-family-heading: system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
-  --font-family-code: Menlo, monospace;
+  --font-family-prose: "Inter", sans-serif;
+  --font-family-heading: "Inter", sans-serif;
+  --font-family-code: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+    Consolas, "DejaVu Sans Mono", monospace;
+
   --side-note-number-font-family: var(--font-family-prose);
 
   --line-height: 26px;
@@ -110,28 +193,18 @@
   --side-note-max-width: 300px;
 }
 
-@media (prefers-color-scheme: dark) {
+@supports (font-variation-settings: normal) {
   :root {
-    --background-color: #161313;
+    --font-family-prose: "InterVariable", sans-serif;
+    --font-family-heading: "InterVariable", sans-serif;
+    font-optical-sizing: auto;
+  }
+}
 
-    --color-text: #f7f5f2;
-    --color-text-secondary: #9d9b99;
-    --color-link: #2994ff;
-    --color-sidenote: #b4b2af;
-
-    --highlight-red: #660000;
-    --highlight-yellow: #7f6000;
-    --highlight-green: #274e13;
-    --highlight-blue: #1c4587;
-    --highlight-purple: #351c75;
-
-    --color-inline-code: #f7f5f2;
-    --color-inline-code-bg: #242121;
-
-    --color-border: #393635;
-    --color-border-heavy: #524f4d;
-
-    --color-table-heading: #242121;
+blockquote.metadata {
+  background: var(--color-background);
+  p {
+    margin: 0
   }
 }
 
@@ -465,14 +538,15 @@ ul ul ul ul ul ul ul ul ul {
 }
 
 blockquote {
-  border-left: 1px solid var(--color-text-secondary);
-  padding-left: 1.5rem;
-
+  border-left: 0.3ch solid var(--color-note-border);
+  padding: 1.5ch;
+  margin-bottom: 1ch;
+  background: var(--color-note-background);
   font-style: italic;
 }
 
 blockquote > p {
-  margin-top: 0;
+  margin: 0;
 }
 
 blockquote em,
@@ -583,7 +657,8 @@ code {
   background-color: var(--color-inline-code-bg);
   font-size: var(--inline-code-font-size);
   margin: 0;
-  padding: 2px 0 1px;
+  padding-inline: 1ch;
+  padding-block: 0.2ch;
   border: 1px solid var(--color-border);
   border-radius: 1px;
 }
@@ -596,12 +671,13 @@ code {
 pre code {
   /* Reset some changes meant to be inline-only */
   color: inherit;
-  background-color: inherit;
+  background-color: var(--color-block-code-bg);
+  border: 1px solid var(--color-border);
+  padding: 1ch;
+  padding-left: 2ch;
   font-size: var(--code-block-font-size);
   line-height: var(--line-height);
   margin: initial;
-  padding: initial;
-  border: initial;
   border-radius: initial;
 }
 
@@ -612,8 +688,6 @@ pre > code {
   z-index: 1;
 
   white-space: pre-wrap;
-
-  padding: 0 var(--code-block-side-padding);
 }
 
 code.sourceCode::selection {

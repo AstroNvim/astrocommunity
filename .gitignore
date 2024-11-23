@@ -41,3 +41,6 @@ luac.out
 
 # MacOS
 .DS_Store
+
+# generated docs
+pages
