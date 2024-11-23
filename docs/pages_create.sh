@@ -2,6 +2,8 @@
 set -xeuo pipefail
 cd "$(dirname "$(readlink -f "$0")")"
 mkdir -vp pages
+cp ./theme.css pages
+cp ./skylighting-solarized-theme.css pages
 repourl="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-AstroNvim/astrocommunity}/tree/main"
 
 {
@@ -28,7 +30,7 @@ EOF
       prevsection=$section
     fi
     cat <<EOF
-## [$section.$name]($repourl/lua/astrocommunity/$section/$name/init.lua)
+## [$name]($repourl/lua/astrocommunity/$section/$name/init.lua)
 
 \`\`\`
 { import = "astrocommunity.$section.$name" }
@@ -42,10 +44,21 @@ EOF
 } >pages/index.md
 
 # Use pandoc to convert from markdown to html.
-docker run -i --rm --mount type=bind,source="$PWD",target="$PWD",readonly --workdir "$PWD" pandoc/core:3.5 \
-  --from markdown --standalone --toc --toc-depth 2 --number-sections \
-  --metadata-file pages/metadata.yaml pages/index.md >pages/index.html
-
-mv pages ..
+docker run -i --rm --mount type=bind,source="$PWD",target="$PWD",readonly --workdir "$PWD" \
+  pandoc/core:3.5 \
+  --from markdown \
+  --standalone \
+  --toc \
+  --toc-depth 2 \
+  --number-sections \
+  --metadata-file pages/metadata.yaml \
+  --to html5+smart \
+  --template=./template \
+  --css=theme.css \
+  --css=skylighting-solarized-theme.css \
+  pages/index.md >pages/index.html
 
 echo "SUCCESS - generated ../pages/index.html"
+mv pages ..
+echo "moved pages to"
+ls ..

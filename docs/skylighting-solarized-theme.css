@@ -1,0 +1,214 @@
+:root {
+  --solarized-base03: #002b36;
+  --solarized-base02: #073642;
+  --solarized-base01: #586e75;
+  --solarized-base00: #657b83;
+  --solarized-base0: #839496;
+  --solarized-base1: #93a1a1;
+  --solarized-base2: #eee8d5;
+  --solarized-base3: #fdf6e3;
+  --solarized-yellow: #b58900;
+  --solarized-orange: #cb4b16;
+  --solarized-red: #dc322f;
+  --solarized-magenta: #d33682;
+  --solarized-violet: #6c71c4;
+  --solarized-blue: #268bd2;
+  --solarized-cyan: #2aa198;
+  --solarized-green: #859900;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --solarized-base03: #fdf6e3;
+    --solarized-base02: #eee8d5;
+    --solarized-base01: #93a1a1;
+    --solarized-base00: #839496;
+    --solarized-base0: #657b83;
+    --solarized-base1: #586e75;
+    --solarized-base2: #073642;
+    --solarized-base3: #002b36;
+  }
+}
+
+pre,
+pre.numberSource {
+  background: var(--solarized-base3);
+  /* border: 1px solid var(--solarized-base2); */
+  --color-code-highlight-bg: var(--solarized-base2);
+}
+pre code {
+  color: var(--solarized-base00);
+}
+pre.numberSource > code.sourceCode > span > a:first-child::before {
+  color: var(--solarized-base1);
+}
+code span.kw {
+  color: var(--solarized-green);
+  font-weight: normal;
+  font-style: normal;
+} /* Keyword */
+code span.dt {
+  color: var(--solarized-yellow);
+  font-weight: normal;
+  font-style: normal;
+} /* DataType */
+code span.dv {
+  color: var(--solarized-cyan);
+  font-weight: normal;
+  font-style: normal;
+} /* DecVal */
+code span.bn {
+  color: var(--solarized-cyan);
+  font-weight: normal;
+  font-style: normal;
+} /* BaseN */
+code span.fl {
+  color: var(--solarized-cyan);
+  font-weight: normal;
+  font-style: normal;
+} /* Float */
+code span.ch {
+  color: var(--solarized-cyan);
+  font-weight: normal;
+  font-style: normal;
+} /* Char */
+code span.st {
+  color: var(--solarized-cyan);
+  font-weight: normal;
+  font-style: normal;
+} /* String */
+code span.co {
+  color: var(--solarized-base1);
+  font-weight: normal;
+  font-style: italic;
+} /* Comment */
+code span.ot {
+  color: var(--solarized-blue);
+  font-weight: normal;
+  font-style: normal;
+} /* Other */
+code span.al {
+  color: var(--solarized-red);
+  font-weight: normal;
+  font-style: normal;
+} /* Alert */
+code span.fu {
+  color: var(--solarized-blue);
+  font-weight: normal;
+  font-style: normal;
+} /* Function */
+code span.er {
+  color: var(--solarized-red);
+  font-weight: normal;
+  font-style: normal;
+} /* Error */
+code span.wa {
+  color: var(--solarized-orange);
+  font-weight: normal;
+  font-style: italic;
+} /* Warning */
+code span.cn {
+  color: var(--solarized-cyan);
+  font-weight: normal;
+  font-style: normal;
+} /* Constant */
+code span.sc {
+  color: var(--solarized-red);
+  font-weight: normal;
+  font-style: normal;
+} /* SpecialChar */
+code span.vs {
+  color: var(--solarized-cyan);
+  font-weight: normal;
+  font-style: normal;
+} /* VerbatimString */
+code span.ss {
+  color: var(--solarized-red);
+  font-weight: normal;
+  font-style: normal;
+} /* SpecialString */
+code span.im {
+  color: var(--solarized-base00);
+  font-weight: normal;
+  font-style: normal;
+} /* Import */
+code span.va {
+  color: var(--solarized-blue);
+  font-weight: normal;
+  font-style: normal;
+} /* Variable */
+code span.cf {
+  color: var(--solarized-green);
+  font-weight: normal;
+  font-style: normal;
+} /* ControlFlow */
+code span.op {
+  color: var(--solarized-green);
+  font-weight: normal;
+  font-style: normal;
+} /* Operator */
+code span.bu {
+  color: var(--solarized-base00);
+  font-weight: normal;
+  font-style: normal;
+} /* BuiltIn */
+code span.ex {
+  color: var(--solarized-base00);
+  font-weight: normal;
+  font-style: normal;
+} /* Extension */
+code span.pp {
+  color: var(--solarized-orange);
+  font-weight: normal;
+  font-style: normal;
+} /* Preprocessor */
+code span.at {
+  color: var(--solarized-base00);
+  font-weight: normal;
+  font-style: normal;
+} /* Attribute */
+code span.do {
+  color: var(--solarized-base1);
+  font-weight: normal;
+  font-style: italic;
+} /* Documentation */
+code span.an {
+  color: var(--solarized-base1);
+  font-weight: normal;
+  font-style: italic;
+} /* Annotation */
+code span.cv {
+  color: var(--solarized-base1);
+  font-weight: normal;
+  font-style: italic;
+} /* CommentVar */
+code span.in {
+  color: var(--solarized-base1);
+  font-weight: normal;
+  font-style: italic;
+} /* Information */
+a.sourceLine::before {
+  text-decoration: none;
+}
+
+/* pandoc diff mode */
+code.diff span.kw {
+  color: var(--solarized-yellow);
+  font-weight: normal;
+  font-style: normal;
+} /* --- lines */
+code.diff span.dt {
+  color: var(--solarized-blue);
+  font-weight: normal;
+  font-style: normal;
+} /* +++ lines, @@ ... @@ lines */
+code.diff span.st {
+  color: var(--solarized-red);
+  font-weight: normal;
+  font-style: normal;
+} /* - lines */
+code.diff span.va {
+  color: var(--solarized-green);
+  font-weight: normal;
+  font-style: normal;
+} /* + lines */
