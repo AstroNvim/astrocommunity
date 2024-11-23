@@ -3,5 +3,5 @@
 This plugin pack does the following:
 
 - Adds `proto` Treesitter parsers
-- Adds `bufls` language servers
+- Adds `buf_ls` language servers
 - Adds `buf` formatter
