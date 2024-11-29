@@ -1,6 +1,6 @@
 return {
   {
-    "tonyfettes/moonbit.nvim",
+    "moonbit-community/moonbit.nvim",
     ft = "moonbit",
     -- uncomment when mason support added to make sure command is available
     -- dependencies = {
@@ -16,6 +16,15 @@ return {
       else
         opts.lsp = false
       end
+    end,
+  },
+  {
+    "nvim-neotest/neotest",
+    optional = true,
+    dependencies = { "moonbit-community/moonbit.nvim" },
+    opts = function(_, opts)
+      if not opts.adapters then opts.adapters = {} end
+      table.insert(opts.adapters, require "neotest-moonbit")
     end,
   },
   -- uncomment if/when moonbit-lsp is added to lspconfig and mason-lspconfig

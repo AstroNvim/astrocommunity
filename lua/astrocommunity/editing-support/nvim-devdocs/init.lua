@@ -1,7 +1,7 @@
 local prefix = "<Leader>f"
 
 return {
-  "luckasRanarison/nvim-devdocs",
+  "warpaint9299/nvim-devdocs",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
