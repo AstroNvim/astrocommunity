@@ -30,7 +30,7 @@ return {
         "AstroNvim/astrolsp",
         opts = {
           config = {
-            csharp_ls = {
+            omnisharp = {
               handlers = {
                 ["textDocument/definition"] = function(...) require("omnisharp_extended").definition_handler(...) end,
                 ["textDocument/typeDefinition"] = function(...)
