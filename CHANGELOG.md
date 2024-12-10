@@ -1,5 +1,23 @@
 # Changelog
 
+## [15.1.0](https://github.com/AstroNvim/astrocommunity/compare/v15.0.0...v15.1.0) (2024-12-10)
+
+
+### Features
+
+* **git:** add `mini.diff` ([b95c5da](https://github.com/AstroNvim/astrocommunity/commit/b95c5daf07316b271b5ed6d092228c99c260722b))
+* **pack:** Add purescript pack ([#1222](https://github.com/AstroNvim/astrocommunity/issues/1222)) ([aaaa844](https://github.com/AstroNvim/astrocommunity/commit/aaaa844e45420cd7b5f11b7c399bee919513d1d5))
+* **utility:** Add in live-server.nvim ([#1270](https://github.com/AstroNvim/astrocommunity/issues/1270)) ([e986131](https://github.com/AstroNvim/astrocommunity/commit/e98613137cedd3469c430808621f1c0bb5f81f84))
+
+
+### Bug Fixes
+
+* **cmp-latex-symbols:** use correct repository ([9170837](https://github.com/AstroNvim/astrocommunity/commit/917083747a24022bac4b6feeff29ea1c5febc72f)), closes [#1236](https://github.com/AstroNvim/astrocommunity/issues/1236)
+* **nvim-toggler:** remove repetition in README ([e643030](https://github.com/AstroNvim/astrocommunity/commit/e6430306ca3670e920769176c16ee4125f53ee1e))
+* **pack:** Add support for additional Ansible directory structures in `ansible`'s path_regex, and correct docs ([#1280](https://github.com/AstroNvim/astrocommunity/issues/1280)) ([c5e7f6a](https://github.com/AstroNvim/astrocommunity/commit/c5e7f6a76e7addf90f3b08d37eef2feb88557267))
+* **pack:** Add support for additional well-known Ansible directories ([c5e7f6a](https://github.com/AstroNvim/astrocommunity/commit/c5e7f6a76e7addf90f3b08d37eef2feb88557267))
+* **proto:** replace deprecated `bufls` with `buf_ls` ([#1275](https://github.com/AstroNvim/astrocommunity/issues/1275)) ([bb7988a](https://github.com/AstroNvim/astrocommunity/commit/bb7988ac0efe0c17936c350c6da19051765f0e71))
+
 ## [15.0.0](https://github.com/AstroNvim/astrocommunity/compare/v14.1.0...v15.0.0) (2024-11-11)
 
 
