@@ -19,7 +19,7 @@ return {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         local maps = assert(opts.mappings)
-        local prefix = "<Leader>a"
+        local prefix = "<Leader>A"
 
         maps.n[prefix] = { desc = "Avante functionalities" }
 
