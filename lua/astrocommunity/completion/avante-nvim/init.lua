@@ -1,6 +1,7 @@
 return {
   "yetone/avante.nvim",
-  build = ":AvanteBuild",
+  build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+    or "make",
   cmd = {
     "AvanteAsk",
     "AvanteBuild",
@@ -19,42 +20,55 @@ return {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         local maps = assert(opts.mappings)
-        local prefix = "<Leader>a"
+        local prefix = "<Leader>A"
 
-        maps.n[prefix] = { desc = "Avante functionalities" }
+        maps.n[prefix] = { desc = require("astroui").get_icon("Avante", 1, true) .. "Avante" }
 
-        maps.n[prefix .. "a"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
-        maps.v[prefix .. "a"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
+        maps.n[prefix .. "<CR>"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
+        maps.v[prefix .. "<CR>"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
 
         maps.v[prefix .. "r"] = { function() require("avante.api").refresh() end, desc = "Avante refresh" }
 
         maps.n[prefix .. "e"] = { function() require("avante.api").edit() end, desc = "Avante edit" }
         maps.v[prefix .. "e"] = { function() require("avante.api").edit() end, desc = "Avante edit" }
-
-        -- the following key bindings do not have an official api implementation
-        maps.n.co = { "<Plug>(AvanteConflictOurs)", desc = "Choose ours", expr = true }
-        maps.v.co = { "<Plug>(AvanteConflictOurs)", desc = "Choose ours", expr = true }
-
-        maps.n.ct = { "<Plug>(AvanteConflictTheirs)", desc = "Choose theirs", expr = true }
-        maps.v.ct = { "<Plug>(AvanteConflictTheirs)", desc = "Choose theirs", expr = true }
-
-        maps.n.ca = { "<Plug>(AvanteConflictAllTheirs)", desc = "Choose all theirs", expr = true }
-        maps.v.ca = { "<Plug>(AvanteConflictAllTheirs)", desc = "Choose all theirs", expr = true }
-
-        maps.n.cb = { "<Plug>(AvanteConflictBoth)", desc = "Choose both", expr = true }
-        maps.v.cb = { "<Plug>(AvanteConflictBoth)", desc = "Choose both", expr = true }
-
-        maps.n.cc = { "<Plug>(AvanteConflictCursor)", desc = "Choose cursor", expr = true }
-        maps.v.cc = { "<Plug>(AvanteConflictCursor)", desc = "Choose cursor", expr = true }
-
-        maps.n["]x"] = { "<Plug>(AvanteConflictPrevConflict)", desc = "Move to previous conflict", expr = true }
-
-        maps.n["[x"] = { "<Plug>(AvanteConflictNextConflict)", desc = "Move to next conflict", expr = true }
       end,
     },
   },
-  opts = {},
+  opts = {
+    mappings = {
+      diff = {
+        ours = "co",
+        theirs = "ct",
+        all_theirs = "ca",
+        both = "cb",
+        cursor = "cc",
+        next = "]c",
+        prev = "[c",
+      },
+      suggestion = {
+        accept = "<M-l>",
+        next = "<M-]>",
+        prev = "<M-[>",
+        dismiss = "<C-]>",
+      },
+      jump = {
+        next = "]]",
+        prev = "[[",
+      },
+      submit = {
+        normal = "<CR>",
+        insert = "<C-s>",
+      },
+      sidebar = {
+        apply_all = "A",
+        apply_cursor = "a",
+        switch_windows = "<Tab>",
+        reverse_switch_windows = "<S-Tab>",
+      },
+    },
+  },
   specs = { -- configure optional plugins
+    { "AstroNvim/astroui", opts = { icons = { Avante = "" } } },
     { -- if copilot.lua is available, default to copilot provider
       "zbirenbaum/copilot.lua",
       optional = true,
@@ -63,6 +77,7 @@ return {
           "yetone/avante.nvim",
           opts = {
             provider = "copilot",
+            auto_suggestions_provider = "copilot",
           },
         },
       },
