@@ -6,14 +6,13 @@ end
 return {
   "Saghen/blink.cmp",
   event = "InsertEnter",
-  version = "*",
+  -- TODO: replace build with 'version = "*"' after the next release
+  build = "cargo build --release",
   dependencies = { "rafamadriz/friendly-snippets" },
-  opts_extend = { "sources.completion.enabled_providers" },
+  opts_extend = { "sources.default", "sources.cmdline" },
   opts = {
     -- remember to enable your providers here
-    sources = { completion = { enabled_providers = { "lsp", "path", "snippets", "buffer" } } },
-    -- experimental auto-brackets support
-    accept = { auto_brackets = { enabled = true } },
+    sources = { default = { "lsp", "path", "snippets", "buffer" } },
     keymap = {
       ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
       ["<Up>"] = { "select_prev", "fallback" },
@@ -28,9 +27,9 @@ return {
       ["<CR>"] = { "accept", "fallback" },
       ["<Tab>"] = {
         function(cmp)
-          if cmp.windows.autocomplete.win:is_open() then
+          if cmp.is_visible() then
             return cmp.select_next()
-          elseif cmp.is_in_snippet() then
+          elseif cmp.snippet_active { direction = 1 } then
             return cmp.snippet_forward()
           elseif has_words_before() then
             return cmp.show()
@@ -40,26 +39,34 @@ return {
       },
       ["<S-Tab>"] = {
         function(cmp)
-          if cmp.windows.autocomplete.win:is_open() then
+          if cmp.is_visible() then
             return cmp.select_prev()
-          elseif cmp.is_in_snippet() then
+          elseif cmp.snippet_active { direction = -1 } then
             return cmp.snippet_backward()
           end
         end,
         "fallback",
       },
     },
-    windows = {
-      autocomplete = {
+    completion = {
+      menu = {
         border = "rounded",
         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+      },
+      accept = {
+        auto_brackets = { enabled = true },
       },
       documentation = {
         auto_show = true,
-        border = "rounded",
-        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        auto_show_delay_ms = 200,
+        window = {
+          border = "rounded",
+          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        },
       },
-      signature_help = {
+    },
+    signature = {
+      window = {
         border = "rounded",
         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
       },
@@ -77,11 +84,9 @@ return {
               return require("astrocore").extend_tbl(opts, {
                 sources = {
                   -- add lazydev to your completion providers
-                  completion = { enabled_providers = { "lazydev" } },
+                  default = { "lazydev" },
                   providers = {
-                    -- dont show LuaLS require statements when lazydev has items
-                    lsp = { fallback_for = { "lazydev" } },
-                    lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+                    lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
                   },
                 },
               })
