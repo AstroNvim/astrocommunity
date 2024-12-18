@@ -1,0 +1,33 @@
+name: AstroCommunity Docs
+on:
+  push:
+    branches: [main]
+  pull_request:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./pages_create.sh
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: pages
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    timeout-minutes: 1
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+    environment:
+      name: github-pages # Deploy to the github-pages environment
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
