@@ -26,28 +26,8 @@ return {
       ["<C-D>"] = { "scroll_documentation_down", "fallback" },
       ["<C-e>"] = { "hide", "fallback" },
       ["<CR>"] = { "accept", "fallback" },
-      ["<Tab>"] = {
-        function(cmp)
-          if cmp.windows.autocomplete.win:is_open() then
-            return cmp.select_next()
-          elseif cmp.is_in_snippet() then
-            return cmp.snippet_forward()
-          elseif has_words_before() then
-            return cmp.show()
-          end
-        end,
-        "fallback",
-      },
-      ["<S-Tab>"] = {
-        function(cmp)
-          if cmp.windows.autocomplete.win:is_open() then
-            return cmp.select_prev()
-          elseif cmp.is_in_snippet() then
-            return cmp.snippet_backward()
-          end
-        end,
-        "fallback",
-      },
+      ["<Tab>"] = { "select_next", "snippet_forward", "show", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
     },
     windows = {
       autocomplete = {
