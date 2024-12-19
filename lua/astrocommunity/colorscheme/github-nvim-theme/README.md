@@ -12,11 +12,14 @@ In your `plugins/astroui.lua` file, put:
 return {
     "AstroNvim/astroui",
     opts = {
-        colorscheme = "github_dark_default",
+        colorscheme = "github_dark",
+        -- colorscheme = "github_dark_default",
         -- colorscheme = "github_dark_dimmed",
         -- colorscheme = "github_dark_colorblind",
         -- colorscheme = "github_dark_high_contrast",
         -- colorscheme = "github_dark_tritanopia",
+
+        -- colorscheme = "github_light",
         -- colorscheme = "github_light_default",
         -- colorscheme = "github_light_colorblind",
         -- colorscheme = "github_light_high_contrast",
