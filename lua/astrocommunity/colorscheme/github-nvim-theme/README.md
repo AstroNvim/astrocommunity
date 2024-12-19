@@ -6,12 +6,22 @@ Github's Neovim themes
 
 ## Usage
 
-In your `user/init.lua` file, put:
+In your `plugins/astroui.lua` file, put:
 
 ```lua
 return {
-    ...
-    colorscheme = "github_dark",
+    "AstroNvim/astroui",
+    opts = {
+        colorscheme = "github_dark_default",
+        -- colorscheme = "github_dark_dimmed",
+        -- colorscheme = "github_dark_colorblind",
+        -- colorscheme = "github_dark_high_contrast",
+        -- colorscheme = "github_dark_tritanopia",
+        -- colorscheme = "github_light_default",
+        -- colorscheme = "github_light_colorblind",
+        -- colorscheme = "github_light_high_contrast",
+        -- colorscheme = "github_light_tritanopia",
+    }
 }
 ```
 
