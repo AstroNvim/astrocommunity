@@ -3,11 +3,41 @@ local function has_words_before()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
+local function get_icon_provider()
+  local _, mini_icons = pcall(require, "mini.icons")
+  if _G.MiniIcons then
+    return function(kind) return mini_icons.get("lsp", kind or "") end
+  end
+  local lspkind_avail, lspkind = pcall(require, "lspkind")
+  if lspkind_avail then
+    return function(kind) return lspkind.symbolic(kind, { mode = "symbol" }) end
+  end
+end
+---@type function|false|nil
+local icon_provider = false
+
+local function get_icon(ctx)
+  ctx.kind_hl_group = "BlinkCmpKind" .. ctx.kind
+  if ctx.item.source_name == "LSP" then
+    -- TODO: uncomment after nvim-highlight-colors PR merged: https://github.com/brenoprata10/nvim-highlight-colors/pull/135
+    -- local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
+    -- local color_item = highlight_colors_avail and highlight_colors.format(ctx.item.documentation, { kind = ctx.kind })
+    if icon_provider == false then icon_provider = get_icon_provider() end
+    if icon_provider then
+      local icon = icon_provider(ctx.kind)
+      if icon then ctx.kind_icon = icon end
+    end
+    -- if color_item and color_item.abbr and color_item.abbr_hl_group then
+    --   ctx.kind_icon, ctx.kind_hl_group = color_item.abbr, color_item.abbr_hl_group
+    -- end
+  end
+  return ctx
+end
+
 return {
   "Saghen/blink.cmp",
-  event = "InsertEnter",
-  -- TODO: replace build with 'version = "*"' after the next release
-  build = "cargo build --release",
+  event = { "InsertEnter", "CmdlineEnter" },
+  version = "0.*",
   dependencies = { "rafamadriz/friendly-snippets" },
   opts_extend = { "sources.default", "sources.cmdline" },
   opts = {
@@ -52,6 +82,17 @@ return {
       menu = {
         border = "rounded",
         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        draw = {
+          components = {
+            kind_icon = {
+              text = function(ctx)
+                get_icon(ctx)
+                return ctx.kind_icon .. ctx.icon_gap
+              end,
+              highlight = function(ctx) return get_icon(ctx).kind_hl_group end,
+            },
+          },
+        },
       },
       accept = {
         auto_brackets = { enabled = true },
