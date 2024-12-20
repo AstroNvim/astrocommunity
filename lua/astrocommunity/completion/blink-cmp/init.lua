@@ -5,7 +5,7 @@ end
 
 return {
   "Saghen/blink.cmp",
-  event = "InsertEnter",
+  event = { "InsertEnter", "CmdlineEnter" },
   -- TODO: replace build with 'version = "*"' after the next release
   build = "cargo build --release",
   dependencies = { "rafamadriz/friendly-snippets" },
