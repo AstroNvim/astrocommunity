@@ -19,8 +19,11 @@ local icon_provider = false
 local function get_icon(ctx)
   ctx.kind_hl_group = "BlinkCmpKind" .. ctx.kind
   if ctx.item.source_name == "LSP" then
-    local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
-    local color_item = highlight_colors_avail and highlight_colors.format(ctx.item.documentation, { kind = ctx.kind })
+    local item_doc, color_item = ctx.item.documentation, nil
+    if item_doc then
+      local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
+      color_item = highlight_colors_avail and highlight_colors.format(item_doc, { kind = ctx.kind })
+    end
     if icon_provider == false then icon_provider = get_icon_provider() end
     if icon_provider then
       local icon = icon_provider(ctx.kind)
