@@ -42,7 +42,13 @@ return {
   opts_extend = { "sources.default", "sources.cmdline" },
   opts = {
     -- remember to enable your providers here
-    sources = { default = { "lsp", "path", "snippets", "buffer" } },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
+      min_keyword_length = function(ctx)
+        if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then return 2 end
+        return 0
+      end,
+    },
     keymap = {
       ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
       ["<Up>"] = { "select_prev", "fallback" },
@@ -115,6 +121,14 @@ return {
   },
   specs = {
     {
+      "AstroNvim/astrolsp",
+      optional = true,
+      opts = function(_, opts)
+        opts.capabilities =
+          require("astrocore").extend_tbl(opts.capabilities, require("blink.cmp").get_lsp_capabilities())
+      end,
+    },
+    {
       "folke/lazydev.nvim",
       optional = true,
       specs = {
@@ -129,10 +143,6 @@ return {
                   providers = {
                     lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
                   },
-                  min_keyword_length = function(ctx)
-                    if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then return 2 end
-                    return 0
-                  end,
                 },
               })
             end
