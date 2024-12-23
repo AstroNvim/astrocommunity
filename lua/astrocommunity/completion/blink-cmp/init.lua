@@ -38,7 +38,19 @@ return {
   "Saghen/blink.cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   version = "0.*",
-  dependencies = { "rafamadriz/friendly-snippets" },
+  dependencies = {
+    "rafamadriz/friendly-snippets",
+    {
+      "AstroNvim/astrolsp",
+      ---@type AstroLSPOpts
+      opts = function(_, opts)
+        local has_blink, blink = pcall(require, "blink.cmp")
+        local capabilities =
+          vim.tbl_deep_extend("force", {}, opts.capabilities or {}, has_blink and blink.get_lsp_capabilities() or {})
+        return require("astrocore").extend_tbl(opts, { capabilities = capabilities })
+      end,
+    },
+  },
   opts_extend = { "sources.default", "sources.cmdline" },
   opts = {
     -- remember to enable your providers here
