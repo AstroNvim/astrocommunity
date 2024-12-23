@@ -19,17 +19,16 @@ local icon_provider = false
 local function get_icon(ctx)
   ctx.kind_hl_group = "BlinkCmpKind" .. ctx.kind
   if ctx.item.source_name == "LSP" then
-    -- TODO: uncomment after nvim-highlight-colors PR merged: https://github.com/brenoprata10/nvim-highlight-colors/pull/135
-    -- local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
-    -- local color_item = highlight_colors_avail and highlight_colors.format(ctx.item.documentation, { kind = ctx.kind })
+    local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
+    local color_item = highlight_colors_avail and highlight_colors.format(ctx.item.documentation, { kind = ctx.kind })
     if icon_provider == false then icon_provider = get_icon_provider() end
     if icon_provider then
       local icon = icon_provider(ctx.kind)
       if icon then ctx.kind_icon = icon end
     end
-    -- if color_item and color_item.abbr and color_item.abbr_hl_group then
-    --   ctx.kind_icon, ctx.kind_hl_group = color_item.abbr, color_item.abbr_hl_group
-    -- end
+    if color_item and color_item.abbr and color_item.abbr_hl_group then
+      ctx.kind_icon, ctx.kind_hl_group = color_item.abbr, color_item.abbr_hl_group
+    end
   end
   return ctx
 end
