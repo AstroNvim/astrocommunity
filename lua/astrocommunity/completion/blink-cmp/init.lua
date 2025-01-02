@@ -46,10 +46,6 @@ return {
     -- remember to enable your providers here
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
-      min_keyword_length = function(ctx)
-        if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then return 2 end
-        return 0
-      end,
     },
     keymap = {
       ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
@@ -64,29 +60,17 @@ return {
       ["<C-e>"] = { "hide", "fallback" },
       ["<CR>"] = { "accept", "fallback" },
       ["<Tab>"] = {
+        "select_next",
+        "snippet_forward",
         function(cmp)
-          if cmp.is_visible() then
-            return cmp.select_next()
-          elseif cmp.snippet_active { direction = 1 } then
-            return cmp.snippet_forward()
-          elseif has_words_before() then
-            return cmp.show()
-          end
+          if has_words_before() then return cmp.show() end
         end,
         "fallback",
       },
-      ["<S-Tab>"] = {
-        function(cmp)
-          if cmp.is_visible() then
-            return cmp.select_prev()
-          elseif cmp.snippet_active { direction = -1 } then
-            return cmp.snippet_backward()
-          end
-        end,
-        "fallback",
-      },
+      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
     },
     completion = {
+      list = { selection = function(ctx) return ctx.mode == "cmdline" and "auto_insert" or "preselect" end },
       menu = {
         border = "rounded",
         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
@@ -125,10 +109,7 @@ return {
     {
       "AstroNvim/astrolsp",
       optional = true,
-      opts = function(_, opts)
-        opts.capabilities =
-          require("astrocore").extend_tbl(opts.capabilities, require("blink.cmp").get_lsp_capabilities())
-      end,
+      opts = function(_, opts) opts.capabilities = require("blink.cmp").get_lsp_capabilities(opts.capabilities) end,
     },
     {
       "folke/lazydev.nvim",
@@ -155,7 +136,6 @@ return {
     -- disable built in completion plugins
     { "hrsh7th/nvim-cmp", enabled = false },
     { "rcarriga/cmp-dap", enabled = false },
-    { "petertriho/cmp-git", enabled = false },
     { "L3MON4D3/LuaSnip", enabled = false },
     { "onsails/lspkind.nvim", enabled = false },
   },
