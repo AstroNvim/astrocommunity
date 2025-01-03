@@ -60,3 +60,8 @@ docker run -i --rm --mount type=bind,source="$PWD",target="$PWD",readonly --work
 
 echo "SUCCESS - generated ../pages/index.html"
 cp -r pages ..
+
+mkdir -p pages/assets/fonts
+curl -L https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip -o pages/assets/fonts/inter.zip
+unzip pages/assets/fonts/inter.zip
+rm pages/assets/fonts/inter.zip
