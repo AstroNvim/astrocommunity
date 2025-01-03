@@ -3,37 +3,56 @@ local function has_words_before()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
-local function get_icon_provider()
-  local _, mini_icons = pcall(require, "mini.icons")
-  if _G.MiniIcons then
-    return function(kind) return mini_icons.get("lsp", kind or "") end
-  end
-  local lspkind_avail, lspkind = pcall(require, "lspkind")
-  if lspkind_avail then
-    return function(kind) return lspkind.symbolic(kind, { mode = "symbol" }) end
-  end
-end
----@type function|false|nil
-local icon_provider = false
+---@type function?
+local icon_provider
 
-local function get_icon(ctx)
-  ctx.kind_hl_group = "BlinkCmpKind" .. ctx.kind
-  if ctx.item.source_name == "LSP" then
-    local item_doc, color_item = ctx.item.documentation, nil
-    if item_doc then
-      local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
-      color_item = highlight_colors_avail and highlight_colors.format(item_doc, { kind = ctx.kind })
+local function get_icon(CTX)
+  if not icon_provider then
+    local base = function(ctx) ctx.kind_hl_group = "BlinkCmpKind" .. ctx.kind end
+    local _, mini_icons = pcall(require, "mini.icons")
+    if _G.MiniIcons then
+      icon_provider = function(ctx)
+        base(ctx)
+        if ctx.item.source_name == "LSP" then
+          local item_doc, color_item = ctx.item.documentation, nil
+          if item_doc then
+            local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
+            color_item = highlight_colors_avail and highlight_colors.format(item_doc, { kind = ctx.kind })
+          end
+          local icon, hl = mini_icons.get("lsp", ctx.kind or "")
+          if icon then
+            ctx.kind_icon = icon
+            ctx.kind_hl_group = hl
+          end
+          if color_item and color_item.abbr and color_item.abbr_hl_group then
+            ctx.kind_icon, ctx.kind_hl_group = color_item.abbr, color_item.abbr_hl_group
+          end
+        elseif ctx.item.source_name == "Path" then
+          ctx.kind_icon, ctx.kind_hl_group = mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
+        end
+      end
     end
-    if icon_provider == false then icon_provider = get_icon_provider() end
-    if icon_provider then
-      local icon = icon_provider(ctx.kind)
-      if icon then ctx.kind_icon = icon end
+    local lspkind_avail, lspkind = pcall(require, "lspkind")
+    if lspkind_avail then
+      icon_provider = function(ctx)
+        base(ctx)
+        if ctx.item.source_name == "LSP" then
+          local item_doc, color_item = ctx.item.documentation, nil
+          if item_doc then
+            local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
+            color_item = highlight_colors_avail and highlight_colors.format(item_doc, { kind = ctx.kind })
+          end
+          local icon = lspkind.symbolic(ctx.kind, { mode = "symbol" })
+          if icon then ctx.kind_icon = icon end
+          if color_item and color_item.abbr and color_item.abbr_hl_group then
+            ctx.kind_icon, ctx.kind_hl_group = color_item.abbr, color_item.abbr_hl_group
+          end
+        end
+      end
     end
-    if color_item and color_item.abbr and color_item.abbr_hl_group then
-      ctx.kind_icon, ctx.kind_hl_group = color_item.abbr, color_item.abbr_hl_group
-    end
+    icon_provider = base
   end
-  return ctx
+  icon_provider(CTX)
 end
 
 return {
@@ -81,7 +100,10 @@ return {
                 get_icon(ctx)
                 return ctx.kind_icon .. ctx.icon_gap
               end,
-              highlight = function(ctx) return get_icon(ctx).kind_hl_group end,
+              highlight = function(ctx)
+                get_icon(ctx)
+                return ctx.kind_hl_group
+              end,
             },
           },
         },
@@ -137,6 +159,5 @@ return {
     { "hrsh7th/nvim-cmp", enabled = false },
     { "rcarriga/cmp-dap", enabled = false },
     { "L3MON4D3/LuaSnip", enabled = false },
-    { "onsails/lspkind.nvim", enabled = false },
   },
 }
