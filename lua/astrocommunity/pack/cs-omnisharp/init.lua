@@ -30,7 +30,7 @@ return {
         "AstroNvim/astrolsp",
         opts = {
           config = {
-            csharp_ls = {
+            omnisharp = {
               handlers = {
                 ["textDocument/definition"] = function(...) require("omnisharp_extended").definition_handler(...) end,
                 ["textDocument/typeDefinition"] = function(...)
@@ -70,5 +70,14 @@ return {
       if not opts.adapters then opts.adapters = {} end
       table.insert(opts.adapters, require "neotest-dotnet"(require("astrocore").plugin_opts "neotest-dotnet"))
     end,
+  },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        cs = { "csharpier" },
+      },
+    },
   },
 }

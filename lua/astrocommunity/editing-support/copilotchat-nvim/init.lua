@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
-  version = "^2",
+  version = "^3",
   cmd = {
     "CopilotChat",
     "CopilotChatOpen",
@@ -13,14 +13,14 @@ return {
     "CopilotChatLoad",
     "CopilotChatDebugInfo",
     "CopilotChatModels",
+    "CopilotChatAgents",
     "CopilotChatExplain",
     "CopilotChatReview",
     "CopilotChatFix",
     "CopilotChatOptimize",
     "CopilotChatDocs",
-    "CopilotChatFixDiagnostic",
+    "CopilotChatFixTests",
     "CopilotChatCommit",
-    "CopilotChatCommitStaged",
   },
   dependencies = {
     { "zbirenbaum/copilot.lua" },
@@ -87,16 +87,6 @@ return {
           desc = "Prompt actions",
         }
 
-        maps.n[prefix .. "d"] = {
-          create_mapping("help_actions", "buffer"),
-          desc = "LSP Diagnostics actions",
-        }
-
-        maps.v[prefix .. "d"] = {
-          create_mapping("help_actions", "visual"),
-          desc = "LSP Diagnostics actions",
-        }
-
         -- Quick Chat function
         local function quick_chat(selection_type)
           return function()
@@ -121,13 +111,5 @@ return {
     },
     { "AstroNvim/astroui", opts = { icons = { CopilotChat = "" } } },
   },
-  opts = {
-    window = {
-      layout = "float",
-      width = 74, -- absolute width in columns
-      height = vim.o.lines - 4, -- absolute height in rows, subtract for command line and status line
-      row = 1, -- row position of the window, starting from the top
-      col = vim.o.columns - 74, -- column position of the window, aligned to the right
-    },
-  },
+  opts = {},
 }
