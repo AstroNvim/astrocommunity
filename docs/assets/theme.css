@@ -1,6 +1,5 @@
 /* ----- Global settings ----------------------------------------------- {{{ */
 
-
 :root {
   color-scheme: light dark;
   /* astro docs site colors */
@@ -112,8 +111,7 @@
 
   --font-family-prose: "Inter", sans-serif;
   --font-family-heading: "Inter", sans-serif;
-  --font-family-code: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
-    Consolas, "DejaVu Sans Mono", monospace;
+  --font-family-code: "Jetbrains Mono", monospace;
 
   --side-note-number-font-family: var(--font-family-prose);
 
@@ -204,7 +202,7 @@
 blockquote.metadata {
   background: var(--color-background);
   p {
-    margin: 0
+    margin: 0;
   }
 }
 
@@ -1191,7 +1189,8 @@ nav#TOC > input:checked + ul {
   width: var(--computed-width);
   max-width: var(--side-note-max-width);
   margin-right: calc(
-    -1 * min(var(--computed-width), var(--side-note-max-width)) - var(--margin-left)
+    -1 * min(var(--computed-width), var(--side-note-max-width)) -
+      var(--margin-left)
   );
 }
 

@@ -60,10 +60,13 @@ docker run -i --rm --mount type=bind,source="$PWD",target="$PWD",readonly --work
 
 echo "SUCCESS - generated ../pages/index.html"
 
+curl -L https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip -o inter.zip
+curl -L https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip -o jbm.zip
+unzip inter.zip -d inter
+unzip jbm.zip -d jbm
 mkdir -p pages/assets/fonts
-curl -L https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip -o pages/assets/fonts/inter.zip
-unzip pages/assets/fonts/inter.zip -d pages/assets/fonts/
-rm pages/assets/fonts/inter.zip
-rm -rf pages/assets/fonts/extras
+mv inter/web pages/assets/fonts
+mv jbm/fonts/webfonts pages/assets/fonts
+rm -fr inter.zip jbm.zip jbm inter
 
 cp -r pages ..
