@@ -6,10 +6,10 @@ end
 ---@type function?, function?
 local icon_provider, hl_provider
 
-local function get_icon(CTX)
+local function get_kind_icon(CTX)
   -- Evaluate icon provider
   if not icon_provider then
-    local base = function(ctx) ctx.kind_hl_group = "BlinkCmpKind" .. ctx.kind end
+    local base = function(ctx) ctx.kind_icon_highlight = "BlinkCmpKind" .. ctx.kind end
     local _, mini_icons = pcall(require, "mini.icons")
     if _G.MiniIcons then
       icon_provider = function(ctx)
@@ -18,10 +18,11 @@ local function get_icon(CTX)
           local icon, hl = mini_icons.get("lsp", ctx.kind or "")
           if icon then
             ctx.kind_icon = icon
-            ctx.kind_hl_group = hl
+            ctx.kind_icon_highlight = hl
           end
         elseif ctx.item.source_name == "Path" then
-          ctx.kind_icon, ctx.kind_hl_group = mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
+          ctx.kind_icon, ctx.kind_icon_highlight =
+            mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
         end
       end
     end
@@ -52,7 +53,7 @@ local function get_icon(CTX)
             local color_item = highlight_colors_avail and highlight_colors.format(doc, { kind = kinds[kinds.Color] })
             if color_item and color_item.abbr_hl_group then
               if color_item.abbr then ctx.kind_icon = color_item.abbr end
-              ctx.kind_hl_group = color_item.abbr_hl_group
+              ctx.kind_icon_highlight = color_item.abbr_hl_group
             end
           end
         end
@@ -61,13 +62,15 @@ local function get_icon(CTX)
     if not hl_provider then
       hl_provider = function(ctx)
         local tailwind_hl = require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx)
-        if tailwind_hl then ctx.kind_hl_group = tailwind_hl end
+        if tailwind_hl then ctx.kind_icon_highlight = tailwind_hl end
       end
     end
   end
   -- Call resolved providers
   icon_provider(CTX)
   hl_provider(CTX)
+  -- Return text and highlight information
+  return { text = CTX.kind_icon .. CTX.icon_gap, highlight = CTX.kind_icon_highlight }
 end
 
 return {
@@ -119,14 +122,8 @@ return {
           treesitter = { "lsp" },
           components = {
             kind_icon = {
-              text = function(ctx)
-                get_icon(ctx)
-                return ctx.kind_icon .. ctx.icon_gap
-              end,
-              highlight = function(ctx)
-                get_icon(ctx)
-                return ctx.kind_hl_group
-              end,
+              text = function(ctx) return get_kind_icon(ctx).text end,
+              highlight = function(ctx) return get_kind_icon(ctx).highlight end,
             },
           },
         },
