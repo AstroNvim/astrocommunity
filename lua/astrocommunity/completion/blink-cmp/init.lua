@@ -5,6 +5,37 @@ end
 
 ---@type function?
 local icon_provider
+---@type function?
+local hl_provider
+---@type table?
+local kinds
+
+local function get_hl(CTX)
+  if not hl_provider then
+    local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
+    if highlight_colors_avail then
+      hl_provider = function(ctx)
+        if not kinds then kinds = require("blink.cmp.types").CompletionItemKind end
+        if ctx.item.kind == kinds.Color then
+          local doc = vim.tbl_get(ctx, "item", "documentation")
+          if doc then
+            local color_item = highlight_colors_avail and highlight_colors.format(doc, { kind = kinds[kinds.Color] })
+            if color_item and color_item.abbr_hl_group then
+              if color_item.abbr then ctx.kind_icon = color_item.abbr end
+              ctx.kind_hl_group = color_item.abbr_hl_group
+            end
+          end
+        end
+      end
+    end
+    if not hl_provider then
+      hl_provider = function(ctx)
+        ctx.kind_hl_group = require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx) or ctx.kind_hl_group
+      end
+    end
+  end
+  hl_provider(CTX)
+end
 
 local function get_icon(CTX)
   if not icon_provider then
@@ -14,43 +45,34 @@ local function get_icon(CTX)
       icon_provider = function(ctx)
         base(ctx)
         if ctx.item.source_name == "LSP" then
-          local item_doc, color_item = ctx.item.documentation, nil
-          if item_doc then
-            local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
-            color_item = highlight_colors_avail and highlight_colors.format(item_doc, { kind = ctx.kind })
-          end
           local icon, hl = mini_icons.get("lsp", ctx.kind or "")
           if icon then
             ctx.kind_icon = icon
             ctx.kind_hl_group = hl
           end
-          if color_item and color_item.abbr and color_item.abbr_hl_group then
-            ctx.kind_icon, ctx.kind_hl_group = color_item.abbr, color_item.abbr_hl_group
-          end
         elseif ctx.item.source_name == "Path" then
           ctx.kind_icon, ctx.kind_hl_group = mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
         end
+        get_hl(ctx)
       end
     end
-    local lspkind_avail, lspkind = pcall(require, "lspkind")
-    if lspkind_avail then
-      icon_provider = function(ctx)
-        base(ctx)
-        if ctx.item.source_name == "LSP" then
-          local item_doc, color_item = ctx.item.documentation, nil
-          if item_doc then
-            local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
-            color_item = highlight_colors_avail and highlight_colors.format(item_doc, { kind = ctx.kind })
+    if not icon_provider then
+      local lspkind_avail, lspkind = pcall(require, "lspkind")
+      if lspkind_avail then
+        icon_provider = function(ctx)
+          base(ctx)
+          if ctx.item.source_name == "LSP" then
+            local icon = lspkind.symbolic(ctx.kind, { mode = "symbol" })
+            if icon then ctx.kind_icon = icon end
           end
-          local icon = lspkind.symbolic(ctx.kind, { mode = "symbol" })
-          if icon then ctx.kind_icon = icon end
-          if color_item and color_item.abbr and color_item.abbr_hl_group then
-            ctx.kind_icon, ctx.kind_hl_group = color_item.abbr, color_item.abbr_hl_group
-          end
+          get_hl(ctx)
         end
       end
     end
-    icon_provider = base
+    if not icon_provider then icon_provider = function(ctx)
+      base(ctx)
+      get_hl(ctx)
+    end end
   end
   icon_provider(CTX)
 end
@@ -101,6 +123,7 @@ return {
         border = "rounded",
         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
         draw = {
+          treesitter = { "lsp" },
           components = {
             kind_icon = {
               text = function(ctx)
