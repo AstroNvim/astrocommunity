@@ -3,17 +3,47 @@ local function has_words_before()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
----@type function?
-local icon_provider
----@type function?
-local hl_provider
----@type table?
-local kinds
+---@type function?, function?
+local icon_provider, hl_provider
 
-local function get_hl(CTX)
+local function get_icon(CTX)
+  -- Evaluate icon provider
+  if not icon_provider then
+    local base = function(ctx) ctx.kind_hl_group = "BlinkCmpKind" .. ctx.kind end
+    local _, mini_icons = pcall(require, "mini.icons")
+    if _G.MiniIcons then
+      icon_provider = function(ctx)
+        base(ctx)
+        if ctx.item.source_name == "LSP" then
+          local icon, hl = mini_icons.get("lsp", ctx.kind or "")
+          if icon then
+            ctx.kind_icon = icon
+            ctx.kind_hl_group = hl
+          end
+        elseif ctx.item.source_name == "Path" then
+          ctx.kind_icon, ctx.kind_hl_group = mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
+        end
+      end
+    end
+    if not icon_provider then
+      local lspkind_avail, lspkind = pcall(require, "lspkind")
+      if lspkind_avail then
+        icon_provider = function(ctx)
+          base(ctx)
+          if ctx.item.source_name == "LSP" then
+            local icon = lspkind.symbolic(ctx.kind, { mode = "symbol" })
+            if icon then ctx.kind_icon = icon end
+          end
+        end
+      end
+    end
+    if not icon_provider then icon_provider = function(ctx) base(ctx) end end
+  end
+  -- Evaluate highlight provider
   if not hl_provider then
     local highlight_colors_avail, highlight_colors = pcall(require, "nvim-highlight-colors")
     if highlight_colors_avail then
+      local kinds
       hl_provider = function(ctx)
         if not kinds then kinds = require("blink.cmp.types").CompletionItemKind end
         if ctx.item.kind == kinds.Color then
@@ -30,51 +60,14 @@ local function get_hl(CTX)
     end
     if not hl_provider then
       hl_provider = function(ctx)
-        ctx.kind_hl_group = require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx) or ctx.kind_hl_group
+        local tailwind_hl = require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx)
+        if tailwind_hl then ctx.kind_hl_group = tailwind_hl end
       end
     end
   end
-  hl_provider(CTX)
-end
-
-local function get_icon(CTX)
-  if not icon_provider then
-    local base = function(ctx) ctx.kind_hl_group = "BlinkCmpKind" .. ctx.kind end
-    local _, mini_icons = pcall(require, "mini.icons")
-    if _G.MiniIcons then
-      icon_provider = function(ctx)
-        base(ctx)
-        if ctx.item.source_name == "LSP" then
-          local icon, hl = mini_icons.get("lsp", ctx.kind or "")
-          if icon then
-            ctx.kind_icon = icon
-            ctx.kind_hl_group = hl
-          end
-        elseif ctx.item.source_name == "Path" then
-          ctx.kind_icon, ctx.kind_hl_group = mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
-        end
-        get_hl(ctx)
-      end
-    end
-    if not icon_provider then
-      local lspkind_avail, lspkind = pcall(require, "lspkind")
-      if lspkind_avail then
-        icon_provider = function(ctx)
-          base(ctx)
-          if ctx.item.source_name == "LSP" then
-            local icon = lspkind.symbolic(ctx.kind, { mode = "symbol" })
-            if icon then ctx.kind_icon = icon end
-          end
-          get_hl(ctx)
-        end
-      end
-    end
-    if not icon_provider then icon_provider = function(ctx)
-      base(ctx)
-      get_hl(ctx)
-    end end
-  end
+  -- Call resolved providers
   icon_provider(CTX)
+  hl_provider(CTX)
 end
 
 return {
