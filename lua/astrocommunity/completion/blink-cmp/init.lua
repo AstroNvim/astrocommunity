@@ -59,7 +59,6 @@ return {
   "Saghen/blink.cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   version = "0.*",
-  dependencies = { "rafamadriz/friendly-snippets" },
   opts_extend = { "sources.default", "sources.cmdline" },
   opts = {
     -- remember to enable your providers here
@@ -96,7 +95,7 @@ return {
       },
     },
     completion = {
-      list = { selection = function(ctx) return ctx.mode == "cmdline" and "auto_insert" or "preselect" end },
+      list = { selection = { preselect = false, auto_insert = true } },
       menu = {
         auto_show = function(ctx) return ctx.mode ~= "cmdline" end,
         border = "rounded",
@@ -137,6 +136,11 @@ return {
   },
   specs = {
     {
+      "L3MON4D3/LuaSnip",
+      optional = true,
+      specs = { { "Saghen/blink.cmp", opts = { snippets = { preset = "luasnip" } } } },
+    },
+    {
       "AstroNvim/astrolsp",
       optional = true,
       opts = function(_, opts)
@@ -175,6 +179,5 @@ return {
     -- disable built in completion plugins
     { "hrsh7th/nvim-cmp", enabled = false },
     { "rcarriga/cmp-dap", enabled = false },
-    { "L3MON4D3/LuaSnip", enabled = false },
   },
 }
