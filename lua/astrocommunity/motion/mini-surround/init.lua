@@ -1,4 +1,4 @@
-local prefix = "gz"
+local prefix = "gs"
 return {
   "echasnovski/mini.surround",
   dependencies = {
