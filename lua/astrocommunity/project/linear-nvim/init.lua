@@ -8,7 +8,7 @@ return {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         local maps = opts.mappings
-        local prefix = "<Leader>m"
+        local prefix = "<Leader>L"
 
         maps.n[prefix] = { desc = "Linear" }
         maps.n[prefix .. "m"] = {
