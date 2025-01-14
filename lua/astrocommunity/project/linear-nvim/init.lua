@@ -11,7 +11,7 @@ return {
         local prefix = "<Leader>L"
 
         maps.n[prefix] = { desc = "Linear" }
-        maps.n[prefix .. "m"] = {
+        maps.n[prefix .. "l"] = {
           function() require("linear-nvim").show_assigned_issues() end,
           desc = "Show assigned issues",
         }
