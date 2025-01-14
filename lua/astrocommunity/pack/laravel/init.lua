@@ -6,10 +6,10 @@ return {
     "adalessa/laravel.nvim",
     cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
     dependencies = {
-      "nvim-telescope/telescope.nvim",
       "tpope/vim-dotenv",
+      "nvim-telescope/telescope.nvim",
       "MunifTanjim/nui.nvim",
-      "nvimtools/none-ls.nvim",
+      "kevinhwang91/promise-async",
       {
         "AstroNvim/astrocore",
         ---@param opts AstroCoreOpts
