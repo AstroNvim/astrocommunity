@@ -17,15 +17,15 @@ return {
         }
         maps.v[prefix .. "c"] = {
           function() require("linear-nvim").create_issue() end,
-          desc = "Toggle local note",
+          desc = "Create issue",
         }
         maps.n[prefix .. "c"] = {
           function() require("linear-nvim").create_issue() end,
-          desc = "Toggle local note",
+          desc = "Create issue",
         }
         maps.n[prefix .. "s"] = {
           function() require("linear-nvim").show_issue_details() end,
-          desc = "Toggle local note",
+          desc = "Show issue details",
         }
       end,
     },
