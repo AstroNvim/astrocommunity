@@ -62,7 +62,7 @@ return {
       "MeanderingProgrammer/render-markdown.nvim",
       optional = true,
       opts = function(_, opts)
-        if not opts.file_types then opts.filetypes = { "markdown" } end
+        if not opts.file_types then opts.file_types = { "markdown" } end
         opts.file_types = require("astrocore").list_insert_unique(opts.file_types, { "Avante" })
       end,
     },
