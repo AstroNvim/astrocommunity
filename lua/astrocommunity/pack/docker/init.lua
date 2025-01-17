@@ -1,8 +1,20 @@
 return {
+  { import = "astrocommunity.pack.yaml" },
   {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
     opts = { filetypes = { filename = { ["docker-compose.yaml"] = "yaml.docker-compose" } } },
+  },
+  {
+    "AstroNvim/astrolsp",
+    optional = true,
+    opts = {
+      formatting = {
+        disabled = {
+          "docker_compose_language_service",
+        },
+      },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
