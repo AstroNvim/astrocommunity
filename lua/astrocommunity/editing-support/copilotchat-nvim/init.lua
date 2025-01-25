@@ -73,9 +73,11 @@ return {
             local fzf_ok = pcall(require, "fzf-lua")
             local snacks_ok = pcall(require, "snacks")
 
-            require("CopilotChat.integrations." .. (fzf_ok and "fzflua" or snacks_ok and "snacks" or "telescope")).pick(require("CopilotChat.actions")[action_type] {
-              selection = require("CopilotChat.select")[selection_type],
-            })
+            require("CopilotChat.integrations." .. (fzf_ok and "fzflua" or snacks_ok and "snacks" or "telescope")).pick(
+              require("CopilotChat.actions")[action_type] {
+                selection = require("CopilotChat.select")[selection_type],
+              }
+            )
           end
         end
 
