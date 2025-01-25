@@ -25,7 +25,6 @@ return {
   dependencies = {
     { "zbirenbaum/copilot.lua" },
     { "nvim-lua/plenary.nvim" },
-    { "nvim-telescope/telescope.nvim" },
     {
       "AstroNvim/astrocore",
       ---@param opts AstroCoreOpts
@@ -71,7 +70,10 @@ return {
         -- Helper function to create mappings
         local function create_mapping(action_type, selection_type)
           return function()
-            require("CopilotChat.integrations.telescope").pick(require("CopilotChat.actions")[action_type] {
+            local fzf_ok = pcall(require, "fzf-lua")
+            local snacks_ok = pcall(require, "snacks")
+
+            require("CopilotChat.integrations." .. (fzf_ok and "fzflua" or snacks_ok and "snacks" or "telescope")).pick(require("CopilotChat.actions")[action_type] {
               selection = require("CopilotChat.select")[selection_type],
             })
           end
