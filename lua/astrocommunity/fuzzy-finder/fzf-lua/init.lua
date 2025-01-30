@@ -63,5 +63,20 @@ return {
       end,
     },
   },
-  opts = { "default-title" },
+  opts = {
+    "default-title",
+    keymap = {
+      builtin = {
+        true,
+        ["<C-d>"] = "preview-page-down",
+        ["<C-u>"] = "preview-page-up",
+      },
+      fzf = {
+        true,
+        ["ctrl-d"] = "preview-page-down",
+        ["ctrl-u"] = "preview-page-up",
+        ["ctrl-q"] = "select-all+accept",
+      },
+    },
+  },
 }
