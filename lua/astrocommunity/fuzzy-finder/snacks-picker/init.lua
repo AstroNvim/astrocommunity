@@ -31,7 +31,7 @@ return {
           desc = "Find lines",
         }
         maps.n["<Leader>fa"] = {
-          function() require("snacks").picker.files { cwd = vim.fn.stdpath "config", desc = "Config Files" } end,
+          function() require("snacks").picker.files { dirs = { vim.fn.stdpath "config" }, desc = "Config Files" } end,
           desc = "Find AstroNvim config files",
         }
         maps.n["<Leader>fb"] = { function() require("snacks").picker.buffers() end, desc = "Find buffers" }
@@ -59,7 +59,7 @@ return {
         end
         maps.n["<Leader>fo"] = { function() require("snacks").picker.recent() end, desc = "Find old files" }
         maps.n["<Leader>fO"] =
-          { function() require("snacks").picker.recent { cwd = true } end, desc = "Find old files (cwd)" }
+          { function() require("snacks").picker.recent { filter = { cwd = true } } end, desc = "Find old files (cwd)" }
         maps.n["<Leader>fr"] = { function() require("snacks").picker.registers() end, desc = "Find registers" }
         maps.n["<Leader>fs"] = { function() require("snacks").picker.smart() end, desc = "Find buffers/recent/files" }
         maps.n["<Leader>ft"] = { function() require("snacks").picker.colorschemes() end, desc = "Find themes" }
