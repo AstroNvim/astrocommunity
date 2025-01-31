@@ -22,7 +22,8 @@ return {
                   "tailwind.config.ts",
                   "postcss.config.js",
                   "config/tailwind.config.js",
-                  "assets/tailwind.config.js"
+                  "assets/tailwind.config.js",
+                  "tailwind.css"
                 )
                 return root_pattern(fname)
               end,
