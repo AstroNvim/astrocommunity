@@ -15,7 +15,9 @@ return {
     end,
   },
   opts = {
-    hybrid_modes = { "n" },
-    headings = { shift_width = 0 },
+    preview = {
+      hybrid_modes = { "n" },
+      headings = { shift_width = 0 },
+    },
   },
 }
