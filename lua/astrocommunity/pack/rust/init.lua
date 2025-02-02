@@ -20,6 +20,13 @@ local pack = {
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {
+              files = {
+                excludeDirs = {
+                  ".direnv",
+                  ".git",
+                  "target",
+                },
+              },
               check = {
                 command = "clippy",
                 extraArgs = {

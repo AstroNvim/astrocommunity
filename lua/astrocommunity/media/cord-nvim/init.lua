@@ -1,6 +1,7 @@
 return {
   "vyfor/cord.nvim",
-  build = vim.fn.has "win32" == 0 and "./build" or ".\\build",
+  version = "^2",
+  build = ":Cord update",
   event = "VeryLazy",
   opts = {
     editor = {
@@ -8,7 +9,7 @@ return {
       tooltip = "An aesthetically pleasing and feature-rich Neovim configuration",
     },
     buttons = {
-      { label = "View Repository", url = "git" },
+      { label = "View Repository", url = function(opts) return opts.repo_url end },
       { label = "View AstroNvim", url = "https://astronvim.com" },
     },
   },
