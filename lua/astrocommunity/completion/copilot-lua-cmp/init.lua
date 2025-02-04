@@ -87,13 +87,13 @@ return {
             end,
             "fallback",
           },
-          ["<C-x>"] = { copilot_action "next" },
-          ["<C-z>"] = { copilot_action "prev" },
-          ["<C-right>"] = { copilot_action "accept_word" },
-          ["<C-l>"] = { copilot_action "accept_word" },
-          ["<C-down>"] = { copilot_action "accept_line" },
-          ["<C-j>"] = { copilot_action "accept_line", "select_next", "fallback" },
-          ["<C-c>"] = { copilot_action "dismiss" },
+          ["<C-X>"] = { copilot_action "next" },
+          ["<C-Z>"] = { copilot_action "prev" },
+          ["<C-Right>"] = { copilot_action "accept_word" },
+          ["<C-L>"] = { copilot_action "accept_word" },
+          ["<C-Down>"] = { copilot_action "accept_line" },
+          ["<C-J>"] = { copilot_action "accept_line", "select_next", "fallback" },
+          ["<C-C>"] = { copilot_action "dismiss" },
         }
 
         for k, v in pairs(keymap) do
