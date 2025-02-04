@@ -10,9 +10,7 @@ return {
       local operations = vim.tbl_get(require("astrocore").plugin_opts "nvim-lsp-file-operations", "operations") or {}
       local fileOperations = {}
       for _, operation in ipairs { "willRename", "didRename", "willCreate", "didCreate", "willDelete", "didDelete" } do
-        local enabled = vim.tbl_get(operations, operation .. "Files")
-        if enabled == nil then enabled = true end
-        fileOperations[operation] = enabled
+        fileOperations[operation] = vim.F.if_nil(vim.tbl_get(operations, operation .. "Files"), true)
       end
       opts.capabilities =
         vim.tbl_deep_extend("force", opts.capabilities or {}, { workspace = { fileOperations = fileOperations } })
