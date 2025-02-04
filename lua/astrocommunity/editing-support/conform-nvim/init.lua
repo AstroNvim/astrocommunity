@@ -33,13 +33,10 @@ return {
         mappings = {
           n = {
             ["<Leader>lf"] = { function() vim.cmd.Format() end, desc = "Format buffer" },
+            ["<Leader>lc"] = { function() vim.cmd.ConformInfo() end, desc = "Conform information" },
             ["<Leader>uf"] = {
               function()
-                if vim.b.autoformat == nil then
-                  if vim.g.autoformat == nil then vim.g.autoformat = true end
-                  vim.b.autoformat = vim.g.autoformat
-                end
-                vim.b.autoformat = not vim.b.autoformat
+                vim.b.autoformat = not vim.F.if_nil(vim.b.autoformat, vim.g.autoformat, true)
                 require("astrocore").notify(
                   string.format("Buffer autoformatting %s", vim.b.autoformat and "on" or "off")
                 )
@@ -48,9 +45,7 @@ return {
             },
             ["<Leader>uF"] = {
               function()
-                if vim.g.autoformat == nil then vim.g.autoformat = true end
-                vim.g.autoformat = not vim.g.autoformat
-                vim.b.autoformat = nil
+                vim.g.autoformat, vim.b.autoformat = not vim.F.if_nil(vim.g.autoformat, true), nil
                 require("astrocore").notify(
                   string.format("Global autoformatting %s", vim.g.autoformat and "on" or "off")
                 )
@@ -65,10 +60,7 @@ return {
   opts = {
     default_format_opts = { lsp_format = "fallback" },
     format_on_save = function(bufnr)
-      if vim.g.autoformat == nil then vim.g.autoformat = true end
-      local autoformat = vim.b[bufnr].autoformat
-      if autoformat == nil then autoformat = vim.g.autoformat end
-      if autoformat then return { timeout_ms = 500 } end
+      if vim.F.if_nil(vim.b[bufnr].autoformat, vim.g.autoformat, true) then return { timeout_ms = 500 } end
     end,
   },
 }
