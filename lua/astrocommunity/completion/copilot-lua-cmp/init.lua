@@ -3,6 +3,16 @@ local function has_words_before()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
+local function copilot_action(action)
+  local copilot = require "copilot.suggestion"
+  return function()
+    if copilot.is_visible() then
+      copilot[action]()
+      return true -- doesn't run the next command
+    end
+  end
+end
+
 return {
   "zbirenbaum/copilot.lua",
   specs = {
@@ -30,77 +40,37 @@ return {
           end
         end, { "i", "s" })
 
-        opts.mapping["<C-x>"] = cmp.mapping(function()
-          if copilot.is_visible() then copilot.next() end
-        end)
-
-        opts.mapping["<C-z>"] = cmp.mapping(function()
-          if copilot.is_visible() then copilot.prev() end
-        end)
-
-        opts.mapping["<C-right>"] = cmp.mapping(function()
-          if copilot.is_visible() then copilot.accept_word() end
-        end)
-
-        opts.mapping["<C-l>"] = cmp.mapping(function()
-          if copilot.is_visible() then copilot.accept_word() end
-        end)
-
-        opts.mapping["<C-down>"] = cmp.mapping(function()
-          if copilot.is_visible() then copilot.accept_line() end
-        end)
-
-        opts.mapping["<C-j>"] = cmp.mapping(function()
-          if copilot.is_visible() then copilot.accept_line() end
-        end)
-
-        opts.mapping["<C-c>"] = cmp.mapping(function()
-          if copilot.is_visible() then copilot.dismiss() end
-        end)
-
-        return opts
+        opts.mapping["<C-X>"] = cmp.mapping(copilot_action "next")
+        opts.mapping["<C-Z>"] = cmp.mapping(copilot_action "prev")
+        opts.mapping["<C-Right>"] = cmp.mapping(copilot_action "accept_word")
+        opts.mapping["<C-L>"] = cmp.mapping(copilot_action "accept_word")
+        opts.mapping["<C-Down>"] = cmp.mapping(copilot_action "accept_line")
+        opts.mapping["<C-J>"] = cmp.mapping(copilot_action "accept_line")
+        opts.mapping["<C-C>"] = cmp.mapping(copilot_action "dismiss")
       end,
     },
     {
       "Saghen/blink.cmp",
       optional = true,
       opts = function(_, opts)
-        local copilot = require "copilot.suggestion"
-        opts.keymap = opts.keymap or {}
+        if not opts.keymap then opts.keymap = {} end
 
-        local function copilot_action(action)
-          return function()
-            if copilot.is_visible() then
-              copilot[action]()
-              return true -- doesn't run the next command
-            end
-          end
-        end
-
-        local keymap = {
-          ["<Tab>"] = {
-            copilot_action "accept",
-            "select_next",
-            "snippet_forward",
-            function(cmp)
-              if has_words_before() or vim.api.nvim_get_mode().mode == "c" then return cmp.show() end
-            end,
-            "fallback",
-          },
-          ["<C-X>"] = { copilot_action "next" },
-          ["<C-Z>"] = { copilot_action "prev" },
-          ["<C-Right>"] = { copilot_action "accept_word" },
-          ["<C-L>"] = { copilot_action "accept_word" },
-          ["<C-Down>"] = { copilot_action "accept_line" },
-          ["<C-J>"] = { copilot_action "accept_line", "select_next", "fallback" },
-          ["<C-C>"] = { copilot_action "dismiss" },
+        opts.keymap["<Tab>"] = {
+          copilot_action "accept",
+          "select_next",
+          "snippet_forward",
+          function(cmp)
+            if has_words_before() or vim.api.nvim_get_mode().mode == "c" then return cmp.show() end
+          end,
+          "fallback",
         }
-
-        for k, v in pairs(keymap) do
-          opts.keymap[k] = v
-        end
-
-        return opts
+        opts.keymap["<C-X>"] = { copilot_action "next" }
+        opts.keymap["<C-Z>"] = { copilot_action "prev" }
+        opts.keymap["<C-Right>"] = { copilot_action "accept_word" }
+        opts.keymap["<C-L>"] = { copilot_action "accept_word" }
+        opts.keymap["<C-Down>"] = { copilot_action "accept_line" }
+        opts.keymap["<C-J>"] = { copilot_action "accept_line", "select_next", "fallback" }
+        opts.keymap["<C-C>"] = { copilot_action "dismiss" }
       end,
     },
   },
