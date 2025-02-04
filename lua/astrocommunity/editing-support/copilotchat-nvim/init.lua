@@ -69,16 +69,20 @@ return {
 
         -- Determine the currently active picker
         local function get_active_picker()
-          -- Snacks integration check
-          -- this is tricky because we can't just assume that if snacks.nvim is
-          -- installed, it's being used as the picker, too
-          local snacks = require "snacks.picker"
-          if snacks.config and snacks.config.ui_select then return "snacks" end
-
-          -- Check other CopilotChat compatibel pickers
+          -- Check CopilotChat compatibel pickers
           -- this is also a mapping between picker module names and their
           -- counterparts in the CopilotChat integrations
-          if require("astrocore").is_available "fzf-lua" then
+          -- snacks.picker is tricky because we can't just assume that if snacks.nvim is
+          -- installed, it's being used as the picker, too
+          if
+            require("astrocore").is_available "snacks.nvim"
+            and (function()
+              local snacks = require "snacks.picker"
+              return snacks.config and snacks.config.ui_select
+            end)()
+          then
+            return "snacks"
+          elseif require("astrocore").is_available "fzf-lua" then
             return "fzflua"
           elseif require("astrocore").is_available "telescope.nvim" then
             return "telescope"
