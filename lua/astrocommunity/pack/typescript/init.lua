@@ -95,7 +95,9 @@ return {
           {
             event = "BufWritePost",
             desc = "Fix all eslint errors",
-            callback = function() vim.cmd.EslintFixAll() end,
+            callback = function(args)
+              if vim.F.if_nil(vim.b[args.buf].autoformat, vim.g.autoformat, true) then vim.cmd.EslintFixAll() end
+            end,
           },
         },
       },

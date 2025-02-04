@@ -18,9 +18,11 @@ return {
     -- Find element in comparators we will position ourselves after.
     -- Position after recently_used, fallback to after score, fallback to 4th position.
     -- recently_used was not in nvim-cmp some time ago.
-    local pos = list_index(opts.sorting.comparators, cmp.config.compare.recently_used)
-    if pos == nil then pos = list_index(opts.sorting.comparators, cmp.config.compare.score) end
-    if pos == nil then pos = 3 end
+    local pos = vim.F.if_nil(
+      list_index(opts.sorting.comparators, cmp.config.compare.recently_used),
+      list_index(opts.sorting.comparators, cmp.config.compare.score),
+      3
+    )
     table.insert(opts.sorting.comparators, pos + 1, require("cmp-under-comparator").under)
   end,
 }
