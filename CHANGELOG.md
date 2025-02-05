@@ -1,5 +1,49 @@
 # Changelog
 
+## [17.0.0](https://github.com/AstroNvim/astrocommunity/compare/v16.0.0...v17.0.0) (2025-02-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **cord-nvim:** update to v2 ([#1322](https://github.com/AstroNvim/astrocommunity/issues/1322))
+* **linear-nvim:** Change leader from `<Leader>m` to `<Leader>L` ([#1314](https://github.com/AstroNvim/astrocommunity/issues/1314))
+
+### Features
+
+* **conform-nvim:** add mapping for ConformInfo ([#1349](https://github.com/AstroNvim/astrocommunity/issues/1349)) ([0e50b75](https://github.com/AstroNvim/astrocommunity/commit/0e50b75266715a93e48f6ed49f62c868f6414dc9))
+* **copilot-lua-cmp:** add blink.cmp support ([#1350](https://github.com/AstroNvim/astrocommunity/issues/1350)) ([d4df73c](https://github.com/AstroNvim/astrocommunity/commit/d4df73ca4ddd16d1584d83021693cfe5e592d608))
+* **copilotchat-nvim:** select a picker based on installed one ([#1333](https://github.com/AstroNvim/astrocommunity/issues/1333)) ([0e1cf11](https://github.com/AstroNvim/astrocommunity/commit/0e1cf1178a6c0b2bfbc1e5e0d4a3009911b07649))
+* **cord-nvim:** update to v2 ([#1322](https://github.com/AstroNvim/astrocommunity/issues/1322)) ([a507700](https://github.com/AstroNvim/astrocommunity/commit/a507700b8cd5c258dafdda55c865ca5a9a9133cf))
+* **debugging:** add `nvim-dap-view` ([#1332](https://github.com/AstroNvim/astrocommunity/issues/1332)) ([b8efe23](https://github.com/AstroNvim/astrocommunity/commit/b8efe23b044da9c271ca87159fa148daa908008c))
+* **fuzzy-finder:** add `snacks.picker` from `snacks.nvim` ([#1320](https://github.com/AstroNvim/astrocommunity/issues/1320)) ([6c63109](https://github.com/AstroNvim/astrocommunity/commit/6c63109d12bff41b81e953b6b3f7ed6b92228c39))
+* **fzf-lua:** add directly go to definition when single result ([f31fb46](https://github.com/AstroNvim/astrocommunity/commit/f31fb46bd4e997eb812f985a9be0e2f2a3f8c9d2))
+* **fzf-lua:** add key mappings similar to telescope ([#1343](https://github.com/AstroNvim/astrocommunity/issues/1343)) ([b7a458d](https://github.com/AstroNvim/astrocommunity/commit/b7a458d85d7938402be8a5474d485f4114b8e1e1))
+* **fzf-lua:** add mappings similar to telescope ([b7a458d](https://github.com/AstroNvim/astrocommunity/commit/b7a458d85d7938402be8a5474d485f4114b8e1e1))
+* **fzf-lua:** directly go to definition when only a single result ([#1339](https://github.com/AstroNvim/astrocommunity/issues/1339)) ([f31fb46](https://github.com/AstroNvim/astrocommunity/commit/f31fb46bd4e997eb812f985a9be0e2f2a3f8c9d2))
+* **snacks-picker:** add `snacks.notifier` picker if used for notifications ([2f234c5](https://github.com/AstroNvim/astrocommunity/commit/2f234c568a28e08f03e326c467cd8f93f101a01f))
+* **sql:** disable sqls formatter and add sqlfluff ([#1336](https://github.com/AstroNvim/astrocommunity/issues/1336)) ([e2a3031](https://github.com/AstroNvim/astrocommunity/commit/e2a3031bb88032b3f6f8fb3998a3975950d605f9))
+
+
+### Bug Fixes
+
+* **avante-nvim:** fix typo in opts ([#1317](https://github.com/AstroNvim/astrocommunity/issues/1317)) ([532a545](https://github.com/AstroNvim/astrocommunity/commit/532a545db91bbc63be038fee99cf2666cc3b6350))
+* **avante-nvim:** update config for `render-markdown` ([532a545](https://github.com/AstroNvim/astrocommunity/commit/532a545db91bbc63be038fee99cf2666cc3b6350))
+* **bash:** add nvim-lint and add shellcheck to conform ([#1348](https://github.com/AstroNvim/astrocommunity/issues/1348)) ([5f7d6bc](https://github.com/AstroNvim/astrocommunity/commit/5f7d6bc6e27ce845eea24a916bc410d68e8b094e))
+* **docker:** disable docker-compose formatter and use default from yaml ([bac0a03](https://github.com/AstroNvim/astrocommunity/commit/bac0a03e1f661600efa1e4c848416355d2ce1586))
+* **docker:** use default formatter for yaml and turn off from docker_compose_language_service  ([#1321](https://github.com/AstroNvim/astrocommunity/issues/1321)) ([bac0a03](https://github.com/AstroNvim/astrocommunity/commit/bac0a03e1f661600efa1e4c848416355d2ce1586))
+* **docker:** use dockerfile ft for hadolint ([#1347](https://github.com/AstroNvim/astrocommunity/issues/1347)) ([c83477c](https://github.com/AstroNvim/astrocommunity/commit/c83477c89d1e0df1ee3a436f6de174cedb64bc94))
+* **laravel-nvim:** update required deps from v2 to v3 ([89c9960](https://github.com/AstroNvim/astrocommunity/commit/89c9960a7bb47d3f536f0e2d912228705c0e5ccc))
+* **lazydev-nvim:** add deprecation notice as it was added upstream ([#1354](https://github.com/AstroNvim/astrocommunity/issues/1354)) ([0688937](https://github.com/AstroNvim/astrocommunity/commit/068893783702f9f1609ae962d3f2b45d704ea15e))
+* **linear-nvim:** Change leader from `&lt;Leader&gt;m` to `<Leader>L` ([#1314](https://github.com/AstroNvim/astrocommunity/issues/1314)) ([6426600](https://github.com/AstroNvim/astrocommunity/commit/6426600f2964f350377cc3627b868fc10286b286))
+* **markview-nvim:** adapted config to consider breaking changes in version v25.1. ([#1345](https://github.com/AstroNvim/astrocommunity/issues/1345)) ([0c09470](https://github.com/AstroNvim/astrocommunity/commit/0c0947080a93ebed72be268b8b2f18d8e7f604e0))
+* **nix:** drop none-ls formatter ([#1324](https://github.com/AstroNvim/astrocommunity/issues/1324)) ([17307e7](https://github.com/AstroNvim/astrocommunity/commit/17307e72704b76721e5a6374aeb9920a35cd3c3d))
+* **pack:** update `laravel-nvim` required deps from v2 to v3 ([#1315](https://github.com/AstroNvim/astrocommunity/issues/1315)) ([89c9960](https://github.com/AstroNvim/astrocommunity/commit/89c9960a7bb47d3f536f0e2d912228705c0e5ccc))
+* **rust:** Sane excludeDirs pattern ([#1330](https://github.com/AstroNvim/astrocommunity/issues/1330)) ([5263d85](https://github.com/AstroNvim/astrocommunity/commit/5263d85a1dcbc8fd153ec385c1346c2ad9d95056))
+* **snacks-picker:** update to handle breaking changes ([e6bd16b](https://github.com/AstroNvim/astrocommunity/commit/e6bd16b21bbd491cd3b85395c6eeaf0be3fce294))
+* **tailwindcss:** fix typo ([fe6e21a](https://github.com/AstroNvim/astrocommunity/commit/fe6e21a396c8ac7468d4c4ca8a192a1ba8057aa5))
+* **tailwindcss:** resolve root dir based on installed dependency ([#1352](https://github.com/AstroNvim/astrocommunity/issues/1352)) ([c2ff9b9](https://github.com/AstroNvim/astrocommunity/commit/c2ff9b9a665c88492857f26cdbcb60aeda84e471))
+* **typescript:** respect autoformatting status when applying `EslintFixAll` ([671bec8](https://github.com/AstroNvim/astrocommunity/commit/671bec821a3a7ead7275ac9ed9bfb3ddd9314f46))
+
 ## [16.0.0](https://github.com/AstroNvim/astrocommunity/compare/v15.0.0...v16.0.0) (2025-01-10)
 
 
