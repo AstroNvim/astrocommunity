@@ -44,7 +44,7 @@ return {
                 if not root then
                   local package_root = root_pattern "package.json"(fname)
                   if package_root then
-                    local package_data = decode_json_file(root .. "/package.json")
+                    local package_data = decode_json_file(package_root .. "/package.json")
                     if
                       package_data
                       and (
