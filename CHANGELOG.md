@@ -1,5 +1,12 @@
 # Changelog
 
+## [17.0.1](https://github.com/AstroNvim/astrocommunity/compare/v17.0.0...v17.0.1) (2025-02-08)
+
+
+### Bug Fixes
+
+* **fzf-lua:** show diagnostics for whole workspace ([#1356](https://github.com/AstroNvim/astrocommunity/issues/1356)) ([66ec9da](https://github.com/AstroNvim/astrocommunity/commit/66ec9da83427d2c1a1fe6d545309abb22cf55320))
+
 ## [17.0.0](https://github.com/AstroNvim/astrocommunity/compare/v16.0.0...v17.0.0) (2025-02-05)
 
 
