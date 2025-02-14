@@ -22,4 +22,4 @@ To change options:
 }
 ```
 
-Other options can be found in the official README: https://github.com/ellisonleao/gruvbox.nvim#configuration
+Other options can be found in the official README: <https://github.com/ellisonleao/gruvbox.nvim#configuration>
