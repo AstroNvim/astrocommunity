@@ -18,4 +18,7 @@ return {
   },
   main = "lsp-file-operations", -- set the main module name where the `setup` function is
   opts = {},
+  specs = {
+    { "AstroNvim/astrolsp", opts = { file_operations = false } },
+  },
 }
