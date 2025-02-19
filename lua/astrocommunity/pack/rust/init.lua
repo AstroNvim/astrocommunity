@@ -101,7 +101,7 @@ if vim.fn.has "nvim-0.10" == 1 then
       local success, package = pcall(function() return require("mason-registry").get_package "codelldb" end)
       local cfg = require "rustaceanvim.config"
       if success then
-        local package_path = package:get_install_path()
+        local package_path = vim.fn.expand "$MASON/packages/codelldb"
         local codelldb_path = package_path .. "/codelldb"
         local liblldb_path = package_path .. "/extension/lldb/lib/liblldb"
         local this_os = vim.loop.os_uname().sysname
@@ -168,7 +168,7 @@ else
       local success, package = pcall(function() return require("mason-registry").get_package "codelldb" end)
       local cfg = require "rustaceanvim.config"
       if success then
-        local package_path = package:get_install_path()
+        local package_path = vim.fn.expand "$MASON/packages/codelldb"
         local codelldb_path = package_path .. "/codelldb"
         local liblldb_path = package_path .. "/extension/lldb/lib/liblldb"
         local this_os = vim.loop.os_uname().sysname

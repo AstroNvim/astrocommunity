@@ -105,7 +105,7 @@ return {
           local path = vim.fn.exepath "python"
           local debugpy = require("mason-registry").get_package "debugpy"
           if debugpy:is_installed() then
-            path = debugpy:get_install_path()
+            path = vim.fn.expand "$MASON/packages/debugpy"
             if vim.fn.has "win32" == 1 then
               path = path .. "/venv/Scripts/python"
             else
