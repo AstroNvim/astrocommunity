@@ -53,7 +53,7 @@ return {
       end,
     },
     {
-      "heirline.nvim",
+      "rebelot/heirline.nvim",
       optional = true,
       opts = function(_, opts)
         local noice_opts = require("astrocore").plugin_opts "noice.nvim"
