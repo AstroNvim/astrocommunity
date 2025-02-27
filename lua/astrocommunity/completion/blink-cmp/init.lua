@@ -9,20 +9,18 @@ local icon_provider, hl_provider
 local function get_kind_icon(CTX)
   -- Evaluate icon provider
   if not icon_provider then
-    local base = function(ctx) ctx.kind_icon_highlight = "BlinkCmpKind" .. ctx.kind end
     local _, mini_icons = pcall(require, "mini.icons")
     if _G.MiniIcons then
       icon_provider = function(ctx)
-        base(ctx)
+        local is_specific_color = ctx.kind_hl and ctx.kind_hl:match "^HexColor" ~= nil
         if ctx.item.source_name == "LSP" then
           local icon, hl = mini_icons.get("lsp", ctx.kind or "")
           if icon then
             ctx.kind_icon = icon
-            ctx.kind_icon_highlight = hl
+            if not is_specific_color then ctx.kind_hl = hl end
           end
         elseif ctx.item.source_name == "Path" then
-          ctx.kind_icon, ctx.kind_icon_highlight =
-            mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
+          ctx.kind_icon, ctx.kind_hl = mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
         end
       end
     end
@@ -30,7 +28,6 @@ local function get_kind_icon(CTX)
       local lspkind_avail, lspkind = pcall(require, "lspkind")
       if lspkind_avail then
         icon_provider = function(ctx)
-          base(ctx)
           if ctx.item.source_name == "LSP" then
             local icon = lspkind.symbolic(ctx.kind, { mode = "symbol" })
             if icon then ctx.kind_icon = icon end
@@ -38,7 +35,7 @@ local function get_kind_icon(CTX)
         end
       end
     end
-    if not icon_provider then icon_provider = function(ctx) base(ctx) end end
+    if not icon_provider then icon_provider = function() end end
   end
   -- Evaluate highlight provider
   if not hl_provider then
@@ -53,7 +50,7 @@ local function get_kind_icon(CTX)
             local color_item = highlight_colors_avail and highlight_colors.format(doc, { kind = kinds[kinds.Color] })
             if color_item and color_item.abbr_hl_group then
               if color_item.abbr then ctx.kind_icon = color_item.abbr end
-              ctx.kind_icon_highlight = color_item.abbr_hl_group
+              ctx.kind_hl = color_item.abbr_hl_group
             end
           end
         end
@@ -65,7 +62,7 @@ local function get_kind_icon(CTX)
   icon_provider(CTX)
   hl_provider(CTX)
   -- Return text and highlight information
-  return { text = CTX.kind_icon .. CTX.icon_gap, highlight = CTX.kind_icon_highlight }
+  return { text = CTX.kind_icon .. CTX.icon_gap, highlight = CTX.kind_hl }
 end
 
 return {
