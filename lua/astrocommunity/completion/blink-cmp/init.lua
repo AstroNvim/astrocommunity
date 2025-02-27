@@ -59,12 +59,7 @@ local function get_kind_icon(CTX)
         end
       end
     end
-    if not hl_provider then
-      hl_provider = function(ctx)
-        local tailwind_hl = require("blink.cmp.completion.windows.render.tailwind").get_hl(ctx)
-        if tailwind_hl then ctx.kind_icon_highlight = tailwind_hl end
-      end
-    end
+    if not hl_provider then hl_provider = function() end end
   end
   -- Call resolved providers
   icon_provider(CTX)
