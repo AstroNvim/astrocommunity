@@ -1,3 +1,25 @@
+local function map_split(buf_id, lhs, direction, close_on_file)
+  local files = require "mini.files"
+  local should_close = close_on_file == nil and true or close_on_file
+
+  local rhs = function()
+    -- Make new window and set it as target
+    local cur_target = files.get_explorer_state().target_window
+    local new_target = vim.api.nvim_win_call(cur_target, function()
+      vim.cmd(direction .. " split")
+      return vim.api.nvim_get_current_win()
+    end)
+
+    files.set_target_window(new_target)
+    files.go_in { close_on_file = should_close }
+  end
+
+  -- Adding `desc` will result into `show_help` entries
+  local desc = "Split " .. direction
+  if should_close then desc = desc .. " and close" end
+  vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
+end
+
 return {
   "echasnovski/mini.files",
   dependencies = {
@@ -36,6 +58,22 @@ return {
           opts = {
             autocmds = {
               mini_files_lsp_operations = {
+                {
+                  event = "User",
+                  pattern = "MiniFilesBufferCreate",
+                  desc = "Create mappings to modify target window via split",
+                  callback = function(args)
+                    local buf_id = args.data.buf_id
+
+                    map_split(buf_id, "<C-w>s", "belowright horizontal")
+                    map_split(buf_id, "<C-w>v", "belowright vertical")
+                    map_split(buf_id, "<C-w>t", "tab")
+
+                    map_split(buf_id, "<C-w>S", "belowright horizontal", false)
+                    map_split(buf_id, "<C-w>V", "belowright vertical", false)
+                    map_split(buf_id, "<C-w>T", "tab", false)
+                  end,
+                },
                 {
                   event = "User",
                   pattern = "MiniFilesActionCreate",
