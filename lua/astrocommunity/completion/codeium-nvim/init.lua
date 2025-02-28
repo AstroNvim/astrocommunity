@@ -4,6 +4,7 @@ return {
   cmd = "Codeium",
   opts = {
     enable_chat = true,
+    virtual_text = { key_bindings = { accept = false } },
   },
   dependencies = {
     {
@@ -20,6 +21,17 @@ return {
       ---@param opts AstroCoreOpts
       opts = function(_, opts)
         return require("astrocore").extend_tbl(opts, {
+          options = {
+            g = {
+              -- set the ai_accept function
+              ai_accept = function()
+                if require("codeium.virtual_text").get_current_completion_item() then
+                  vim.api.nvim_input(require("codeium.virtual_text").accept())
+                  return true
+                end
+              end,
+            },
+          },
           mappings = {
             n = {
               ["<Leader>;"] = {
@@ -36,6 +48,7 @@ return {
     },
   },
   specs = {
+    { import = "astrocommunity.recipes.ai" },
     {
       "hrsh7th/nvim-cmp",
       optional = true,
