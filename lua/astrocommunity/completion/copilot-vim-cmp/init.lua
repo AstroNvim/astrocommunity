@@ -6,18 +6,11 @@ end
 ---@type LazySpec
 return {
   "github/copilot.vim",
-  cmd = "Copilot",
-  event = "User AstroFile",
-  init = function()
-    vim.g.copilot_filetypes = {
-      markdown = true,
-    }
-  end,
-  dependencies = {
+  specs = {
+    { import = "astrocommunity.completion.copilot-vim" },
     {
       "hrsh7th/nvim-cmp",
       optional = true,
-      dependencies = { "github/copilot.vim" },
       opts = function(_, opts)
         local cmp = require "cmp"
         local snip_status_ok, luasnip = pcall(require, "luasnip")
@@ -59,7 +52,6 @@ return {
     {
       "Saghen/blink.cmp",
       optional = true,
-      dependencies = { "github/copilot.vim" },
       ---@param opts blink.cmp.Config
       opts = function(_, opts)
         if not opts.keymap then opts.keymap = {} end
