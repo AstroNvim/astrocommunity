@@ -4,7 +4,6 @@ local function map_split(buf_id, lhs, direction, close_on_file)
   local should_close = close_on_file == nil and true or close_on_file
 
   local rhs = function()
-    -- Make new window and set it as target
     local cur_target = files.get_explorer_state().target_window
     local new_target = vim.api.nvim_win_call(cur_target, function()
       vim.cmd(direction .. " split")
