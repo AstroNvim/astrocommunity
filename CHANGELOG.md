@@ -1,5 +1,30 @@
 # Changelog
 
+## [17.2.0](https://github.com/AstroNvim/astrocommunity/compare/v17.1.0...v17.2.0) (2025-03-01)
+
+
+### Features
+
+* **blink-cmp:** enable catppuccin blink.cmp integration ([#1381](https://github.com/AstroNvim/astrocommunity/issues/1381)) ([83f9c68](https://github.com/AstroNvim/astrocommunity/commit/83f9c68c15520f40c05ae0e66a85941bd94142bd))
+* **chezmoi:** Fix `specs` loading and enable watch option ([#1362](https://github.com/AstroNvim/astrocommunity/issues/1362)) ([5b9ca97](https://github.com/AstroNvim/astrocommunity/commit/5b9ca9757f676dbb89d53cbff84c765beca16e8b))
+* **editing-support:** Add `quick-scope` ([#1370](https://github.com/AstroNvim/astrocommunity/issues/1370)) ([bb074e5](https://github.com/AstroNvim/astrocommunity/commit/bb074e5c2923b6999359a98049c6d611fbcb1280))
+* **editing-support:** adds unblevable/quick-scope ([bb074e5](https://github.com/AstroNvim/astrocommunity/commit/bb074e5c2923b6999359a98049c6d611fbcb1280))
+* **fuzzy-finder:** use jump1 as jump_to_single_result is deprecated ([#1371](https://github.com/AstroNvim/astrocommunity/issues/1371)) ([5ebbcf3](https://github.com/AstroNvim/astrocommunity/commit/5ebbcf3a1837863e370230c001351658f6433149))
+* **mini-files:** add mappings for open in splits ([#1377](https://github.com/AstroNvim/astrocommunity/issues/1377)) ([161443f](https://github.com/AstroNvim/astrocommunity/commit/161443f9944ce88f69a715583d2ba0b9ed277f14))
+* **neovim-lua-development:** add lua-console.nvim ([#1364](https://github.com/AstroNvim/astrocommunity/issues/1364)) ([3dc09de](https://github.com/AstroNvim/astrocommunity/commit/3dc09de413ed83420fd3119de1dae03de59ff367))
+* **recipes:** add AI completion engine boilerplate ([7f8edca](https://github.com/AstroNvim/astrocommunity/commit/7f8edca37819e87bc1b8e18bcc55ecad8a451376))
+
+
+### Bug Fixes
+
+* **blink-cmp:** remove tailwind fallback ([3776217](https://github.com/AstroNvim/astrocommunity/commit/3776217fe1da4965ed525b19c47e1a9e9ab6652b))
+* **blink-cmp:** use new `kind_hl` context ([c8d95cd](https://github.com/AstroNvim/astrocommunity/commit/c8d95cd803a3534124e5a381c22059b5d616ab06))
+* **cache-colorscheme:** add backwards compatibility with 0.9 ([8ac30a6](https://github.com/AstroNvim/astrocommunity/commit/8ac30a6ead12202ef3b1ed417b57088da46f93e0))
+* **copilotchat-nvim:** use built-in prompt actions select ([#1379](https://github.com/AstroNvim/astrocommunity/issues/1379)) ([4a0dcca](https://github.com/AstroNvim/astrocommunity/commit/4a0dcca37c2b79b471a40de4cb91110ca80548b0))
+* **go:** Remove deleted lsp option ([#1368](https://github.com/AstroNvim/astrocommunity/issues/1368)) ([baaaef1](https://github.com/AstroNvim/astrocommunity/commit/baaaef19ddd6204b496dc42e465bce9e051fc95e))
+* **noice-nvim:** Use repo name for heirline plugin ([#1367](https://github.com/AstroNvim/astrocommunity/issues/1367)) ([918d5e4](https://github.com/AstroNvim/astrocommunity/commit/918d5e49b615ebdba839934c62305df9c4e2aa00))
+* **typescript:** improve stability of `js-debug-adapter` execution path ([a780cd0](https://github.com/AstroNvim/astrocommunity/commit/a780cd0c44f6377de32d92791cf5253da52e0034))
+
 ## [17.1.0](https://github.com/AstroNvim/astrocommunity/compare/v17.0.0...v17.1.0) (2025-02-18)
 
 
