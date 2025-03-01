@@ -16,7 +16,7 @@ local function map_split(buf_id, lhs, direction, close_on_file)
   end
 
   -- Adding `desc` will result into `show_help` entries
-  local desc = "Split " .. direction
+  local desc = "Open in " .. direction .. " split"
   if should_close then desc = desc .. " and close" end
   vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
 end
