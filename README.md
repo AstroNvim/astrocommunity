@@ -254,6 +254,7 @@ return {
 
 - To disable imports, set the `enabled` option to `false`. You have two approaches to modify an existing plugin: use the full repository name (e.g., "m4xshen/smartcolumn.nvim") or the module name (e.g., "catppuccin"). Remember, the module name might differ from the folder name.
 - It's recommended to use the full import path when customizing a plugin, and not the shorthand notation of just the repository name.
+- You can override many aspects of community plugins including settings, dependencies, and versions. For more details on available options, refer to the [lazy.nvim documentation](https://lazy.folke.io/).
 
 ## Contributing
 
