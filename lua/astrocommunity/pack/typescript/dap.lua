@@ -8,10 +8,7 @@ return {
         type = "server",
         host = "localhost",
         port = "${port}",
-        executable = {
-          command = "node",
-          args = { vim.fn.expand "$MASON/packages/js-debug-adapter/js-debug/src/dapDebugServer.js", "${port}" },
-        },
+        executable = { command = vim.fn.exepath "js-debug-adapter", args = { "${port}" } },
       }
     end
     if not dap.adapters.node then

@@ -1,5 +1,7 @@
 -- pick a location to cache colorscheme
-local colorscheme_cache = vim.fs.joinpath(vim.fn.stdpath "state" --[[@as string]], "last_colorscheme")
+local colorscheme_cache = vim.fs.joinpath
+    and vim.fs.joinpath(vim.fn.stdpath "state" --[[@as string]], "last_colorscheme")
+  or (vim.fn.stdpath "state" .. "/last_colorscheme")
 
 return {
   {

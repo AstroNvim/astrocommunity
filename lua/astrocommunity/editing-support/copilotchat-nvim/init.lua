@@ -67,80 +67,22 @@ return {
           desc = "Load Chat",
         }
 
-        -- Determine the currently active picker
-        local function get_active_picker()
-          -- Check CopilotChat compatibel pickers
-          -- this is also a mapping between picker module names and their
-          -- counterparts in the CopilotChat integrations
-          -- snacks.picker is tricky because we can't just assume that if snacks.nvim is
-          -- installed, it's being used as the picker, too
-          if
-            require("astrocore").is_available "snacks.nvim"
-            and (function()
-              local snacks = require "snacks.picker"
-              return snacks.config and snacks.config.ui_select
-            end)()
-          then
-            return "snacks"
-          elseif require("astrocore").is_available "fzf-lua" then
-            return "fzflua"
-          elseif require("astrocore").is_available "telescope.nvim" then
-            return "telescope"
-          end
-
-          -- Default fallback
-          return nil
-        end
-
-        -- Helper function to create mappings
-        local function create_mapping(action_type, selection_type)
+        local function select_action(selection_type)
           return function()
-            local actions = require "CopilotChat.actions"
-            local items = actions[action_type] { selection = require("CopilotChat.select")[selection_type] }
-            if not items then
-              vim.notify("No " .. action_type:gsub("_", " ") .. " found for the current selection", vim.log.levels.WARN)
-              return
-            end
-
-            -- Determine the active picker
-            local picker = get_active_picker()
-            if not picker then
-              vim.notify(
-                "No valid picker is enabled. Please enable one of telescope, fzf-lua, or snacks.",
-                vim.log.levels.ERROR
-              )
-              return
-            end
-
-            -- Attempt to load the picker module
-            local ok, picker_module = pcall(require, "CopilotChat.integrations." .. picker)
-            if not ok then
-              vim.notify(
-                ("Integration module '%s' for picker '%s' is not available. Ensure it is installed and enabled."):format(
-                  picker,
-                  picker
-                ),
-                vim.log.levels.WARN
-              )
-              return
-            end
-
-            -- Use the selected picker module
-            picker_module.pick(items)
+            require("CopilotChat").select_prompt { selection = require("CopilotChat.select")[selection_type] }
           end
         end
 
         maps.n[prefix .. "p"] = {
-          create_mapping("prompt_actions", "buffer"),
+          select_action "buffer",
           desc = "Prompt actions",
         }
 
         maps.v[prefix .. "p"] = {
-          create_mapping("prompt_actions", "visual"),
+          select_action "visual",
           desc = "Prompt actions",
         }
 
-        -- Quick Chat function
         local function quick_chat(selection_type)
           return function()
             vim.ui.input({ prompt = "Quick Chat: " }, function(input)

@@ -13,9 +13,7 @@ return {
           local maps = opts.mappings
           maps.n["<Leader>lD"] =
             { function() require("fzf-lua").diagnostics_workspace() end, desc = "Search diagnostics" }
-          if maps.n.gd then
-            maps.n.gd[1] = function() require("fzf-lua").lsp_definitions { jump_to_single_result = true } end
-          end
+          if maps.n.gd then maps.n.gd[1] = function() require("fzf-lua").lsp_definitions { jump1 = true } end end
           if maps.n.gI then maps.n.gI[1] = function() require("fzf-lua").lsp_implementations() end end
           if maps.n["<Leader>lR"] then maps.n["<Leader>lR"][1] = function() require("fzf-lua").lsp_references() end end
           if maps.n.gy then maps.n.gy[1] = function() require("fzf-lua").lsp_typedefs() end end

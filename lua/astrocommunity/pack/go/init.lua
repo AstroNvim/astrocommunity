@@ -23,7 +23,6 @@ return {
                 useany = true,
               },
               codelenses = {
-                gc_details = true, -- Show a code lens toggling the display of gc's choices.
                 generate = true, -- show the `go generate` lens.
                 regenerate_cgo = true,
                 test = true,

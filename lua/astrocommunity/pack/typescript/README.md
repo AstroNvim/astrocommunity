@@ -42,3 +42,4 @@ return {
     -- Add your opts
   end,
 }
+```

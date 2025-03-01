@@ -21,16 +21,13 @@ return {
     "xvzc/chezmoi.nvim",
     opts = {
       edit = {
-        watch = false,
+        watch = true,
         force = false,
       },
       notification = {
         on_open = true,
         on_apply = true,
-        on_watch = false,
-      },
-      telescope = {
-        select = { "<CR>" },
+        on_watch = true,
       },
     },
     specs = {
@@ -70,35 +67,38 @@ return {
         },
         opts = function() require("telescope").load_extension "chezmoi" end,
       },
-    },
-    {
-      "ibhagwan/fzf-lua",
-      optional = true,
-      dependencies = {
-        {
-          "AstroNvim/astrocore",
-          ---@type AstroCoreOpts
-          opts = {
-            commands = {
-              ChezmoiFzf = {
-                function()
-                  require("fzf-lua").fzf_exec(require("chezmoi.commands").list(), {
-                    actions = {
-                      ["default"] = function(selected, _)
-                        require("chezmoi.commands").edit {
-                          targets = { "~/" .. selected[1] },
-                          args = { "--watch" },
-                        }
-                      end,
-                    },
-                  })
-                end,
-                desc = "Search Chezmoi configuration with FZF",
+      {
+        "ibhagwan/fzf-lua",
+        optional = true,
+        dependencies = {
+          {
+            "AstroNvim/astrocore",
+            ---@type AstroCoreOpts
+            opts = {
+              commands = {
+                ChezmoiFzf = {
+                  function()
+                    require("fzf-lua").fzf_exec(require("chezmoi.commands").list(), {
+                      actions = {
+                        ["default"] = function(selected, _)
+                          require("chezmoi.commands").edit {
+                            targets = { "~/" .. selected[1] },
+                            args = { "--watch" },
+                          }
+                        end,
+                      },
+                    })
+                  end,
+                  desc = "Search Chezmoi configuration with FZF",
+                },
               },
-            },
-            mappings = {
-              n = {
-                ["<Leader>f."] = { function() vim.cmd.ChezmoiFzf() end, desc = "Find chezmoi config" },
+              mappings = {
+                n = {
+                  ["<Leader>f."] = {
+                    function() vim.cmd.ChezmoiFzf() end,
+                    desc = "Find chezmoi config",
+                  },
+                },
               },
             },
           },
