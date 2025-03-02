@@ -1,6 +1,6 @@
 return {
   "nvim-neorg/neorg",
-  version = "^8",
+  version = "*",
   event = "VeryLazy",
   dependencies = { "nvim-treesitter/nvim-treesitter" },
   opts = {
