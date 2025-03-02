@@ -104,6 +104,45 @@
           });
         });
       })();
+      document.addEventListener('DOMContentLoaded', function () {
+        const toc = document.querySelector('nav[role="doc-toc"]');
+        const tocLinks = toc.querySelectorAll('a');
+        const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute('href')));
+
+        // Scroll to specific entry on page load
+        const hash = window.location.hash;
+        if (hash) {
+          const target = document.querySelector(hash);
+          if (target) {
+            target.scrollIntoView();
+            const activeLink = toc.querySelector(`a[href="${hash}"]`);
+            if (activeLink) {
+              activeLink.scrollIntoView({ behavior: 'auto', block: "nearest" });
+            }
+          }
+        }
+
+        // Observe each section
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              const activeLink = toc.querySelector(`a[href="#${id}"]`);
+              if (activeLink) {
+                tocLinks.forEach(link => link.classList.remove('active'));
+                activeLink.classList.add('active');
+                activeLink.scrollIntoView({ behavior: 'auto', block: "nearest" });
+              }
+            }
+          });
+        }, {rootMargin: '0px 0px -60% 0px', threshold: 0.5 } );
+
+        sections.forEach(section => {
+          if (section) {
+            observer.observe(section);
+          }
+        });
+      });
     </script>
     $for(include-after)$ $include-after$ $endfor$
   </body>

@@ -318,6 +318,10 @@ sup {
   top: var(--side-note-sup-offset);
 }
 
+#TOC .active {
+  border-bottom: 1px solid var(--color-link);
+}
+
 sup {
   font-weight: inherit;
 }
