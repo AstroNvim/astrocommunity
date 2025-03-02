@@ -24,4 +24,12 @@ return {
       },
     },
   },
+  specs = {
+    {
+      "nvim-treesitter/nvim-treesitter",
+      opts = {
+        ensure_installed = { "norg", "norg_meta" },
+      },
+    },
+  },
 }
