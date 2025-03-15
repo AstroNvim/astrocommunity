@@ -17,7 +17,7 @@ end
 ---@type LazySpec
 return {
   "MagicDuck/grug-far.nvim",
-  cmd = "GrugFar",
+  cmd = { "GrugFar", "GrugFarWithin" },
   specs = {
     {
       "AstroNvim/astroui",
@@ -75,6 +75,26 @@ return {
         filetypes = {
           ["grug-far"] = false,
           ["grug-far-history"] = false,
+        },
+      },
+    },
+    {
+      "github/copilot.vim",
+      optional = true,
+      specs = {
+        {
+          "AstroNvim/astrocore",
+          ---@type AstroCoreOpts
+          opts = {
+            options = {
+              g = {
+                copilot_filetypes = {
+                  ["grug-far"] = false,
+                  ["grug-far-history"] = false,
+                },
+              },
+            },
+          },
         },
       },
     },
