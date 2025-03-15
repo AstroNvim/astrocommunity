@@ -115,7 +115,7 @@
           const target = document.querySelector(hash);
           if (target) {
             target.scrollIntoView();
-            const activeLink = toc.querySelector(`a[href="${hash}"]`);
+            const activeLink = toc.querySelector('a[href="' + hash + '"]');
             if (activeLink) {
               activeLink.scrollIntoView({ behavior: 'auto', block: "nearest" });
             }
@@ -127,7 +127,7 @@
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               const id = entry.target.id;
-              const activeLink = toc.querySelector(`a[href="#${id}"]`);
+              const activeLink = toc.querySelector('a[href="#' + id + '"]');
               if (activeLink) {
                 tocLinks.forEach(link => link.classList.remove('active'));
                 activeLink.classList.add('active');
