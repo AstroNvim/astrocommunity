@@ -105,14 +105,6 @@ return {
       opts = { integrations = { grug_far = true } },
     },
     {
-      "folke/which-key.nvim",
-      optional = true,
-      opts = function(_, opts)
-        if not opts.disable then opts.disable = {} end
-        opts.disable.ft = require("astrocore").list_insert_unique(opts.disable.ft, { "grug-far" })
-      end,
-    },
-    {
       "nvim-neo-tree/neo-tree.nvim",
       optional = true,
       opts = {
