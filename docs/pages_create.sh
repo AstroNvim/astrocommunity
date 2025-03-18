@@ -56,6 +56,7 @@ docker run -i --rm --mount type=bind,source="$PWD",target="$PWD",readonly --work
   --template=assets/template \
   --css=assets/theme.css \
   --css=assets/fonts.css \
+  -V lang=en \
   pages/index.md >pages/index.html
 
 echo "SUCCESS - generated ../pages/index.html"
