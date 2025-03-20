@@ -1,5 +1,42 @@
 # Changelog
 
+## [17.2.0](https://github.com/AstroNvim/astrocommunity/compare/v17.1.0...v17.2.0) (2025-03-20)
+
+
+### Features
+
+* **ai:** Add Kurama622/llm.nvim ([#1365](https://github.com/AstroNvim/astrocommunity/issues/1365)) ([2cfb1db](https://github.com/AstroNvim/astrocommunity/commit/2cfb1db7d84eb2b1c5f821e5fefed6c1b13e8dc0))
+* **blink-cmp:** enable catppuccin blink.cmp integration ([#1381](https://github.com/AstroNvim/astrocommunity/issues/1381)) ([83f9c68](https://github.com/AstroNvim/astrocommunity/commit/83f9c68c15520f40c05ae0e66a85941bd94142bd))
+* **chezmoi:** Fix `specs` loading and enable watch option ([#1362](https://github.com/AstroNvim/astrocommunity/issues/1362)) ([5b9ca97](https://github.com/AstroNvim/astrocommunity/commit/5b9ca9757f676dbb89d53cbff84c765beca16e8b))
+* **code-runner:** Add mf-runner.nvim ([#1388](https://github.com/AstroNvim/astrocommunity/issues/1388)) ([0ad87f5](https://github.com/AstroNvim/astrocommunity/commit/0ad87f5d6f03334518c7df6d4b6e0737a86c045b))
+* **completion:** add copilot-vim-cmp ([#1374](https://github.com/AstroNvim/astrocommunity/issues/1374)) ([cf1c1c2](https://github.com/AstroNvim/astrocommunity/commit/cf1c1c2f23d62d0041cb4d7261e21edfbb092622))
+* **docs:** add auto scrollable toc ([99e7929](https://github.com/AstroNvim/astrocommunity/commit/99e792910b75be5a137dc4b9a75bc5e229f44ca9))
+* **docs:** add favicons and other improvements ([#1393](https://github.com/AstroNvim/astrocommunity/issues/1393)) ([f0ba61a](https://github.com/AstroNvim/astrocommunity/commit/f0ba61a2705de3fc62d61ed48805f8842cf90aeb))
+* **editing-support:** Add `quick-scope` ([#1370](https://github.com/AstroNvim/astrocommunity/issues/1370)) ([bb074e5](https://github.com/AstroNvim/astrocommunity/commit/bb074e5c2923b6999359a98049c6d611fbcb1280))
+* **editing-support:** adds unblevable/quick-scope ([bb074e5](https://github.com/AstroNvim/astrocommunity/commit/bb074e5c2923b6999359a98049c6d611fbcb1280))
+* **fuzzy-finder:** use jump1 as jump_to_single_result is deprecated ([#1371](https://github.com/AstroNvim/astrocommunity/issues/1371)) ([5ebbcf3](https://github.com/AstroNvim/astrocommunity/commit/5ebbcf3a1837863e370230c001351658f6433149))
+* **grug-far-nvim:** add support for GrugFarWithin ([#1390](https://github.com/AstroNvim/astrocommunity/issues/1390)) ([2ee11f6](https://github.com/AstroNvim/astrocommunity/commit/2ee11f6b043788cdf1ad867bb1edcae218ef410d))
+* **mini-files:** add mappings for open in splits ([#1377](https://github.com/AstroNvim/astrocommunity/issues/1377)) ([161443f](https://github.com/AstroNvim/astrocommunity/commit/161443f9944ce88f69a715583d2ba0b9ed277f14))
+* **motion:** add mini-jump plugin ([#1385](https://github.com/AstroNvim/astrocommunity/issues/1385)) ([2014d6f](https://github.com/AstroNvim/astrocommunity/commit/2014d6f074129cac7f783938734f02d064f0e8db))
+* **neovim-lua-development:** add lua-console.nvim ([#1364](https://github.com/AstroNvim/astrocommunity/issues/1364)) ([3dc09de](https://github.com/AstroNvim/astrocommunity/commit/3dc09de413ed83420fd3119de1dae03de59ff367))
+* **recipes:** add `picker-lsp-mappings` for generalized recipe for LSP mappings with multiple picker support ([b99ebde](https://github.com/AstroNvim/astrocommunity/commit/b99ebde5bde0a2d000a419530a0e3497ff74751b))
+* **recipes:** add `picker-nvchad-theme` for general theming of various pickers ([3fc0c48](https://github.com/AstroNvim/astrocommunity/commit/3fc0c4810af9e2e66f6ade9e5fff54f7012aa41c))
+* **recipes:** add AI completion engine boilerplate ([7f8edca](https://github.com/AstroNvim/astrocommunity/commit/7f8edca37819e87bc1b8e18bcc55ecad8a451376))
+
+
+### Bug Fixes
+
+* **blink-cmp:** remove tailwind fallback ([3776217](https://github.com/AstroNvim/astrocommunity/commit/3776217fe1da4965ed525b19c47e1a9e9ab6652b))
+* **blink-cmp:** use new `kind_hl` context ([c8d95cd](https://github.com/AstroNvim/astrocommunity/commit/c8d95cd803a3534124e5a381c22059b5d616ab06))
+* **cache-colorscheme:** add backwards compatibility with 0.9 ([8ac30a6](https://github.com/AstroNvim/astrocommunity/commit/8ac30a6ead12202ef3b1ed417b57088da46f93e0))
+* **chezmoi:** Fix `specs` loading ([5b9ca97](https://github.com/AstroNvim/astrocommunity/commit/5b9ca9757f676dbb89d53cbff84c765beca16e8b))
+* **copilotchat-nvim:** use built-in prompt actions select ([#1379](https://github.com/AstroNvim/astrocommunity/issues/1379)) ([4a0dcca](https://github.com/AstroNvim/astrocommunity/commit/4a0dcca37c2b79b471a40de4cb91110ca80548b0))
+* **docs:** use correct favicon ([#1394](https://github.com/AstroNvim/astrocommunity/issues/1394)) ([155e721](https://github.com/AstroNvim/astrocommunity/commit/155e7216fda0e313a8271973623921ddef704fca))
+* **go:** Remove deleted lsp option ([#1368](https://github.com/AstroNvim/astrocommunity/issues/1368)) ([baaaef1](https://github.com/AstroNvim/astrocommunity/commit/baaaef19ddd6204b496dc42e465bce9e051fc95e))
+* **grug-far-nvim:** re-enable `which-key` for `ft=grug-far` ([#1391](https://github.com/AstroNvim/astrocommunity/issues/1391)) ([578729e](https://github.com/AstroNvim/astrocommunity/commit/578729ea6b227350e1d4107142ccc11be8c79395))
+* **noice-nvim:** Use repo name for heirline plugin ([#1367](https://github.com/AstroNvim/astrocommunity/issues/1367)) ([918d5e4](https://github.com/AstroNvim/astrocommunity/commit/918d5e49b615ebdba839934c62305df9c4e2aa00))
+* **typescript:** improve stability of `js-debug-adapter` execution path ([a780cd0](https://github.com/AstroNvim/astrocommunity/commit/a780cd0c44f6377de32d92791cf5253da52e0034))
+
 ## [17.1.0](https://github.com/AstroNvim/astrocommunity/compare/v17.0.0...v17.1.0) (2025-02-18)
 
 
