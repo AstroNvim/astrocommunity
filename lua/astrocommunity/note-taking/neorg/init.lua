@@ -1,6 +1,6 @@
 return {
   "nvim-neorg/neorg",
-  version = "^8",
+  version = "^9",
   event = "VeryLazy",
   dependencies = { "nvim-treesitter/nvim-treesitter" },
   opts = {
@@ -21,6 +21,14 @@ return {
           },
           default_workspace = "notes",
         },
+      },
+    },
+  },
+  specs = {
+    {
+      "nvim-treesitter/nvim-treesitter",
+      opts = {
+        ensure_installed = { "norg", "norg_meta" },
       },
     },
   },
