@@ -26,6 +26,9 @@ return {
       edit = prefix .. "e",
       refresh = prefix .. "r",
       focus = prefix .. "f",
+      select_model = prefix .. "?",
+      stop = prefix .. "S",
+      select_history = prefix .. "h",
       toggle = {
         default = prefix .. "t",
         debug = prefix .. "d",
