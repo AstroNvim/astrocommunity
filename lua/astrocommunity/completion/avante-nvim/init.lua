@@ -7,12 +7,16 @@ return {
   cmd = {
     "AvanteAsk",
     "AvanteBuild",
-    "AvanteEdit",
-    "AvanteRefresh",
-    "AvanteSwitchProvider",
-    "AvanteChat",
-    "AvanteToggle",
+    "AvanteChat",  
     "AvanteClear",
+    "AvanteEdit",
+    "AvanteFocus",
+    "AvanteRefresh",
+    "AvanteStop",
+    "AvanteSwitchProvider",
+    "AvanteShowRepoMap",
+    "AvanteToggle",
+    "AvanteModels"
   },
   dependencies = {
     "stevearc/dressing.nvim",
