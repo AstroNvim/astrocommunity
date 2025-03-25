@@ -4,7 +4,7 @@ return {
     "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
   },
   -- cmd = "MCPHub", -- lazily start the hub when `MCPHub` is called
-  build = "sudo npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
+  build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
   config = function()
     require("mcphub").setup {
       -- Required options
