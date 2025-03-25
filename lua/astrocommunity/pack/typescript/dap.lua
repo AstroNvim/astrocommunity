@@ -1,7 +1,7 @@
 return {
   "mfussenegger/nvim-dap",
   optional = true,
-  config = function()
+  opts = function()
     local dap = require "dap"
     if not dap.adapters["pwa-node"] then
       dap.adapters["pwa-node"] = {
