@@ -81,7 +81,7 @@ return {
     {
       "nvim-neo-tree/neo-tree.nvim",
       optional = true,
-      opts = function (_, opts)
+      opts = function(_, opts)
         local ok, _ = pcall(require, "neo-tree")
         if not ok then return opts end
         return require("astrocore").extend_tbl(opts, {
@@ -91,7 +91,7 @@ return {
                 local node = state.tree:get_node()
                 local filepath = node:get_id()
                 local relative_path = require("avante.utils").relative_path(filepath)
-                
+
                 local sidebar = require("avante").get()
 
                 local open = sidebar:is_open()
