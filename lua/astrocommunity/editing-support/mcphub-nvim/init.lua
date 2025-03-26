@@ -4,7 +4,6 @@ return {
     "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
   },
   cmd = "MCPHub",
-  build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
   config = function()
     require("mcphub").setup {
       -- Required options
