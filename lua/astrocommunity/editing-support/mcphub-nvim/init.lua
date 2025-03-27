@@ -3,6 +3,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
   },
+  event = "User AstroFile",
   cmd = "MCPHub",
   opts = {
     port = 3000,
