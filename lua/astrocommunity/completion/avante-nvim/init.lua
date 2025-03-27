@@ -53,6 +53,7 @@ return {
     { "AstroNvim/astroui", opts = { icons = { Avante = "" } } },
     {
         "saghen/blink.cmp",
+      optional = true,
         dependencies = {
           "Kaiser-Yang/blink-cmp-avante",
         },
