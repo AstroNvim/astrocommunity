@@ -5,15 +5,19 @@ return {
     or "make",
   event = "User AstroFile", -- load on file open because Avante manages it's own bindings
   cmd = {
-    "AvanteAsk",
-    "AvanteBuild",
-    "AvanteEdit",
-    "AvanteRefresh",
-    "AvanteSwitchProvider",
-    "AvanteChat",
-    "AvanteToggle",
-    "AvanteClear",
-  },
+      "AvanteAsk",
+      "AvanteBuild",
+      "AvanteEdit",
+      "AvanteRefresh",
+      "AvanteSwitchProvider",
+      "AvanteShowRepoMap",
+      "AvanteModels",
+      "AvanteChat",
+      "AvanteToggle",
+      "AvanteClear",
+      "AvanteFocus",
+      "AvanteStop",
+    },
   dependencies = {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
@@ -47,6 +51,27 @@ return {
   },
   specs = { -- configure optional plugins
     { "AstroNvim/astroui", opts = { icons = { Avante = "" } } },
+    {
+        "saghen/blink.cmp",
+        dependencies = {
+          "Kaiser-Yang/blink-cmp-avante",
+        },
+        opts = {
+          sources = {
+            -- Add 'avante' to the list
+            default = { "avante", "lsp", "path", "buffer" },
+            providers = {
+              avante = {
+                module = "blink-cmp-avante",
+                name = "Avante",
+                opts = {
+                  -- options for blink-cmp-avante
+                },
+              },
+            },
+          },
+        },
+      },
     { -- if copilot.lua is available, default to copilot provider
       "zbirenbaum/copilot.lua",
       optional = true,
@@ -54,6 +79,21 @@ return {
         {
           "yetone/avante.nvim",
           opts = {
+            vendors = {
+                ["copilot-claude-3.7"] = {
+                  __inherited_from = "copilot",
+                  model = "claude-3.7-sonnet",
+                },
+                ["copilot-claude-3.7-thinking"] = {
+                  __inherited_from = "copilot",
+                  model = "claude-3.7-sonnet-thought",
+                  temperature = 1,
+                },
+                ["copilot-claude-3.5"] = {
+                  __inherited_from = "copilot",
+                  model = "claude-3.5-sonnet",
+                },
+              },
             provider = "copilot",
             auto_suggestions_provider = "copilot",
           },
