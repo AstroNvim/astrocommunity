@@ -34,9 +34,8 @@ return {
               if should_skip then return end
               -- if possible, load session
               if not pcall(function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession" }) end) then
-                -- if session was not loaded, if possible, load alpha
-                require("lazy").load { plugins = { "alpha-nvim" } }
-                if pcall(function() require("alpha").start(true) end) then
+                -- if session was not loaded, if possible, load Snacks dashboard
+                if pcall(function() Snacks.dashboard.start() end) then
                   vim.schedule(function() vim.cmd.doautocmd "FileType" end)
                 end
               end
