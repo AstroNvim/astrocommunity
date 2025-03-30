@@ -45,11 +45,11 @@ return {
         -- TODO: remove lsp_handlers when dropping support for AstroNvim v4
         if not opts.lsp_handlers then opts.lsp_handlers = {} end
         if vim.tbl_get(noice_opts, "lsp", "hover", "enabled") ~= false then
-          opts.defaults.hover = nil
+          opts.defaults.hover = false
           opts.lsp_handlers["textDocument/hover"] = false
         end
         if vim.tbl_get(noice_opts, "lsp", "signature", "enabled") ~= false then
-          opts.defaults.signature_help = nil
+          opts.defaults.signature_help = false
           opts.lsp_handlers["textDocument/signatureHelp"] = false
           if not opts.features then opts.features = {} end
           opts.features.signature_help = false
