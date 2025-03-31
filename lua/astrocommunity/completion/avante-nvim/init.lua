@@ -80,21 +80,6 @@ return {
         {
           "yetone/avante.nvim",
           opts = {
-            vendors = {
-                ["copilot-claude-3.7"] = {
-                  __inherited_from = "copilot",
-                  model = "claude-3.7-sonnet",
-                },
-                ["copilot-claude-3.7-thinking"] = {
-                  __inherited_from = "copilot",
-                  model = "claude-3.7-sonnet-thought",
-                  temperature = 1,
-                },
-                ["copilot-claude-3.5"] = {
-                  __inherited_from = "copilot",
-                  model = "claude-3.5-sonnet",
-                },
-              },
             provider = "copilot",
             auto_suggestions_provider = "copilot",
           },
