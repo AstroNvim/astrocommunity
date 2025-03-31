@@ -39,9 +39,7 @@ return {
       end
       if opts.mappings.n.grr then opts.mappings.n.grr[1] = function() require("snacks.picker").lsp_references() end end
       if opts.mappings.n.gri then
-        opts.mappings.n.gri[1] = function()
-          require("snacks.picker").lsp_implementations()
-        end
+        opts.mappings.n.gri[1] = function() require("snacks.picker").lsp_implementations() end
       end
       if opts.mappings.n["<Leader>lG"] then
         opts.mappings.n["<Leader>lG"][1] = function() require("snacks.picker").lsp_workspace_symbols() end
