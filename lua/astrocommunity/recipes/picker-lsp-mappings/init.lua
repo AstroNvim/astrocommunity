@@ -30,16 +30,23 @@ return {
         opts.mappings.n["<Leader>lR"][1] = function() require("telescope.builtin").lsp_references() end
       end
     elseif require("astrocore").is_available "snacks.nvim" then
+      opts.mappings.n.grr = {
+        function() require("snacks.picker").lsp_references() end,
+        desc = "LSP References",
+        cond = "textDocument/references",
+      }
+      opts.mappings.n.gri = {
+        function() require("snacks.picker").lsp_implementations() end,
+        desc = "LSP Implementations",
+        cond = "textDocument/implementation",
+      }
+
       if opts.mappings.n.gd then opts.mappings.n.gd[1] = function() require("snacks.picker").lsp_definitions() end end
       if opts.mappings.n.gI then
         opts.mappings.n.gI[1] = function() require("snacks.picker").lsp_implementations() end
       end
       if opts.mappings.n.gy then
         opts.mappings.n.gy[1] = function() require("snacks.picker").lsp_type_definitions() end
-      end
-      if opts.mappings.n.grr then opts.mappings.n.grr[1] = function() require("snacks.picker").lsp_references() end end
-      if opts.mappings.n.gri then
-        opts.mappings.n.gri[1] = function() require("snacks.picker").lsp_implementations() end
       end
       if opts.mappings.n["<Leader>lG"] then
         opts.mappings.n["<Leader>lG"][1] = function() require("snacks.picker").lsp_workspace_symbols() end
