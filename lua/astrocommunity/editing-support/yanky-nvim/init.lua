@@ -8,7 +8,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>fy"] = { "<Cmd>YankRingHistory<CR>", desc = "Find yanks" },
+            ["<Leader>fy"] = { "<Cmd>YankyRingHistory<CR>", desc = "Find yanks" },
             ["y"] = { "<Plug>(YankyYank)", desc = "Yank text" },
             ["p"] = { "<Plug>(YankyPutAfter)", desc = "Put yanked text after cursor" },
             ["P"] = { "<Plug>(YankyPutBefore)", desc = "Put yanked text before cursor" },
