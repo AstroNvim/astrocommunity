@@ -112,7 +112,7 @@ return {
         window = { mappings = { F = "find_in_dir" } },
       },
     },
+    { "stevearc/dressing.nvim", optional = true, opts = { select = { enabled = false } } },
     { "nvim-telescope/telescope.nvim", enabled = false },
-    { "stevearc/dressing.nvim", opts = { select = { enabled = false } } },
   },
 }
