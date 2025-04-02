@@ -3,7 +3,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
-    "nvim-tree/nvim-web-devicons",
     { "AstroNvim/astroui", opts = { icons = { Octo = "" } } },
     {
       "AstroNvim/astrocore",
