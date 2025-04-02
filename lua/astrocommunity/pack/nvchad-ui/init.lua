@@ -99,6 +99,7 @@ return {
     -- Disable unnecessary plugins
     { import = "astrocommunity.recipes.disable-tabline" },
     { "rebelot/heirline.nvim", opts = { statusline = false } },
+    { "goolord/alpha-nvim", enabled = false },
     {
       "folke/snacks.nvim",
       optional = true,

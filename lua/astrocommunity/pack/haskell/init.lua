@@ -76,7 +76,6 @@ return {
     "mrcjkb/haskell-tools.nvim",
     ft = haskell_ft,
     dependencies = {
-      { "nvim-lua/plenary.nvim", optional = true },
       { "nvim-telescope/telescope.nvim", optional = true },
       { "mfussenegger/nvim-dap", optional = true },
       {
