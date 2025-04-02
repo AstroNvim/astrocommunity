@@ -9,6 +9,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: ${{ github.repository == 'AstroNvim/astrocommunity' }}
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +20,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' }}
+    if: ${{ github.event_name == 'push' && github.repository == 'AstroNvim/astrocommunity' }}
     timeout-minutes: 1
     permissions:
       pages: write # to deploy to Pages
