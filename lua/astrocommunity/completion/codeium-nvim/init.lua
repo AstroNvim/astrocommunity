@@ -57,5 +57,14 @@ return {
         opts.symbol_map.Codeium = require("astroui").get_icon("Codeium", 1, true)
       end,
     },
+    {
+      "echasnovski/mini.icons",
+      optional = true,
+      -- Adds icon for codeium using mini.icons
+      opts = function(_, opts)
+        if not opts.lsp then opts.lsp = {} end
+        opts.symbol_map.codeium = { glyph = require("astroui").get_icon("Codeium", 1, true), hl = "MiniIconsCyan" }
+      end,
+    },
   },
 }
