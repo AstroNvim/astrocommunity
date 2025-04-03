@@ -9,7 +9,6 @@ return {
 
     -- optional
     { "rcarriga/nvim-notify", optional = true },
-    { "nvim-tree/nvim-web-devicons", optional = true },
     {
       "nvim-treesitter/nvim-treesitter",
       optional = true,

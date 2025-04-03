@@ -3,6 +3,7 @@ return {
   ft = { "git_rebase", "gitcommit" }, -- so ftplugins are loaded
   dependencies = {
     "nvim-telescope/telescope.nvim",
+    { "stevearc/dressing.nvim", optional = true },
     {
       "AstroNvim/astrocore",
       opts = {

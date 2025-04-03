@@ -4,6 +4,9 @@ return {
   config = function() require("mini.starter").setup() end,
   specs = {
     { "goolord/alpha-nvim", optional = true, enabled = false },
+    { "folke/snacks.nvim", optional = true, opts = {
+      dashboard = { enabled = false },
+    } },
     {
       "AstroNvim/astrocore",
       optional = true,

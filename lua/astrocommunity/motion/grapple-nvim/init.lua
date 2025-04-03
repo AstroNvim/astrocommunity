@@ -19,7 +19,6 @@ return {
         maps.n["<C-p>"] = { "<Cmd>Grapple cycle backward<CR>", desc = "Select previous tag" }
       end,
     },
-    { "nvim-tree/nvim-web-devicons", lazy = true },
   },
   cmd = { "Grapple" },
 }

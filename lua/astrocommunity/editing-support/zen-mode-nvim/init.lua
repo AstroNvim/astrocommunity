@@ -29,6 +29,7 @@ return {
         vim.g.diagnostics_enabled_old = not vim.diagnostic.is_disabled()
       end
       if vim.g.diagnostics_enabled_old then
+        -- TODO: Remove this when astronvim drops 0.10 support
         if vim.fn.has "nvim-0.10" == 0 then
           vim.diagnostic.disable()
         else

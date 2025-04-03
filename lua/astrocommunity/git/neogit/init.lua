@@ -29,6 +29,12 @@ return {
   opts = function(_, opts)
     local utils = require "astrocore"
     local disable_builtin_notifications = utils.is_available "nvim-notify" or utils.is_available "noice.nvim"
+    if utils.is_available "snacks.nvim" then
+      local snacks_notifier = utils.plugin_opts("snacks.nvim").notifier
+      if snacks_notifier and vim.tbl_get(snacks_notifier, "enabled") ~= false then
+        disable_builtin_notifications = true
+      end
+    end
 
     return utils.extend_tbl(opts, {
       disable_builtin_notifications = disable_builtin_notifications,
@@ -38,7 +44,12 @@ return {
           return require("telescope").extensions.fzf.native_fzf_sorter()
         end
       end,
-      integrations = { telescope = utils.is_available "telescope.nvim" },
+      integrations = {
+        telescope = utils.is_available "telescope.nvim",
+        diffview = utils.is_available "diffview.nvim",
+        fzf_lua = utils.is_available "fzf-lua",
+        mini_pick = utils.is_available "mini.pick",
+      },
     })
   end,
 }
