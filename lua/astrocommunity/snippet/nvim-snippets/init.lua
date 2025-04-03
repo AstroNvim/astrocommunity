@@ -7,6 +7,7 @@ return {
     { "L3MON4D3/LuaSnip", optional = true, enabled = false },
     {
       "hrsh7th/nvim-cmp",
+      optional = true,
       dependencies = { "garymjr/nvim-snippets" },
       opts = function(_, opts)
         if not opts.sources then opts.sources = {} end

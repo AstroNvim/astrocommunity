@@ -28,6 +28,20 @@ return {
       end,
     },
     {
+      "Saghen/blink.cmp",
+      optional = true,
+      dependencies = "zbirenbaum/copilot-cmp",
+      specs = { "Saghen/blink.compat", version = "*", lazy = true, opts = {} },
+      opts = {
+        sources = {
+          default = { "copilot" },
+          providers = {
+            copilot = { name = "copilot", module = "blink.compat.source" },
+          },
+        },
+      },
+    },
+    {
       "onsails/lspkind.nvim",
       optional = true,
       -- Adds icon for copilot using lspkind

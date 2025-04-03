@@ -2,9 +2,10 @@ return {
   "Exafunction/codeium.nvim",
   event = "User AstroFile",
   cmd = "Codeium",
-  opts = {
-    enable_chat = true,
-  },
+  opts = function(_, opts)
+    opts.enable_chat = true
+    opts.enable_cmp_source = require("astrocore").is_available "nvim-cmp"
+  end,
   dependencies = {
     {
       "AstroNvim/astroui",

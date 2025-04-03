@@ -57,7 +57,7 @@ return {
   {
     "ricardoramirezr/blade-nav.nvim",
     dependencies = {
-      "hrsh7th/nvim-cmp",
+      { "hrsh7th/nvim-cmp", optional = true },
     },
     ft = { "blade", "php" },
   },
