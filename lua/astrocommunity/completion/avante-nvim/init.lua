@@ -5,19 +5,19 @@ return {
     or "make",
   event = "User AstroFile", -- load on file open because Avante manages it's own bindings
   cmd = {
-      "AvanteAsk",
-      "AvanteBuild",
-      "AvanteEdit",
-      "AvanteRefresh",
-      "AvanteSwitchProvider",
-      "AvanteShowRepoMap",
-      "AvanteModels",
-      "AvanteChat",
-      "AvanteToggle",
-      "AvanteClear",
-      "AvanteFocus",
-      "AvanteStop",
-    },
+    "AvanteAsk",
+    "AvanteBuild",
+    "AvanteEdit",
+    "AvanteRefresh",
+    "AvanteSwitchProvider",
+    "AvanteShowRepoMap",
+    "AvanteModels",
+    "AvanteChat",
+    "AvanteToggle",
+    "AvanteClear",
+    "AvanteFocus",
+    "AvanteStop",
+  },
   dependencies = {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
@@ -52,24 +52,23 @@ return {
   specs = { -- configure optional plugins
     { "AstroNvim/astroui", opts = { icons = { Avante = "" } } },
     {
-        "saghen/blink.cmp",
-        dependencies = {
-          "Kaiser-Yang/blink-cmp-avante",
-        },
-        opts = function(_, opts)
-          opts.sources = vim.tbl_deep_extend("keep", opts.sources or {}, {
-            default = {},
-            providers = {
-              avante = {
-
-                module = "blink-cmp-avante",
-                name = "Avante",
+      "Kaiser-Yang/blink-cmp-avante",
+      lazy = true,
+      specs = {
+        {
+          "Saghen/blink.cmp",
+          optional = true,
+          opts = {
+            sources = {
+              default = { "avante" },
+              providers = {
+                avante = { module = "blink-cmp-avante", name = "Avante" },
               },
             },
-          })
-          table.insert(opts.sources.default, "avante")
-        end,
+          },
+        },
       },
+    },
     { -- if copilot.lua is available, default to copilot provider
       "zbirenbaum/copilot.lua",
       optional = true,
