@@ -10,9 +10,13 @@ return {
     "AvanteEdit",
     "AvanteRefresh",
     "AvanteSwitchProvider",
+    "AvanteShowRepoMap",
+    "AvanteModels",
     "AvanteChat",
     "AvanteToggle",
     "AvanteClear",
+    "AvanteFocus",
+    "AvanteStop",
   },
   dependencies = {
     "stevearc/dressing.nvim",
@@ -47,6 +51,24 @@ return {
   },
   specs = { -- configure optional plugins
     { "AstroNvim/astroui", opts = { icons = { Avante = "" } } },
+    {
+      "Kaiser-Yang/blink-cmp-avante",
+      lazy = true,
+      specs = {
+        {
+          "Saghen/blink.cmp",
+          optional = true,
+          opts = {
+            sources = {
+              default = { "avante" },
+              providers = {
+                avante = { module = "blink-cmp-avante", name = "Avante" },
+              },
+            },
+          },
+        },
+      },
+    },
     { -- if copilot.lua is available, default to copilot provider
       "zbirenbaum/copilot.lua",
       optional = true,
