@@ -13,14 +13,6 @@ return {
           arrow = ">",
         },
       },
-      animate = {
-        enabled = true,
-        style = "down",
-        duration = {
-          step = 20,
-          total = 300,
-        },
-      },
     },
   },
 }

@@ -1,4 +1,4 @@
-# snacks-indent-chunk
+# snacks-indent-hlchunk
 
 A recipe to replicate `hlchunk.nvim`-style indent chunk highlighting using [ folke/snacks.nvim ](https://github.com/folke/snacks.nvim).
 
