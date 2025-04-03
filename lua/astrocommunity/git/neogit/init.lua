@@ -44,7 +44,12 @@ return {
           return require("telescope").extensions.fzf.native_fzf_sorter()
         end
       end,
-      integrations = { telescope = utils.is_available "telescope.nvim" },
+      integrations = {
+        telescope = utils.is_available "telescope.nvim",
+        diffview = utils.is_available "diffview.nvim",
+        fzf_lua = utils.is_available "fzf-lua",
+        mini_pick = utils.is_available "mini.pick",
+      },
     })
   end,
 }
