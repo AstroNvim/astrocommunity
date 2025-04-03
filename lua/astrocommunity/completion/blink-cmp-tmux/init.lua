@@ -1,16 +1,18 @@
 return {
-  "saghen/blink.cmp",
-  dependencies = { "mgalliou/blink-cmp-tmux" },
-  opts = function(_, opts)
-    opts.sources = vim.tbl_deep_extend("keep", opts.sources or {}, {
-      default = {},
-      providers = {
-        tmux = {
-          module = "blink-cmp-tmux",
-          name = "tmux",
+  "mgalliou/blink-cmp-tmux",
+  lazy = true,
+  specs = {
+    {
+      "Saghen/blink.cmp",
+      optional = true,
+      opts = {
+        sources = {
+          default = { "tmux" },
+          providers = {
+            tmux = { name = "tmux", module = "blink-cmp-tmux" },
+          },
         },
       },
-    })
-    table.insert(opts.sources.default, "tmux")
-  end,
+    },
+  },
 }
