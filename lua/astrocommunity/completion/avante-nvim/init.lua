@@ -46,6 +46,7 @@ return {
       },
       files = {
         add_current = prefix .. ".",
+        add_all_buffers = prefix .. "B",
       },
     },
   },
