@@ -80,7 +80,7 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = "^5",
+    version = vim.version().minor < 11 and "^5" or "^6",
     ft = "rust",
     specs = {
       {
