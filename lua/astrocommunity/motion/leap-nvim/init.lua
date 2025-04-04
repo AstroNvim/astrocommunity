@@ -5,7 +5,7 @@ return {
     {
       "AstroNvim/astrocore",
       opts = {
-        autocmds = vim.version().minor < 10
+        autocmds = vim.fn.has "nvim-0.10" == 0
             and {
               leap_cursor = { -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
                 {
