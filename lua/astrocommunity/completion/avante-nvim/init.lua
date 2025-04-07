@@ -102,6 +102,20 @@ return {
       end,
     },
     {
+        "folke/snacks.nvim",
+        optional = true,
+        specs = {
+          {
+            "yetone/avante.nvim",
+            opts = {
+              file_selector = {
+                provider = "snacks",
+              },
+            },
+          },
+        },
+      },
+    {
       "nvim-neo-tree/neo-tree.nvim",
       optional = true,
       opts = {
