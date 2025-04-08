@@ -191,7 +191,7 @@ return {
             if not opts.sources then opts.sources = {} end
             table.insert(opts.sources, { name = "luasnip", priority = 750 })
 
-            if not opts.mappings then opts.mappings = {} end
+            if not opts.mapping then opts.mapping = {} end
             opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
               if is_visible(cmp) then
                 cmp.select_next_item()
