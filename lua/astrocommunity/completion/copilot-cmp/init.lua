@@ -56,6 +56,7 @@ return {
       -- Adds icon for copilot using mini.icons
       opts = function(_, opts)
         if not opts.lsp then opts.lsp = {} end
+        if not opts.symbol_map then opts.symbol_map = {} end
         opts.symbol_map.copilot = { glyph = "", hl = "MiniIconsAzure" }
       end,
     },
