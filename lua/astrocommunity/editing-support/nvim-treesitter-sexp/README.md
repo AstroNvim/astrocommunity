@@ -5,3 +5,5 @@ A plugin for Neovim for editing code by manipulating the Treesitter AST. Basical
 Supported Languages: Clojure, Fennel, Janet, Query
 
 **Repository:** <https://github.com/PaterJason/nvim-treesitter-sexp>
+
+> NOTE: Disabled for Neovim 0.11 (treesitter breaking changes)
