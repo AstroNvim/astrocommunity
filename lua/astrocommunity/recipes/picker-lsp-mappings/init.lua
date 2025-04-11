@@ -29,7 +29,8 @@ return {
       if opts.mappings.n["<Leader>lR"] then
         opts.mappings.n["<Leader>lR"][1] = function() require("telescope.builtin").lsp_references() end
       end
-    elseif require("astrocore").is_available "snacks.nvim" then
+    end
+    if require("astrocore").is_available "snacks.nvim" then
       opts.mappings.n.grr = {
         function() require("snacks.picker").lsp_references() end,
         desc = "LSP References",
