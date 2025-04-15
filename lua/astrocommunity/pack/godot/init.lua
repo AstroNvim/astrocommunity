@@ -29,40 +29,34 @@ return {
       }
     end,
   },
-  { -- HACK: bug in quickgd.nvim where telescope is a hard dependency
-    "nvim-telescope/telescope.nvim",
-    optional = true,
+  {
+    "QuickGD/quickgd.nvim",
+    ft = { "gdshader", "gdshaderinc" },
+    cmd = { "GodotRun", "GodotRunLast", "GodotStart" },
+    opts = function(_, opts)
+      local is_available = require("astrocore").is_available
+      opts.cmp = is_available "nvim-cmp" or is_available "blink.cmp"
+      opts.telescope = is_available "telescope.nvim"
+      opts.treesitter = is_available "nvim-treesitter"
+    end,
     specs = {
       {
-        "QuickGD/quickgd.nvim",
-        ft = { "gdshader", "gdshaderinc" },
-        cmd = { "GodotRun", "GodotRunLast", "GodotStart" },
-        opts = function(_, opts)
-          local is_available = require("astrocore").is_available
-          opts.cmp = is_available "nvim-cmp" or is_available "blink.cmp"
-          opts.telescope = is_available "telescope.nvim"
-          opts.treesitter = is_available "nvim-treesitter"
-        end,
-        specs = {
-          {
-            "hrsh7th/nvim-cmp",
-            optional = true,
-            opts = {
-              sources = { { name = "quickgd", priority = 750 } },
-            },
-          },
-          {
-            "Saghen/blink.cmp",
-            optional = true,
-            dependencies = "QuickGD/quickgd.nvim",
-            specs = { "Saghen/blink.compat", version = "*", lazy = true, opts = {} },
-            opts = {
-              sources = {
-                default = { "quickgd" },
-                providers = {
-                  quickgd = { name = "quickgd", module = "blink.compat.source", score_offset = 1 },
-                },
-              },
+        "hrsh7th/nvim-cmp",
+        optional = true,
+        opts = {
+          sources = { { name = "quickgd", priority = 750 } },
+        },
+      },
+      {
+        "Saghen/blink.cmp",
+        optional = true,
+        dependencies = "QuickGD/quickgd.nvim",
+        specs = { "Saghen/blink.compat", version = "*", lazy = true, opts = {} },
+        opts = {
+          sources = {
+            default = { "quickgd" },
+            providers = {
+              quickgd = { name = "quickgd", module = "blink.compat.source", score_offset = 1 },
             },
           },
         },
