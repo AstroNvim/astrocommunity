@@ -40,6 +40,10 @@ return {
         desc = "LSP Implementations",
         cond = "textDocument/implementation",
       }
+      opts.mappings.n.gO = {
+        function() require("snacks.picker").lsp_symbols() end,
+        desc = "LSP Document Symbols",
+      }
 
       if opts.mappings.n.gd then opts.mappings.n.gd[1] = function() require("snacks.picker").lsp_definitions() end end
       if opts.mappings.n.gI then
