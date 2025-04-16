@@ -27,8 +27,8 @@ return {
           },
         },
       },
-    },
-  },
+    })
+  end,
   specs = {
     {
       "nvim-treesitter/nvim-treesitter",
