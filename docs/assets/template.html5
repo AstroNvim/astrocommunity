@@ -14,6 +14,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
+    <link rel="icon" type="image/svg+xml" href="./assets/astronvim.svg" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
     $for(author-meta)$
     <meta name="author" content="$author-meta$" />
     $endfor$ $if(date-meta)$
@@ -104,40 +107,50 @@
           });
         });
       })();
-      document.addEventListener('DOMContentLoaded', function () {
+
+      document.addEventListener("DOMContentLoaded", function () {
         const toc = document.querySelector('nav[role="doc-toc"]');
-        const tocLinks = toc.querySelectorAll('a');
-        const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute('href')));
+        const tocLinks = toc.querySelectorAll("a");
+        const sections = Array.from(tocLinks).map((link) =>
+          document.querySelector(link.getAttribute("href")),
+        );
 
         // Scroll to specific entry on page load
         const hash = window.location.hash;
         if (hash) {
           const target = document.querySelector(hash);
           if (target) {
-            target.scrollIntoView();
-            const activeLink = toc.querySelector('a[href="' + hash + '"]');
-            if (activeLink) {
-              activeLink.scrollIntoView({ behavior: 'auto', block: "nearest" });
-            }
+            requestAnimationFrame(() => {
+              target.scrollIntoView();
+              const activeLink = toc.querySelector('a[href="' + hash + '"]');
+              if (activeLink) {
+                activeLink.scrollIntoView({ behavior: "auto", block: "nearest" });
+              }
+            });
           }
         }
 
         // Observe each section
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const id = entry.target.id;
-              const activeLink = toc.querySelector('a[href="#' + id + '"]');
-              if (activeLink) {
-                tocLinks.forEach(link => link.classList.remove('active'));
-                activeLink.classList.add('active');
-                activeLink.scrollIntoView({ behavior: 'auto', block: "nearest" });
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = entry.target.id;
+                const activeLink = toc.querySelector('a[href="#' + id + '"]');
+                if (activeLink) {
+                  tocLinks.forEach((link) => link.classList.remove("active"));
+                  activeLink.classList.add("active");
+                  requestAnimationFrame(() => {
+                    activeLink.scrollIntoView({ behavior: "auto", block: "nearest" });
+                  });
+                }
               }
-            }
-          });
-        }, {rootMargin: '0px 0px -60% 0px', threshold: 0.5 } );
+            });
+          },
+          { rootMargin: "0px 0px -60% 0px", threshold: 0.5 },
+        );
 
-        sections.forEach(section => {
+        sections.forEach((section) => {
           if (section) {
             observer.observe(section);
           }

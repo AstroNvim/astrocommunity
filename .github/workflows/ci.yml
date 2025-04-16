@@ -11,7 +11,7 @@ on:
 jobs:
   CI:
     uses: AstroNvim/.github/.github/workflows/plugin_ci.yml@main
-    if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
+    if: ${{ (github.event_name == 'push' || github.event_name == 'pull_request') && github.repository == 'AstroNvim/astrocommunity' }}
     secrets: inherit
     with:
       plugin_name: ${{ github.event.repository.name }}

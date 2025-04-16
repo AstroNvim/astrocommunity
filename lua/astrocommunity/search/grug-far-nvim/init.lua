@@ -17,7 +17,7 @@ end
 ---@type LazySpec
 return {
   "MagicDuck/grug-far.nvim",
-  cmd = "GrugFar",
+  cmd = { "GrugFar", "GrugFarWithin" },
   specs = {
     {
       "AstroNvim/astroui",
@@ -79,18 +79,30 @@ return {
       },
     },
     {
+      "github/copilot.vim",
+      optional = true,
+      specs = {
+        {
+          "AstroNvim/astrocore",
+          ---@type AstroCoreOpts
+          opts = {
+            options = {
+              g = {
+                copilot_filetypes = {
+                  ["grug-far"] = false,
+                  ["grug-far-history"] = false,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    {
       "catppuccin",
       optional = true,
       ---@type CatppuccinOptions
       opts = { integrations = { grug_far = true } },
-    },
-    {
-      "folke/which-key.nvim",
-      optional = true,
-      opts = function(_, opts)
-        if not opts.disable then opts.disable = {} end
-        opts.disable.ft = require("astrocore").list_insert_unique(opts.disable.ft, { "grug-far" })
-      end,
     },
     {
       "nvim-neo-tree/neo-tree.nvim",

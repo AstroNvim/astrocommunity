@@ -2,9 +2,10 @@ return {
   "Exafunction/codeium.nvim",
   event = "User AstroFile",
   cmd = "Codeium",
-  opts = {
-    enable_chat = true,
-  },
+  opts = function(_, opts)
+    opts.enable_chat = true
+    opts.enable_cmp_source = require("astrocore").is_available "nvim-cmp"
+  end,
   dependencies = {
     {
       "AstroNvim/astroui",
@@ -55,6 +56,16 @@ return {
       opts = function(_, opts)
         if not opts.symbol_map then opts.symbol_map = {} end
         opts.symbol_map.Codeium = require("astroui").get_icon("Codeium", 1, true)
+      end,
+    },
+    {
+      "echasnovski/mini.icons",
+      optional = true,
+      -- Adds icon for codeium using mini.icons
+      opts = function(_, opts)
+        if not opts.lsp then opts.lsp = {} end
+        if not opts.symbol_map then opts.symbol_map = {} end
+        opts.symbol_map.codeium = { glyph = require("astroui").get_icon("Codeium", 1, true), hl = "MiniIconsCyan" }
       end,
     },
   },

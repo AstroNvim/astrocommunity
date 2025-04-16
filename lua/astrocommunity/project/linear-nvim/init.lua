@@ -3,7 +3,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
-    "stevearc/dressing.nvim",
     {
       "AstroNvim/astrocore",
       opts = function(_, opts)

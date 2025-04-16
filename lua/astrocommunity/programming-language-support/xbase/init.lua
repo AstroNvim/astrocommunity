@@ -1,5 +1,5 @@
 return {
-  "xbase-lab/xbase",
+  "kkharji/xbase",
   ft = { "swift", "objcpp", "objc" },
   run = "make install",
   dependencies = {

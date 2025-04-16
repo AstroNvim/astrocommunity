@@ -5,6 +5,7 @@ return {
   specs = {
     {
       "hrsh7th/nvim-cmp",
+      optional = true,
       dependencies = { "amarakon/nvim-cmp-buffer-lines" },
       opts = function(_, opts)
         local cmp = require "cmp"

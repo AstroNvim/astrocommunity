@@ -19,6 +19,7 @@ return {
     { import = "astrocommunity.completion.copilot-lua" },
     {
       "hrsh7th/nvim-cmp",
+      optional = true,
       dependencies = { "zbirenbaum/copilot.lua" },
       opts = function(_, opts)
         local cmp, copilot = require "cmp", require "copilot.suggestion"

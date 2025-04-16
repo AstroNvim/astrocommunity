@@ -20,6 +20,9 @@ The Clojure language pack includes:
 
 > NOTE: Conjure is available as a [code-runner](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/code-runner) plugin config. nvim-treesitter-sexp and nvim-parinfer are available as [editing-support plugin configurations](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/editing-support)
 
+> NOTE: nvim-treesitter-sexp plugin disabled for Neovim 0.11 (treesitter breaking changes)
+
+
 ## Clojure Guides
 
 `:ConjureSchool` in a Clojure buffer runs an interactive tutorial for Conjure

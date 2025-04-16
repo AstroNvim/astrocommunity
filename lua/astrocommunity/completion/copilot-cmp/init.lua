@@ -28,10 +28,37 @@ return {
       end,
     },
     {
+      "Saghen/blink.cmp",
+      optional = true,
+      dependencies = "zbirenbaum/copilot-cmp",
+      specs = { "Saghen/blink.compat", version = "*", lazy = true, opts = {} },
+      opts = {
+        sources = {
+          default = { "copilot" },
+          providers = {
+            copilot = { name = "copilot", module = "blink.compat.source" },
+          },
+        },
+      },
+    },
+    {
       "onsails/lspkind.nvim",
       optional = true,
       -- Adds icon for copilot using lspkind
-      opts = function(_, opts) opts.symbol_map.Copilot = "" end,
+      opts = function(_, opts)
+        if not opts.symbol_map then opts.symbol_map = {} end
+        opts.symbol_map.Copilot = ""
+      end,
+    },
+    {
+      "echasnovski/mini.icons",
+      optional = true,
+      -- Adds icon for copilot using mini.icons
+      opts = function(_, opts)
+        if not opts.lsp then opts.lsp = {} end
+        if not opts.symbol_map then opts.symbol_map = {} end
+        opts.symbol_map.copilot = { glyph = "", hl = "MiniIconsAzure" }
+      end,
     },
   },
 }

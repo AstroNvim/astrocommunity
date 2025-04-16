@@ -4,7 +4,6 @@ return {
     ft = { "quarto", "qmd" },
     opts = {},
     dependencies = {
-      { "hrsh7th/nvim-cmp" },
       { "jmbuhr/otter.nvim" },
     },
   },
