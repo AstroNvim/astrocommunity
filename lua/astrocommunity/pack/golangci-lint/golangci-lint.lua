@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  { import = "astrocommunity.pack.go" },
   {
     "AstroNvim/astrolsp",
     ---@type AstroLSPOpts

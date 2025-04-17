@@ -11,4 +11,4 @@ This plugin pack integrates [golangci-lint](https://golangci-lint.run/) into you
 - Provides lint diagnostics directly in your editor using `golangci-lint`.
 - Runs `golangci-lint` efficiently in the background.
 
-**Note:** This pack works best when combined with the Go language pack (`astrocommunity.pack.go`) for a complete Go development environment.
+**Note:** This pack imports the Go language pack (`astrocommunity.pack.go`) for a complete Go development environment.
