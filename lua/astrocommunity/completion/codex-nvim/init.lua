@@ -6,7 +6,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>O"] = { function() require("codex").toggle() end, desc = "Toggle Codex popup" },
+            ["<Leader>Oc"] = { function() require("codex").toggle() end, desc = "Toggle Codex popup" },
           },
         },
       },
