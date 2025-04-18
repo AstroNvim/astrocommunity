@@ -8,7 +8,9 @@ local function gd_move_handler(source, destination)
     -- Rename the temporary file
     local new_tmp_file = ("%s.%s"):format(destination, suffix)
     local success, err = vim.uv.fs_rename(tmp_file, new_tmp_file)
-    if not success then vim.notify(("Failed to rename Godot %s file: %s"):format(suffix, err or "unknown error")) end
+    if not success then
+      vim.notify(("Failed to rename Godot file: `%s`\n```\n%s\n```"):format(tmp_file, err or "unknown error"))
+    end
   end
 end
 
