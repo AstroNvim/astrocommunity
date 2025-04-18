@@ -44,12 +44,12 @@ return {
         {
           event = "file_renamed",
           handler = function(args) gd_move_handler(args.source, args.destination) end,
-          id = "godot_renamed_handler",
+          id = "godot_handler",
         },
         {
           event = "file_moved",
           handler = function(args) gd_move_handler(args.source, args.destination) end,
-          id = "godot_moved_handler",
+          id = "godot_handler",
         },
       },
       nesting_rules = {
