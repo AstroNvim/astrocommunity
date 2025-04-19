@@ -9,26 +9,12 @@ return {
     end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "zls" })
-    end,
-  },
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "zls" })
-    end,
-  },
-  {
     "nvim-neotest/neotest",
     optional = true,
-    dependencies = { "lawrence-laz/neotest-zig", version = "^1" },
+    dependencies = { "lawrence-laz/neotest-zig", version = "^1", config = function() end },
     opts = function(_, opts)
       if not opts.adapters then opts.adapters = {} end
-      table.insert(opts.adapters, require "neotest-zig")
+      table.insert(opts.adapters, require "neotest-zig"(require("astrocore").plugin_opts "neotest-zig"))
     end,
   },
   {
@@ -39,6 +25,14 @@ return {
     dependencies = {
       "akinsho/toggleterm.nvim",
       "nvim-lua/plenary.nvim",
+    },
+  },
+  {
+    "AstroNvim/astrolsp",
+    optional = true,
+    ---@type AstroLSPOpts
+    opts = {
+      servers = { "zls" },
     },
   },
 }

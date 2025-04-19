@@ -2,7 +2,7 @@ return {
   "mg979/vim-visual-multi",
   event = { "User AstroFile", "InsertEnter" },
   dependencies = {
-    "astronvim/astrocore",
+    "AstroNvim/astrocore",
     ---@param opts astrocoreopts
     opts = function(_, opts)
       if not opts.options then opts.options = {} end

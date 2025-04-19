@@ -10,3 +10,4 @@ This plugin pack does the following:
   - `<Leader>jd` for files with changes, like `jj diff`
   - `<Leader>jc` for files with conflicts, like `jj resolve --list`
 - Adds syntax highlighting for `.jjdescription` files (for use with `jj describe`) with [vim-jjdescription](https://github.com/avm99963/vim-jjdescription)
+- Adds a [lazyjj](https://github.com/Cretezy/lazyjj) (TUI for jj) terminal with `<Leader>jl` when `lazyjj` is in `$PATH`

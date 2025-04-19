@@ -20,25 +20,17 @@ return {
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {
+              files = {
+                excludeDirs = {
+                  ".direnv",
+                  ".git",
+                  "target",
+                },
+              },
               check = {
                 command = "clippy",
                 extraArgs = {
                   "--no-deps",
-                },
-              },
-              assist = {
-                importEnforceGranularity = true,
-                importPrefix = "crate",
-              },
-              completion = {
-                postfix = {
-                  enable = false,
-                },
-              },
-              inlayHints = {
-                lifetimeElisionHints = {
-                  enable = true,
-                  useParameterNames = true,
                 },
               },
             },
@@ -62,26 +54,59 @@ return {
     end,
   },
   {
+    "Saecki/crates.nvim",
+    event = { "BufRead Cargo.toml" },
+    opts = {
+      completion = {
+        crates = { enabled = true },
+      },
+      lsp = {
+        enabled = true,
+        on_attach = function(...) require("astrolsp").on_attach(...) end,
+        actions = true,
+        completion = true,
+        hover = true,
+      },
+    },
+  },
+  {
+    "nvim-neotest/neotest",
+    optional = true,
+    opts = function(_, opts)
+      if not opts.adapters then opts.adapters = {} end
+      local rustaceanvim_avail, rustaceanvim = pcall(require, "rustaceanvim.neotest")
+      if rustaceanvim_avail then table.insert(opts.adapters, rustaceanvim) end
+    end,
+  },
+  {
     "mrcjkb/rustaceanvim",
-    version = "^4",
+    version = vim.fn.has "nvim-0.11" == 1 and "^6" or "^5",
     ft = "rust",
+    specs = {
+      {
+        "AstroNvim/astrolsp",
+        optional = true,
+        ---@type AstroLSPOpts
+        opts = {
+          handlers = { rust_analyzer = false }, -- disable setup of `rust_analyzer`
+        },
+      },
+    },
     opts = function()
       local adapter
-      local success, package = pcall(function() return require("mason-registry").get_package "codelldb" end)
+      local codelldb_installed = pcall(function() return require("mason-registry").get_package "codelldb" end)
       local cfg = require "rustaceanvim.config"
-      if success then
-        local package_path = package:get_install_path()
-        local codelldb_path = package_path .. "/codelldb"
-        local liblldb_path = package_path .. "/extension/lldb/lib/liblldb"
-        local this_os = vim.loop.os_uname().sysname
+      if codelldb_installed then
+        local codelldb_path = vim.fn.exepath "codelldb"
+        local this_os = vim.uv.os_uname().sysname
 
+        local liblldb_path = vim.fn.expand "$MASON/share/lldb"
         -- The path in windows is different
         if this_os:find "Windows" then
-          codelldb_path = package_path .. "\\extension\\adapter\\codelldb.exe"
-          liblldb_path = package_path .. "\\extension\\lldb\\bin\\liblldb.dll"
+          liblldb_path = liblldb_path .. "\\bin\\lldb.dll"
         else
           -- The liblldb extension is .so for linux and .dylib for macOS
-          liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
+          liblldb_path = liblldb_path .. "/lib/liblldb" .. (this_os == "Linux" and ".so" or ".dylib")
         end
         adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path)
       else
@@ -105,48 +130,12 @@ return {
         end,
       }
       local final_server = require("astrocore").extend_tbl(astrolsp_opts, server)
-      return { server = final_server, dap = { adapter = adapter }, tools = { enable_clippy = false } }
+      return {
+        server = final_server,
+        dap = { adapter = adapter, load_rust_types = true },
+        tools = { enable_clippy = false },
+      }
     end,
     config = function(_, opts) vim.g.rustaceanvim = require("astrocore").extend_tbl(opts, vim.g.rustaceanvim) end,
-  },
-  {
-    "Saecki/crates.nvim",
-    lazy = true,
-    dependencies = {
-      "AstroNvim/astrocore",
-      opts = {
-        autocmds = {
-          CmpSourceCargo = {
-            {
-              event = "BufRead",
-              desc = "Load crates.nvim into Cargo buffers",
-              pattern = "Cargo.toml",
-              callback = function()
-                require("cmp").setup.buffer { sources = { { name = "crates" } } }
-                require "crates"
-              end,
-            },
-          },
-        },
-      },
-    },
-    opts = {
-      src = {
-        cmp = { enabled = true },
-      },
-      null_ls = {
-        enabled = true,
-        name = "crates.nvim",
-      },
-    },
-  },
-  {
-    "nvim-neotest/neotest",
-    optional = true,
-    opts = function(_, opts)
-      if not opts.adapters then opts.adapters = {} end
-      local rustaceanvim_avail, rustaceanvim = pcall(require, "rustaceanvim.neotest")
-      if rustaceanvim_avail then table.insert(opts.adapters, rustaceanvim) end
-    end,
   },
 }

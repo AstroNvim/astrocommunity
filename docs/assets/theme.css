@@ -1,0 +1,1567 @@
+/* ----- Global settings ----------------------------------------------- {{{ */
+
+:root {
+  color-scheme: light dark;
+  /* astro docs site colors */
+  /* light */
+  --light-color-primary: #00508a;
+  --light-color-secondary: #7300b8;
+  --light-color-text: #1c1c1c;
+  --light-color-text-offset: #4c5057;
+  --light-color-background: #f7f8f8;
+  --light-color-background-offset: #f0f0f1;
+  --light-color-background-offset-secondary: #d4d7d9;
+  --light-color-border: #d4d7d9;
+  --light-color-gradient-from: #00508a;
+  --light-color-gradient-via: #7300b8;
+  --light-color-gradient-to: #9e007c;
+  --light-color-note-background: hsl(233.33, 88.24%, 90%);
+  --light-color-note-border: hsl(233.8, 90.2%, 60%);
+  /* dark */
+  --dark-color-primary: #76b6ef;
+  --dark-color-secondary: #d597e8;
+  --dark-color-text: #c5ccce;
+  --dark-color-text-offset: #afb3b6;
+  --dark-color-background-offset-secondary: #3a3e47;
+  --dark-color-background: #1a1d23;
+  --dark-color-background-offset: #1e222a;
+  --dark-color-border: #3a3e47;
+  --dark-color-gradient-from: #76b6ef;
+  --dark-color-gradient-via: #d597e8;
+  --dark-color-gradient-to: #f8919a;
+  --dark-color-note-background: hsl(233.57, 54.9%, 20%);
+  --dark-color-note-border: hsl(234.41, 100%, 60%);
+  /* astro based color redefinitions */
+  --background-color: light-dark(
+    var(--light-color-background),
+    var(--dark-color-background)
+  );
+  --color-text: light-dark(var(--light-color-text), var(--dark-color-text));
+  --color-inline-code: var(--color-text);
+  --color-text-secondary: light-dark(
+    var(--light-color-text-offset),
+    var(--dark-color-text-offset)
+  );
+  --color-link: light-dark(
+    var(--light-color-primary),
+    var(--dark-color-primary)
+  );
+  --color-sidenote: light-dark(
+    var(--light-color-text-offset),
+    var(--dark-color-text-offset)
+  );
+  --color-inline-code-bg: light-dark(
+    var(--light-color-background-offset-secondary),
+    var(--dark-color-background-offset-secondary)
+  );
+  --color-block-code-bg: light-dark(
+    var(--light-color-background-offset),
+    var(--dark-color-background-offset)
+  );
+  --color-border: light-dark(
+    var(--light-color-border),
+    var(--dark-color-border)
+  );
+  --color-border-heavy: var(--color-border);
+  --color-table-heading: var(--color-inline-code-bg);
+  --color-note-background: light-dark(
+    var(--light-color-note-background),
+    var(--dark-color-note-background)
+  );
+  --color-note-border: light-dark(
+    var(--light-color-note-border),
+    var(--dark-color-note-border)
+  );
+  /* astrodark/astrolight colors */ /* astrodark */
+  --dark-highlight-red: "#FF838B";
+  --dark-highlight-yellow: "#DFAB25";
+  --dark-highlight-green: "#87C05F";
+  --dark-highlight-blue: "#5EB7FF";
+  --dark-highlight-purple: "#DD97F1";
+
+  /* astrolight */
+  --light-highlight-red: "#990000";
+  --light-highlight-yellow: "#7300B8";
+  --light-highlight-green: "#345E00";
+  --light-highlight-blue: "#00508A";
+  --light-highlight-purple: "#9E007C";
+
+  /* astrothemed overrides */
+  --highlight-red: light-dark(
+    var(--light-highlight-red),
+    var(--dark-highlight-red)
+  );
+  --highlight-yellow: light-dark(
+    var(--light-highlight-yellow),
+    var(--dark-highlight-yellow)
+  );
+  --highlight-green: light-dark(
+    var(--light-highlight-green),
+    var(--dark-highlight-green)
+  );
+  --highlight-blue: light-dark(
+    var(--light-highlight-blue),
+    var(--dark-highlight-blue)
+  );
+  --highlight-purple: light-dark(
+    var(--light-highlight-purple),
+    var(--dark-highlight-purple)
+  );
+  /* --- Text --- */
+
+  --font-family-prose: "Inter", sans-serif;
+  --font-family-heading: "Inter", sans-serif;
+  --font-family-code: "Jetbrains Mono", monospace;
+
+  --side-note-number-font-family: var(--font-family-prose);
+
+  --line-height: 26px;
+  --font-size: 17px;
+
+  --inline-code-font-size: 15px;
+  --code-block-font-size: 14px;
+  --code-block-side-padding: 8px;
+  --line-numbers-font-size: 12px;
+
+  --tight-code-line-height: 18px;
+  --tight-code-padding-top: 5px;
+
+  --side-note-line-height: 20px;
+  --side-note-font-size: 13px;
+  --side-note-code-font-size: 13px;
+  --side-note-baseline-offset: 4px;
+  --side-note-sup-offset: -6px;
+  --side-note-number-hang-left: -6px;
+  --side-note-text-indent: -9px;
+
+  --heading-font-weight: 500;
+
+  --title-font-size: 42px;
+  --title-code-font-size: 40px;
+  --title-line-height: 48px;
+  --title-margin-top: 92px;
+
+  --h1-font-size: 32px;
+  --h1-code-font-size: 29px;
+  --h1-line-height: 36px;
+  --h1-word-spacing: 1px;
+  --h1-margin-top: 30px;
+  --h1-margin-bottom: 12px;
+
+  --h2-font-size: 22px;
+  --h2-code-font-size: 20px;
+  --h2-line-height: 28px;
+  --h2-word-spacing: 0.5px;
+  --h2-margin-top: 18px;
+  --h2-margin-bottom: 6px;
+
+  --ul-indent-size: 23px;
+  --ol-indent-size: 19px;
+  --ol-li-padding-left: 4px;
+
+  --hr-margin-top: 18px;
+  --hr-margin-bottom: calc(var(--line-height) - var(--hr-margin-top) - 1px);
+
+  --extra-wide-scale-factor: 1.5;
+
+  --figcaption-line-height: 21px;
+  --figcaption-font-size: 14px;
+  --figcaption-code-font-size: 13px;
+  --figcaption-gap: 6px;
+  --captioned-figure-gap: 10px;
+
+  --table-line-height: 21px;
+  --table-font-size: 14px;
+  --table-code-font-size: 13px;
+
+  --nav-toc-font-size: 12px;
+  --nav-toc-code-font-size: 12px;
+  --nav-toc-indent: 15px;
+  --nav-toc-baseline-offset: 2px;
+
+  /* --- Layout --- */
+
+  --main-width: 745px;
+  /* The name doesn't indicate it, but this variable actually specifies an
+   * effective minimum width. (It didn't previously behave this way, but the
+   * change to do so was made in a backwards-compatible way, so the variable
+   * was not renamed.)
+   **/
+  --main-width-narrow: 550px;
+  --side-note-max-width: 300px;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    --font-family-prose: "InterVariable", sans-serif;
+    --font-family-heading: "InterVariable", sans-serif;
+    font-optical-sizing: auto;
+  }
+}
+
+blockquote.metadata {
+  background: var(--color-background);
+  p {
+    margin: 0;
+  }
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  /* https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family-prose);
+  color: var(--color-text);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  -webkit-font-variant-ligatures: no-common-ligatures;
+  font-variant-ligatures: no-common-ligatures;
+
+  /* Safari-only right now (macOS, iOS) but looks so good. */
+  hanging-punctuation: first;
+
+  margin: 0;
+  padding: 0;
+  padding-top: var(--title-margin-top);
+  width: 100%;
+
+  background-color: var(--background-color);
+}
+
+@media print {
+  body {
+    background-color: initial;
+  }
+}
+
+/* }}} */
+/* ----- Utility classes -----------------------------------------------  {{{ */
+.only-light-mode {
+  display: inherit;
+}
+.only-dark-mode {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .only-light-mode {
+    display: none;
+  }
+  .only-dark-mode {
+    display: inherit;
+  }
+}
+/* }}} */
+/* ----- Side notes and margin notes ----------------------------------- {{{ */
+/* --- Side note text and numbering --- {{{ */
+
+.sidenote,
+.marginnote {
+  color: var(--color-sidenote);
+
+  font-size: var(--side-note-font-size);
+  line-height: var(--side-note-line-height);
+  vertical-align: baseline;
+
+  /* Align first baseline to body. */
+  margin-top: var(--side-note-baseline-offset);
+}
+
+.sidenote code,
+.marginnote code {
+  color: var(--color-sidenote);
+}
+
+main {
+  counter-reset: sidenote-counter;
+}
+
+.sidenote-number {
+  counter-increment: sidenote-counter;
+}
+
+.sidenote-number:after,
+.sidenote:before {
+  content: counter(sidenote-counter);
+  position: relative;
+}
+
+nav#TOC label,
+label.margin-toggle:not(.sidenote-number),
+.sidenote-number:after,
+.sidenote:before,
+.footnote-ref sup,
+sup {
+  font-size: var(--side-note-font-size);
+  font-weight: 700;
+  font-family: var(--side-note-number-font-family);
+  -webkit-font-feature-settings: "tnum" 1;
+  font-feature-settings: "tnum" 1;
+
+  /* Mimic 'vertical-align: super' (browser style for sup tag)
+   * without causing a gap in our text's implicit grid. */
+  vertical-align: baseline;
+  position: relative;
+  top: var(--side-note-sup-offset);
+}
+
+#TOC .active {
+  border-bottom: 1px solid var(--color-link);
+}
+
+sup {
+  font-weight: inherit;
+}
+
+/* Make the superscript hang. */
+.sidenote:before {
+  left: var(--side-note-number-hang-left);
+}
+/* Get first first column of first row to line up with other rows. */
+.sidenote {
+  text-indent: var(--side-note-text-indent);
+}
+
+/*}}} */
+/* --- Side note input controls --- {{{ */
+
+input.margin-toggle {
+  display: none;
+}
+label.margin-toggle:not(.sidenote-number) {
+  display: none;
+}
+label.sidenote-number {
+  display: inline;
+}
+
+/* Unfortunately, variables aren't in scope here.
+ * See calculations in Horizontal layouting.
+ */
+@media screen and (max-width: calc(26px + 550px + 26px + 169px + 26px - 1px)) {
+  .margin-toggle:checked + .sidenote,
+  .margin-toggle:checked + .marginnote {
+    margin-top: var(--side-note-line-height);
+    vertical-align: baseline;
+  }
+
+  label.margin-toggle {
+    color: var(--color-link);
+  }
+
+  label.margin-toggle:not(.sidenote-number) {
+    display: inline;
+  }
+
+  label {
+    cursor: pointer;
+  }
+}
+
+/* }}} */
+/* }}} */
+/* ----- Headings ------------------------------------------------------ {{{ */
+
+h1,
+h2 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--heading-font-weight);
+}
+
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+h1.title {
+  margin-top: var(--line-height);
+  margin-bottom: var(--line-height);
+  font-size: var(--title-font-size);
+  line-height: var(--title-line-height);
+}
+
+h1.title code {
+  font-size: var(--title-code-font-size);
+}
+
+h1:not(.title) {
+  font-size: var(--h1-font-size);
+  line-height: var(--h1-line-height);
+  word-spacing: var(--h1-word-spacing);
+
+  margin-top: var(--h1-margin-top);
+  margin-bottom: var(--h1-margin-bottom);
+}
+
+h1:not(.title) code {
+  font-size: var(--h1-code-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+  line-height: var(--h2-line-height);
+  word-spacing: var(--h2-word-spacing);
+
+  margin-top: var(--h2-margin-top);
+  margin-bottom: var(--h2-margin-bottom);
+}
+
+h2 code {
+  font-size: var(--h2-code-font-size);
+}
+
+h3 {
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  font-weight: bold;
+}
+
+h1:not(.title) + *,
+h1:not(.title) + p {
+  margin-top: var(--h1-margin-bottom);
+}
+h2 + *,
+h2 + p {
+  margin-top: var(--h2-margin-bottom);
+}
+h3 + *,
+h3 + p {
+  margin-top: 0;
+}
+
+/* }}} */
+/* ----- Prose --------------------------------------------------------- {{{ */
+
+p,
+main > ul,
+main > ol,
+div.sourceCode,
+main > pre,
+img,
+table {
+  margin-top: var(--line-height);
+  margin-bottom: var(--line-height);
+}
+
+ul:not(.task-list) {
+  margin-left: var(--ul-indent-size);
+}
+ol {
+  margin-left: var(--ol-indent-size);
+}
+
+ul.task-list {
+  list-style: none;
+  margin-left: var(--ul-indent-size);
+}
+
+ul.task-list > li {
+  position: relative;
+}
+
+ul.task-list > li > input[type="checkbox"] {
+  position: absolute;
+  left: calc(-1 * var(--ul-indent-size));
+  height: var(--line-height);
+}
+
+ol > li {
+  padding-left: var(--ol-li-padding-left);
+}
+
+ol {
+  list-style-type: decimal;
+}
+ol ol {
+  list-style-type: lower-alpha;
+}
+ol ol ol {
+  list-style-type: lower-roman;
+}
+ol ol ol ol {
+  list-style-type: decimal;
+}
+ol ol ol ol ol {
+  list-style-type: lower-alpha;
+}
+ol ol ol ol ol ol {
+  list-style-type: lower-roman;
+}
+ol ol ol ol ol ol ol {
+  list-style-type: decimal;
+}
+ol ol ol ol ol ol ol ol {
+  list-style-type: lower-alpha;
+}
+ol ol ol ol ol ol ol ol ol {
+  list-style-type: lower-roman;
+}
+
+ul {
+  list-style-type: disc;
+}
+ul ul {
+  list-style-type: circle;
+}
+ul ul ul {
+  list-style-type: square;
+}
+ul ul ul ul {
+  list-style-type: disc;
+}
+ul ul ul ul ul {
+  list-style-type: circle;
+}
+ul ul ul ul ul ul {
+  list-style-type: square;
+}
+ul ul ul ul ul ul ul {
+  list-style-type: disc;
+}
+ul ul ul ul ul ul ul ul {
+  list-style-type: circle;
+}
+ul ul ul ul ul ul ul ul ul {
+  list-style-type: square;
+}
+
+blockquote {
+  border-left: 0.3ch solid var(--color-note-border);
+  padding: 1.5ch;
+  margin-bottom: 1ch;
+  background: var(--color-note-background);
+  font-style: italic;
+}
+
+blockquote > p {
+  margin: 0;
+}
+
+blockquote em,
+blockquote i,
+blockquote .sidenote-wrapper {
+  font-style: normal;
+}
+
+hr {
+  margin-top: var(--hr-margin-top);
+  margin-bottom: var(--hr-margin-bottom);
+  border-style: solid;
+  color: var(--color-border-heavy);
+  border-width: 1px 0 0;
+}
+
+a code,
+a:link code,
+a:visited code,
+a,
+a:link,
+a:visited {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+span.mark,
+mark {
+  /* Reset browser styles */
+  color: inherit;
+
+  padding: 2px 0 1px;
+}
+span.mark.red,
+mark.red {
+  background-color: var(--highlight-red);
+}
+span.mark.yellow,
+mark.yellow {
+  background-color: var(--highlight-yellow);
+}
+span.mark.green,
+mark.green {
+  background-color: var(--highlight-green);
+}
+span.mark.blue,
+mark.blue {
+  background-color: var(--highlight-blue);
+}
+span.mark.purple,
+mark.purple {
+  background-color: var(--highlight-purple);
+}
+
+.subtitle {
+  margin-top: 0;
+}
+.author,
+.date {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.signoff {
+  margin-top: calc(4 * var(--line-height));
+  margin-bottom: calc(4 * var(--line-height));
+}
+
+/* Pandoc utility classes */
+span.smallcaps {
+  font-variant: small-caps;
+}
+span.underline {
+  text-decoration: underline;
+}
+
+.katex-display {
+  background: var(--background-color);
+  transform: translateZ(0px);
+}
+
+@media print {
+  .katex-display {
+    background-color: initial;
+  }
+}
+
+/* }}} */
+/* ----- Code ---------------------------------------------------------- {{{ */
+
+/* Pandoc code blocks with a language look like div.sourceCode > pre.sourceCode
+ * Otherwise, it's just a pre (without .sourceCode)
+ *
+ * The 'code' element is tricky because it's used for inline code and code in a
+ * pre.
+ */
+
+code {
+  font-family: var(--font-family-code);
+
+  word-spacing: normal;
+
+  /* Only for inline code */
+  color: var(--color-inline-code);
+  background-color: var(--color-inline-code-bg);
+  font-size: var(--inline-code-font-size);
+  margin: 0;
+  padding-inline: 1ch;
+  padding-block: 0.2ch;
+  border: 1px solid var(--color-border);
+  border-radius: 1px;
+}
+
+.sidenote code,
+.marginnote code {
+  font-size: var(--side-note-code-font-size);
+}
+
+pre code {
+  /* Reset some changes meant to be inline-only */
+  color: inherit;
+  background-color: var(--color-block-code-bg);
+  border: 1px solid var(--color-border);
+  padding: 1ch;
+  padding-left: 2ch;
+  font-size: var(--code-block-font-size);
+  line-height: var(--line-height);
+  margin: initial;
+  border-radius: initial;
+}
+
+pre > code {
+  position: relative; /* For line highlights */
+  display: inline-block;
+  min-width: 100%;
+  z-index: 1;
+
+  white-space: pre-wrap;
+}
+
+code.sourceCode::selection {
+  /* Prevent bug where far right edge of text box shows as selected. */
+  background: transparent;
+}
+
+.wide > pre,
+.wide > div.sourceCode {
+  /* Put this in front of the table of contents */
+  transform: translateZ(0px);
+}
+
+.wide pre > code {
+  white-space: pre;
+}
+
+pre.numberSource code {
+  counter-reset: source-line 0;
+}
+
+pre > code.sourceCode > span {
+  line-height: var(--line-height);
+
+  display: inline-block;
+  min-width: 100%;
+}
+
+div.sourceCode {
+  /* Need to make room for line numbers (even if they're not going to be used).
+   * Width doesn't matter, just needs to be big enough to hold the largest line
+   * number. */
+  --line-numbers-width: calc(4 * var(--line-numbers-font-size));
+  --line-numbers-negative-width: calc(-1 * var(--line-numbers-width));
+  margin-left: var(--line-numbers-negative-width);
+}
+div.sourceCode > pre {
+  margin-left: var(--line-numbers-width);
+}
+pre.numberSource > code.sourceCode > span {
+  counter-increment: source-line;
+  padding-left: var(--line-numbers-width);
+  text-indent: var(--line-numbers-negative-width);
+  position: relative;
+  left: var(--line-numbers-negative-width);
+}
+pre.numberSource > code.sourceCode > span > a:first-child::before {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  content: counter(source-line);
+  font-size: var(--line-numbers-font-size);
+  text-decoration: none;
+
+  position: relative;
+  text-align: right;
+  display: inline-block;
+
+  padding: 0 calc(2 * var(--code-block-side-padding));
+  width: var(--line-numbers-width);
+}
+pre > code.sourceCode > span > a:first-child::before:hover {
+  text-decoration: underline;
+}
+
+/* Utility class for code blocks that contain things like box drawing characters, where it's nice for things to touch. */
+.tight-code pre,
+pre.tight-code {
+  padding-top: var(--tight-code-padding-top);
+}
+
+pre.tight-code code,
+.tight-code pre code,
+.tight-code pre > code.sourceCode > span,
+pre.tight-code > code.sourceCode > span {
+  line-height: var(--tight-code-line-height);
+}
+
+/* --- Code line highlights --- {{{ */
+/* I used some code I contributed to owickstrom's pandoc-emphasize-code[1] as
+ * inspiration for these changes.
+ *
+ * The novel part is using :nth-of-type(...) selectors and CSS classes, instead
+ * of needing a pandoc filter. This means that we can stick with pandoc's
+ * default syntax highlighter, and not need to requirer JavaScript for syntax
+ * highlighting. It has the obvious limitation that it places a fixed limit on
+ * lines that can be highlighted, but these additional CSS styles are easy
+ * enough to write, so anyone who needs more lines can write their own
+ * stylesheet and include it to add more after the fact.
+ *
+ * [1] https://github.com/owickstrom/pandoc-emphasize-code/pull/3
+ */
+
+pre > code.sourceCode > span::after {
+  position: absolute;
+  background-color: var(--color-code-highlight-bg);
+  z-index: -1;
+  left: calc(var(--line-numbers-width) - var(--code-block-side-padding));
+  right: calc(
+    var(--line-numbers-negative-width) - var(--code-block-side-padding)
+  );
+  top: 0;
+  height: 100%;
+}
+
+pre.hl-1 > code.sourceCode > span:nth-of-type(1)::after {
+  content: "";
+}
+pre.hl-2 > code.sourceCode > span:nth-of-type(2)::after {
+  content: "";
+}
+pre.hl-3 > code.sourceCode > span:nth-of-type(3)::after {
+  content: "";
+}
+pre.hl-4 > code.sourceCode > span:nth-of-type(4)::after {
+  content: "";
+}
+pre.hl-5 > code.sourceCode > span:nth-of-type(5)::after {
+  content: "";
+}
+pre.hl-6 > code.sourceCode > span:nth-of-type(6)::after {
+  content: "";
+}
+pre.hl-7 > code.sourceCode > span:nth-of-type(7)::after {
+  content: "";
+}
+pre.hl-8 > code.sourceCode > span:nth-of-type(8)::after {
+  content: "";
+}
+pre.hl-9 > code.sourceCode > span:nth-of-type(9)::after {
+  content: "";
+}
+pre.hl-10 > code.sourceCode > span:nth-of-type(10)::after {
+  content: "";
+}
+pre.hl-11 > code.sourceCode > span:nth-of-type(11)::after {
+  content: "";
+}
+pre.hl-12 > code.sourceCode > span:nth-of-type(12)::after {
+  content: "";
+}
+pre.hl-13 > code.sourceCode > span:nth-of-type(13)::after {
+  content: "";
+}
+pre.hl-14 > code.sourceCode > span:nth-of-type(14)::after {
+  content: "";
+}
+pre.hl-15 > code.sourceCode > span:nth-of-type(15)::after {
+  content: "";
+}
+pre.hl-16 > code.sourceCode > span:nth-of-type(16)::after {
+  content: "";
+}
+pre.hl-17 > code.sourceCode > span:nth-of-type(17)::after {
+  content: "";
+}
+pre.hl-18 > code.sourceCode > span:nth-of-type(18)::after {
+  content: "";
+}
+pre.hl-19 > code.sourceCode > span:nth-of-type(19)::after {
+  content: "";
+}
+pre.hl-20 > code.sourceCode > span:nth-of-type(20)::after {
+  content: "";
+}
+pre.hl-21 > code.sourceCode > span:nth-of-type(21)::after {
+  content: "";
+}
+pre.hl-22 > code.sourceCode > span:nth-of-type(22)::after {
+  content: "";
+}
+pre.hl-23 > code.sourceCode > span:nth-of-type(23)::after {
+  content: "";
+}
+pre.hl-24 > code.sourceCode > span:nth-of-type(24)::after {
+  content: "";
+}
+pre.hl-25 > code.sourceCode > span:nth-of-type(25)::after {
+  content: "";
+}
+pre.hl-26 > code.sourceCode > span:nth-of-type(26)::after {
+  content: "";
+}
+pre.hl-27 > code.sourceCode > span:nth-of-type(27)::after {
+  content: "";
+}
+pre.hl-28 > code.sourceCode > span:nth-of-type(28)::after {
+  content: "";
+}
+pre.hl-29 > code.sourceCode > span:nth-of-type(29)::after {
+  content: "";
+}
+pre.hl-30 > code.sourceCode > span:nth-of-type(30)::after {
+  content: "";
+}
+pre.hl-31 > code.sourceCode > span:nth-of-type(31)::after {
+  content: "";
+}
+pre.hl-32 > code.sourceCode > span:nth-of-type(32)::after {
+  content: "";
+}
+pre.hl-33 > code.sourceCode > span:nth-of-type(33)::after {
+  content: "";
+}
+pre.hl-34 > code.sourceCode > span:nth-of-type(34)::after {
+  content: "";
+}
+pre.hl-35 > code.sourceCode > span:nth-of-type(35)::after {
+  content: "";
+}
+pre.hl-36 > code.sourceCode > span:nth-of-type(36)::after {
+  content: "";
+}
+pre.hl-37 > code.sourceCode > span:nth-of-type(37)::after {
+  content: "";
+}
+pre.hl-38 > code.sourceCode > span:nth-of-type(38)::after {
+  content: "";
+}
+pre.hl-39 > code.sourceCode > span:nth-of-type(39)::after {
+  content: "";
+}
+pre.hl-40 > code.sourceCode > span:nth-of-type(40)::after {
+  content: "";
+}
+
+/* }}} */
+
+/* }}} */
+/* ----- Images and figures -------------------------------------------- {{{ */
+
+/* There's only a figure if there's a caption. Tighten things up. */
+figure {
+  margin-bottom: var(--captioned-figure-gap);
+}
+
+figure + p {
+  margin-top: var(--captioned-figure-gap);
+}
+
+figure > img,
+figure > pre,
+figure > div.sourceCode {
+  margin-bottom: var(--figcaption-gap);
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.wide img {
+  /* Put this in front of the table of contents */
+  transform: translateZ(0px);
+}
+
+figcaption {
+  font-size: var(--figcaption-font-size);
+  line-height: var(--figcaption-line-height);
+  font-style: italic;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.left-align-caption figcaption {
+  text-align: left;
+}
+
+figcaption code {
+  font-size: var(--figcaption-code-font-size);
+}
+
+/* }}} */
+/* ----- Tables -------------------------------------------------------- {{{ */
+
+table {
+  -webkit-font-feature-settings: "tnum" 1;
+  font-feature-settings: "tnum" 1;
+
+  font-size: var(--table-font-size);
+  line-height: var(--table-line-height);
+
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 1px solid var(--color-border-heavy);
+
+  width: 100%;
+
+  /* Solid background to occlude table of contents */
+  background-color: var(--background-color);
+}
+
+thead,
+tbody {
+  vertical-align: top;
+}
+
+td > *:first-child {
+  margin-top: 0;
+}
+td > *:last-child {
+  margin-bottom: 0;
+}
+
+@media print {
+  table {
+    background-color: initial;
+  }
+}
+
+table code {
+  font-size: var(--table-code-font-size);
+}
+
+table pre code {
+  font-size: inherit;
+}
+
+.wide table {
+  /* Put this in front of the table of contents */
+  transform: translateZ(0px);
+}
+
+table td,
+table th {
+  border: 1px solid var(--color-border-heavy);
+  padding: 5px 8px;
+  min-width: 100px;
+}
+table th {
+  background-color: var(--color-table-heading);
+}
+
+table > caption {
+  caption-side: bottom;
+  margin-top: var(--figcaption-gap);
+  margin-bottom: calc(var(--captioned-figure-gap) - var(--line-height));
+  font-size: var(--figcaption-font-size);
+  line-height: var(--figcaption-line-height);
+  font-style: italic;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.left-align-caption table > caption {
+  text-align: left;
+}
+
+table > caption code {
+  font-size: var(--figcaption-code-font-size);
+}
+
+/* --- Notes are just single cell tables --- */
+
+.note table {
+  font-size: inherit;
+  line-height: inherit;
+}
+.note table,
+.note td {
+  border: none;
+}
+
+.note.red td {
+  background: var(--highlight-red);
+}
+.note.yellow td {
+  background: var(--highlight-yellow);
+}
+.note.green td {
+  background: var(--highlight-green);
+}
+.note.blue td {
+  background: var(--highlight-blue);
+}
+.note.purple td {
+  background: var(--highlight-purple);
+}
+
+/* }}} */
+/* ----- Table of contents --------------------------------------------- {{{ */
+
+.date.before-toc {
+  padding-bottom: var(--line-height);
+}
+
+nav#TOC {
+  margin-bottom: var(--line-height);
+  border-left: 1px solid var(--color-text-secondary);
+  padding-left: 1.5rem;
+}
+
+nav#TOC input {
+  display: none;
+}
+
+nav#TOC label {
+  color: var(--color-link);
+  cursor: pointer;
+}
+
+nav#TOC > ul {
+  display: none;
+}
+
+nav#TOC > input:checked + ul {
+  display: block;
+}
+
+@media print {
+  nav#TOC > input + ul {
+    display: block;
+  }
+}
+
+/* Unfortunately, variables aren't in scope here.
+ * 745px = --main-width
+ * 52px = 2 * --line-height
+ * 206px = side note min width
+ */
+@media screen and (min-width: calc(745px + 2 * (52px + 206px + 52px) - 1px)) {
+  header {
+    margin-bottom: var(--line-height);
+  }
+
+  .date.before-toc {
+    padding-bottom: initial;
+  }
+
+  nav#TOC {
+    /* Unset some styles for small screen width */
+    margin-bottom: initial;
+    border-left: initial;
+    padding-left: initial;
+
+    position: sticky;
+    margin-top: calc(var(--nav-toc-baseline-offset));
+    float: left;
+    top: var(--line-height);
+
+    font-size: var(--nav-toc-font-size);
+    color: var(--color-text-secondary);
+
+    margin-left: var(--line-height);
+
+    max-width: calc((100vw - var(--main-width)) / 2 - 2 * var(--line-height));
+    max-height: calc(100vh - 2 * var(--line-height));
+    overflow-y: auto;
+  }
+
+  nav#TOC label {
+    display: none;
+  }
+
+  nav#TOC ul {
+    display: block;
+    list-style: none;
+    margin-left: var(--nav-toc-indent);
+  }
+  nav#TOC > ul {
+    margin-left: 0;
+  }
+
+  nav#TOC li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  nav#TOC code {
+    font-size: var(--nav-toc-code-font-size);
+  }
+
+  nav#TOC code,
+  nav#TOC a,
+  nav#TOD a:link,
+  nav#TOD a:visited {
+    color: var(--color-text-secondary);
+  }
+
+  nav#TOC a:hover,
+  nav#TOC a:hover code {
+    text-decoration: none;
+    color: var(--color-link);
+  }
+}
+
+/* }}} */
+/* ----- Horizontal layouting (main, side notes, extra-wide) ----------- {{{ */
+
+.sidenote,
+.marginnote {
+  float: right;
+  clear: right;
+  position: relative;
+
+  width: var(--computed-width);
+  max-width: var(--side-note-max-width);
+  margin-right: calc(
+    -1 * min(var(--computed-width), var(--side-note-max-width)) -
+      var(--margin-left)
+  );
+}
+
+/* --- Side notes and table of contents always visible --- {{{ */
+
+/* Unfortunately, variables aren't in scope here.
+ * 745px = --main-width
+ * 52px = 2 * --line-height
+ * 206px = side note min width
+ */
+@media screen and (min-width: calc(745px + 2 * (52px + 206px + 52px))) {
+  header,
+  main,
+  footer {
+    max-width: var(--main-width);
+  }
+
+  header,
+  main,
+  footer {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sidenote,
+  .marginnote {
+    --margin-left: calc(2 * var(--line-height));
+    --margin-right: var(--margin-left);
+    --computed-width: calc(
+      (100vw - 100%) / 2 - var(--margin-right) - var(--margin-left)
+    );
+  }
+
+  .wide {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .wide.extra-wide {
+    margin-left: calc((1 - var(--extra-wide-scale-factor)) / 2 * 100%);
+    width: calc(var(--extra-wide-scale-factor) * 100%);
+  }
+
+  .wide.full-width {
+    margin-left: calc(var(--line-height) - ((100vw - var(--main-width)) / 2));
+    width: calc(100vw - 2 * var(--line-height));
+  }
+
+  .wide.extra-wide figcaption,
+  .wide.extra-wide table > caption {
+    margin-left: calc(
+      ((var(--extra-wide-scale-factor) - 1) / 2) * var(--main-width)
+    );
+    max-width: var(--main-width);
+    margin-right: calc(
+      100% - var(--main-width) -
+        (((var(--extra-wide-scale-factor) - 1) / 2) * var(--main-width))
+    );
+  }
+
+  .wide.full-width figcaption,
+  .wide.full-width table > caption {
+    margin-left: calc((100vw - var(--main-width)) / 2 - var(--line-height));
+    max-width: var(--main-width);
+    margin-right: calc(
+      100% - var(--main-width) -
+        ((100vw - var(--main-width)) / 2 - var(--line-height))
+    );
+  }
+}
+
+/* }}} */
+/* --- Side notes visibile, table of contents collapsed, double-wide margins --- {{{ */
+
+/* Unfortunately, variables aren't in scope here.
+ * 745px = --main-width
+ * 52px = 2 * --line-height
+ * 206px = side note min width
+ */
+@media screen and (min-width: calc(52px + 745px + 52px + 206px + 52px)) and (max-width: calc(745px + 2 * (52px + 206px + 52px) - 1px)) {
+  header,
+  nav#TOC,
+  main,
+  footer {
+    margin-left: calc(2 * var(--line-height));
+    max-width: var(--main-width);
+    margin-right: auto;
+  }
+
+  .sidenote,
+  .marginnote {
+    --margin-left: calc(2 * var(--line-height));
+    --margin-right: var(--margin-left);
+    --computed-width: calc(
+      100vw - var(--main-width) - calc(2 * var(--line-height)) -
+        var(--margin-right) - var(--margin-left)
+    );
+  }
+
+  .wide {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .wide.extra-wide {
+    margin-left: calc(-1 * var(--line-height));
+    width: calc(100vw - 2 * var(--line-height));
+    max-width: calc(var(--extra-wide-scale-factor) * var(--main-width));
+  }
+
+  .wide.full-width {
+    margin-left: calc(-1 * var(--line-height));
+    width: calc(100vw - 2 * var(--line-height));
+    max-width: calc(100vw - 2 * var(--line-height));
+  }
+
+  .wide.extra-wide .katex-display,
+  .wide.full-width .katex-display {
+    padding-left: var(--line-height);
+    padding-right: var(--line-height);
+  }
+
+  .wide.extra-wide .katex-display,
+  .wide.extra-wide .katex-display > .katex,
+  .wide.full-width .katex-display,
+  .wide.full-width .katex-display > .katex {
+    text-align: left;
+  }
+
+  .wide.extra-wide figcaption,
+  .wide.extra-wide table > caption,
+  .wide.full-width figcaption,
+  .wide.full-width table > caption {
+    text-align: left;
+    margin-left: var(--line-height);
+    max-width: var(--main-width);
+  }
+}
+
+/* }}} */
+/* --- Side notes visibile, table of contents collapsed --- {{{ */
+
+/* Unfortunately, variables aren't in scope here.
+ * 550px = --main-width-narrow
+ * 26px = --line-height
+ * 169px = side note min width narrow
+ */
+@media screen and (min-width: calc(26px + 550px + 26px + 169px + 26px)) and (max-width: calc(52px + 745px + 52px + 206px + 52px - 1px)) {
+  header,
+  nav#TOC,
+  main,
+  footer {
+    margin-left: var(--line-height);
+    max-width: calc(
+      max(
+        var(--main-width-narrow),
+        100vw - (3 * var(--line-height)) - var(--side-note-max-width)
+      )
+    );
+    margin-right: auto;
+  }
+
+  .sidenote,
+  .marginnote {
+    --margin-left: var(--line-height);
+    --margin-right: var(--line-height);
+    --computed-width: calc(
+      100vw - var(--main-width-narrow) - var(--line-height) -
+        var(--margin-right) - var(--margin-left)
+    );
+  }
+
+  .wide {
+    width: var(--main-width);
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .wide .katex-display,
+  .wide .katex-display > .katex {
+    text-align: left;
+  }
+
+  .wide figcaption,
+  .wide table > caption {
+    text-align: left;
+    max-width: var(--main-width-narrow);
+  }
+
+  .wide.extra-wide,
+  .wide.full-width {
+    width: calc(100vw - 2 * var(--line-height));
+  }
+}
+
+/* }}} */
+/* --- Side notes and table of contents collapsed --- {{{ */
+
+/* Unfortunately, variables aren't in scope here.
+ * See calculations above.
+ */
+@media screen and (max-width: calc(26px + 550px + 26px + 169px + 26px - 1px)) {
+  header,
+  nav#TOC,
+  main,
+  footer {
+    margin-left: var(--line-height);
+    margin-right: var(--line-height);
+  }
+
+  .sidenote,
+  .marginnote {
+    display: none;
+  }
+
+  .margin-toggle:checked + .sidenote,
+  .margin-toggle:checked + .marginnote {
+    display: block;
+    float: left;
+    clear: both;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .wide {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .wide .katex-display,
+  .wide .katex-display > .katex {
+    text-align: left;
+  }
+
+  .wide figcaption,
+  .wide table > caption {
+    text-align: left;
+    max-width: calc(100vw - 2 * var(--line-height));
+  }
+}
+
+/* }}} */
+/* --- Paged media (print styles) --- {{{ */
+@page {
+  size: letter;
+  margin: 0.5in;
+  /* To make room for line numbers in left margin. */
+  margin-left: 0.25in;
+}
+
+@media print {
+  :root {
+    --line-height: 18px;
+    --font-size: 12px;
+
+    --inline-code-font-size: 11px;
+    --code-block-font-size: 10px;
+    --code-block-side-padding: 6px;
+    --line-numbers-font-size: 8.5px;
+
+    --tight-code-line-height: 12.5px;
+    --tight-code-padding-top: 2px;
+
+    --side-note-line-height: 14px;
+    --side-note-font-size: 9px;
+    --side-note-code-font-size: 9px;
+    --side-note-baseline-offset: 3px;
+    --side-note-sup-offset: -4px;
+    --side-note-number-hang-left: -4px;
+    --side-note-text-indent: -6.5px;
+
+    --title-font-size: 30px;
+    --title-code-font-size: 29px;
+    --title-line-height: 37px;
+    --title-margin-top: 71px;
+
+    --h1-font-size: 22px;
+    --h1-code-font-size: 20px;
+    --h1-line-height: 28px;
+    --h1-word-spacing: 0.5px;
+    --h1-margin-top: 18px;
+    --h1-margin-bottom: 6px;
+
+    --h2-font-size: 16.5px;
+    --h2-code-font-size: 15px;
+    --h2-line-height: 22px;
+    --h2-word-spacing: 0px;
+    --h2-margin-top: 14px;
+    --h2-margin-bottom: 4.5px;
+
+    --ul-indent-size: 18px;
+    --ol-indent-size: 14px;
+
+    --hr-margin-top: 14px;
+
+    --figcaption-line-height: 16px;
+    --figcaption-font-size: 10px;
+    --figcaption-code-font-size: 9.5px;
+    --figcaption-gap: 4.5px;
+    --captioned-figure-gap: 7.5px;
+
+    --table-line-height: 16px;
+    --table-font-size: 10px;
+    --table-code-font-size: 9.5px;
+
+    --nav-toc-font-size: 8.5px;
+    --nav-toc-code-font-size: 8.5px;
+  }
+
+  body {
+    padding-top: 0;
+    /* To make room for line numbers in left margin. */
+    padding-left: 0.25in;
+  }
+
+  header,
+  nav#TOC,
+  main,
+  footer {
+    width: 5.25in;
+    margin-right: auto;
+  }
+
+  .sidenote,
+  .marginnote {
+    width: 2in;
+    margin-right: -2.25in;
+  }
+
+  .wide {
+    width: 7.5in;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  .wide .katex-display,
+  .wide .katex-display > .katex {
+    text-align: left;
+  }
+
+  .wide figcaption,
+  .wide table > caption {
+    text-align: left;
+    width: 5.25in;
+  }
+
+  .wide pre > code {
+    white-space: pre-wrap;
+  }
+}
+
+h1,
+h2,
+h3 {
+  page-break-after: avoid;
+}
+
+table,
+figure,
+pre,
+img {
+  page-break-inside: avoid;
+}
+/* }}} */
+/* }}} */
+
+/* vim:fdm=marker
+ */

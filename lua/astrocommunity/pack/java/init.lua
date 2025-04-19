@@ -1,10 +1,11 @@
 return {
+  { import = "astrocommunity.pack.xml" },
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "java", "html" })
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "java" })
       end
     end,
   },
@@ -12,7 +13,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "jdtls", "lemminx" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "jdtls" })
     end,
   },
   {
@@ -26,10 +27,8 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
-        { "jdtls", "lemminx", "java-debug-adapter", "java-test" }
-      )
+      opts.ensure_installed =
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "jdtls", "java-debug-adapter", "java-test" })
     end,
   },
   {
@@ -92,23 +91,24 @@ return {
             maven = { downloadSources = true },
             implementationsCodeLens = { enabled = true },
             referencesCodeLens = { enabled = true },
-          },
-          signatureHelp = { enabled = true },
-          completion = {
-            favoriteStaticMembers = {
-              "org.hamcrest.MatcherAssert.assertThat",
-              "org.hamcrest.Matchers.*",
-              "org.hamcrest.CoreMatchers.*",
-              "org.junit.jupiter.api.Assertions.*",
-              "java.util.Objects.requireNonNull",
-              "java.util.Objects.requireNonNullElse",
-              "org.mockito.Mockito.*",
+            inlayHints = { parameterNames = { enabled = "all" } },
+            signatureHelp = { enabled = true },
+            completion = {
+              favoriteStaticMembers = {
+                "org.hamcrest.MatcherAssert.assertThat",
+                "org.hamcrest.Matchers.*",
+                "org.hamcrest.CoreMatchers.*",
+                "org.junit.jupiter.api.Assertions.*",
+                "java.util.Objects.requireNonNull",
+                "java.util.Objects.requireNonNullElse",
+                "org.mockito.Mockito.*",
+              },
             },
-          },
-          sources = {
-            organizeImports = {
-              starThreshold = 9999,
-              staticStarThreshold = 9999,
+            sources = {
+              organizeImports = {
+                starThreshold = 9999,
+                staticStarThreshold = 9999,
+              },
             },
           },
         },

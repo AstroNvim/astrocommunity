@@ -12,7 +12,7 @@ return {
         return require("astrocore").extend_tbl(opts, {
           mappings = {
             n = {
-              ["<Leader>r"] = { name = get_icon("Refactoring", 1, true) .. "Refactor" },
+              ["<Leader>r"] = { desc = get_icon("Refactoring", 1, true) .. "Refactor" },
               ["<Leader>rb"] = {
                 function() require("refactoring").refactor "Extract Block" end,
                 desc = "Extract Block",
@@ -39,7 +39,7 @@ return {
               },
             },
             x = {
-              ["<Leader>r"] = { name = get_icon("Refactoring", 1, true) .. "Refactor" },
+              ["<Leader>r"] = { desc = get_icon("Refactoring", 1, true) .. "Refactor" },
               ["<Leader>re"] = {
                 function() require("refactoring").refactor "Extract Function" end,
                 desc = "Extract Function",
@@ -58,7 +58,7 @@ return {
               },
             },
             v = {
-              ["<Leader>r"] = { name = get_icon("Refactoring", 1, true) .. "Refactor" },
+              ["<Leader>r"] = { desc = get_icon("Refactoring", 1, true) .. "Refactor" },
               ["<Leader>re"] = {
                 function() require("refactoring").refactor "Extract Function" end,
                 desc = "Extract Function",

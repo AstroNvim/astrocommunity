@@ -1,5 +1,6 @@
 return {
   "sainnhe/sonokai",
+  lazy = true,
   dependencies = {
     "AstroNvim/astrocore",
     opts = { options = { g = {

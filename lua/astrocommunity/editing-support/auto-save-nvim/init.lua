@@ -1,30 +1,50 @@
 return {
-  "Pocco81/auto-save.nvim",
+  "okuuva/auto-save.nvim",
   event = { "User AstroFile", "InsertEnter" },
-  opts = {
-    callbacks = {
-      before_saving = function()
-        -- save global autoformat status
-        vim.g.OLD_AUTOFORMAT = vim.g.autoformat_enabled
+  dependencies = {
+    "AstroNvim/astrocore",
+    opts = {
+      autocmds = {
+        autoformat_toggle = {
+          -- Disable autoformat before saving
+          {
+            event = "User",
+            desc = "Disable autoformat before saving",
+            pattern = "AutoSaveWritePre",
+            callback = function()
+              -- Save global autoformat status
+              vim.g.OLD_AUTOFORMAT = vim.g.autoformat
+              vim.g.autoformat = false
 
-        vim.g.autoformat_enabled = false
-        vim.g.OLD_AUTOFORMAT_BUFFERS = {}
-        -- disable all manually enabled buffers
-        for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-          if vim.b[bufnr].autoformat_enabled then
-            table.insert(vim.g.OLD_BUFFER_AUTOFORMATS, bufnr)
-            vim.b[bufnr].autoformat_enabled = false
-          end
-        end
-      end,
-      after_saving = function()
-        -- restore global autoformat status
-        vim.g.autoformat_enabled = vim.g.OLD_AUTOFORMAT
-        -- reenable all manually enabled buffers
-        for _, bufnr in ipairs(vim.g.OLD_AUTOFORMAT_BUFFERS or {}) do
-          vim.b[bufnr].autoformat_enabled = true
-        end
-      end,
+              local old_autoformat_buffers = {}
+              -- Disable all manually enabled buffers
+              for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+                if vim.b[bufnr].autoformat then
+                  table.insert(old_autoformat_buffers, bufnr)
+                  vim.b[bufnr].autoformat = false
+                end
+              end
+
+              vim.g.OLD_AUTOFORMAT_BUFFERS = old_autoformat_buffers
+            end,
+          },
+          -- Re-enable autoformat after saving
+          {
+            event = "User",
+            desc = "Re-enable autoformat after saving",
+            pattern = "AutoSaveWritePost",
+            callback = function()
+              -- Restore global autoformat status
+              vim.g.autoformat = vim.g.OLD_AUTOFORMAT
+              -- Re-enable all manually enabled buffers
+              for _, bufnr in ipairs(vim.g.OLD_AUTOFORMAT_BUFFERS or {}) do
+                vim.b[bufnr].autoformat = true
+              end
+            end,
+          },
+        },
+      },
     },
   },
+  opts = {},
 }

@@ -9,48 +9,27 @@ return {
     end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "nil_ls" })
-    end,
-  },
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "nil_ls" })
-    end,
-  },
-  {
     "nvimtools/none-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      local nls = require "null-ls"
-      if type(opts.sources) == "table" then
-        vim.list_extend(opts.sources, {
-          nls.builtins.code_actions.statix,
-          nls.builtins.formatting.alejandra,
-          nls.builtins.diagnostics.deadnix,
-        })
-      end
+      local builtins = require("null-ls").builtins
+      opts.sources = require("astrocore").list_insert_unique(opts.sources, {
+        builtins.code_actions.statix,
+        builtins.diagnostics.deadnix,
+      })
     end,
   },
   {
-    "stevearc/conform.nvim",
+    "AstroNvim/astrolsp",
     optional = true,
-    opts = {
-      formatters_by_ft = {
-        nix = { "alejandra" },
-      },
-    },
+    opts = function(_, opts) opts.servers = require("astrocore").list_insert_unique(opts.servers, { "nixd" }) end,
   },
   {
     "mfussenegger/nvim-lint",
     optional = true,
     opts = {
       linters_by_ft = {
-        nix = { "statix" },
+        nix = { "statix", "deadnix" },
       },
     },
   },

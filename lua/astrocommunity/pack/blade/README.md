@@ -2,7 +2,7 @@
 
 Requires:
 
-- `laravel-dev-generators` in your path
+- `laravel-dev-generators` in your path. See the releases section of <https://github.com/haringsrob/laravel-dev-tools>
 
 This plugin pack does the following:
 

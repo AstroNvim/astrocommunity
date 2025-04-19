@@ -5,11 +5,13 @@ on:
   pull_request:
   pull_request_target:
     types: [opened, edited, synchronize]
+  release:
+    types: [published]
 
 jobs:
   CI:
     uses: AstroNvim/.github/.github/workflows/plugin_ci.yml@main
-    if: ${{ github.event_name != 'pull_request_target' }}
+    if: ${{ (github.event_name == 'push' || github.event_name == 'pull_request') && github.repository == 'AstroNvim/astrocommunity' }}
     secrets: inherit
     with:
       plugin_name: ${{ github.event.repository.name }}
@@ -38,3 +40,9 @@ jobs:
     with:
       conventional_title: true
       scopes: ${{ needs.scopes.outputs.scopes }}
+  Announcement:
+    uses: AstroNvim/.github/.github/workflows/discord_announcement.yml@main
+    if: ${{ github.event_name == 'release' }}
+    secrets: inherit
+    with:
+      plugin_name: AstroCommunity

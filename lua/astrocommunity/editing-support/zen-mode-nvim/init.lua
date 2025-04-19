@@ -22,11 +22,19 @@ return {
       },
     },
     on_open = function() -- disable diagnostics, indent blankline, winbar, and offscreen matchup
-      local astrocore_avail, astrocore = pcall(require, "astrocore")
-      if astrocore_avail then
-        vim.g.diagnostics_mode_old = vim.g.diagnostics_mode
-        vim.g.diagnostics_mode = 0
-        vim.diagnostic.config(astrocore.diagnostics[vim.g.diagnostics_mode])
+      -- TODO: remove unnecessary code when dropping support for Neovim v0.9
+      if vim.diagnostic.is_enabled then
+        vim.g.diagnostics_enabled_old = vim.diagnostic.is_enabled()
+      elseif vim.diagnostic.is_disabled then
+        vim.g.diagnostics_enabled_old = not vim.diagnostic.is_disabled()
+      end
+      if vim.g.diagnostics_enabled_old then
+        -- TODO: Remove this when astronvim drops 0.10 support
+        if vim.fn.has "nvim-0.10" == 0 then
+          vim.diagnostic.disable()
+        else
+          vim.diagnostic.enable(false)
+        end
       end
 
       vim.g.indent_blankline_enabled_old = vim.g.indent_blankline_enabled
@@ -50,13 +58,7 @@ return {
       end
     end,
     on_close = function() -- restore diagnostics, indent blankline, winbar, and offscreen matchup
-      local astrocore_avail, astrocore = pcall(require, "astrocore")
-      if astrocore_avail then
-        vim.g.diagnostics_mode = vim.g.diagnostics_mode_old
-        vim.diagnostic.config(
-          astrocore.diagnostics[vim.g.diagnostics_mode or astrocore.config.features.diagnostics_mode]
-        )
-      end
+      if vim.g.diagnostics_enabled_old then vim.diagnostic.enable() end
 
       vim.g.indent_blankline_enabled = vim.g.indent_blankline_enabled_old
       vim.g.miniindentscope_disable = vim.g.miniindentscope_disable_old

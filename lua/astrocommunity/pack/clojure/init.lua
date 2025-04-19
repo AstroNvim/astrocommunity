@@ -43,8 +43,9 @@ local plugins = {
 
   -- Treesitter structural editing
   { import = "astrocommunity.editing-support.nvim-treesitter-sexp" },
-}
 
-if vim.fn.has "nvim-0.10" then table.insert(plugins, { import = "astrocommunity.comment.ts-comments-nvim" }) end
+  -- Better treesitter comments
+  { import = "astrocommunity.comment.ts-comments-nvim" },
+}
 
 return plugins

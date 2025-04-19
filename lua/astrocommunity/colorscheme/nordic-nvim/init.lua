@@ -1,1 +1,1 @@
-return { "AlexvZyl/nordic.nvim", opts = {} }
+return { "AlexvZyl/nordic.nvim", lazy = true, opts = {} }

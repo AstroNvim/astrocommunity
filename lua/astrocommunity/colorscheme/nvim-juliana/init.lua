@@ -1,1 +1,1 @@
-return { "kaiuri/nvim-juliana" }
+return { "kaiuri/nvim-juliana", lazy = true }

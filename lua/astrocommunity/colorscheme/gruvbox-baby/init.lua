@@ -1,1 +1,1 @@
-return { "luisiacc/gruvbox-baby" }
+return { "luisiacc/gruvbox-baby", lazy = true }

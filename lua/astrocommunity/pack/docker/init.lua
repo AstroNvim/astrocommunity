@@ -1,8 +1,20 @@
 return {
+  { import = "astrocommunity.pack.yaml" },
   {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
     opts = { filetypes = { filename = { ["docker-compose.yaml"] = "yaml.docker-compose" } } },
+  },
+  {
+    "AstroNvim/astrolsp",
+    optional = true,
+    opts = {
+      formatting = {
+        disabled = {
+          "docker_compose_language_service",
+        },
+      },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -45,7 +57,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        ["yaml.docker-compose"] = { { "prettierd", "prettier" } },
+        ["yaml.docker-compose"] = { "prettierd", "prettier", stop_after_first = true },
       },
     },
   },
@@ -54,7 +66,7 @@ return {
     optional = true,
     opts = {
       linters_by_ft = {
-        ["docker-compose"] = { "hadolint" },
+        ["dockerfile"] = { "hadolint" },
       },
     },
   },

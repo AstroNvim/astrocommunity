@@ -64,6 +64,7 @@ return {
   },
   {
     "onsails/lspkind.nvim",
+    optional = true,
     opts = function(_, opts)
       -- use codicons preset
       opts.preset = "codicons"
@@ -80,5 +81,47 @@ return {
         String = "",
       }
     end,
+  },
+  {
+    "echasnovski/mini.icons",
+    optional = true,
+    opts = {
+      lsp = {
+        array = { glyph = "" },
+        boolean = { glyph = "" },
+        key = { glyph = "" },
+        namespace = { glyph = "" },
+        null = { glyph = "" },
+        number = { glyph = "" },
+        object = { glyph = "" },
+        package = { glyph = "" },
+        string = { glyph = "" },
+        class = { glyph = "" },
+        color = { glyph = "" },
+        constant = { glyph = "" },
+        constructor = { glyph = "" },
+        enum = { glyph = "" },
+        enummember = { glyph = "" },
+        event = { glyph = "" },
+        field = { glyph = "" },
+        file = { glyph = "" },
+        folder = { glyph = "" },
+        ["function"] = { glyph = "" },
+        interface = { glyph = "" },
+        keyword = { glyph = "" },
+        method = { glyph = "" },
+        module = { glyph = "" },
+        operator = { glyph = "" },
+        property = { glyph = "" },
+        reference = { glyph = "" },
+        snippet = { glyph = "" },
+        struct = { glyph = "" },
+        text = { glyph = "" },
+        typeparameter = { glyph = "" },
+        unit = { glyph = "" },
+        value = { glyph = "" },
+        variable = { glyph = "" },
+      },
+    },
   },
 }

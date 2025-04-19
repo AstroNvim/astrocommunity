@@ -16,6 +16,11 @@ return {
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "dart" })
       end
+
+      -- HACK: Disables the select treesitter textobjects because the Dart treesitter parser is very inefficient. Hopefully this gets fixed and this block can be removed in the future.
+      -- Reference: https://github.com/AstroNvim/AstroNvim/issues/2707
+      local select = vim.tbl_get(opts, "textobjects", "select")
+      if select then select.disable = require("astrocore").list_insert_unique(select.disable, { "dart" }) end
     end,
   },
   {
@@ -27,12 +32,14 @@ return {
       opts.debugger = { enabled = true }
     end,
     dependencies = { "nvim-lua/plenary.nvim" },
-  },
-  -- Add "flutter" extension to "telescope"
-  {
-    "nvim-telescope/telescope.nvim",
-    optional = true,
-    opts = function() require("telescope").load_extension "flutter" end,
+    specs = {
+      -- Add "flutter" extension to "telescope"
+      {
+        "nvim-telescope/telescope.nvim",
+        optional = true,
+        opts = function() require("telescope").load_extension "flutter" end,
+      },
+    },
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",

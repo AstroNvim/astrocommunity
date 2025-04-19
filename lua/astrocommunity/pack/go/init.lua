@@ -23,7 +23,6 @@ return {
                 useany = true,
               },
               codelenses = {
-                gc_details = true, -- Show a code lens toggling the display of gc's choices.
                 generate = true, -- show the `go generate` lens.
                 regenerate_cgo = true,
                 test = true,
@@ -43,6 +42,7 @@ return {
               buildFlags = { "-tags", "integration" },
               completeUnimported = true,
               diagnosticsDelay = "500ms",
+              gofumpt = true,
               matcher = "Fuzzy",
               semanticTokens = true,
               staticcheck = true,
@@ -72,7 +72,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
+        { "gomodifytags", "iferr", "impl", "gotests", "goimports" }
       )
     end,
   },
@@ -89,7 +89,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "delve", "gopls", "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
+        { "delve", "gopls", "gomodifytags", "gotests", "iferr", "impl", "goimports" }
       )
     end,
   },
@@ -109,25 +109,25 @@ return {
     opts = {},
   },
   {
-    "ray-x/go.nvim",
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    build = function()
+      if not require("lazy.core.config").spec.plugins["mason.nvim"] then
+        vim.print "Installing go dependencies..."
+        vim.cmd.GoInstallDeps()
+      end
+    end,
     dependencies = {
-      "ray-x/guihua.lua",
-      "neovim/nvim-lspconfig",
+      "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      { "williamboman/mason.nvim", optional = true }, -- by default use Mason for go dependencies
     },
-    opts = {
-      disable_defaults = true,
-    },
-    event = { "CmdlineEnter" },
-    ft = { "go", "gomod" },
-    -- Prevents Neovim from freezing on plugin installation/update.
-    -- See: <https://github.com/ray-x/go.nvim/issues/433>
-    build = function() require("go.install").update_all() end,
+    opts = {},
   },
   {
     "nvim-neotest/neotest",
     optional = true,
-    dependencies = { "nvim-neotest/neotest-go" },
+    dependencies = { "nvim-neotest/neotest-go", config = function() end },
     opts = function(_, opts)
       if not opts.adapters then opts.adapters = {} end
       table.insert(opts.adapters, require "neotest-go"(require("astrocore").plugin_opts "neotest-go"))
@@ -138,7 +138,19 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        go = { "goimports", "gofumpt" },
+        go = { "goimports", lsp_format = "last" },
+      },
+    },
+  },
+  {
+    "echasnovski/mini.icons",
+    optional = true,
+    opts = {
+      file = {
+        [".go-version"] = { glyph = "", hl = "MiniIconsBlue" },
+      },
+      filetype = {
+        gotmpl = { glyph = "󰟓", hl = "MiniIconsGrey" },
       },
     },
   },

@@ -1,21 +1,29 @@
 return {
   "mfussenegger/nvim-dap",
   optional = true,
-  config = function()
+  opts = function()
     local dap = require "dap"
-    dap.adapters["pwa-node"] = {
-      type = "server",
-      host = "localhost",
-      port = "${port}",
-      executable = {
-        command = "node",
-        args = {
-          require("mason-registry").get_package("js-debug-adapter"):get_install_path()
-            .. "/js-debug/src/dapDebugServer.js",
-          "${port}",
-        },
-      },
-    }
+    if not dap.adapters["pwa-node"] then
+      dap.adapters["pwa-node"] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = { command = vim.fn.exepath "js-debug-adapter", args = { "${port}" } },
+      }
+    end
+    if not dap.adapters.node then
+      dap.adapters.node = function(cb, config)
+        if config.type == "node" then config.type = "pwa-node" end
+        local pwa_adapter = dap.adapters["pwa-node"]
+        if type(pwa_adapter) == "function" then
+          pwa_adapter(cb, config)
+        else
+          cb(pwa_adapter)
+        end
+      end
+    end
+
+    local js_filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
     local js_config = {
       {
         type = "pwa-node",
@@ -33,10 +41,12 @@ return {
       },
     }
 
-    if not dap.configurations.javascript then
-      dap.configurations.javascript = js_config
-    else
-      require("astrocore").extend_tbl(dap.configurations.javascript, js_config)
+    for _, language in ipairs(js_filetypes) do
+      if not dap.configurations[language] then dap.configurations[language] = js_config end
     end
+
+    local vscode_filetypes = require("dap.ext.vscode").type_to_filetypes
+    vscode_filetypes["node"] = js_filetypes
+    vscode_filetypes["pwa-node"] = js_filetypes
   end,
 }

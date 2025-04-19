@@ -1,1 +1,1 @@
-return { "sainnhe/everforest" }
+return { "sainnhe/everforest", lazy = true }

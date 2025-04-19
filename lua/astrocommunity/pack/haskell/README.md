@@ -3,22 +3,21 @@
 Requires:
 
 - plenary.nvim: Since v3 droppped this requirement, it is handled by the pack
-during install.
+  during install.
 
 Optionally:
 
 - A local [hoogle](https://github.com/ndmitchell/hoogle) installation
-(recommended by haskell-tools)
+  (recommended by haskell-tools)
 - [fast-tags](https://github.com/elaforge/fast-tags) (recommended by
-haskell-tools)
+  haskell-tools)
 
 This plugin pack does the following:
 
 - Adds `haskell` treesitter parsers
 - Adds `haskell-language-server` language server
 - Adds `haskell-debug-adapter` dap adapter
-- Adds [haskell-tools.nvim](https://github.com/mrcjkb/haskell-tools.nvim)
-(either v2 or v3 depending on nvim version)
+- Adds [haskell-tools.nvim](https://github.com/mrcjkb/haskell-tools.nvim) (v3 or v4 depending on nvim version)
 - Adds `yaml` language pack
 - Adds `json` language pack
 - Adds `neotest` from Astrocommunity
