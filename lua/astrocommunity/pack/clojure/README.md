@@ -15,12 +15,10 @@ The Clojure language pack includes:
 
 - `clojure` treesitter parsers
 - [clojure-lsp](https://clojure-lsp.io/) language server
-- Clojure REPL client: [Olical/conjure](https://github.com/Olical/conjure)
-- Structural editing: [gpanders/nvim-parinfer](https://github.com/gpanders/nvim-parinfer) & [PaterJason/nvim-treesitter-sexp](https://github.com/PaterJason/nvim-treesitter-sexp)
+- Clojure REPL client: [Conjure](https://github.com/Olical/conjure)
+- Structural editing: [parpar-nvim](https://github.com/dundalek/parpar.nvim) which provides both [nvim-parinfer](https://github.com/gpanders/nvim-parinfer) & [nvim-paredit](https://github.com/julienvincent/nvim-paredit)
 
-> NOTE: Conjure is available as a [code-runner](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/code-runner) plugin config. nvim-treesitter-sexp and nvim-parinfer are available as [editing-support plugin configurations](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/editing-support)
-
-> NOTE: nvim-treesitter-sexp plugin disabled for Neovim 0.11 (treesitter breaking changes)
+> NOTE: Conjure is available as a [code-runner](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/code-runner) plugin config. nvim-paredit and nvim-parinfer are available as [editing-support plugin configurations](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/editing-support)
 
 
 ## Clojure Guides
@@ -41,6 +39,7 @@ Example: Include the Clojure language pack and disable the parinfer plugin by se
 ```lua
   { import = "astrocommunity.pack.clojure" },
   { "gpanders/nvim-parinfer", enabled = false },
+  { "julienvincent/nvim-paredit", enabled = false },
 ```
 
 Example: Change the test runner used by Conjure. `clojure.test` runner is used by default
