@@ -1,6 +1,6 @@
 # other-nvim
 
-Open alternative files for the current buffer, e.g. toggle between test and implementation.
+Open alternative files for the current buffer.
 
 Supported Languages:
 
