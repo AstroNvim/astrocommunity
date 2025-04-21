@@ -45,7 +45,6 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "stylua",
-        -- only include selene if not aarch64
         (not is_aarch64 and "selene") or nil,
       })
 
@@ -56,9 +55,7 @@ return {
           local null_ls = require "null-ls"
           for _, method in ipairs(methods) do
             null_ls.register(null_ls.builtins[method][source_name].with {
-              runtime_condition = function(params)
-                return selene_configured(params.bufname)
-              end,
+              runtime_condition = function(params) return selene_configured(params.bufname) end,
             })
           end
         end
@@ -72,7 +69,6 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "lua-language-server",
         "stylua",
-        -- only install selene if not on aarch64
         (not is_aarch64 and "selene") or nil,
       })
     end,
@@ -97,9 +93,7 @@ return {
       if not is_aarch64 then
         opts.linters = opts.linters or {}
         opts.linters.selene = {
-          condition = function(ctx)
-            return selene_configured(ctx.filename)
-          end,
+          condition = function(ctx) return selene_configured(ctx.filename) end,
         }
       end
     end,
