@@ -29,11 +29,15 @@ return {
     event = { "VeryLazy" },
     opts = function(_, opts)
       local is_available = require("astrocore").is_available
-      opts.pickers = { enable = true }
-      opts.pickers.provider = (is_available "telescope.nvim" and "telescope")
-        or (is_available "fzf-lua" and "fzf-lua")
-        or (is_available "snacks.nvim" and "snacks")
-        or "ui.select"
+      opts.features = {
+        pickers = {
+          enable = true,
+          provider = (is_available "telescope.nvim" and "telescope")
+            or (is_available "fzf-lua" and "fzf-lua")
+            or (is_available "snacks.nvim" and "snacks")
+            or "ui.select",
+        },
+      }
     end,
   },
   {
