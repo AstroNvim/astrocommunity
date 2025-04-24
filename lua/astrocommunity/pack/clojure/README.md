@@ -15,11 +15,10 @@ The Clojure language pack includes:
 
 - `clojure` treesitter parsers
 - [clojure-lsp](https://clojure-lsp.io/) language server
-- Clojure REPL client: [Conjure](https://github.com/Olical/conjure)
+- Clojure REPL client: [Olical/conjure](https://github.com/Olical/conjure)
 - Structural editing: [parpar-nvim](https://github.com/dundalek/parpar.nvim) which provides both [nvim-parinfer](https://github.com/gpanders/nvim-parinfer) & [nvim-paredit](https://github.com/julienvincent/nvim-paredit)
 
 > NOTE: Conjure is available as a [code-runner](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/code-runner) plugin config. nvim-paredit and nvim-parinfer are available as [editing-support plugin configurations](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/editing-support)
-
 
 ## Clojure Guides
 
@@ -28,7 +27,6 @@ The Clojure language pack includes:
 - [Clojure.org](https://clojure.org/index) API reference and guides
 - [Conjure - Clojure guide](https://github.com/Olical/conjure/wiki/Quick-start:-Clojure)
 - [Practicalli Neovim](https://practical.li/neovim/) Clojure development workflow and examples of [configuring Astrocommunity clojure pack](https://practical.li/neovim/configuration/astronvim/astrocommunity/)
-
 
 ## Override Configuration
 
