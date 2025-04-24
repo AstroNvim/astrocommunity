@@ -6,10 +6,6 @@ A fully-featured REST Client Interface for Neovim.
 
 - System-wide
   - curl
-- Optional
-  - gRPCurl (for gRPC requests)
-  - Websocat (for WebSocket requests)
-  - jq (to format JSON output)
-  - xmllint (to format XML/HTML output)
+For additional requirements, see the docs.
 
 **Repository:** : <https://github.com/mistweaverco/kulala.nvim>
