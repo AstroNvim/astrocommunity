@@ -2,7 +2,7 @@
 
 A minimal 🤏 HTTP-client 🐼 interface 🖥️ for Neovim ❤️.
 
-## Dependencies
+Dependencies:
 
 - System-wide
   - curl
