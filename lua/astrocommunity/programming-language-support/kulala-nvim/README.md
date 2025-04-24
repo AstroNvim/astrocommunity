@@ -6,6 +6,6 @@ Dependencies:
 
 - System-wide
   - curl
-For additional requirements, see the docs.
+For additional dependencies, see the docs.
 
 **Repository:** : <https://github.com/mistweaverco/kulala.nvim>
