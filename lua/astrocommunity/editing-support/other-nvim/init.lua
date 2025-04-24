@@ -12,6 +12,5 @@ return {
     "rust",
     "elixir",
   },
-  main = "other-nvim",
   opts = {},
 }
