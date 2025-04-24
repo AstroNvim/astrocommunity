@@ -1,6 +1,6 @@
 # kulala.nvim
 
-A fully-featured REST Client Interface for Neovim.
+A minimal 🤏 HTTP-client 🐼 interface 🖥️ for Neovim ❤️.
 
 ### Dependencies
 
