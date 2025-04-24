@@ -36,7 +36,7 @@ return {
       toggle = {
         default = prefix .. "t",
         debug = prefix .. "d",
-        hint = prefix .. "h",
+        hint = prefix .. "H",
         suggestion = prefix .. "s",
         repomap = prefix .. "R",
       },
