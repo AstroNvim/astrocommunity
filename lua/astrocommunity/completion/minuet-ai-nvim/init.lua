@@ -1,8 +1,6 @@
 return {
-  {
-    "milanglacier/minuet-ai.nvim",
-    opts = {},
-  },
+  "milanglacier/minuet-ai.nvim",
+  opts = {},
   dependencies = {
     { "nvim-lua/plenary.nvim" },
   },
