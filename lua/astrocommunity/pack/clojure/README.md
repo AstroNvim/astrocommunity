@@ -17,6 +17,7 @@ The Clojure language pack includes:
 - [clojure-lsp](https://clojure-lsp.io/) language server
 - Clojure REPL client: [Olical/conjure](https://github.com/Olical/conjure)
 - Structural editing: [parpar-nvim](https://github.com/dundalek/parpar.nvim) which provides both [nvim-parinfer](https://github.com/gpanders/nvim-parinfer) & [nvim-paredit](https://github.com/julienvincent/nvim-paredit)
+- Alternative files: switch between src and test using [other.nvim](https://github.com/rgroli/other.nvim)
 
 > NOTE: Conjure is available as a [code-runner](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/code-runner) plugin config. nvim-paredit and nvim-parinfer are available as [editing-support plugin configurations](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/editing-support)
 
@@ -32,7 +33,7 @@ The Clojure language pack includes:
 
 Plugins in the language pack can be disabled and default options overridden.
 
-Example: Include the Clojure language pack and disable the parinfer plugin by setting the `enabled` key to false.
+Example: Include the Clojure language pack and disable the parinfer or paredit plugin by setting the `enabled` key to false.
 
 ```lua
   { import = "astrocommunity.pack.clojure" },

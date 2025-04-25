@@ -43,6 +43,9 @@ local plugins = {
 
   -- Better treesitter comments
   { import = "astrocommunity.comment.ts-comments-nvim" },
+
+  -- Switch between src and test files
+  { import = "astrocommunity.editing-support.other-nvim" },
 }
 
 return plugins
