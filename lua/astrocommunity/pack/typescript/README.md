@@ -12,6 +12,14 @@ This plugin pack does the following:
 - Adds [nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations) to handles file imports on rename or move within neo-tree
 - Adds [neotest-jest](https://github.com/nvim-neotest/neotest-jest) to ease the test running if `neotest` is installed
 
+## How do I enable HTML and CSS support?
+
+To enable HTML, CSS and Emmet support, you can add the `html-css` pack to your `community.lua` config:
+
+```lua
+{ import = "astrocommunity.pack.html-css" }
+```
+
 ## How do I disable Eslint format on save?
 
 To opt out of the Eslint format on save behaviour, you can disable the autocmd setup with the pack with this:
