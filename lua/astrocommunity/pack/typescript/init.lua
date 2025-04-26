@@ -73,7 +73,6 @@ end
 local conform_formatter = function(bufnr) return has_prettier(bufnr) and { "prettierd" } or {} end
 
 return {
-  { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   {
     "nvim-treesitter/nvim-treesitter",
