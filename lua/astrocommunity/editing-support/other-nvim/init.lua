@@ -11,6 +11,7 @@ return {
     "react",
     "rust",
     "elixir",
+    "clojure",
   },
   opts = {},
 }
