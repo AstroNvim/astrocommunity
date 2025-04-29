@@ -66,13 +66,11 @@ return {
       {
         "Saghen/blink.cmp",
         optional = true,
-        dependencies = "QuickGD/quickgd.nvim",
-        specs = { "Saghen/blink.compat", version = "*", lazy = true, opts = {} },
         opts = {
           sources = {
             default = { "quickgd" },
             providers = {
-              quickgd = { name = "quickgd", module = "blink.compat.source", score_offset = 1 },
+              quickgd = { name = "quickgd", module = "quickgd.blink", score_offset = 1 },
             },
           },
         },
