@@ -57,16 +57,6 @@ return {
       end,
     },
     {
-      "rebelot/heirline.nvim",
-      optional = true,
-      opts = function(_, opts)
-        local noice_opts = require("astrocore").plugin_opts "noice.nvim"
-        if vim.tbl_get(noice_opts, "lsp", "progress", "enabled") ~= false then -- check if lsp progress is enabled
-          opts.statusline[9] = require("astroui.status").component.lsp { lsp_progress = false }
-        end
-      end,
-    },
-    {
       "folke/edgy.nvim",
       optional = true,
       opts = function(_, opts)

@@ -1,3 +1,19 @@
+local function gd_move_handler(source, destination)
+  if not vim.fs.root(source, "project.godot") then return end -- only run in godot projects
+  local suffix = source:match "%.gd$" and "uid" or "import"
+  local tmp_file = ("%s.%s"):format(source, suffix)
+  local tmp_stat = vim.uv.fs_stat(tmp_file)
+
+  if tmp_stat then
+    -- Rename the temporary file
+    local new_tmp_file = ("%s.%s"):format(destination, suffix)
+    local success, err = vim.uv.fs_rename(tmp_file, new_tmp_file)
+    if not success then
+      vim.notify(("Failed to rename Godot file: `%s`\n```\n%s\n```"):format(tmp_file, err or "unknown error"))
+    end
+  end
+end
+
 return {
   {
     "AstroNvim/astrocore",
@@ -29,40 +45,32 @@ return {
       }
     end,
   },
-  { -- HACK: bug in quickgd.nvim where telescope is a hard dependency
-    "nvim-telescope/telescope.nvim",
-    optional = true,
+  {
+    "QuickGD/quickgd.nvim",
+    ft = { "gdshader", "gdshaderinc" },
+    cmd = { "GodotRun", "GodotRunLast", "GodotStart" },
+    opts = function(_, opts)
+      local is_available = require("astrocore").is_available
+      opts.cmp = is_available "nvim-cmp" or is_available "blink.cmp"
+      opts.telescope = is_available "telescope.nvim"
+      opts.treesitter = is_available "nvim-treesitter"
+    end,
     specs = {
       {
-        "QuickGD/quickgd.nvim",
-        ft = { "gdshader", "gdshaderinc" },
-        cmd = { "GodotRun", "GodotRunLast", "GodotStart" },
-        opts = function(_, opts)
-          local is_available = require("astrocore").is_available
-          opts.cmp = is_available "nvim-cmp" or is_available "blink.cmp"
-          opts.telescope = is_available "telescope.nvim"
-          opts.treesitter = is_available "nvim-treesitter"
-        end,
-        specs = {
-          {
-            "hrsh7th/nvim-cmp",
-            optional = true,
-            opts = {
-              sources = { { name = "quickgd", priority = 750 } },
-            },
-          },
-          {
-            "Saghen/blink.cmp",
-            optional = true,
-            dependencies = "QuickGD/quickgd.nvim",
-            specs = { "Saghen/blink.compat", version = "*", lazy = true, opts = {} },
-            opts = {
-              sources = {
-                default = { "quickgd" },
-                providers = {
-                  quickgd = { name = "quickgd", module = "blink.compat.source", score_offset = 1 },
-                },
-              },
+        "hrsh7th/nvim-cmp",
+        optional = true,
+        opts = {
+          sources = { { name = "quickgd", priority = 750 } },
+        },
+      },
+      {
+        "Saghen/blink.cmp",
+        optional = true,
+        opts = {
+          sources = {
+            default = { "quickgd" },
+            providers = {
+              quickgd = { name = "quickgd", module = "quickgd.blink", score_offset = 1 },
             },
           },
         },
@@ -78,5 +86,40 @@ return {
           require("astrocore").list_insert_unique(opts.ensure_installed, { "gdscript", "glsl", "godot_resource" })
       end
     end,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    optional = true,
+    opts = {
+      event_handlers = {
+        {
+          event = "file_renamed",
+          handler = function(args) gd_move_handler(args.source, args.destination) end,
+          id = "godot_handler",
+        },
+        {
+          event = "file_moved",
+          handler = function(args) gd_move_handler(args.source, args.destination) end,
+          id = "godot_handler",
+        },
+      },
+      nesting_rules = {
+        godot_import = {
+          pattern = "^(.*)$",
+          files = { -- pretty loose, but is probably a specific enough pattern to be alright
+            "%1.import",
+          },
+        },
+        godot_uid = {
+          pattern = "^(.*%.gd)$",
+          files = {
+            "%1.uid",
+          },
+        },
+      },
+    },
+  },
+  {
+    "Cretezy/godot-server.nvim",
   },
 }

@@ -36,7 +36,7 @@ return {
       toggle = {
         default = prefix .. "t",
         debug = prefix .. "d",
-        hint = prefix .. "h",
+        hint = prefix .. "H",
         suggestion = prefix .. "s",
         repomap = prefix .. "R",
       },
@@ -100,6 +100,20 @@ return {
         if not opts.filetypes then opts.filetypes = { "markdown", "quarto", "rmd" } end
         opts.filetypes = require("astrocore").list_insert_unique(opts.filetypes, { "Avante" })
       end,
+    },
+    {
+      "folke/snacks.nvim",
+      optional = true,
+      specs = {
+        {
+          "yetone/avante.nvim",
+          opts = {
+            selector = {
+              provider = "snacks",
+            },
+          },
+        },
+      },
     },
     {
       "nvim-neo-tree/neo-tree.nvim",

@@ -3,9 +3,9 @@
 --
 -- clojure-lsp server via mason
 -- treesitter clojure parser
--- ts-comment.nvim with `;;` and `;` support
--- structured editing with parinfer and treesitter-sexp plugins
--- REPL connected editor with Conjure plugin (log HUD hidden by default)
+-- treesitter comments with `;;` and `;` support
+-- structured editing with parinfer and paredit plugins
+-- REPL connected editor with Conjure plugin
 -- ------------------------------------------
 
 local plugins = {
@@ -38,11 +38,8 @@ local plugins = {
   -- Conjure plugin for Clojure REPL
   { import = "astrocommunity.code-runner.conjure" },
 
-  -- Parinfer parens management for Clojure
-  { import = "astrocommunity.editing-support.nvim-parinfer" },
-
-  -- Treesitter structural editing
-  { import = "astrocommunity.editing-support.nvim-treesitter-sexp" },
+  -- Parinfer & Paredit structural editing for Lisp dialects
+  { import = "astrocommunity.editing-support.parpar-nvim" },
 
   -- Better treesitter comments
   { import = "astrocommunity.comment.ts-comments-nvim" },

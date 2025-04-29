@@ -1,5 +1,15 @@
 return {
   {
+    "AstroNvim/astrolsp",
+    opts = {
+      config = {
+        bashls = {
+          filetypes = { "sh", "bash", "zsh" },
+        },
+      },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
@@ -46,6 +56,7 @@ return {
     opts = {
       formatters_by_ft = {
         sh = { "shfmt", "shellcheck" },
+        zsh = { "shfmt", "shellcheck" },
       },
     },
   },
@@ -55,6 +66,7 @@ return {
     opts = {
       linters_by_ft = {
         sh = { "shellcheck" },
+        zsh = { "shellcheck" },
       },
     },
   },

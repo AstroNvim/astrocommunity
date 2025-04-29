@@ -14,6 +14,9 @@ return {
         maps.n[prefix .. "nc"] = { "<Cmd>Neogit commit<CR>", desc = "Open Neogit Commit Page" }
         maps.n[prefix .. "nd"] = { ":Neogit cwd=", desc = "Open Neogit Override CWD" }
         maps.n[prefix .. "nk"] = { ":Neogit kind=", desc = "Open Neogit Override Kind" }
+        maps.n[prefix .. "nf"] = { "<Cmd>Neogit kind=floating<CR>", desc = "Open Neogit Float" }
+        maps.n[prefix .. "nh"] = { "<Cmd>Neogit kind=split<CR>", desc = "Open Neogit Horizontal Split" }
+        maps.n[prefix .. "nv"] = { "<Cmd>Neogit kind=vsplit<CR>", desc = "Open Neogit Vertical Split" }
       end,
     },
   },
