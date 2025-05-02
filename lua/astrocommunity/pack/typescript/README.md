@@ -36,6 +36,18 @@ return {
 }
 ```
 
+## How do I resolve double formatting issues with Prettier and ESLint?
+
+If you experience double formatting or race conditions due to both `eslint_fix_on_save` and `prettierd` (via `conform.nvim`) formatting on save, you can resolve this by following one of these solutions:
+
+### Solution 1: Disable `eslint_fix_on_save`
+You can disable the `eslint_fix_on_save` autocmd in your configuration as mentioned above.
+
+### Solution 2: Configure ESLint to Not Handle Formatting
+Alternatively, you can configure your project's ESLint setup to avoid handling formatting altogether:
+1. Use `eslint-config-prettier` in your ESLint configuration to disable rules that conflict with Prettier.
+2. Optionally, remove `eslint-plugin-prettier` if it is only used for enforcing Prettier rules.
+
 ## How do I customize `neotest-jest`?
 
 To customize the `neotest-jest` plugin, you need to configure it like you would with any other plugin
