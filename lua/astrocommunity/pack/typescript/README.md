@@ -38,7 +38,7 @@ return {
 
 ## How do I resolve double formatting issues with Prettier and ESLint?
 
-If you experience double formatting or race conditions due to both `eslint_fix_on_save` and `prettierd` (via `conform.nvim`) formatting on save, you can resolve this by following one of these solutions:
+If you experience double formatting or race conditions due to both `eslint_fix_on_save` and `prettierd` (via `mason-null-ls.nvim` or `conform.nvim`) formatting on save, you can resolve this by following one of these solutions:
 
 ### Solution 1: Disable `eslint_fix_on_save`
 You can disable the `eslint_fix_on_save` autocmd in your configuration as mentioned above.
