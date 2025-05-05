@@ -52,6 +52,7 @@ return {
         diffview = utils.is_available "diffview.nvim",
         fzf_lua = utils.is_available "fzf-lua",
         mini_pick = utils.is_available "mini.pick",
+        snacks = utils.is_available "snacks.nvim",
       },
     })
   end,
