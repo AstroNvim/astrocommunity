@@ -38,7 +38,8 @@ return {
       use_advanced_uri = true,
       finder = (astrocore.is_available "telescope.nvim" and "telescope.nvim")
         or (astrocore.is_available "fzf-lua" and "fzf-lua")
-        or (astrocore.is_available "mini.pick" and "mini.pick"),
+        or (astrocore.is_available "mini.pick" and "mini.pick")
+        or (astrocore.is_available "snacks.pick" and "snacks.pick"),
 
       templates = {
         subdir = templatesSubdir,
