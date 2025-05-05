@@ -1,9 +1,13 @@
+local vaultDirectory = "obsidian-vault"
+local templatesSubdir = "templates"
+local dailyFolder = "daily"
+
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   -- the obsidian vault in this default config  ~/obsidian-vault
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
   -- event = { "bufreadpre " .. vim.fn.expand "~" .. "/my-vault/**.md" },
-  event = { "BufReadPre  */obsidian-vault/*.md" },
+  event = { "BufReadPre  */" .. vaultDirectory .. "/*.md" },
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "hrsh7th/nvim-cmp", optional = true },
@@ -30,20 +34,23 @@ return {
   opts = function(_, opts)
     local astrocore = require "astrocore"
     return astrocore.extend_tbl(opts, {
-      dir = vim.env.HOME .. "/obsidian-vault", -- specify the vault location. no need to call 'vim.fn.expand' here
+      dir = vim.env.HOME .. "/" .. vaultDirectory, -- specify the vault location. no need to call 'vim.fn.expand' here
       use_advanced_uri = true,
       finder = (astrocore.is_available "telescope.nvim" and "telescope.nvim")
         or (astrocore.is_available "fzf-lua" and "fzf-lua")
         or (astrocore.is_available "mini.pick" and "mini.pick"),
 
       templates = {
-        subdir = "templates",
+        subdir = templatesSubdir,
         date_format = "%Y-%m-%d-%a",
         time_format = "%H:%M",
       },
-
+      daily_notes = {
+        folder = dailyFolder,
+      },
       completion = {
         nvim_cmp = astrocore.is_available "nvim-cmp",
+        blink = astrocore.is_available "blink",
       },
 
       note_frontmatter_func = function(note)
