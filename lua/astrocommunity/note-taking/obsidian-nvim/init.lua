@@ -1,5 +1,4 @@
 local vaultDirectory = "obsidian-vault"
-local templatesSubdir = "templates"
 local dailyFolder = "daily"
 
 return {
@@ -42,7 +41,7 @@ return {
         or (astrocore.is_available "snacks.pick" and "snacks.pick"),
 
       templates = {
-        subdir = templatesSubdir,
+        subdir = "templates",
         date_format = "%Y-%m-%d-%a",
         time_format = "%H:%M",
       },
