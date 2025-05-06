@@ -1,5 +1,4 @@
 local vaultDirectory = "obsidian-vault"
-local dailyFolder = "daily"
 
 return {
   "obsidian-nvim/obsidian.nvim",
@@ -46,7 +45,7 @@ return {
         time_format = "%H:%M",
       },
       daily_notes = {
-        folder = dailyFolder,
+        folder = "daily",
       },
       completion = {
         nvim_cmp = astrocore.is_available "nvim-cmp",
