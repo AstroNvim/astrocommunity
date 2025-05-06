@@ -1,11 +1,10 @@
-local vaultDirectory = "obsidian-vault"
-
 return {
   "obsidian-nvim/obsidian.nvim",
   -- the obsidian vault in this default config  ~/obsidian-vault
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
   -- event = { "bufreadpre " .. vim.fn.expand "~" .. "/my-vault/**.md" },
-  event = { "BufReadPre  */" .. vaultDirectory .. "/*.md" },
+  event = { "BufReadPre  */obsidian-vault/*.md" },
+
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "hrsh7th/nvim-cmp", optional = true },
@@ -32,7 +31,7 @@ return {
   opts = function(_, opts)
     local astrocore = require "astrocore"
     return astrocore.extend_tbl(opts, {
-      dir = vim.env.HOME .. "/" .. vaultDirectory, -- specify the vault location. no need to call 'vim.fn.expand' here
+      dir = vim.env.HOME .. "/obsidian-vault", -- specify the vault location. no need to call 'vim.fn.expand' here
       use_advanced_uri = true,
       finder = (astrocore.is_available "snacks.pick" and "snacks.pick")
         or (astrocore.is_available "telescope.nvim" and "telescope.nvim")
