@@ -1,6 +1,6 @@
 # hurl.nvim
 
-A fast Neovim hurl client written in Lua.
+Hurl.nvim is a Neovim plugin designed to run HTTP requests directly from `.hurl` files. Elevate your API development workflow by executing and viewing responses without leaving your editor.
 
 ### Dependencies
 
