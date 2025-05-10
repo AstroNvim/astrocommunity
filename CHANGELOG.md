@@ -1,5 +1,34 @@
 # Changelog
 
+## [19.0.0](https://github.com/AstroNvim/astrocommunity/compare/v18.0.0...v19.0.0) (2025-05-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **edgy-nvim:** Remove <Leader>f mapping from community plugin ([#1431](https://github.com/AstroNvim/astrocommunity/issues/1431))
+* **typescript:** remove html-css pack import ([#1472](https://github.com/AstroNvim/astrocommunity/issues/1472))
+
+### Features
+
+* **edgy-nvim:** Remove &lt;Leader&gt;f mapping from community plugin ([#1431](https://github.com/AstroNvim/astrocommunity/issues/1431)) ([3077baa](https://github.com/AstroNvim/astrocommunity/commit/3077baa6dabb737b7f3a399e503c3ccd11d2aa2a))
+* **other-nvim:** clojure support added upstream ([#1469](https://github.com/AstroNvim/astrocommunity/issues/1469)) ([4b2adda](https://github.com/AstroNvim/astrocommunity/commit/4b2addae7514d9291976c8b3a122f4cf585c8fd1))
+
+
+### Bug Fixes
+
+* **godot:** use built in blink completion ([ced2b71](https://github.com/AstroNvim/astrocommunity/commit/ced2b71ebe41d43e2268129caffcf96433e43f8f))
+* **indent-blankline-nvim:** Use indent-blankline v3 main entry point ([#1485](https://github.com/AstroNvim/astrocommunity/issues/1485)) ([7ec9f7e](https://github.com/AstroNvim/astrocommunity/commit/7ec9f7e8ffca60c611002103a33b7a26f1081745))
+* **neogit:** add support for snacks integration ([90435b9](https://github.com/AstroNvim/astrocommunity/commit/90435b9ed2a2bdb7f2ebdba1e650885aa4da3ca7))
+* **neominimap-nvim:** set options within init instead of config ([#1477](https://github.com/AstroNvim/astrocommunity/issues/1477)) ([5b30339](https://github.com/AstroNvim/astrocommunity/commit/5b30339eee5fa0f22da5725132e65af1de5f5b89))
+* **obsidian-nvim:** Change remote to up to date fork, blink.cmp integration and add in daily-notes folder ([#1479](https://github.com/AstroNvim/astrocommunity/issues/1479)) ([b2bff54](https://github.com/AstroNvim/astrocommunity/commit/b2bff54771f40e1dd7aea8e15ce211078e68ea6c))
+* purescript pack -&gt; fix error Cannot find package "purs-tidy" ([580d613](https://github.com/AstroNvim/astrocommunity/commit/580d613cbf2f36b3c5d24e116bd1f2a02929a069))
+* **purescript:** fix `error Cannot find package "purs-tidy"` ([#1483](https://github.com/AstroNvim/astrocommunity/issues/1483)) ([580d613](https://github.com/AstroNvim/astrocommunity/commit/580d613cbf2f36b3c5d24e116bd1f2a02929a069))
+
+
+### Code Refactoring
+
+* **typescript:** remove html-css pack import ([#1472](https://github.com/AstroNvim/astrocommunity/issues/1472)) ([53251e1](https://github.com/AstroNvim/astrocommunity/commit/53251e1d12adb7d2a108462d0768becf50956c70))
+
 ## [18.0.0](https://github.com/AstroNvim/astrocommunity/compare/v17.2.0...v18.0.0) (2025-04-25)
 
 
