@@ -1,4 +1,4 @@
-# C# Language Pack
+# Nginx Language Pack
 
 This plugin pack does the following:
 
