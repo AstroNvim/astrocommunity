@@ -14,6 +14,13 @@ return {
         end
       end,
     },
+    {
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      optional = true,
+      opts = function(_, opts)
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "jq", "prettier" })
+      end,
+    },
   },
   specs = {
     {
@@ -36,8 +43,4 @@ return {
     },
   },
   opts = {},
-  config = function(_, opts)
-    vim.g.hurl_nvim = require("astrocore").extend_tbl(opts, vim.g.hurl_nvim)
-    require("hurl").setup(opts.hurl_nvim)
-  end,
 }
