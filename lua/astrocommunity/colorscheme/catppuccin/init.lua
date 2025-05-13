@@ -7,6 +7,7 @@ return {
     integrations = {
       aerial = true,
       alpha = true,
+      blink_cmp = true,
       cmp = true,
       dap = true,
       dap_ui = true,
