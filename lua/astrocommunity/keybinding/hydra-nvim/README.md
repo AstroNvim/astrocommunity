@@ -2,13 +2,13 @@
 
 Create custom submodes and menus
 
-**Repository:** <https://github.com/anuvyklack/hydra.nvim>
+**Repository:** <https://github.com/nvimtools/hydra.nvim>
 
 This implements configuration of Hydra.nvim through the `opts` table to make it easier for the user to configure various Hydra heads as well as allow AstroCommunity entries to also provide Hydra heads if it makes sense. Here is an example of defining a Hydra using the `opts` table:
 
 ```lua
 return {
-  "anuvyklack/hydra.nvim",
+  "nvimtools/hydra.nvim",
   opts = {
     -- the first key is the name if name isn't set in the table
     ["Side scroll"] = {
