@@ -28,6 +28,10 @@ return {
       which_key = true,
       window_picker = true,
       colorful_winsep = { enabled = true, color = "lavender" },
+      snacks = {
+        enabled = true,
+        indent_scope_color = "lavender",
+      },
     },
   },
   specs = {
