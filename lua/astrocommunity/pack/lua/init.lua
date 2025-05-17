@@ -94,11 +94,6 @@ return {
         opts.linters.selene = {
           condition = function(ctx) return selene_configured(ctx.filename) end,
         }
-      else
-        opts.linters_by_ft = {
-          lua = {},
-        }
-      end
     end,
   },
 }
