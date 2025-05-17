@@ -94,6 +94,7 @@ return {
         opts.linters.selene = {
           condition = function(ctx) return selene_configured(ctx.filename) end,
         }
+      end
     end,
   },
 }
