@@ -1,8 +1,21 @@
 local format_filetypes = {
+  "css",
+  "graphql",
+  "handlebars",
+  "html",
   "javascript",
   "javascriptreact",
+  "json",
+  "json5",
+  "jsonc",
+  "less",
+  "markdown",
+  "markdown.mdx",
+  "scss",
   "typescript",
   "typescriptreact",
+  "vue",
+  "yaml",
 }
 
 local lsp_rooter_cache, prettierrc_rooter_cache
@@ -26,23 +39,28 @@ local function get_lsp_rooter()
   return lsp_rooter_cache
 end
 
+local prettier_files = {
+  ".prettierrc",
+  ".prettierrc.json",
+  ".prettierrc.json5",
+  ".prettierrc.yaml",
+  ".prettierrc.yml",
+  ".prettierrc.toml",
+  ".prettierrc.cjs",
+  ".prettierrc.js",
+  ".prettierrc.mjs",
+  ".prettierrc.ts",
+  ".prettierrc.mts",
+  ".prettierrc.cts",
+  "prettier.config.js",
+  "prettier.config.cjs",
+  "prettier.config.mjs",
+  "prettier.config.ts",
+  "prettier.config.mts",
+}
+
 local function get_prettierrc_rooter()
-  if not prettierrc_rooter_cache then
-    prettierrc_rooter_cache = require("astrocore.rooter").resolve {
-      ".prettierrc",
-      ".prettierrc.cjs",
-      ".prettierrc.js",
-      ".prettierrc.json",
-      ".prettierrc.json5",
-      ".prettierrc.mjs",
-      ".prettierrc.toml",
-      ".prettierrc.yaml",
-      ".prettierrc.yml",
-      "prettier.config.cjs",
-      "prettier.config.js",
-      "prettier.config.mjs",
-    }
-  end
+  if not prettierrc_rooter_cache then prettierrc_rooter_cache = require("astrocore.rooter").resolve(prettier_files) end
   return prettierrc_rooter_cache
 end
 
@@ -83,9 +101,10 @@ local function has_prettier(bufnr)
     end
   end
 
-  local prettierrc_rooter = get_prettierrc_rooter()
+  if prettier_dependency then return true end
 
-  return prettier_dependency or (prettierrc_rooter(bufnr) and next(prettierrc_rooter(bufnr)) ~= nil)
+  local prettierrc_root = get_prettierrc_rooter()(bufnr)
+  return prettierrc_root and next(prettierrc_root) ~= nil
 end
 
 local null_ls_formatter = function(params)
@@ -134,7 +153,9 @@ return {
     optional = true,
     opts = function(_, opts)
       if not opts.file then opts.file = {} end
-      opts.file[".prettierrc"] = { glyph = "", hl = "MiniIconsPurple" }
+      for _, filename in ipairs(prettier_files) do
+        opts.file[filename] = { glyph = "", hl = "MiniIconsPurple" }
+      end
     end,
   },
 }
