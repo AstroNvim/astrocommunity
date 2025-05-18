@@ -1,6 +1,6 @@
 # ESLint
 
-[ESLint](https://eslint.org/) ESLint is a tool for identifying and reporting on
+[ESLint](https://eslint.org/) is a tool for identifying and reporting on
 patterns found in ECMAScript/JavaScript code, with the goal of making code more
 consistent and avoiding bugs.
 
@@ -12,19 +12,3 @@ parsers to extend the functionality of ESLint.
 
 To use ESLint, you must have [Node.js](https://nodejs.org/en/) (^18.18.0, ^20.9.0, or >=21.1.0) installed
 and built with SSL support. (If you are using an official Node.js distribution, SSL is always built in.)
-
-## How do I disable Eslint format on save?
-
-To opt out of the Eslint format on save behaviour, you can disable the autocmd setup with the pack with this:
-
-```lua
-return {
-  "AstroNvim/astrolsp",
-  optional = true,
-  opts = {
-    autocmds = {
-      eslint_fix_on_save = false,
-    },
-  },
-}
-```
