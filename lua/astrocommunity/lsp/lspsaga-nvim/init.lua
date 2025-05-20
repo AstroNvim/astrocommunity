@@ -72,7 +72,14 @@ return {
       "catppuccin",
       optional = true,
       ---@type CatppuccinOptions
-      opts = { integrations = { lsp_saga = true } },
+      opts = function()
+        require("lspsaga").setup {
+          ui = {
+            kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+          },
+        }
+        return { integrations = { lsp_saga = true } }
+      end,
     },
   },
 }
