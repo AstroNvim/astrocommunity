@@ -176,6 +176,12 @@ return {
       end,
     },
     {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { cmp = true } },
+    },
+    {
       "L3MON4D3/LuaSnip",
       optional = true,
       specs = {

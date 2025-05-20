@@ -67,4 +67,12 @@ return {
       },
     }
   end,
+  specs = {
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { lsp_saga = true } },
+    },
+  },
 }

@@ -7,6 +7,12 @@ return {
   specs = {
     { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
     {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { mini = true } },
+    },
+    {
       "nvim-neo-tree/neo-tree.nvim",
       opts = {
         default_component_configs = {

@@ -53,4 +53,12 @@ return {
     },
   },
   opts = {},
+  specs = {
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { flash = true } },
+    },
+  },
 }

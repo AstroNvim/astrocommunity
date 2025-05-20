@@ -22,5 +22,11 @@ return {
   end,
   specs = {
     { "lewis6991/gitsigns.nvim", enabled = false },
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { mini = true } },
+    },
   },
 }
