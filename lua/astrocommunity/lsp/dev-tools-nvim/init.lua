@@ -1,7 +1,7 @@
 return {
   "yarospace/dev-tools.nvim",
   lazy = true,
-  event = "BufEnter",
+  event = "User AstroFile",
   dependencies = {
     { "nvim-treesitter/nvim-treesitter" },
     {
@@ -18,9 +18,7 @@ return {
     },
   },
   opts = {
-    ---@type Action[]|fun():Action[]
     actions = {},
-
     filetypes = { -- filetypes for which to attach the LSP
       include = {}, -- {} to include all
       exclude = {},
