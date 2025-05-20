@@ -97,4 +97,16 @@ return {
       },
     },
   },
+  specs = {
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = function()
+        require("bufferline").setup {
+          highlights = require("catppuccin.groups.integrations.bufferline").get(),
+        }
+      end,
+    },
+  },
 }
