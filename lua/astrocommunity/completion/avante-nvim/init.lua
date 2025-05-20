@@ -29,6 +29,7 @@ return {
       ask = prefix .. "<CR>",
       edit = prefix .. "e",
       refresh = prefix .. "r",
+      new_ask = prefix .. "n",
       focus = prefix .. "f",
       select_model = prefix .. "?",
       stop = prefix .. "S",
