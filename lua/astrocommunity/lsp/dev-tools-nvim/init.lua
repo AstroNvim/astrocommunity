@@ -6,6 +6,7 @@ return {
     { "nvim-treesitter/nvim-treesitter" },
     {
       "folke/snacks.nvim",
+      optional = true,
       opts = {
         picker = { enabled = true },
         terminal = { enabled = true },
