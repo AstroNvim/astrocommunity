@@ -29,6 +29,7 @@ return {
       ask = prefix .. "<CR>",
       edit = prefix .. "e",
       refresh = prefix .. "r",
+      new_ask = prefix .. "n",
       focus = prefix .. "f",
       select_model = prefix .. "?",
       stop = prefix .. "S",
@@ -141,10 +142,10 @@ return {
               if not open then sidebar.file_selector:remove_selected_file "neo-tree filesystem [1]" end
             end,
           },
-        },
-        window = {
-          mappings = {
-            ["oa"] = "avante_add_files",
+          window = {
+            mappings = {
+              ["oa"] = "avante_add_files",
+            },
           },
         },
       },
