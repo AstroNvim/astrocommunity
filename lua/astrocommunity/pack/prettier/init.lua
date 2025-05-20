@@ -112,7 +112,7 @@ local null_ls_formatter = function(params)
   return true
 end
 
-local conform_formatter = function(bufnr) return has_prettier(bufnr) and { "prettier" } or {} end
+local conform_formatter = function(bufnr) return has_prettier(bufnr) and { "prettierd" } or {} end
 
 ---@type LazySpec
 return {
@@ -120,10 +120,10 @@ return {
     "jay-babu/mason-null-ls.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed or {}, { "prettier" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed or {}, { "prettierd" })
       if not opts.handlers then opts.handlers = {} end
 
-      opts.handlers.prettier = function(source_name, methods)
+      opts.handlers.prettierd = function(source_name, methods)
         local null_ls = require "null-ls"
         for _, method in ipairs(methods) do
           null_ls.register(null_ls.builtins[method][source_name].with { runtime_condition = null_ls_formatter })
@@ -145,7 +145,7 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed or {}, { "prettier" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed or {}, { "prettierd" })
     end,
   },
   {
