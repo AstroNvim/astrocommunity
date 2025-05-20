@@ -141,10 +141,10 @@ return {
               if not open then sidebar.file_selector:remove_selected_file "neo-tree filesystem [1]" end
             end,
           },
-        },
-        window = {
-          mappings = {
-            ["oa"] = "avante_add_files",
+          window = {
+            mappings = {
+              ["oa"] = "avante_add_files",
+            },
           },
         },
       },
