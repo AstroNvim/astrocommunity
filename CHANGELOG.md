@@ -1,5 +1,54 @@
 # Changelog
 
+## [19.0.0](https://github.com/AstroNvim/astrocommunity/compare/v18.0.0...v19.0.0) (2025-05-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* **edgy-nvim:** Remove <Leader>f mapping from community plugin ([#1431](https://github.com/AstroNvim/astrocommunity/issues/1431))
+* **typescript:** remove html-css pack import ([#1472](https://github.com/AstroNvim/astrocommunity/issues/1472))
+
+### Features
+
+* **catppuccin:** add snacks integration ([#1499](https://github.com/AstroNvim/astrocommunity/issues/1499)) ([75b3117](https://github.com/AstroNvim/astrocommunity/commit/75b31171db099fc4153f69d2067b0b21a9b7322a))
+* **completion:** Add in codex.nvim ([#1453](https://github.com/AstroNvim/astrocommunity/issues/1453)) ([98489cb](https://github.com/AstroNvim/astrocommunity/commit/98489cb4f2cb53ec27da503b351b5f8ee79d49d0))
+* **copilot-vim:** add catppuccin integration ([#1498](https://github.com/AstroNvim/astrocommunity/issues/1498)) ([2af99ac](https://github.com/AstroNvim/astrocommunity/commit/2af99ac24860b608ec032e07b17ec462c775cb49))
+* **edgy-nvim:** Remove &lt;Leader&gt;f mapping from community plugin ([#1431](https://github.com/AstroNvim/astrocommunity/issues/1431)) ([3077baa](https://github.com/AstroNvim/astrocommunity/commit/3077baa6dabb737b7f3a399e503c3ccd11d2aa2a))
+* **lsp:** added dev-tools.nvim ([#1509](https://github.com/AstroNvim/astrocommunity/issues/1509)) ([3c36d9a](https://github.com/AstroNvim/astrocommunity/commit/3c36d9a1ec6561e5481a0d8668720e2002d1c685))
+* **markdown-and-latex:** Add texpresso.vim ([#1512](https://github.com/AstroNvim/astrocommunity/issues/1512)) ([eb132ca](https://github.com/AstroNvim/astrocommunity/commit/eb132cab3e675f2e2d033398eb0632a65e948a91))
+* **other-nvim:** clojure support added upstream ([#1469](https://github.com/AstroNvim/astrocommunity/issues/1469)) ([4b2adda](https://github.com/AstroNvim/astrocommunity/commit/4b2addae7514d9291976c8b3a122f4cf585c8fd1))
+* **pack:** Add `hurl` pack ([#1486](https://github.com/AstroNvim/astrocommunity/issues/1486)) ([1fed87b](https://github.com/AstroNvim/astrocommunity/commit/1fed87b024cb24b97eaf4abd4f4042b95cb5a8e7))
+* **pack:** Add nginx pack ([#1481](https://github.com/AstroNvim/astrocommunity/issues/1481)) ([9dbfb3e](https://github.com/AstroNvim/astrocommunity/commit/9dbfb3e67c8047594a9307cd3c888dfc3681b8d9))
+
+
+### Bug Fixes
+
+* **avante-nvim:** prevent neo-tree mapping warnings ([#1510](https://github.com/AstroNvim/astrocommunity/issues/1510)) ([3e2ee61](https://github.com/AstroNvim/astrocommunity/commit/3e2ee6125a1275550b5ae5dde80884f7686aa682))
+* **blink-cmp-git:** Remove unneeded dependency ([#1488](https://github.com/AstroNvim/astrocommunity/issues/1488)) ([e56d7b3](https://github.com/AstroNvim/astrocommunity/commit/e56d7b3c52cb496780a901123705d7824914642b))
+* **catppuccin:** added blink cmp support ([#1492](https://github.com/AstroNvim/astrocommunity/issues/1492)) ([e7459c5](https://github.com/AstroNvim/astrocommunity/commit/e7459c5e752be39a497d1ed4c82323b672c8490d))
+* **conform-nvim:** use default timeout and explicit lsp_format ([#1506](https://github.com/AstroNvim/astrocommunity/issues/1506)) ([5653e18](https://github.com/AstroNvim/astrocommunity/commit/5653e1866570bc91e8579e6794657a897d87f90a))
+* **docker:** filter out docker compose filtering instead of disabling ([#1507](https://github.com/AstroNvim/astrocommunity/issues/1507)) ([2e617e6](https://github.com/AstroNvim/astrocommunity/commit/2e617e6f79d4763555afc5981b6324fb2a88dabf))
+* **godot:** use built in blink completion ([ced2b71](https://github.com/AstroNvim/astrocommunity/commit/ced2b71ebe41d43e2268129caffcf96433e43f8f))
+* **hardtime-nvim:** hardtime not loaded after new file ([#1497](https://github.com/AstroNvim/astrocommunity/issues/1497)) ([567643e](https://github.com/AstroNvim/astrocommunity/commit/567643ed7b0516c4149f24843ac783d1c1227eb6))
+* **indent-blankline-nvim:** Use indent-blankline v3 main entry point ([#1485](https://github.com/AstroNvim/astrocommunity/issues/1485)) ([7ec9f7e](https://github.com/AstroNvim/astrocommunity/commit/7ec9f7e8ffca60c611002103a33b7a26f1081745))
+* **lua:** skip selene install on aarch64 platforms ([#1464](https://github.com/AstroNvim/astrocommunity/issues/1464)) ([8325575](https://github.com/AstroNvim/astrocommunity/commit/8325575603f3505a10c50ed292205fe32d369a78))
+* **multicursors-nvim:** update hydra dependency to official repo ([#1491](https://github.com/AstroNvim/astrocommunity/issues/1491)) ([44d5c7f](https://github.com/AstroNvim/astrocommunity/commit/44d5c7f626aa5eacccdcdf58508777e6714293ad))
+* **neogit:** add support for snacks integration ([90435b9](https://github.com/AstroNvim/astrocommunity/commit/90435b9ed2a2bdb7f2ebdba1e650885aa4da3ca7))
+* **neominimap-nvim:** set options within init instead of config ([#1477](https://github.com/AstroNvim/astrocommunity/issues/1477)) ([5b30339](https://github.com/AstroNvim/astrocommunity/commit/5b30339eee5fa0f22da5725132e65af1de5f5b89))
+* **nvim-spider:** provide UTF-8 support by default ([#1482](https://github.com/AstroNvim/astrocommunity/issues/1482)) ([5b671aa](https://github.com/AstroNvim/astrocommunity/commit/5b671aab9f75605203c46b61ed6519468a34c1aa))
+* **obsidian-nvim:** Change remote to up to date fork, blink.cmp integration and add in daily-notes folder ([#1479](https://github.com/AstroNvim/astrocommunity/issues/1479)) ([b2bff54](https://github.com/AstroNvim/astrocommunity/commit/b2bff54771f40e1dd7aea8e15ce211078e68ea6c))
+* **proto:** Remove invalid buf_ls package ([#1508](https://github.com/AstroNvim/astrocommunity/issues/1508)) ([2d3df75](https://github.com/AstroNvim/astrocommunity/commit/2d3df756ad5f7332124029f72578bf8a8c965fc7))
+* **proto:** replace deprecated buf-language-server with buf_ls ([#1505](https://github.com/AstroNvim/astrocommunity/issues/1505)) ([b69674d](https://github.com/AstroNvim/astrocommunity/commit/b69674df8de9a083754d44fb8a96d8dac1c06860))
+* purescript pack -&gt; fix error Cannot find package "purs-tidy" ([580d613](https://github.com/AstroNvim/astrocommunity/commit/580d613cbf2f36b3c5d24e116bd1f2a02929a069))
+* **purescript:** fix `error Cannot find package "purs-tidy"` ([#1483](https://github.com/AstroNvim/astrocommunity/issues/1483)) ([580d613](https://github.com/AstroNvim/astrocommunity/commit/580d613cbf2f36b3c5d24e116bd1f2a02929a069))
+* update hydra dependency to official repo ([44d5c7f](https://github.com/AstroNvim/astrocommunity/commit/44d5c7f626aa5eacccdcdf58508777e6714293ad))
+* **vscode:** `vscode-neovim` has been deprecated. Use `vscode` instead ([#1493](https://github.com/AstroNvim/astrocommunity/issues/1493)) ([81cccf6](https://github.com/AstroNvim/astrocommunity/commit/81cccf664f56e4a8d96cbcf4b91b4fd1985c75cf))
+
+
+### Code Refactoring
+
+* **typescript:** remove html-css pack import ([#1472](https://github.com/AstroNvim/astrocommunity/issues/1472)) ([53251e1](https://github.com/AstroNvim/astrocommunity/commit/53251e1d12adb7d2a108462d0768becf50956c70))
+
 ## [18.0.0](https://github.com/AstroNvim/astrocommunity/compare/v17.2.0...v18.0.0) (2025-04-25)
 
 
