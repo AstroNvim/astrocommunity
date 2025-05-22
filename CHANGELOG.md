@@ -1,5 +1,12 @@
 # Changelog
 
+## [19.0.1](https://github.com/AstroNvim/astrocommunity/compare/v19.0.0...v19.0.1) (2025-05-22)
+
+
+### Bug Fixes
+
+* **indent-rainbowline:** Update indent-rainbowline to use new indent-blankline config ([#1514](https://github.com/AstroNvim/astrocommunity/issues/1514)) ([7a007c1](https://github.com/AstroNvim/astrocommunity/commit/7a007c1557e8c1dd0066bdd7e5899d12784f9930))
+
 ## [19.0.0](https://github.com/AstroNvim/astrocommunity/compare/v18.0.0...v19.0.0) (2025-05-21)
 
 
