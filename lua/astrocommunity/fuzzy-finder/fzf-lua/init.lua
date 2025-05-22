@@ -6,6 +6,12 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", optional = true, enabled = false },
     { "stevearc/dressing.nvim", optional = true, opts = { select = { backend = { "fzf_lua" } } } },
     {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { fzf = true } },
+    },
+    {
       "AstroNvim/astrolsp",
       optional = true,
       opts = function(_, opts)

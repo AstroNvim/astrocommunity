@@ -99,6 +99,12 @@ return {
       optional = true,
       opts = { snippets = { preset = "mini_snippets" } },
     },
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { mini = true } },
+    },
     { "L3MON4D3/LuaSnip", enabled = false },
   },
 }

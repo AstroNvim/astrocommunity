@@ -4,6 +4,12 @@ return {
     { "nvim-lua/plenary.nvim", lazy = true },
     { "folke/snacks.nvim", opts = { picker = { enabled = false } } },
     {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { telescope = { enabled = true } } },
+    },
+    {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         local maps = opts.mappings

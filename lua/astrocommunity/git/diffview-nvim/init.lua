@@ -16,5 +16,11 @@ return {
       optional = true,
       opts = { integrations = { diffview = true } },
     },
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { diffview = true } },
+    },
   },
 }

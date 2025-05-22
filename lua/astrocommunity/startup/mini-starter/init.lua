@@ -8,6 +8,12 @@ return {
       dashboard = { enabled = false },
     } },
     {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { mini = true } },
+    },
+    {
       "AstroNvim/astrocore",
       optional = true,
       ---@type AstroCoreOpts

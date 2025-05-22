@@ -84,6 +84,12 @@ return {
         }
       end,
     },
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { alpha = true } },
+    },
   },
   opts = function()
     local dashboard = require "alpha.themes.dashboard"
