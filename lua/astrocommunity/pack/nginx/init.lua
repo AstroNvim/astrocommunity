@@ -13,7 +13,7 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, { "nginx_language_server" })
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "nginx-language-server" })
     end,
   },
   {
@@ -22,7 +22,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "nginx-config-formatter", "nginx_language_server" }
+        { "nginx-config-formatter", "nginx-language-server" }
       )
     end,
   },
