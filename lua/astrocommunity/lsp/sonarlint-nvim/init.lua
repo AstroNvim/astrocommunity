@@ -1,3 +1,5 @@
+local analyzers_path = vim.fn.stdpath "data" .. "/mason/packages/sonarlint-language-server/extension/analyzers/"
+
 local sonarlint_ft = {
   "c",
   "cpp",
@@ -37,24 +39,21 @@ return {
       end,
     },
   },
-  config = function()
-    local mason = vim.fn.stdpath "data" .. "/mason"
-    require("sonarlint").setup {
-      server = {
-        cmd = {
-          mason .. "/bin/sonarlint-language-server",
-          "-stdio",
-          "-analyzers",
-          mason .. "/share/sonarlint-analyzers/sonarcfamily.jar",
-          mason .. "/share/sonarlint-analyzers/sonargo.jar",
-          mason .. "/share/sonarlint-analyzers/sonarhtml.jar",
-          mason .. "/share/sonarlint-analyzers/sonariac.jar",
-          mason .. "/share/sonarlint-analyzers/sonarjava.jar",
-          mason .. "/share/sonarlint-analyzers/sonarjavasymbolicexecution.jar",
-          mason .. "/share/sonarlint-analyzers/sonarpython.jar",
-        },
+  opts = {
+    server = {
+      cmd = {
+        "sonarlint-language-server",
+        "-stdio",
+        "-analyzers",
+        analyzers_path .. "sonargo.jar",
+        analyzers_path .. "sonarhtml.jar",
+        analyzers_path .. "sonariac.jar",
+        analyzers_path .. "sonarjava.jar",
+        analyzers_path .. "sonarjavasymbolicexecution.jar",
+        analyzers_path .. "sonarjs.jar",
+        analyzers_path .. "sonarpython.jar",
       },
-      filetypes = sonarlint_ft,
-    }
-  end,
+    },
+    filetypes = sonarlint_ft,
+  },
 }
