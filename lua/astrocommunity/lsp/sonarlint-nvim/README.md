@@ -10,6 +10,8 @@ A community plugin that integrates [SonarLint](https://github.com/SonarSource/so
 - HTML/CSS
 - Java
 - JavaScript/TypeScript
+- PHP
 - Python
+- XML
 
 **Repository:** <https://gitlab.com/schrieveslaach/sonarlint.nvim>

@@ -10,9 +10,11 @@ local sonarlint_ft = {
   "java",
   "javascript",
   "javascriptreact",
+  "php",
   "python",
   "typescript",
   "typescriptreact",
+  "xml",
   "yaml.docker-compose",
 }
 
@@ -51,7 +53,9 @@ return {
         analyzers_path .. "sonarjava.jar",
         analyzers_path .. "sonarjavasymbolicexecution.jar",
         analyzers_path .. "sonarjs.jar",
+        analyzers_path .. "sonarphp.jar",
         analyzers_path .. "sonarpython.jar",
+        analyzers_path .. "sonarxml.jar",
       },
     },
     filetypes = sonarlint_ft,
