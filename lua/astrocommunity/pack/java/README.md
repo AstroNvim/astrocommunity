@@ -75,4 +75,4 @@ To add Spring Boot support, you can add the following to your config:
 }
 ```
 
-NB: You will need to install the `spring-boot-tools` extension for this to work, either from VSCode marketplace or Mason (when it's released).
+NB: You will need to install the `spring-boot-tools` extension for this to work, either from VSCode marketplace or Mason ([when it's released](https://github.com/mason-org/mason-registry/pull/8077)).
