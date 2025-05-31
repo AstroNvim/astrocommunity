@@ -49,17 +49,6 @@ return {
     opts = function(_, opts)
       local utils = require "astrocore"
 
-      local root_markers = {
-        ".git",
-        "build.gradle",
-        "build.gradle.kts",
-        "build.xml", -- Ant
-        "pom.xml", -- Maven
-        "settings.gradle", -- Gradle
-        "settings.gradle.kts", -- Gradle
-      }
-      local root_dir = require("jdtls.setup").find_root(root_markers)
-
       local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
       local workspace_dir = vim.fn.stdpath "data" .. "/site/java/workspace-root/" .. project_name
       vim.fn.mkdir(workspace_dir, "p")
@@ -90,7 +79,7 @@ return {
           "-data",
           workspace_dir,
         },
-        root_dir = root_dir,
+        root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }),
         settings = {
           java = {
             eclipse = { downloadSources = true },
