@@ -98,8 +98,8 @@ return {
       "OXY2DEV/markview.nvim",
       optional = true,
       opts = function(_, opts)
-        if not opts.filetypes then opts.filetypes = { "markdown", "quarto", "rmd" } end
-        opts.filetypes = require("astrocore").list_insert_unique(opts.filetypes, { "Avante" })
+        if not opts.preview.filetypes then opts.preview.filetypes = { "markdown", "quarto", "rmd" } end
+        opts.preview.filetypes = require("astrocore").list_insert_unique(opts.preview.filetypes, { "Avante" })
       end,
     },
     {
