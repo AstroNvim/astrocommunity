@@ -40,7 +40,7 @@ return {
 
               if vuels:is_installed() then
                 local volar_install_path =
-                  vim.fn.expand "$MASON/packages/vue-language-server/node_modules/@vue/language-server"
+                  vuels:get_install_path() "/node_modules/@vue/language-server"
 
                 local vue_plugin_config = {
                   name = "@vue/typescript-plugin",
