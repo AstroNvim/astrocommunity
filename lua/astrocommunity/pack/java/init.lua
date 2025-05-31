@@ -53,10 +53,10 @@ return {
         ".git",
         "build.gradle",
         "build.gradle.kts",
-        "build.xml",
-        "pom.xml",
-        "settings.gradle",
-        "settings.gradle.kts",
+        "build.xml", -- Ant
+        "pom.xml", -- Maven
+        "settings.gradle", -- Gradle
+        "settings.gradle.kts", -- Gradle
       }
       local root_dir = require("jdtls.setup").find_root(root_markers)
 
