@@ -52,3 +52,27 @@ Here is a simple example:
     },
   }
 ```
+
+## Spring Boot
+
+To add Spring Boot support, you can add the following to your config:
+
+```lua
+{
+  "JavaHello/spring-boot.nvim",
+  ft = { "java", "yaml", "jproperties" },
+  dependencies = {
+    {
+      "mfussenegger/nvim-jdtls",
+      opts = function(_, opts)
+        if not opts.init_options then opts.init_options = {} end
+        if not opts.init_options.bundles then opts.init_options.bundles = {} end
+        vim.list_extend(opts.init_options.bundles, require("spring_boot").java_extensions())
+      end,
+    },
+  },
+  opts = {},
+}
+```
+
+NB: You will need to install the `spring-boot-tools` extension for this to work, either from VSCode marketplace or Mason (when it's released).
