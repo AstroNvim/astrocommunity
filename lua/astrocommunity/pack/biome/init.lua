@@ -1,5 +1,3 @@
-
-
 ---@type LazySpec
 return {
   {
@@ -47,12 +45,6 @@ return {
       for _, ft in ipairs(supported_ft) do
         opts.formatters_by_ft[ft] = { "biome" }
       end
-
-      opts.formatters = opts.formatters or {}
-      opts.formatters.biome = {
-        -- Only use the `biome` formatter if biome config is present
-        require_cwd = true,
-      }
     end,
   },
 }
