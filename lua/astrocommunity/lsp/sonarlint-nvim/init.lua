@@ -21,7 +21,6 @@ local sonarlint_ft = {
 ---@type LazySpec
 return {
   "https://gitlab.com/schrieveslaach/sonarlint.nvim",
-  optional = true,
   ft = sonarlint_ft,
   specs = {
     {
