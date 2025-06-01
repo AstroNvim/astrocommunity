@@ -2,7 +2,7 @@
 
 Requires:
 
-- `spring-boot-tools` using [VSCode](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) or [Mason](https://github.com/mason-org/mason-registry/pull/8077)
+- `spring-boot-tools` using [VSCode](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot) or [Mason](https://github.com/mason-org/mason-registry/blob/main/packages/vscode-spring-boot-tools/package.yaml)
 
 This plugin pack does the following:
 
