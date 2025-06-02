@@ -4,5 +4,5 @@
 
 ## Prerequisites
 
-To use ESLint, you must have [Node.js](https://nodejs.org/en/) (^18.18.0, ^20.9.0, or >=21.1.0) installed
+To use ESLint, you must have [Node.js](https://nodejs.org/en/) LTS installed
 and built with SSL support. (If you are using an official Node.js distribution, SSL is always built in.)
