@@ -1,12 +1,6 @@
 # ESLint
 
-[ESLint](https://eslint.org/) is a tool for identifying and reporting on
-patterns found in ECMAScript/JavaScript code, with the goal of making code more
-consistent and avoiding bugs.
-
-ESLint is completely pluggable. Every single rule is a plugin and you can add
-more at runtime. You can also add community plugins, configurations, and
-parsers to extend the functionality of ESLint.
+[ESLint](https://eslint.org/) statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
 
 ## Prerequisites
 
