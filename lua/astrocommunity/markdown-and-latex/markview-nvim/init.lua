@@ -20,4 +20,12 @@ return {
       headings = { shift_width = 0 },
     },
   },
+  specs = {
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { markview = true } },
+    },
+  },
 }

@@ -164,5 +164,11 @@ return {
     { "rafamadriz/friendly-snippets", optional = true, enabled = false },
     -- blink
     { "Saghen/blink.cmp", optional = true, enabled = false },
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { coc_nvim = true } },
+    },
   },
 }

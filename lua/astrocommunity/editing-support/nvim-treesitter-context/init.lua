@@ -18,4 +18,12 @@ return {
       },
     },
   },
+  specs = {
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { treesitter_context = true } },
+    },
+  },
 }

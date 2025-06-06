@@ -62,5 +62,11 @@ return {
         },
       },
     },
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { gitgraph = true } },
+    },
   },
 }

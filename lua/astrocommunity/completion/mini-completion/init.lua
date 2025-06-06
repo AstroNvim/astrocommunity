@@ -11,5 +11,11 @@ return {
     { "L3MON4D3/LuaSnip", optional = true, enabled = false },
     { "saadparwaiz1/cmp_luasnip", optional = true, enabled = false },
     { "rcarriga/cmp-dap", optional = true, enabled = false },
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { mini = true } },
+    },
   },
 }

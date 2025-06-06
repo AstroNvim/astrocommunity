@@ -3,6 +3,12 @@ return {
   dependencies = { "AstroNvim/astrocore" },
   specs = {
     { "folke/which-key.nvim", optional = true, enabled = false },
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { mini = true } },
+    },
   },
   keys = function()
     require("lazy").load { plugins = { "astrocore" } } -- load astrocore before loading opts

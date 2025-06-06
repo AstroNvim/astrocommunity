@@ -2,6 +2,12 @@ return {
   "tpope/vim-dadbod",
   specs = {
     {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { dadbod_ui = true } },
+    },
+    {
       "kristijanhusak/vim-dadbod-ui",
       dependencies = { "tpope/vim-dadbod" },
       cmd = {

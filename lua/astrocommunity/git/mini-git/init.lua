@@ -5,4 +5,12 @@ return {
   event = "User AstroGitFile",
   cmd = "Git",
   opts = {},
+  specs = {
+    {
+      "catppuccin",
+      optional = true,
+      ---@type CatppuccinOptions
+      opts = { integrations = { mini = true } },
+    },
+  },
 }
