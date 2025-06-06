@@ -3,6 +3,7 @@ return {
   "nvim-treesitter/nvim-treesitter-context",
   event = "User AstroFile",
   cmd = { "TSContext" },
+  opts = {},
   dependencies = {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
