@@ -34,4 +34,43 @@ return {
       },
     },
   },
+  specs = {
+    {
+      "akinsho/bufferline.nvim",
+      optional = true,
+      opts = function(_, opts)
+        return require("astrocore").extend_tbl(opts, {
+          highlights = require("catppuccin.groups.integrations.bufferline").get(),
+        })
+      end,
+    },
+    {
+      "famiu/feline.nvim",
+      optional = true,
+      opts = function(_, opts)
+        local ctp_feline = require "catppuccin.groups.integrations.feline"
+        ctp_feline.setup()
+
+        return require("astrocore").extend_tbl(opts, { components = ctp_feline.get() })
+      end,
+    },
+    {
+      "nvimdev/lspsaga.nvim",
+      optional = true,
+      opts = {
+        ui = {
+          kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+        },
+      },
+    },
+    {
+      "nvim-lualine/lualine.nvim",
+      optional = true,
+      opts = {
+        options = {
+          theme = "catppuccin",
+        },
+      },
+    },
+  },
 }
