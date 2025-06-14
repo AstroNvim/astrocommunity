@@ -5,7 +5,7 @@ return {
     {
       "AstroNvim/astrocore",
       opts = function(_, opts)
-        local maps = opts.mappings
+        local maps = assert(opts.mappings)
         maps.n["<Leader>y"] = { "<Cmd>Fyler<CR>", desc = "Fyler" }
       end,
     },
