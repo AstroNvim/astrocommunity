@@ -80,7 +80,7 @@ return {
         maps.n["<Leader>ju"] = {
           function()
             local astro = require "astrocore"
-            astro.toggle_term_cmd("jjui")
+            astro.toggle_term_cmd "jjui"
           end,
           desc = "jjui",
         }
