@@ -1,6 +1,9 @@
 return {
   "mistweaverco/kulala.nvim",
   ft = { "http", "rest" },
+  keys = {
+    { "<leader>r", desc = "KulalaNvim" },
+  },
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter",
@@ -20,8 +23,8 @@ return {
   },
   opts = {
     global_keymaps = true,
-    global_keymaps_prefix = "<leader>R",
-    lsp = { keymaps = true },
+    global_keymaps_prefix = "<leader>r",
+    lsp = { on_attach = require("astrolsp").on_attach },
   },
   config = function(_, opts)
     require("kulala").setup(opts)
