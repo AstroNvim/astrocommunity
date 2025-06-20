@@ -72,6 +72,20 @@ return {
         end,
         desc = "Hover symbol details",
       }
+
+      -- FIX: Add insert mode keymaps for completion behavior
+      if not maps.i then maps.i = {} end
+      maps.i["<C-Space>"] = { "coc#refresh()", desc = "Trigger completion", expr = true, silent = true }
+      maps.i["<CR>"] = {
+        [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]],
+        expr = true,
+        noremap = true,
+        silent = true,
+      }
+      maps.i["<Tab>"] =
+        { [[coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"]], expr = true, noremap = true, silent = true }
+      maps.i["<S-Tab>"] =
+        { [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], expr = true, noremap = true, silent = true }
     end,
   },
   specs = {
@@ -164,5 +178,7 @@ return {
     { "rafamadriz/friendly-snippets", optional = true, enabled = false },
     -- blink
     { "Saghen/blink.cmp", optional = true, enabled = false },
+    -- autopairs
+    { "windwp/nvim-autopairs", optional = true, enabled = false },
   },
 }
