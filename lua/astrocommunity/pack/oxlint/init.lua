@@ -27,19 +27,12 @@ return {
       -- https://oxc.rs/docs/guide/usage/linter.html
       local supported_ft = {
         "astro",
-        "css",
-        "graphql",
-        -- "html",
         "javascript",
         "javascriptreact",
-        "json",
-        "jsonc",
-        -- "markdown",
         "svelte",
         "typescript",
         "typescriptreact",
         "vue",
-        -- "yaml",
       }
       for _, ft in ipairs(supported_ft) do
         opts.formatters_by_ft[ft] = { "oxlint" }
