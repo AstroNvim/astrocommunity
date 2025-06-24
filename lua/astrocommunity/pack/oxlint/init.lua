@@ -26,12 +26,12 @@ return {
       if not opts.formatters_by_ft then opts.formatters_by_ft = {} end
       -- https://oxc.rs/docs/guide/usage/linter.html
       local supported_ft = {
-        "astro",
         "javascript",
-        "javascriptreact",
-        "svelte",
         "typescript",
+        "javascriptreact",
         "typescriptreact",
+        "astro",
+        "svelte",
         "vue",
       }
       for _, ft in ipairs(supported_ft) do
