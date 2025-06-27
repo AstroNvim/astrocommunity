@@ -73,7 +73,6 @@ return {
         desc = "Hover symbol details",
       }
 
-      -- FIX: Add insert mode keymaps for completion behavior
       if not maps.i then maps.i = {} end
       maps.i["<C-Space>"] = { "coc#refresh()", desc = "Trigger completion", expr = true, silent = true }
       maps.i["<CR>"] = {
