@@ -11,6 +11,7 @@ This plugin pack does the following:
 - Adds [package-info.nvim](https://github.com/vuki656/package-info.nvim) for project package management
 - Adds [nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations) to handles file imports on rename or move within neo-tree
 - Adds [neotest-jest](https://github.com/nvim-neotest/neotest-jest) to ease the test running if `neotest` is installed
+- Adds `gs` mapping for [goto_source_definition](https://github.com/yioneko/nvim-vtsls?tab=readme-ov-file#commands) instead of typings.
 
 ## How do I enable HTML and CSS support?
 
