@@ -29,6 +29,7 @@ return {
       ask = prefix .. "<CR>",
       edit = prefix .. "e",
       refresh = prefix .. "r",
+      new_ask = prefix .. "n",
       focus = prefix .. "f",
       select_model = prefix .. "?",
       stop = prefix .. "S",
@@ -97,8 +98,9 @@ return {
       "OXY2DEV/markview.nvim",
       optional = true,
       opts = function(_, opts)
-        if not opts.filetypes then opts.filetypes = { "markdown", "quarto", "rmd" } end
-        opts.filetypes = require("astrocore").list_insert_unique(opts.filetypes, { "Avante" })
+        if not opts.preview then opts.preview = {} end
+        if not opts.preview.filetypes then opts.preview.filetypes = { "markdown", "quarto", "rmd" } end
+        opts.preview.filetypes = require("astrocore").list_insert_unique(opts.preview.filetypes, { "Avante" })
       end,
     },
     {
@@ -141,10 +143,10 @@ return {
               if not open then sidebar.file_selector:remove_selected_file "neo-tree filesystem [1]" end
             end,
           },
-        },
-        window = {
-          mappings = {
-            ["oa"] = "avante_add_files",
+          window = {
+            mappings = {
+              ["oa"] = "avante_add_files",
+            },
           },
         },
       },

@@ -14,5 +14,15 @@ return {
         table.insert(opts.sources, { name = "snippets", priority = 750 })
       end,
     },
+    {
+      "Saghen/blink.cmp",
+      optional = true,
+      opts = { snippets = { preset = "default" } },
+    },
+    {
+      "danymat/neogen",
+      optional = true,
+      opts = { snippet_engine = "nvim" },
+    },
   },
 }

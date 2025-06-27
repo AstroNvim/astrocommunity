@@ -127,10 +127,10 @@ return {
   {
     "nvim-neotest/neotest",
     optional = true,
-    dependencies = { "nvim-neotest/neotest-go", config = function() end },
+    dependencies = { "fredrikaverpil/neotest-golang" },
     opts = function(_, opts)
       if not opts.adapters then opts.adapters = {} end
-      table.insert(opts.adapters, require "neotest-go"(require("astrocore").plugin_opts "neotest-go"))
+      table.insert(opts.adapters, require "neotest-golang"(require("astrocore").plugin_opts "neotest-golang"))
     end,
   },
   {

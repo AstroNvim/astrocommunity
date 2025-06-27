@@ -1,6 +1,6 @@
 # Jujutsu/jj Pack
 
-Pack for the [Jujutsu/jj](https://github.com/martinvonz/jj) Git-compatible VCS.
+Pack for the [Jujutsu/jj](https://github.com/jj-vcs/jj) Git-compatible VCS.
 
 This plugin pack does the following:
 
@@ -10,4 +10,4 @@ This plugin pack does the following:
   - `<Leader>jd` for files with changes, like `jj diff`
   - `<Leader>jc` for files with conflicts, like `jj resolve --list`
 - Adds syntax highlighting for `.jjdescription` files (for use with `jj describe`) with [vim-jjdescription](https://github.com/avm99963/vim-jjdescription)
-- Adds a [lazyjj](https://github.com/Cretezy/lazyjj) (TUI for jj) terminal with `<Leader>jl` when `lazyjj` is in `$PATH`
+- Adds a [lazyjj](https://github.com/Cretezy/lazyjj) and [jjui](https://github.com/idursun/jjui) (TUIs for jj) terminal with `<Leader>jl` or `<Leader>ju` respectively, if the corresponding binaries are in `$PATH`

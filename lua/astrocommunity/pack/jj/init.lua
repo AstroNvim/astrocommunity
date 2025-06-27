@@ -75,6 +75,16 @@ return {
           desc = "lazyjj",
         }
       end
+
+      if vim.fn.executable "jjui" == 1 then
+        maps.n["<Leader>ju"] = {
+          function()
+            local astro = require "astrocore"
+            astro.toggle_term_cmd "jjui"
+          end,
+          desc = "jjui",
+        }
+      end
     end,
   },
 }

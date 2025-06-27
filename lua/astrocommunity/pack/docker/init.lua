@@ -8,11 +8,10 @@ return {
   {
     "AstroNvim/astrolsp",
     optional = true,
+    ---@type AstroLSPOpts
     opts = {
       formatting = {
-        disabled = {
-          "docker_compose_language_service",
-        },
+        filter = function(client) return client.name ~= "docker_compose_language_service" end,
       },
     },
   },

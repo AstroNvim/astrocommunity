@@ -31,6 +31,13 @@ return {
         },
       },
     },
+    {
+      "vhyrro/luarocks.nvim",
+      priority = 1000,
+      opts = {
+        rocks = { "luautf8" },
+      },
+    },
   },
   opts = {},
 }

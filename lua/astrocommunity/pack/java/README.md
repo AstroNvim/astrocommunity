@@ -16,8 +16,7 @@ This plugin pack does the following:
 
 ## Note
 
-We require that the root folder of your projects include one of these files/folders([Reference](https://github.com/AstroNvim/astrocommunity/blob/49e9a3961bba079d7f413b8d5567382dd6f55392/lua/astrocommunity/pack/java/java.lua#LL37C96-L37C96)):  
-`.git`, `mvnw`, `gradlew`, `pom.xml`, `build.gradle` or `.project`
+We require that the root folder of your projects include one of these files/folders: `.git`, `mvnw`, `gradlew`
 
 ## Tips
 

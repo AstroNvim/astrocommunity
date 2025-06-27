@@ -14,7 +14,7 @@ return {
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
         opts.ensure_installed =
-          require("astrocore").list_insert_unique(opts.ensure_installed, { "html", "css", "scss" })
+          require("astrocore").list_insert_unique(opts.ensure_installed, { "html", "css", "scss", "styled" })
       end
       vim.treesitter.language.register("scss", "less")
       vim.treesitter.language.register("scss", "postcss")

@@ -2,7 +2,8 @@
 return {
   "nvim-treesitter/nvim-treesitter-context",
   event = "User AstroFile",
-  cmd = { "TSContextToggle" },
+  cmd = { "TSContext" },
+  opts = {},
   dependencies = {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
@@ -10,7 +11,7 @@ return {
       mappings = {
         n = {
           ["<Leader>uT"] = {
-            "<cmd>TSContextToggle<CR>",
+            "<cmd>TSContext toggle<CR>",
             desc = "Toggle treesitter context",
           },
         },
