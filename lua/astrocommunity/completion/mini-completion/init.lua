@@ -3,6 +3,7 @@ return {
   lazy = false,
   opts = {},
   specs = {
+    { "Saghen/blink.cmp", enabled = false },
     { "hrsh7th/nvim-cmp", optional = true, enabled = false },
     { "hrsh7th/cmp-buffer", optional = true, enabled = false },
     { "hrsh7th/cmp-nvim-lsp", optional = true, enabled = false },

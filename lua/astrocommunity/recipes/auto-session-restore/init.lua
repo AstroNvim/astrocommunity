@@ -34,10 +34,18 @@ return {
               if should_skip then return end
               -- if possible, load session
               if not pcall(function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession" }) end) then
-                -- if session was not loaded, if possible, load alpha
-                require("lazy").load { plugins = { "alpha-nvim" } }
-                if pcall(function() require("alpha").start(true) end) then
-                  vim.schedule(function() vim.cmd.doautocmd "FileType" end)
+                local is_available = require("astrocore").is_available
+                if is_available "alpha-nvim" then
+                  -- if session was not loaded, if possible, load alpha
+                  require("lazy").load { plugins = { "alpha-nvim" } }
+                  if pcall(function() require("alpha").start(true) end) then
+                    vim.schedule(function() vim.cmd.doautocmd "FileType" end)
+                  end
+                elseif is_available "snacks.nvim" then
+                  -- if session was not loaded, if possible, load Snacks dashboard
+                  if pcall(function() require("snacks").dashboard() end) then
+                    vim.schedule(function() vim.cmd.doautocmd "FileType" end)
+                  end
                 end
               end
             end,

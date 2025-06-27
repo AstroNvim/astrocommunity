@@ -2,8 +2,6 @@ return {
   "pwntester/octo.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
-    "nvim-tree/nvim-web-devicons",
     { "AstroNvim/astroui", opts = { icons = { Octo = "" } } },
     {
       "AstroNvim/astrocore",
@@ -82,8 +80,12 @@ return {
     },
   },
   cmd = { "Octo" },
-  opts = {
-    use_diagnostic_signs = true,
-    mappings = {},
-  },
+  opts = function(_, opts)
+    local is_available = require("astrocore").is_available
+    opts.use_diagnostic_signs = true
+    opts.mappings = {}
+    opts.picker = (is_available "telescope.nvim" and "telescope")
+      or (is_available "fzf-lua" and "fzf-lua")
+      or (is_available "snacks.nvim" and "snacks")
+  end,
 }

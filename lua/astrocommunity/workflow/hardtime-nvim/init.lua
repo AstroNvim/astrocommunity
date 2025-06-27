@@ -1,6 +1,6 @@
 return {
   "m4xshen/hardtime.nvim",
-  event = "User AstroFile",
+  lazy = false,
   opts = {
     disabled_keys = {
       ["<Insert>"] = { "", "i" },
@@ -10,8 +10,5 @@ return {
       ["<PageDown>"] = { "", "i" },
     },
   },
-  config = function(_, opts)
-    require("hardtime").setup(opts)
-    require("hardtime").enable()
-  end,
+  dependencies = { "MunifTanjim/nui.nvim" },
 }

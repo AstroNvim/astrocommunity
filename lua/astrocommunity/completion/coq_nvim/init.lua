@@ -5,6 +5,7 @@ return {
   build = ":COQdeps",
   cmd = { "COQnow", "COQhelp", "COQstats", "COQdeps" },
   specs = {
+    { "Saghen/blink.cmp", optional = true, enabled = false },
     { "hrsh7th/nvim-cmp", optional = true, enabled = false },
     { "hrsh7th/cmp-buffer", optional = true, enabled = false },
     { "hrsh7th/cmp-nvim-lsp", optional = true, enabled = false },

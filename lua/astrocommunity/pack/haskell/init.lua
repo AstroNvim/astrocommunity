@@ -4,7 +4,7 @@ local is_available = function(plugin)
 end
 local haskell_ft = { "haskell", "lhaskell", "cabal", "cabalproject" }
 
-local pack = {
+return {
   { import = "astrocommunity.pack.yaml" }, -- stack.yaml
   { import = "astrocommunity.pack.json" }, -- hls.json
   { import = "astrocommunity.test.neotest" }, -- neotest-haskell
@@ -72,16 +72,10 @@ local pack = {
       table.insert(opts.adapters, require "neotest-haskell"(require("astrocore").plugin_opts "neotest-haskell"))
     end,
   },
-}
-
-if vim.fn.has "nvim-0.10" == 1 then
-  -- haskell-tools v4 supports neovim v0.10+
-  table.insert(pack, {
+  {
     "mrcjkb/haskell-tools.nvim",
     ft = haskell_ft,
     dependencies = {
-      -- vim.fn.has >= nvim 0.9 removes plenary dependency
-      { "nvim-lua/plenary.nvim", optional = vim.fn.has "nvim-0.9" == 1 },
       { "nvim-telescope/telescope.nvim", optional = true },
       { "mfussenegger/nvim-dap", optional = true },
       {
@@ -100,37 +94,5 @@ if vim.fn.has "nvim-0.10" == 1 then
         hls = astrolsp_avail and { capabilities = astrolsp.config.capabilities, on_attach = astrolsp.on_attach } or {},
       }, vim.g.haskell_tools)
     end,
-  })
-else
-  -- TODO: Remove this with AstroNvim v5 when dropping Neovim v0.9 support
-  -- haskell-tools v3 is the last version that supports neovim v0.9
-  -- This is simply a copy/paste of the v3 configuration to be left alone just in case
-  -- the setup gets breaking changes and diverges.
-  table.insert(pack, {
-    "mrcjkb/haskell-tools.nvim",
-    ft = haskell_ft,
-    dependencies = {
-      -- vim.fn.has >= nvim 0.9 removes plenary dependency
-      { "nvim-lua/plenary.nvim", optional = vim.fn.has "nvim-0.9" == 1 },
-      { "nvim-telescope/telescope.nvim", optional = true },
-      { "mfussenegger/nvim-dap", optional = true },
-      {
-        "AstroNvim/astrolsp",
-        ---@type AstroLSPOpts
-        opts = {
-          ---@diagnostic disable: missing-fields
-          handlers = { hls = false },
-        },
-      },
-    },
-    version = "^3",
-    init = function()
-      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-      vim.g.haskell_tools = require("astrocore").extend_tbl({
-        hls = astrolsp_avail and { capabilities = astrolsp.config.capabilities, on_attach = astrolsp.on_attach } or {},
-      }, vim.g.haskell_tools)
-    end,
-  })
-end
-
-return pack
+  },
+}

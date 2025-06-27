@@ -44,3 +44,6 @@ luac.out
 
 # generated docs
 pages
+
+# direnv
+.direnv

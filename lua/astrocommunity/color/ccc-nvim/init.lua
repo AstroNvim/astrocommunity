@@ -3,7 +3,8 @@ return {
   event = { "User AstroFile", "InsertEnter" },
   cmd = { "CccPick", "CccConvert", "CccHighlighterEnable", "CccHighlighterDisable", "CccHighlighterToggle" },
   specs = {
-    { "NvChad/nvim-colorizer.lua", optional = true, enabled = false },
+    { "brenoprata10/nvim-highlight-colors", enabled = false },
+    { "NvChad/nvim-colorizer.lua", enabled = false },
   },
   dependencies = {
     {

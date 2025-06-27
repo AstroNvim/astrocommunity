@@ -1,6 +1,7 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   event = "User AstroFile",
+  main = "ibl",
   opts = {
     indent = {
       char = "│",

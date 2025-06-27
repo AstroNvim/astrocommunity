@@ -6,8 +6,8 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>F"] = { function() require("edgy").toggle() end, desc = "Toggle Sidebars" },
-            ["<Leader>f"] = { function() require("edgy").select() end, desc = "Pick Sidebar" },
+            ["<Leader>uE"] = { function() require("edgy").toggle() end, desc = "Toggle Sidebars" },
+            ["<Leader>ue"] = { function() require("edgy").select() end, desc = "Pick Sidebar" },
           },
         },
       },

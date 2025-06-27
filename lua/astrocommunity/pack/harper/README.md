@@ -8,7 +8,7 @@
 
 To add your configuration, you have to extend `AstroNvim/astrolsp` opts.
 
-> See the options that `harper-ls` support [here](https://github.com/elijah-potter/harper/blob/master/harper-ls/README.md#configuration).
+> See the options that `harper-ls` support [here](https://writewithharper.com/docs/integrations/language-server#Configuration).
 
 ```lua
 ---@type LazySpec

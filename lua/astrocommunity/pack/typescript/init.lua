@@ -73,7 +73,6 @@ end
 local conform_formatter = function(bufnr) return has_prettier(bufnr) and { "prettierd" } or {} end
 
 return {
-  { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -89,6 +88,15 @@ return {
     "AstroNvim/astrolsp",
     ---@type AstroLSPOpts
     opts = {
+      mappings = {
+        n = {
+          gs = {
+            function() require("vtsls").commands.goto_source_definition() end,
+            desc = "Goto Source Definition (vtsls)",
+            cond = function(client) return client.name == "vtsls" end,
+          },
+        },
+      },
       autocmds = {
         eslint_fix_on_save = {
           cond = function(client) return client.name == "eslint" and vim.fn.exists ":EslintFixAll" > 0 end,

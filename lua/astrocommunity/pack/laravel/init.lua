@@ -7,7 +7,6 @@ return {
     cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
     dependencies = {
       "tpope/vim-dotenv",
-      "nvim-telescope/telescope.nvim",
       "MunifTanjim/nui.nvim",
       "kevinhwang91/promise-async",
       {
@@ -28,7 +27,18 @@ return {
       { "AstroNvim/astroui", opts = { icons = { Laravel = "󰫐" } } },
     },
     event = { "VeryLazy" },
-    config = true,
+    opts = function(_, opts)
+      local is_available = require("astrocore").is_available
+      opts.features = {
+        pickers = {
+          enable = true,
+          provider = (is_available "telescope.nvim" and "telescope")
+            or (is_available "fzf-lua" and "fzf-lua")
+            or (is_available "snacks.nvim" and "snacks")
+            or "ui.select",
+        },
+      }
+    end,
   },
   {
     "Bleksak/laravel-ide-helper.nvim",
@@ -57,7 +67,7 @@ return {
   {
     "ricardoramirezr/blade-nav.nvim",
     dependencies = {
-      "hrsh7th/nvim-cmp",
+      { "hrsh7th/nvim-cmp", optional = true },
     },
     ft = { "blade", "php" },
   },

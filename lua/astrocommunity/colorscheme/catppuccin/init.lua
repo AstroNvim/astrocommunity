@@ -7,6 +7,7 @@ return {
     integrations = {
       aerial = true,
       alpha = true,
+      blink_cmp = true,
       cmp = true,
       dap = true,
       dap_ui = true,
@@ -27,6 +28,10 @@ return {
       which_key = true,
       window_picker = true,
       colorful_winsep = { enabled = true, color = "lavender" },
+      snacks = {
+        enabled = true,
+        indent_scope_color = "lavender",
+      },
     },
   },
   specs = {
