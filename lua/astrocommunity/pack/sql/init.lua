@@ -30,17 +30,17 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "sqlfluff" })
-      opts.handlers = {
-        sqlfluff = function()
-          local null_ls = require "null-ls"
-          null_ls.register(null_ls.builtins.diagnostics.sqlfluff.with {
-            extra_args = { "--dialect", "ansi" },
-          })
-          null_ls.register(null_ls.builtins.formatting.sqlfluff.with {
-            extra_args = { "--dialect", "ansi" },
-          })
-        end,
-      }
+      opts.handlers = opts.handlers or {}
+
+      opts.handlers.sqlfluff = function()
+        local null_ls = require "null-ls"
+        null_ls.register(null_ls.builtins.diagnostics.sqlfluff.with {
+          extra_args = { "--dialect", "ansi" },
+        })
+        null_ls.register(null_ls.builtins.formatting.sqlfluff.with {
+          extra_args = { "--dialect", "ansi" },
+        })
+      end
     end,
   },
   {
