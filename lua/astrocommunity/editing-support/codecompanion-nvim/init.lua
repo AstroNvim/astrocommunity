@@ -14,10 +14,22 @@ return {
     "nvim-lua/plenary.nvim",
     "ravitemer/mcphub.nvim",
     "nvim-treesitter/nvim-treesitter",
+  },
+  opts = {
+    display = {
+      chat = {
+        auto_scroll = false,
+      },
+    },
+  },
+  specs = {
+    { "AstroNvim/astroui", opts = { icons = { CodeCompanion = "󱙺" } } },
     {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         if not opts.mappings then opts.mappings = {} end
+        opts.mappings.n = opts.mappings.n or {}
+        opts.mappings.v = opts.mappings.v or {}
         opts.mappings.n[prefix] = { desc = require("astroui").get_icon("CodeCompanion", 1, true) .. "CodeCompanion" }
         opts.mappings.v[prefix] = { desc = require("astroui").get_icon("CodeCompanion", 1, true) .. "CodeCompanion" }
         opts.mappings.n[prefix .. "c"] = { "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle chat" }
@@ -30,10 +42,6 @@ return {
         vim.cmd [[cab cc CodeCompanion]]
       end,
     },
-  },
-  opts = {},
-  specs = {
-    { "AstroNvim/astroui", opts = { icons = { CodeCompanion = "󱙺" } } },
     {
       "MeanderingProgrammer/render-markdown.nvim",
       optional = true,
@@ -43,6 +51,7 @@ return {
       end,
     },
     {
+      -- make sure `codecompanion` is added as a filetype for markview
       "OXY2DEV/markview.nvim",
       optional = true,
       opts = function(_, opts)
