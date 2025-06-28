@@ -223,7 +223,7 @@ return {
         {
           "hrsh7th/nvim-cmp",
           opts = function(_, opts)
-            opts.sources = opts.sources or {} -- init opts.sources
+            if not opts.sources then opts.sources = {} end
             table.insert(opts.sources, { name = "lazydev", group_index = 0 })
           end,
         },
