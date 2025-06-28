@@ -1,6 +1,5 @@
 local prefix = "<Leader>A"
 
----@type LazySpec
 return {
   "olimorris/codecompanion.nvim",
   event = "User AstroFile",
@@ -23,6 +22,34 @@ return {
     },
   },
   specs = {
+    {
+      "rebelot/heirline.nvim",
+      opts = function(_, opts)
+        local CodeCompanion = {
+          static = {
+            processing = false,
+          },
+          update = {
+            "User",
+            pattern = "CodeCompanionRequest*",
+            callback = function(self, args)
+              if args.match == "CodeCompanionRequestStarted" then
+                self.processing = true
+              elseif args.match == "CodeCompanionRequestFinished" then
+                self.processing = false
+              end
+              vim.cmd "redrawstatus"
+            end,
+          },
+          {
+            condition = function(self) return self.processing end,
+            provider = " ",
+            hl = { fg = "yellow" },
+          },
+        }
+        table.insert(opts.statusline or {}, CodeCompanion)
+      end,
+    },
     {
       "ravitemer/codecompanion-history.nvim",
       opts = {
