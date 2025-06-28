@@ -1,5 +1,6 @@
 return {
   "Davidyz/VectorCode",
+  build = "uv tool install vectorcode",
   version = "*", -- optional, depending on whether you're on nightly or release
   dependencies = { "nvim-lua/plenary.nvim" },
   cmd = "VectorCode", -- if you're lazy-loading VectorCode
