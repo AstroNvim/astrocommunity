@@ -1,4 +1,3 @@
-
 local prefix = "<Leader>A"
 
 ---@type LazySpec
