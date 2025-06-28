@@ -51,7 +51,6 @@ return {
       end,
     },
     {
-      -- make sure `codecompanion` is added as a filetype for markview
       "OXY2DEV/markview.nvim",
       optional = true,
       opts = function(_, opts)
