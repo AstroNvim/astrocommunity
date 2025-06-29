@@ -56,6 +56,7 @@ return {
     },
     {
       "ravitemer/codecompanion-history.nvim",
+      optional = true,
       opts = {
         extensions = {
           history = {
