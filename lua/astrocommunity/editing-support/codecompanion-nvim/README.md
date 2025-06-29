@@ -1,11 +1,10 @@
-# Codecompanion.nvim
+# CodeCompanion.nvim  
 
-> [!IMPORTANT]
->
-> `codecompanion.nvim` is currently only compatible with Neovim 0.11.0 or later.
+**CodeCompanion.nvim** is a Neovim plugin designed for seamless AI-powered coding workflows, enabling integration with **multiple LLMs** (Anthropic, Copilot, OpenAI, Mistral AI, Ollama, and more) and advanced features like **inline code transformations**, **agentic workflows**, and **vision/image support** .  
 
-For more information, please refer to:
+> [!IMPORTANT]  
+> `codecompanion.nvim` requires **Neovim 0.11.0 or later** for full functionality.  
 
-Repository: <https://github.com/olimorris/codecompanion.nvim>
-
+For more details, visit the repository:  
+[https://github.com/olimorris/codecompanion.nvim](https://github.com/olimorris/codecompanion.nvim)  
 
