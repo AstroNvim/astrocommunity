@@ -112,21 +112,4 @@ return {
         opts.preview.filetypes = require("astrocore").list_insert_unique(opts.preview.filetypes, { "codecompanion" })
       end,
     },
-    {
-      "folke/snacks.nvim",
-      optional = true,
-      specs = {
-        {
-          "olimorris/codecompanion.nvim",
-          opts = {
-            display = {
-              action_palette = {
-                provider = "snacks",
-              },
-            },
-          },
-        },
-      },
-    },
-  },
 }
