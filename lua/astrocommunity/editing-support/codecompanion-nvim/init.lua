@@ -72,16 +72,16 @@ return {
               },
               auto_generate_title = true,
               title_generation_opts = {
-                adapter = nil, -- "copilot"
-                model = nil, -- "gpt-4o"
-                refresh_every_n_prompts = 0, -- e.g., 3 to refresh after every 3rd user prompt
+                adapter = nil,
+                model = nil,
+                refresh_every_n_prompts = 0,
                 max_refreshes = 3,
               },
               continue_last_chat = false,
               delete_on_clearing_chat = false,
               dir_to_save = vim.fn.stdpath "data" .. "/codecompanion-history",
               enable_logging = false,
-              chat_filter = nil, -- function(chat_data) return boolean end
+              chat_filter = nil,
             },
           },
         },
