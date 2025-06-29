@@ -17,6 +17,8 @@ return {
   specs = {
     {
       "rebelot/heirline.nvim",
+      optional = true,
+
       opts = function(_, opts)
         local CodeCompanion = {
           static = {
