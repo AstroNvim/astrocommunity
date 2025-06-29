@@ -18,37 +18,38 @@ return {
     {
       "rebelot/heirline.nvim",
       opts = function(_, opts)
-              local CodeCompanion = {
-        static = {
-          processing = false,
-        },
-        -- Helper functions to trigger code generation events
-        start_generation = function() vim.api.nvim_exec_autocmds("User", { pattern = "CodeCompanionRequestStarted" }) end,
-        end_generation = function() vim.api.nvim_exec_autocmds("User", { pattern = "CodeCompanionRequestFinished" }) end,
-        update = {
-          "User",
-          pattern = "CodeCompanionRequest*",
-          callback = function(self, args)
-            if args.match == "CodeCompanionRequestStarted" then
-              self.processing = true
-            elseif args.match == "CodeCompanionRequestFinished" then
-              self.processing = false
-            end
-            vim.cmd "redrawstatus"
-          end,
-        },
-        {
-          condition = function(self) return self.processing end,
-          provider = function()
-            local bufname = vim.api.nvim_buf_get_name(0)
-            local filename = vim.fn.fnamemodify(bufname, ":t")
-            if filename == "" then filename = "[No Name]" end
-            return string.format("%s Generating code for %s...", "󱙺", filename)
-          end,
-          hl = { fg = "yellow", bold = true },
-        },
-      }
-        table.insert(opts.statusline or {}, CodeCompanion)
+        local CodeCompanion = {
+          static = {
+            processing = false,
+          },
+          -- Helper functions to trigger code generation events
+          start_generation = function() vim.api.nvim_exec_autocmds("User", { pattern = "CodeCompanionRequestStarted" }) end,
+          end_generation = function() vim.api.nvim_exec_autocmds("User", { pattern = "CodeCompanionRequestFinished" }) end,
+          update = {
+            "User",
+            pattern = "CodeCompanionRequest*",
+            callback = function(self, args)
+              if args.match == "CodeCompanionRequestStarted" then
+                self.processing = true
+              elseif args.match == "CodeCompanionRequestFinished" then
+                self.processing = false
+              end
+              vim.cmd "redrawstatus"
+            end,
+          },
+          {
+            condition = function(self) return self.processing end,
+            provider = function()
+              local bufname = vim.api.nvim_buf_get_name(0)
+              local filename = vim.fn.fnamemodify(bufname, ":t")
+              if filename == "" then filename = "[No Name]" end
+              return string.format("%s Generating code for %s...", "󱙺", filename)
+            end,
+            hl = { fg = "yellow", bold = true },
+          },
+        }
+        opts.statusline = opts.statusline or {}
+        table.insert(opts.statusline, CodeCompanion)
       end,
     },
     {
@@ -120,4 +121,5 @@ return {
         opts.preview.filetypes = require("astrocore").list_insert_unique(opts.preview.filetypes, { "codecompanion" })
       end,
     },
+  },
 }
