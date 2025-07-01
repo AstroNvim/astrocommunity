@@ -107,13 +107,6 @@ local function has_prettier(bufnr)
   return prettierrc_root and next(prettierrc_root) ~= nil
 end
 
-local null_ls_formatter = function(params)
-  if vim.tbl_contains(format_filetypes, params.filetype) then return has_prettier(params.bufnr) end
-  return true
-end
-
-local conform_formatter = function(bufnr) return has_prettier(bufnr) and { "prettierd" } or {} end
-
 ---@type LazySpec
 return {
   {
@@ -126,7 +119,12 @@ return {
       opts.handlers.prettierd = function(source_name, methods)
         local null_ls = require "null-ls"
         for _, method in ipairs(methods) do
-          null_ls.register(null_ls.builtins[method][source_name].with { runtime_condition = null_ls_formatter })
+          null_ls.register(null_ls.builtins[method][source_name].with {
+            runtime_condition = function(params)
+              if vim.tbl_contains(format_filetypes, params.filetype) then return has_prettier(params.bufnr) end
+              return true
+            end,
+          })
         end
       end
     end,
@@ -137,7 +135,7 @@ return {
     opts = function(_, opts)
       if not opts.formatters_by_ft then opts.formatters_by_ft = {} end
       for _, filetype in ipairs(format_filetypes) do
-        opts.formatters_by_ft[filetype] = conform_formatter
+        opts.formatters_by_ft[filetype] = function(bufnr) return has_prettier(bufnr) and { "prettierd" } or {} end
       end
     end,
   },
