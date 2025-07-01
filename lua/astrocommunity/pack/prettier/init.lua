@@ -18,25 +18,20 @@ local format_filetypes = {
   "yaml",
 }
 
-local lsp_rooter_cache, prettierrc_rooter_cache
-
 local function get_lsp_rooter()
-  if not lsp_rooter_cache then
-    lsp_rooter_cache = require("astrocore.rooter").resolve("lsp", {
-      ignore = {
-        servers = function(client)
-          return not vim.tbl_contains({
-            "eslint",
-            "ts_ls",
-            "typescript-tools",
-            "volar",
-            "vtsls",
-          }, client.name)
-        end,
-      },
-    })
-  end
-  return lsp_rooter_cache
+  return require("astrocore.rooter").resolve("lsp", {
+    ignore = {
+      servers = function(client)
+        return not vim.tbl_contains({
+          "eslint",
+          "ts_ls",
+          "typescript-tools",
+          "volar",
+          "vtsls",
+        }, client.name)
+      end,
+    },
+  })
 end
 
 local prettier_files = {
@@ -59,10 +54,7 @@ local prettier_files = {
   "prettier.config.mts",
 }
 
-local function get_prettierrc_rooter()
-  if not prettierrc_rooter_cache then prettierrc_rooter_cache = require("astrocore.rooter").resolve(prettier_files) end
-  return prettierrc_rooter_cache
-end
+local function get_prettierrc_rooter() return require("astrocore.rooter").resolve(prettier_files) end
 
 local function decode_json(filename)
   local file = io.open(filename, "r")
