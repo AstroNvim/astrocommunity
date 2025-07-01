@@ -71,8 +71,6 @@ local function check_json_key_exists(json, ...) return vim.tbl_get(json, ...) ~=
 local function has_prettier(bufnr)
   if type(bufnr) ~= "number" then bufnr = vim.api.nvim_get_current_buf() end
 
-  local prettier_dependency = false
-
   local lsp_rooter = get_lsp_rooter()
   local search_roots = require("astrocore").list_insert_unique(lsp_rooter(bufnr) or {}, { vim.fn.getcwd() })
 
@@ -87,13 +85,10 @@ local function has_prettier(bufnr)
           or check_json_key_exists(package_json, "devDependencies", "prettier")
         )
       then
-        prettier_dependency = true
-        break
+        return true
       end
     end
   end
-
-  if prettier_dependency then return true end
 
   local prettierrc_root = get_prettierrc_rooter()(bufnr)
   return prettierrc_root and next(prettierrc_root) ~= nil
