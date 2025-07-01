@@ -48,7 +48,10 @@ return {
               if filename == "" then filename = "[No Name]" end
               return string.format("%s Generating code for %s...", "󱙺", filename)
             end,
-            hl = { fg = "yellow", bold = true },
+            hl = function()
+              local astroui = require "astroui.status.hl"
+              return astroui.filetype_color()
+            end,
           },
         })
       end,
