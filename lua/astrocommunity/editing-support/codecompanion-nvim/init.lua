@@ -20,7 +20,8 @@ return {
       optional = true,
 
       opts = function(_, opts)
-        local CodeCompanion = {
+        opts.statusline = opts.statusline or {}
+        table.insert(opts.statusline, {
           static = {
             processing = false,
           },
@@ -49,9 +50,7 @@ return {
             end,
             hl = { fg = "yellow", bold = true },
           },
-        }
-        opts.statusline = opts.statusline or {}
-        table.insert(opts.statusline, CodeCompanion)
+        })
       end,
     },
     {
