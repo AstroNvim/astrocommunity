@@ -1,3 +1,5 @@
+local prefix = "<Leader>R"
+
 return {
   "mistweaverco/kulala.nvim",
   ft = { "http", "rest" },
@@ -17,20 +19,15 @@ return {
       ---@type AstroUIOpts
       opts = { icons = { KulalaNvim = "󱜿" } },
     },
+    {
+      "AstroNvim/astrocore",
+      opts = function(_, opts)
+        local maps = opts.mappings
+        maps.n[prefix] = { desc = require("astroui").get_icon("KulalaNvim", 1, true) .. "KulalaNvim" }
+      end,
+    },
   },
   opts = {
     global_keymaps = true,
-    global_keymaps_prefix = "<leader>R",
-    lsp = { keymaps = true },
   },
-  config = function(_, opts)
-    require("kulala").setup(opts)
-    require("astrocore").setup {
-      mappings = {
-        n = {
-          [opts.global_keymaps_prefix] = { desc = require("astroui").get_icon("KulalaNvim", 1, true) .. "KulalaNvim" },
-        },
-      },
-    }
-  end,
 }
