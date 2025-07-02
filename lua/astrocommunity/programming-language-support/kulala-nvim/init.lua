@@ -24,7 +24,7 @@ return {
   opts = {
     global_keymaps = true,
     global_keymaps_prefix = "<leader>r",
-    lsp = { on_attach = require("astrolsp").on_attach },
+    lsp = { on_attach = function(...) return require("astrolsp").on_attach(...) end },
   },
   config = function(_, opts)
     require("kulala").setup(opts)
