@@ -28,12 +28,12 @@ return {
   },
   config = function(_, opts)
     require("kulala").setup(opts)
-    require("astrocore").setup {
-      mappings = {
+    if opts.global_keymaps_prefix then
+      require("astrocore").set_mappings {
         n = {
           [opts.global_keymaps_prefix] = { desc = require("astroui").get_icon("KulalaNvim", 1, true) .. "KulalaNvim" },
         },
-      },
-    }
+      }
+    end
   end,
 }
