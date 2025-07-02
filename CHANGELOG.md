@@ -1,5 +1,55 @@
 # Changelog
 
+## [19.1.0](https://github.com/AstroNvim/astrocommunity/compare/v19.0.0...v19.1.0) (2025-07-02)
+
+
+### Features
+
+* **file-explorer:** added fyler.nvim ([#1543](https://github.com/AstroNvim/astrocommunity/issues/1543)) ([27e9c1f](https://github.com/AstroNvim/astrocommunity/commit/27e9c1ff54f19825ef58b88f8676869a12b33e94))
+* **go:** replace `nvim-neotest/neotest-go` with `fredrikaverpil/neotest-golang` ([#1545](https://github.com/AstroNvim/astrocommunity/issues/1545)) ([656c66f](https://github.com/AstroNvim/astrocommunity/commit/656c66f69610ab5092e68b48e8d62157bb2353e5))
+* **jj:** add jjui to the jj pack ([#1546](https://github.com/AstroNvim/astrocommunity/issues/1546)) ([219e54c](https://github.com/AstroNvim/astrocommunity/commit/219e54c4d500a112d8b5458524c199c9d30f387c))
+* **lsp:** add sonarlint-nvim ([#1526](https://github.com/AstroNvim/astrocommunity/issues/1526)) ([d96c771](https://github.com/AstroNvim/astrocommunity/commit/d96c771877ed53e94937ddfe5d377e32b6024417))
+* **mcphub-nvim:** adding codecompanion extension ([#1561](https://github.com/AstroNvim/astrocommunity/issues/1561)) ([2db3ee2](https://github.com/AstroNvim/astrocommunity/commit/2db3ee2ce37f9e2bc9e6ea2c3e2e6292ca4d33bf))
+* **nvim-snippets:** add neogen and blink cmp integration ([#1555](https://github.com/AstroNvim/astrocommunity/issues/1555)) ([e2d034a](https://github.com/AstroNvim/astrocommunity/commit/e2d034a1de864cb180b29caf5f0e16dc55361c4c))
+* **pack:** add biome ([#1511](https://github.com/AstroNvim/astrocommunity/issues/1511)) ([88b9065](https://github.com/AstroNvim/astrocommunity/commit/88b906580854b770fb8f8ccee64ec54a105cca59))
+* **pack:** add eslint ([#1503](https://github.com/AstroNvim/astrocommunity/issues/1503)) ([8ae3804](https://github.com/AstroNvim/astrocommunity/commit/8ae3804d4703de24066f39fea55467a58a51136f))
+* **pack:** add oxlint pack ([#1554](https://github.com/AstroNvim/astrocommunity/issues/1554)) ([0b5beb6](https://github.com/AstroNvim/astrocommunity/commit/0b5beb6505f4986f2644ecf34dd4932baf6ad23f))
+* **pack:** add spring-boot pack ([#1534](https://github.com/AstroNvim/astrocommunity/issues/1534)) ([2c879c0](https://github.com/AstroNvim/astrocommunity/commit/2c879c0583e7230fd17cf2d531fd8fff030c734a))
+* **typescript:** add goto_source_definition mapping ([#1558](https://github.com/AstroNvim/astrocommunity/issues/1558)) ([cb02020](https://github.com/AstroNvim/astrocommunity/commit/cb0202057a991728360ff85005b85edb700a9c38))
+
+
+### Bug Fixes
+
+* **ansible:** improve regex pattern to avoid false matches ([#1535](https://github.com/AstroNvim/astrocommunity/issues/1535)) ([16231a6](https://github.com/AstroNvim/astrocommunity/commit/16231a665146b0fe70593dd450afd6e964a3cbe1))
+* **avante-nvim:** Check for nil value in opts table for markview.nvim dependency ([#1537](https://github.com/AstroNvim/astrocommunity/issues/1537)) ([80b9c58](https://github.com/AstroNvim/astrocommunity/commit/80b9c580686610784667f1261392b989f62b580a))
+* **avante-nvim:** Update OXY2DEV/markview.nvim's opts table ([#1518](https://github.com/AstroNvim/astrocommunity/issues/1518)) ([e1e0c99](https://github.com/AstroNvim/astrocommunity/commit/e1e0c991c174b957401436415e1fc39f244ad78a))
+* **catppuccin:** cleaned up catppuccin pack  ([#1513](https://github.com/AstroNvim/astrocommunity/issues/1513)) ([3c74e80](https://github.com/AstroNvim/astrocommunity/commit/3c74e804075132edca4677093cd63953b8dee42c))
+* **harper:** Link to correct configuration doc ([2f550c0](https://github.com/AstroNvim/astrocommunity/commit/2f550c0ac46f9604db7894bb6189e25655921f88))
+* **html-css:** Add styled to treesitter   ([#1524](https://github.com/AstroNvim/astrocommunity/issues/1524)) ([4d2a40f](https://github.com/AstroNvim/astrocommunity/commit/4d2a40f3481f215bea42d7b396aa1f00148bc6da))
+* **indent-rainbowline:** Update indent-rainbowline to use new indent-blankline config ([#1514](https://github.com/AstroNvim/astrocommunity/issues/1514)) ([7a007c1](https://github.com/AstroNvim/astrocommunity/commit/7a007c1557e8c1dd0066bdd7e5899d12784f9930))
+* **java:** fix issue with submodule root discovery ([#1530](https://github.com/AstroNvim/astrocommunity/issues/1530)) ([2107a4c](https://github.com/AstroNvim/astrocommunity/commit/2107a4cd2f14319a30229570f984d15ce243f488))
+* **java:** update root markers ([#1525](https://github.com/AstroNvim/astrocommunity/issues/1525)) ([62865ef](https://github.com/AstroNvim/astrocommunity/commit/62865efa7b1541d125db8595727e9a37e91f6f6b))
+* **json:** Normalize casing of schemastore plugin ([#1547](https://github.com/AstroNvim/astrocommunity/issues/1547)) ([46cbdf2](https://github.com/AstroNvim/astrocommunity/commit/46cbdf21a682e75c52ae131ef213ec165aae306f))
+* **kulala-nvim:** fix keymaps config ([#1539](https://github.com/AstroNvim/astrocommunity/issues/1539)) ([67a2188](https://github.com/AstroNvim/astrocommunity/commit/67a2188c43fb08e12aafd99e3716f1296a8c833c))
+* **kulala-nvim:** fix lsp keymaps ([#1551](https://github.com/AstroNvim/astrocommunity/issues/1551)) ([214faad](https://github.com/AstroNvim/astrocommunity/commit/214faad2c7065e22d1f9c10dde4571c791a84861))
+* **kulala-nvim:** resolve bugs in keymap setup and breaking lazy loading in general ([#1567](https://github.com/AstroNvim/astrocommunity/issues/1567)) ([6f3e4a5](https://github.com/AstroNvim/astrocommunity/commit/6f3e4a5606e51e174f51a63e3b8f4a8f12f1f19b))
+* **nginx:** correct package name from nginx_language_server to nginx-language-server ([2758407](https://github.com/AstroNvim/astrocommunity/commit/27584070d688d040a0d1de1c18eac0b3ade6b90d))
+* **nginx:** fix incorrect nginx package name  ([#1517](https://github.com/AstroNvim/astrocommunity/issues/1517)) ([2758407](https://github.com/AstroNvim/astrocommunity/commit/27584070d688d040a0d1de1c18eac0b3ade6b90d))
+* **nim:** rename README file extension case ([fdcf33f](https://github.com/AstroNvim/astrocommunity/commit/fdcf33faa099f242385bbcb194b2b25d5cf127c5))
+* **nvim-cmp:** Check for nil value in opts table ([#1559](https://github.com/AstroNvim/astrocommunity/issues/1559)) ([d78c9d0](https://github.com/AstroNvim/astrocommunity/commit/d78c9d0cf24fced856b1b2d4e19d18acddc1f0d4))
+* **nvim-snippets:** fix neogen the snippet_engine option error and the blinks cmp snippets option error ([e2d034a](https://github.com/AstroNvim/astrocommunity/commit/e2d034a1de864cb180b29caf5f0e16dc55361c4c))
+* **nvim-treesitter-context:** fix outdated commands ([#1538](https://github.com/AstroNvim/astrocommunity/issues/1538)) ([9e5d5d3](https://github.com/AstroNvim/astrocommunity/commit/9e5d5d3baec294705b2718bd9712054a13f8fdca))
+* **sonarlint-nvim:** remove optional ([#1533](https://github.com/AstroNvim/astrocommunity/issues/1533)) ([9768a31](https://github.com/AstroNvim/astrocommunity/commit/9768a311c09742bd1c04195e319a91814356da3a))
+* **sql:** Dont overide opts.handlers table ([#1520](https://github.com/AstroNvim/astrocommunity/issues/1520)) ([ff8b03b](https://github.com/AstroNvim/astrocommunity/commit/ff8b03bb8fbf68249359e7169ad7464af53ca984))
+* **vue:** remove usage of old Mason API ([fb7aeaf](https://github.com/AstroNvim/astrocommunity/commit/fb7aeaf8f8cadd8efe3001a11e1470f840313b03))
+* **vue:** Use `get_install_path()` from mason registery to find volar installation path ([#1531](https://github.com/AstroNvim/astrocommunity/issues/1531)) ([f14d0ff](https://github.com/AstroNvim/astrocommunity/commit/f14d0fff40a2e4426f47b9b865cf2844e121159f))
+* **yaml:** Normalize casing of schemastore plugin ([#1548](https://github.com/AstroNvim/astrocommunity/issues/1548)) ([21bf0f7](https://github.com/AstroNvim/astrocommunity/commit/21bf0f78ee0b8c597666c83e5b7f99b3627f7711))
+
+
+### Reverts
+
+* **catppuccin:** cleaned up catppuccin pack ([#1541](https://github.com/AstroNvim/astrocommunity/issues/1541)) ([9b7d85c](https://github.com/AstroNvim/astrocommunity/commit/9b7d85c1f7d78dda6a83bda5d2094f406c952389))
+
 ## [19.0.0](https://github.com/AstroNvim/astrocommunity/compare/v18.0.0...v19.0.0) (2025-05-21)
 
 
