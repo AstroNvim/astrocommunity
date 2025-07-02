@@ -1,9 +1,12 @@
 return {
   "mistweaverco/kulala.nvim",
   ft = { "http", "rest" },
-  keys = {
-    { "<leader>r", desc = "KulalaNvim" },
-  },
+  keys = function(_, keys)
+    local plugin = require("lazy.core.config").spec.plugins["kulala.nvim"]
+    local opts = require("lazy.core.plugin").values(plugin, "opts", false) -- resolve mini.clue options
+    if opts.global_keymaps_prefix then table.insert(keys, { opts.global_keymaps_prefix, desc = "Load KulalaNvim" }) end
+    return keys
+  end,
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter",
