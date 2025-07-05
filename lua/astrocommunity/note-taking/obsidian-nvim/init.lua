@@ -16,7 +16,7 @@ return {
             ["gf"] = {
               function()
                 if require("obsidian").util.cursor_on_markdown_link() then
-                  return "<Cmd>ObsidianFollowLink<CR>"
+                  return "<Cmd>Obsidian follow_link<CR>"
                 else
                   return "gf"
                 end
