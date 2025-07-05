@@ -32,7 +32,9 @@ return {
     local astrocore = require "astrocore"
     return astrocore.extend_tbl(opts, {
       dir = vim.env.HOME .. "/obsidian-vault", -- specify the vault location. no need to call 'vim.fn.expand' here
-      use_advanced_uri = true,
+      open = {
+        use_advanced_uri = true,
+      },
       finder = (astrocore.is_available "snacks.pick" and "snacks.pick")
         or (astrocore.is_available "telescope.nvim" and "telescope.nvim")
         or (astrocore.is_available "fzf-lua" and "fzf-lua")
