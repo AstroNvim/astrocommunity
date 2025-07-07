@@ -25,51 +25,42 @@ return {
         local astroui = require "astroui.status.hl"
         table.insert(opts.statusline, {
           static = {
-            processing = false,
-            spinner_index = 1,
-            spinner_timer = nil,
-            start_spinner = function(self)
-              if self.spinner_timer then return end
-              self.spinner_timer = vim.loop.new_timer()
-              self.spinner_timer:start(
-                0,
-                100,
-                vim.schedule_wrap(function()
-                  self.spinner_index = (self.spinner_index % #spinner_symbols) + 1
-                  vim.cmd "redrawstatus"
-                end)
-              )
-            end,
-            stop_spinner = function(self)
-              if self.spinner_timer then
-                self.spinner_timer:stop()
-                self.spinner_timer:close()
-                self.spinner_timer = nil
-                self.spinner_index = 1
-              end
-            end,
+            n_requests = 0,
+            spinner_index = 0,
+            spinner_symbols = spinner_symbols,
+            done_symbol = "✓",
           },
-          start_generation = function() vim.api.nvim_exec_autocmds("User", { pattern = "CodeCompanionRequestStarted" }) end,
-          end_generation = function() vim.api.nvim_exec_autocmds("User", { pattern = "CodeCompanionRequestFinished" }) end,
-          update = {
-            "User",
-            pattern = "CodeCompanionRequest*",
-            callback = function(self, args)
-              if args.match == "CodeCompanionRequestStarted" then
-                self.processing = true
-                self:start_spinner()
-              elseif args.match == "CodeCompanionRequestFinished" then
-                self.processing = false
-                self:stop_spinner()
-              end
-              vim.cmd "redrawstatus"
-            end,
-          },
-          {
-            condition = function(self) return self.processing end,
-            provider = function(self) return spinner_symbols[self.spinner_index] .. " Processing..." end,
-            hl = function() return astroui.filetype_color() end,
-          },
+          init = function(self)
+            if self._cc_autocmds then return end
+            self._cc_autocmds = true
+            vim.api.nvim_create_autocmd("User", {
+              pattern = "CodeCompanionRequestStarted",
+              callback = function()
+                self.n_requests = self.n_requests + 1
+                vim.cmd "redrawstatus"
+              end,
+            })
+            vim.api.nvim_create_autocmd("User", {
+              pattern = "CodeCompanionRequestFinished",
+              callback = function()
+                self.n_requests = math.max(0, self.n_requests - 1)
+                vim.cmd "redrawstatus"
+              end,
+            })
+          end,
+          provider = function(self)
+            if not package.loaded["codecompanion"] then return nil end
+            local symbol
+            if self.n_requests > 0 then
+              self.spinner_index = (self.spinner_index % #self.spinner_symbols) + 1
+              symbol = self.spinner_symbols[self.spinner_index]
+            else
+              symbol = self.done_symbol
+              self.spinner_index = 0
+            end
+            return ("%d %s"):format(self.n_requests, symbol)
+          end,
+          hl = function() return astroui.filetype_color() end,
         })
       end,
     },
