@@ -17,6 +17,22 @@ return {
   },
   specs = {
     {
+      "olimorris/codecompanion.nvim",
+      optional = true,
+      opts = {
+        extensions = {
+          mcphub = {
+            callback = "mcphub.extensions.codecompanion",
+            opts = {
+              show_result_in_chat = true,
+              make_vars = true,
+              make_slash_commands = true,
+            },
+          },
+        },
+      },
+    },
+    {
       "yetone/avante.nvim",
       optional = true,
       opts = {
