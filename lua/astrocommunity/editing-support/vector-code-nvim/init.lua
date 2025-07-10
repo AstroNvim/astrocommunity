@@ -1,10 +1,8 @@
 return {
   "Davidyz/VectorCode",
   build = function()
-    if not vim.fn.executable "uv" then
-      error "The VectorCode pack requires uv installed"
-    end
-    vim.cmd("uv tool install vectorcode")
+    if not vim.fn.executable "uv" then error "The VectorCode pack requires uv installed" end
+    vim.cmd "uv tool install vectorcode"
   end,
   version = "*", -- optional, depending on whether you're on nightly or release
   dependencies = { "nvim-lua/plenary.nvim" },
