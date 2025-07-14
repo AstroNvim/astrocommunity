@@ -32,7 +32,7 @@ return {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         local maps = opts.mappings
-        maps.n[prefix] = { desc = require("astroui").get_icon("HurlNvim", 1, true) .. "HurlNvim" }
+        maps.n[prefix] = { desc = require("astroui").get_icon("HurlNvim", 1, true) .. "Hurl" }
         maps.n[prefix .. "R"] = { "<cmd>HurlRunner<cr>", desc = "Run all requests in the file" }
         maps.n[prefix .. "r"] = { "<cmd>HurlRunnerAt<cr>", desc = "Run request under the cursor" }
         maps.n[prefix .. "e"] = { "<cmd>HurlRunnerToEntry<cr>", desc = "Run request to the entry" }
