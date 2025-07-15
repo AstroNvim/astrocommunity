@@ -46,6 +46,8 @@ return {
                   { "tsD", desc = "Reverse Cycle (), \\left(\\right) [, ...]" },
                   { "tse", desc = "Toggle star of environment" },
                   { "tsf", desc = "Toggle a/b vs \\frac{a}{b}" },
+                  { "tsb", desc = "Toggle line break" },
+                  { "tss", desc = "Toggle starred environment" },
                   { "[/", desc = "Previous start of a LaTeX comment" },
                   { "[*", desc = "Previous end of a LaTeX comment" },
                   { "[[", desc = "Previous beginning of a section" },
