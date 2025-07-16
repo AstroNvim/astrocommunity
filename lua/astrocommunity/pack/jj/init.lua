@@ -1,33 +1,29 @@
 return {
   {
     "zschreur/telescope-jj.nvim",
-    config = function() require("telescope").load_extension "jj" end,
-    dependencies = {
-      {
-        "AstroNvim/astrocore",
-        opts = {
-          mappings = {
-            n = {
-              ["<Leader>jf"] = {
-                function()
-                  local jj_pick_status, jj_res = pcall(require("telescope").extensions.jj.files)
-                  if jj_pick_status then return end
+    cond = function() require("astrocore").is_available "telescope.nvim" end,
+    config = function()
+      require("telescope").load_extension "jj"
+      require("astrocore").set_mappings {
+        n = {
+          ["<Leader>jf"] = {
+            function()
+              local jj_pick_status, jj_res = pcall(require("telescope").extensions.jj.files)
+              if jj_pick_status then return end
 
-                  -- Git fallback
-                  local git_files_status, git_res = pcall(require("telescope.builtin").git_files)
-                  if not git_files_status then
-                    error("Could not launch jj or git files: \n" .. jj_res .. "\n" .. git_res)
-                  end
-                end,
-                desc = "jj files",
-              },
-              ["<Leader>jc"] = { function() require("telescope").extensions.jj.conflicts() end, desc = "jj conflicts" },
-              ["<Leader>jd"] = { function() require("telescope").extensions.jj.diff() end, desc = "jj diff" },
-            },
+              -- Git fallback
+              local git_files_status, git_res = pcall(require("telescope.builtin").git_files)
+              if not git_files_status then
+                error("Could not launch jj or git files: \n" .. jj_res .. "\n" .. git_res)
+              end
+            end,
+            desc = "jj files",
           },
+          ["<Leader>jc"] = { function() require("telescope").extensions.jj.conflicts() end, desc = "jj conflicts" },
+          ["<Leader>jd"] = { function() require("telescope").extensions.jj.diff() end, desc = "jj diff" },
         },
-      },
-    },
+      }
+    end,
   },
   {
     "Cretezy/neo-tree-jj.nvim",
