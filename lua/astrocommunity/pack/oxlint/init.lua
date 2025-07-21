@@ -19,24 +19,4 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "oxlint" })
     end,
   },
-  {
-    "stevearc/conform.nvim",
-    optional = true,
-    opts = function(_, opts)
-      if not opts.formatters_by_ft then opts.formatters_by_ft = {} end
-      -- https://oxc.rs/docs/guide/usage/linter.html
-      local supported_ft = {
-        "javascript",
-        "typescript",
-        "javascriptreact",
-        "typescriptreact",
-        "astro",
-        "svelte",
-        "vue",
-      }
-      for _, ft in ipairs(supported_ft) do
-        opts.formatters_by_ft[ft] = { "oxlint" }
-      end
-    end,
-  },
 }
