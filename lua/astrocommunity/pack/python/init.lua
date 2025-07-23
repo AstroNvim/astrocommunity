@@ -101,20 +101,8 @@ return {
         dependencies = "mfussenegger/nvim-dap",
         ft = "python", -- NOTE: ft: lazy-load on filetype
         config = function(_, opts)
-          local path
-
-          local mason_registry_avail, mason_registry = pcall(require, "mason-registry")
-          if mason_registry_avail and mason_registry.is_installed "debugpy" then
-            local debugpy_path = vim.fn.expand "$MASON/packages/debugpy"
-            if vim.fn.has "win32" == 1 then
-              path = debugpy_path .. "/venv/Scripts/python"
-            else
-              path = debugpy_path .. "/venv/bin/python"
-            end
-          else
-            path = vim.fn.exepath "debugpy-adapter"
-            if path == "" then path = vim.fn.exepath "python" end
-          end
+          local path = vim.fn.exepath "debugpy-adapter"
+          if path == "" then path = vim.fn.exepath "python" end
           require("dap-python").setup(path, opts)
         end,
       },
