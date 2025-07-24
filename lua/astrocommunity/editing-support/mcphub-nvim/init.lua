@@ -5,16 +5,7 @@ return {
   },
   event = "User AstroFile",
   cmd = "MCPHub",
-  opts = {
-    port = 3000,
-    config = vim.fn.expand "~/mcpservers.json",
-    log = {
-      level = vim.log.levels.WARN,
-      to_file = false,
-      file_path = nil,
-      prefix = "MCPHub",
-    },
-  },
+  opts = {},
   specs = {
     {
       "olimorris/codecompanion.nvim",
