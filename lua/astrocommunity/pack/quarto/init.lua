@@ -2,7 +2,21 @@ return {
   {
     "quarto-dev/quarto-nvim",
     ft = { "quarto", "qmd" },
-    opts = {},
+    opts = function(_, opts)
+      opts.codeRunner = opts.codeRunner or {}
+
+      local ironOk, _ = pcall(require, "iron.core")
+      if ironOk then
+        opts.codeRunner.default_method = "iron"
+        return
+      end
+
+      local moltenOk, _ = pcall(require, "molten.health")
+      if moltenOk then
+        opts.codeRunner.default_method = "molten"
+        return
+      end
+    end,
     dependencies = {
       { "jmbuhr/otter.nvim" },
     },
