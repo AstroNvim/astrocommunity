@@ -76,6 +76,7 @@ return {
       maps.n["[b"] = "<Cmd>Tabprevious<CR>"
       maps.n["<Leader>c"] = "<Cmd>Tabclose<CR>"
       maps.n["<Leader>C"] = "<Cmd>Tabclose!<CR>"
+      maps.n["<Leader>bc"] = function() require("vscode").action "workbench.action.closeOtherEditors" end
       maps.n["<Leader>bp"] = "<Cmd>Tablast<CR>"
 
       -- file explorer

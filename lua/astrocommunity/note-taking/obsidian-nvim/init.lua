@@ -16,7 +16,7 @@ return {
             ["gf"] = {
               function()
                 if require("obsidian").util.cursor_on_markdown_link() then
-                  return "<Cmd>ObsidianFollowLink<CR>"
+                  return "<Cmd>Obsidian follow_link<CR>"
                 else
                   return "gf"
                 end
@@ -31,8 +31,14 @@ return {
   opts = function(_, opts)
     local astrocore = require "astrocore"
     return astrocore.extend_tbl(opts, {
-      dir = vim.env.HOME .. "/obsidian-vault", -- specify the vault location. no need to call 'vim.fn.expand' here
-      use_advanced_uri = true,
+      workspaces = {
+        {
+          path = vim.env.HOME .. "/obsidian-vault", -- specify the vault location. no need to call 'vim.fn.expand' here
+        },
+      },
+      open = {
+        use_advanced_uri = true,
+      },
       finder = (astrocore.is_available "snacks.pick" and "snacks.pick")
         or (astrocore.is_available "telescope.nvim" and "telescope.nvim")
         or (astrocore.is_available "fzf-lua" and "fzf-lua")
