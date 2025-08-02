@@ -73,7 +73,6 @@ return {
         desc = "Hover symbol details",
       }
 
-      if not maps.i then maps.i = {} end
       maps.i["<C-Space>"] = { "coc#refresh()", desc = "Trigger completion", expr = true, silent = true }
       maps.i["<CR>"] = {
         [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]],
