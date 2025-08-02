@@ -5,14 +5,14 @@ return {
     opts = function(_, opts)
       opts.codeRunner = opts.codeRunner or {}
 
-      local ironOk, _ = pcall(require, "iron.core")
-      if ironOk then
+      local iron_avail, _ = pcall(require, "iron.core")
+      if iron_avail then
         opts.codeRunner.default_method = "iron"
         return
       end
 
-      local moltenOk, _ = pcall(require, "molten.health")
-      if moltenOk then
+      local molten_avail, _ = pcall(require, "molten.health")
+      if molten_avail then
         opts.codeRunner.default_method = "molten"
         return
       end
