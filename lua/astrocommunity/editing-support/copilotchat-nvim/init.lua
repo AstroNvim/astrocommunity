@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
-  version = "^3",
+  version = "^4",
   cmd = {
     "CopilotChat",
     "CopilotChatOpen",
@@ -11,19 +11,16 @@ return {
     "CopilotChatReset",
     "CopilotChatSave",
     "CopilotChatLoad",
-    "CopilotChatDebugInfo",
     "CopilotChatModels",
-    "CopilotChatAgents",
     "CopilotChatExplain",
     "CopilotChatReview",
     "CopilotChatFix",
     "CopilotChatOptimize",
     "CopilotChatDocs",
-    "CopilotChatFixTests",
+    "CopilotChatTests",
     "CopilotChatCommit",
   },
   dependencies = {
-    { "zbirenbaum/copilot.lua" },
     { "nvim-lua/plenary.nvim" },
     {
       "AstroNvim/astrocore",
