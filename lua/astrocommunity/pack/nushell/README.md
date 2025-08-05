@@ -2,6 +2,7 @@
 Requires:
 
 - A local [nufmt](https://github.com/nushell/nufmt) installation
+- A local [nushell](https://www.nushell.sh/) installation for the LSP
 
 This plugin pack does the following:
 

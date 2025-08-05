@@ -14,9 +14,6 @@ return {
     ---@type AstroLSPOpts
     opts = {
       servers = { "nushell" },
-      handlers = {
-        nushell = function() require("lspconfig").nushell.setup {} end,
-      },
     },
   },
   {
