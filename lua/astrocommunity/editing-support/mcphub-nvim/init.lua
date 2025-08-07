@@ -5,16 +5,7 @@ return {
   },
   event = "User AstroFile",
   cmd = "MCPHub",
-  opts = {
-    port = 3000,
-    config = vim.fn.expand "~/mcpservers.json",
-    log = {
-      level = vim.log.levels.WARN,
-      to_file = false,
-      file_path = nil,
-      prefix = "MCPHub",
-    },
-  },
+  opts = {},
   specs = {
     {
       "olimorris/codecompanion.nvim",
@@ -38,7 +29,7 @@ return {
       opts = {
         system_prompt = function()
           local hub = require("mcphub").get_hub_instance()
-          return hub:get_active_servers_prompt()
+          return hub and hub:get_active_servers_prompt() or ""
         end,
         -- The custom_tools type supports both a list and a function that returns a list. Using a function here prevents requiring mcphub before it's loaded
         custom_tools = function()
@@ -46,6 +37,20 @@ return {
             require("mcphub.extensions.avante").mcp_tool(),
           }
         end,
+      },
+    },
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    optional = true,
+    opts = {
+      extensions = {
+        copilotchat = {
+          enabled = true,
+          convert_tools_to_functions = true,
+          convert_resources_to_functions = true,
+          add_mcp_prefix = false,
+        },
       },
     },
   },
