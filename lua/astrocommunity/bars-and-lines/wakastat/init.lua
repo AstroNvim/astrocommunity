@@ -3,14 +3,7 @@ return {
     "fiqryq/wakastat.nvim",
     event = "VeryLazy",
     cmd = { "WakastatRefresh", "WakastatStatus" },
-    opts = {
-      args = { "--today" }, -- or "--week", "--month"
-      format = "Today Coding Time: %s", -- %s replaced with time
-      update_interval = 300, -- seconds between updates
-      enable_timer = true,
-    },
-    config = function(_, opts) require("wakastat").setup(opts) end,
-
+    opts = {},
     specs = {
       {
         "rebelot/heirline.nvim",
