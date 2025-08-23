@@ -13,7 +13,6 @@ This plugin pack does the following:
 
 - Adds `zig` Treesitter parsers
 - Adds [neotest-zig](https://github.com/lawrence-laz/neotest-zig/tree/v1.2.0)
-- Adds [zig-tools.nvim](https://codeberg.org/NTBBloodbath/zig-tools.nvim)
 
 ## Manage zls with mason
 
