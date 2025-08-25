@@ -34,12 +34,8 @@ return {
 
       opts.handlers.sqlfluff = function()
         local null_ls = require "null-ls"
-        null_ls.register(null_ls.builtins.diagnostics.sqlfluff.with {
-          extra_args = { "--dialect", "ansi" },
-        })
-        null_ls.register(null_ls.builtins.formatting.sqlfluff.with {
-          extra_args = { "--dialect", "ansi" },
-        })
+        null_ls.register(null_ls.builtins.diagnostics.sqlfluff)
+        null_ls.register(null_ls.builtins.formatting.sqlfluff)
       end
     end,
   },
