@@ -222,7 +222,10 @@ return {
       specs = {
         {
           "hrsh7th/nvim-cmp",
-          opts = function(_, opts) table.insert(opts.sources, { name = "lazydev", group_index = 0 }) end,
+          opts = function(_, opts)
+            if not opts.sources then opts.sources = {} end
+            table.insert(opts.sources, { name = "lazydev", group_index = 0 })
+          end,
         },
       },
     },
