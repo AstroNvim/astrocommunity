@@ -4,4 +4,3 @@ This plugin pack does the following:
 
 - Adds `markdown` and `markdown_inline` Treesitter parsers
 - Adds `marksman` language server
-- Adds `prettierd` formatter
