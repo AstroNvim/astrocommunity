@@ -64,13 +64,4 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "helm-ls" })
     end,
   },
-  {
-    "stevearc/conform.nvim",
-    optional = true,
-    opts = {
-      formatters_by_ft = {
-        helm = { "prettierd", "prettier", stop_after_first = true },
-      },
-    },
-  },
 }
