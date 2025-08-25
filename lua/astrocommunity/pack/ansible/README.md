@@ -11,4 +11,3 @@ This plugin pack does the following:
 - Adds the following `nvim-lint` sources:
   - [ansible-lint](https://github.com/ansible/ansible-lint)
 - Adds [pearofducks/ansible-vim](https://github.com/pearofducks/ansible-vim), and sets it up to be loaded for `yaml.ansible` file types
-- Configures [stevearc/conform.nvim](https://github.com/stevearc/conform.nvim) to use `prettierd` and `prettier` for `yaml.ansible` file types
