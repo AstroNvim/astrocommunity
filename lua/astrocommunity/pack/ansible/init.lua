@@ -55,15 +55,6 @@ return {
   },
   { "pearofducks/ansible-vim", ft = "yaml.ansible" },
   {
-    "stevearc/conform.nvim",
-    optional = true,
-    opts = {
-      formatters_by_ft = {
-        ["yaml.ansible"] = { "prettierd", "prettier", stop_after_first = true },
-      },
-    },
-  },
-  {
     "mfussenegger/nvim-lint",
     optional = true,
     opts = {
