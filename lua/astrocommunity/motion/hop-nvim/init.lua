@@ -9,7 +9,7 @@ return {
           ["s"] = { function() require("hop").hint_words() end, desc = "Hop hint words" },
           ["<S-s>"] = { function() require("hop").hint_lines() end, desc = "Hop hint lines" },
         },
-        v = {
+        x = {
           ["s"] = { function() require("hop").hint_words { extend_visual = true } end, desc = "Hop hint words" },
           ["<S-s>"] = {
             function() require("hop").hint_lines { extend_visual = true } end,
