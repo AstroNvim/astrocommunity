@@ -1,6 +1,6 @@
 local prefix = "gz"
 return {
-  "echasnovski/mini.surround",
+  "nvim-mini/mini.surround",
   dependencies = {
     { "AstroNvim/astroui", opts = { icons = { Surround = "󰑤" } } },
     {

@@ -2,7 +2,7 @@
 
 Manage and expand snippets. Part of 'mini.nvim' library.
 
-**Repository:** <https://github.com/echasnovski/mini.snippets>
+**Repository:** <https://github.com/nvim-mini/mini.snippets>
 
 Sets up:
 

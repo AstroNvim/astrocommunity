@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.base16",
+  "nvim-mini/mini.base16",
   lazy = true,
   specs = {
     {
