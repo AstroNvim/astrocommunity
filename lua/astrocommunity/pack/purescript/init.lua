@@ -1,6 +1,6 @@
 return {
   {
-    "srghma-backup/nvimmer-ps",
+    "srghma/nvimmer-ps",
     opts = {}, -- if nil - M.setup wont be called
   },
   {
