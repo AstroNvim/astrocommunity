@@ -2,4 +2,4 @@
 
 Work with diff hunks. Part of 'mini.nvim' library.
 
-**Repository:** <https://github.com/echasnovski/mini.diff>
+**Repository:** <https://github.com/nvim-mini/mini.diff>

@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.clue",
+  "nvim-mini/mini.clue",
   dependencies = { "AstroNvim/astrocore" },
   specs = {
     { "folke/which-key.nvim", optional = true, enabled = false },
