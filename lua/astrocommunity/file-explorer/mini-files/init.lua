@@ -20,7 +20,7 @@ local function map_split(buf_id, lhs, direction, close_on_file)
 end
 
 return {
-  "echasnovski/mini.files",
+  "nvim-mini/mini.files",
   dependencies = {
     {
       "AstroNvim/astrocore",

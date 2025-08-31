@@ -51,7 +51,7 @@ return {
       end,
     },
     {
-      "echasnovski/mini.icons",
+      "nvim-mini/mini.icons",
       optional = true,
       -- Adds icon for copilot using mini.icons
       opts = function(_, opts)
