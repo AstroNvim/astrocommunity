@@ -1,8 +1,8 @@
 return {
-  {
-    "lervag/vimtex",
-    lazy = false,
-    dependencies = {
+  "lervag/vimtex",
+  lazy = false,
+  dependencies = {
+    {
       "AstroNvim/astrocore",
       opts = {
         autocmds = {
@@ -100,16 +100,16 @@ return {
         },
       },
     },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      opts.highlight = opts.highlight or {}
-      if type(opts.highlight.disable) == "table" then
-        vim.list_extend(opts.highlight.disable, { "latex" })
-      else
-        opts.highlight.disable = { "latex" }
-      end
-    end,
+    {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function(_, opts)
+        opts.highlight = opts.highlight or {}
+        if type(opts.highlight.disable) == "table" then
+          vim.list_extend(opts.highlight.disable, { "latex" })
+        else
+          opts.highlight.disable = { "latex" }
+        end
+      end,
+    },
   },
 }
