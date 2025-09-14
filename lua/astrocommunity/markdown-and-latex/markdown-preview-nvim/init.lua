@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "iamcco/markdown-preview.nvim",
-  build = ":call mkdp#util#install()",
+  build = function() vim.fn["mkdp#util#install"]() end,
   ft = { "markdown", "markdown.mdx" },
   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
   init = function()
