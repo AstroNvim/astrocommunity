@@ -75,6 +75,7 @@ return {
   },
   {
     "linux-cultist/venv-selector.nvim",
+    branch = "main",
     enabled = vim.fn.executable "fd" == 1 or vim.fn.executable "fdfind" == 1 or vim.fn.executable "fd-find" == 1,
     dependencies = {
       {
@@ -88,8 +89,15 @@ return {
         },
       },
     },
-    opts = {},
-    cmd = "VenvSelect",
+    opts = {
+      -- options = {
+      --   debug = true,
+      -- },
+    },
+    command = {
+      "VenvSelect",
+      -- "VenvSelectLog",
+    },
   },
   {
     "mfussenegger/nvim-dap",
