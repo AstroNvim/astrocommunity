@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.comment",
+  "nvim-mini/mini.comment",
   dependencies = { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
   event = "User AstroFile",
   opts = {
