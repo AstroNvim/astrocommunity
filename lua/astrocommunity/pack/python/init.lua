@@ -75,7 +75,7 @@ return {
   },
   {
     "linux-cultist/venv-selector.nvim",
-    branch = "main",
+    -- branch = "main",
     lazy = true,
     ft = "python",
     enabled = vim.fn.executable "fd" == 1 or vim.fn.executable "fdfind" == 1 or vim.fn.executable "fd-find" == 1,
