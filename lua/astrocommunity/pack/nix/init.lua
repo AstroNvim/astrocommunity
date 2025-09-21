@@ -14,6 +14,7 @@ return {
     opts = function(_, opts)
       local builtins = require("null-ls").builtins
       opts.sources = require("astrocore").list_insert_unique(opts.sources, {
+        builtins.formatting.nixfmt,
         builtins.code_actions.statix,
         builtins.diagnostics.deadnix,
       })
