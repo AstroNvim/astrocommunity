@@ -1,6 +1,6 @@
 ---@type LazySpec
 return {
-  "echasnovski/mini.operators",
+  "nvim-mini/mini.operators",
   keys = function(_, keys)
     local plugin = require("lazy.core.config").spec.plugins["mini.operators"]
     local opts = require("lazy.core.plugin").values(plugin, "opts", false)

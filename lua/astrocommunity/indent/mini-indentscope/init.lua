@@ -22,7 +22,7 @@ local ignore_buftypes = {
 local char = "▏"
 
 return {
-  "echasnovski/mini.indentscope",
+  "nvim-mini/mini.indentscope",
   event = "User AstroFile",
   opts = function()
     return {
