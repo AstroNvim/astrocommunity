@@ -1,19 +1,10 @@
+---@type LazySpec
 return {
   { import = "astrocommunity.pack.yaml" },
   {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
     opts = { filetypes = { filename = { ["docker-compose.yaml"] = "yaml.docker-compose" } } },
-  },
-  {
-    "AstroNvim/astrolsp",
-    optional = true,
-    ---@type AstroLSPOpts
-    opts = {
-      formatting = {
-        filter = function(client) return client.name ~= "docker_compose_language_service" end,
-      },
-    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -28,10 +19,8 @@ return {
     "williamboman/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
-        { "docker_compose_language_service", "dockerls" }
-      )
+      opts.ensure_installed =
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "docker-language-server" })
     end,
   },
   {
@@ -45,10 +34,8 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
-        { "docker-compose-language-service", "dockerfile-language-server", "hadolint" }
-      )
+      opts.ensure_installed =
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "docker-language-server", "hadolint" })
     end,
   },
   {
