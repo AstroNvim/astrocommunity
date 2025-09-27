@@ -19,7 +19,7 @@ return {
       optional = true,
       opts = function(_, opts)
         return require("astrocore").extend_tbl(opts, {
-          highlights = require("catppuccin.groups.integrations.bufferline").get_theme(),
+          highlights = require("catppuccin.special.bufferline").get_theme(),
         })
       end,
     },
