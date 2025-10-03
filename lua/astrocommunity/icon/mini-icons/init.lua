@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.icons",
+  "nvim-mini/mini.icons",
   opts = function(_, opts)
     if vim.g.icons_enabled == false then opts.style = "ascii" end
   end,

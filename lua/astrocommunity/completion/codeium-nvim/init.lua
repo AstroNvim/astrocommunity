@@ -59,7 +59,7 @@ return {
       end,
     },
     {
-      "echasnovski/mini.icons",
+      "nvim-mini/mini.icons",
       optional = true,
       -- Adds icon for codeium using mini.icons
       opts = function(_, opts)
