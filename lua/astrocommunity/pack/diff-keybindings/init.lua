@@ -1,7 +1,7 @@
 return {
   {
     "AstroNvim/astrocore",
-    ---@type AstroCoreOpts
+    ---@param opts AstroCoreOpts
     opts = function(_, opts)
       local mappings = assert(opts.mappings)
 
