@@ -3,14 +3,14 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "tinymist" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "tinymist", "typstyle"})
     end,
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     optional = true,
     opts = function(_, opts)
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "tinymist" })
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "tinymist", "typstyle" })
     end,
   },
   {
@@ -22,5 +22,11 @@ return {
         tinymist = "tinymist",
       },
     },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = function(_, opt)
+      opt.servers.tinymist.settings.tinymist.formatterMode = "typstyle"
+    end,
   },
 }
