@@ -10,7 +10,7 @@ return {
   },
   { "nextflow-io/vim-language-nextflow", ft = "nextflow" },
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     optional = true,
     opts = {
       filetype = {
