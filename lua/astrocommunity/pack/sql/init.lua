@@ -55,7 +55,6 @@ return {
       },
       formatters = {
         sqlfluff = {
-          args = { "fix", "--dialect=ansi", "-" },
           require_cwd = false,
         },
       },
