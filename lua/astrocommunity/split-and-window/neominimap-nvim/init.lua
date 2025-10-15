@@ -11,7 +11,7 @@ return {
         } },
         mappings = {
           n = {
-            ["<Leader>um"] = { "<Cmd>Neominimap toggle<CR>", desc = "Toggle minimap" },
+            ["<Leader>um"] = { "<Cmd>Neominimap Toggle<CR>", desc = "Toggle minimap" },
           },
         },
       },
