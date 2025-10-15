@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.bracketed",
+  "nvim-mini/mini.bracketed",
   event = "User AstroFile",
   opts = {},
   specs = {

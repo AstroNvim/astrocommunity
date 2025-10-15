@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.map",
+  "nvim-mini/mini.map",
   version = "*",
   keys = {
     { "<leader>um", function() require("mini.map").toggle() end, desc = "Toggle minimap" },

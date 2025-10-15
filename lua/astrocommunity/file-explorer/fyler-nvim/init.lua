@@ -1,7 +1,7 @@
 return {
   "A7Lavinraj/fyler.nvim",
   dependencies = {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     {
       "AstroNvim/astrocore",
       opts = function(_, opts)

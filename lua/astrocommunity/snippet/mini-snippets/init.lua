@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.snippets",
+  "nvim-mini/mini.snippets",
   dependencies = "rafamadriz/friendly-snippets",
   opts_extend = { "snippets" },
   opts = function(_, opts)
@@ -95,7 +95,7 @@ return {
     },
     {
       "Saghen/blink.cmp",
-      dependencies = "echasnovski/mini.snippets",
+      dependencies = "nvim-mini/mini.snippets",
       optional = true,
       opts = { snippets = { preset = "mini_snippets" } },
     },

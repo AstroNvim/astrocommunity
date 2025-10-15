@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.animate",
+  "nvim-mini/mini.animate",
   event = "VeryLazy",
   cond = not (vim.g.neovide or vim.g.vscode),
   -- enabled = false,
