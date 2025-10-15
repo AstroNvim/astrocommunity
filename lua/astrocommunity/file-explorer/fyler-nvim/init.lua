@@ -1,15 +1,53 @@
 return {
-  "A7Lavinraj/fyler.nvim",
-  dependencies = {
-    "echasnovski/mini.icons",
-    {
-      "AstroNvim/astrocore",
-      opts = function(_, opts)
-        local maps = assert(opts.mappings)
-        maps.n["<Leader>y"] = { "<Cmd>Fyler<CR>", desc = "Fyler" }
-      end,
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
+  },
+
+  {
+    "A7Lavinraj/fyler.nvim",
+    dependencies = {
+      "echasnovski/mini.icons",
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings or {}
+          maps.n["<Leader>e"] = {
+            function() require("fyler").toggle { kind = "float" } end,
+            desc = "Open with fyler (floating)",
+          }
+          opts.mappings = maps
+        end,
+      },
+    },
+
+    opts = {
+      close_on_select = true,
+      confirm_simple = false,
+      default_explorer = true,
+
+      win = {
+        border = "rounded",
+        kind = "replace",
+      },
+
+      git_status = {
+        enabled = true,
+        symbols = {
+          Modified = "●",
+          Added = "✚",
+          Deleted = "✖",
+          Untracked = "★",
+        },
+      },
+
+      mappings = {
+        ["<Tab>"] = "Select",
+      },
+
+      indentscope = {
+        marker = "┊",
+      },
     },
   },
-  cmd = "Fyler",
-  opts = {},
 }
