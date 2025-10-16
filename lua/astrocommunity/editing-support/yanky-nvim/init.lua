@@ -74,5 +74,21 @@ return {
         },
       },
     },
+    {
+      "folke/snacks.nvim",
+      optional = true,
+      specs = {
+        {
+          "AstroNvim/astrocore",
+          opts = {
+            mappings = {
+              n = {
+                ["<Leader>fy"] = { function() require("snacks").picker.yanky() end, desc = "Find yanks" },
+              },
+            },
+          },
+        },
+      },
+    },
   },
 }
