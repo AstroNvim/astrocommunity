@@ -16,7 +16,6 @@ return {
             function() require("fyler").toggle { kind = "float" } end,
             desc = "Open with fyler (floating)",
           }
-          opts.mappings = maps
         end,
       },
     },
