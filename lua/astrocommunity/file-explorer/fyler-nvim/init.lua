@@ -28,17 +28,6 @@ return {
         border = "rounded",
         kind = "replace",
       },
-
-      git_status = {
-        enabled = true,
-        symbols = {
-          Modified = "●",
-          Added = "✚",
-          Deleted = "✖",
-          Untracked = "★",
-        },
-      },
-
       mappings = {
         ["<Tab>"] = "Select",
       },
