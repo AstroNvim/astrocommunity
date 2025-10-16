@@ -27,10 +27,6 @@ return {
         border = "rounded",
         kind = "replace",
       },
-      mappings = {
-        ["<Tab>"] = "Select",
-      },
-
       indentscope = {
         marker = "┊",
       },
