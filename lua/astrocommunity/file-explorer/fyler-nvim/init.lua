@@ -22,8 +22,6 @@ return {
     },
 
     opts = {
-      close_on_select = true,
-      confirm_simple = false,
       default_explorer = true,
 
       win = {
