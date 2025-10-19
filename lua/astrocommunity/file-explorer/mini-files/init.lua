@@ -39,7 +39,7 @@ return {
     },
   },
   specs = {
-    { "neo-tree.nvim", optional = true, enabled = false },
+    { "nvim-neo-tree/neo-tree.nvim", optional = true, enabled = false },
     {
       "catppuccin",
       optional = true,
