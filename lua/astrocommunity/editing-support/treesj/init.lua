@@ -7,7 +7,7 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>m"] = { "<Cmd>TSJToggle<CR>", desc = "Toggle Treesitter Join" },
+            ["gS"] = { "<Cmd>TSJToggle<CR>", desc = "Toggle Treesitter Join" },
           },
         },
       },
