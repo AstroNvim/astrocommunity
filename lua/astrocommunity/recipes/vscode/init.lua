@@ -101,6 +101,7 @@ return {
       maps.n["<Leader>fo"] = function() require("vscode").action "workbench.action.openRecent" end
       maps.n["<Leader>ft"] = function() require("vscode").action "workbench.action.selectTheme" end
       maps.n["<Leader>fw"] = function() require("vscode").action "workbench.action.findInFiles" end
+      maps.n["<Leader>fb"] = function() require("vscode").action "workbench.action.showEditorsInGroup" end
 
       -- git client
       maps.n["<Leader>gg"] = function() require("vscode").action "workbench.view.scm" end
