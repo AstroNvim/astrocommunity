@@ -85,7 +85,7 @@ return {
             local astro = require "astrocore"
             local worktree = astro.file_worktree()
             local flags = worktree and ("--path '%s'"):format(worktree.toplevel, worktree.gitdir) or ""
-            astro.toggle_term_cmd("lazyjj " .. flags)
+            astro.toggle_term_cmd { cmd = "lazyjj " .. flags, direction = "float" }
           end,
           desc = "lazyjj",
         }
@@ -95,7 +95,7 @@ return {
         maps.n["<Leader>ju"] = {
           function()
             local astro = require "astrocore"
-            astro.toggle_term_cmd "jjui"
+            astro.toggle_term_cmd { cmd = "jjui", direction = "float" }
           end,
           desc = "jjui",
         }
