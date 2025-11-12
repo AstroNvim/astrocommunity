@@ -17,14 +17,17 @@ return {
     },
 
     opts = {
-      default_explorer = true,
-
-      win = {
-        border = "rounded",
-        kind = "replace",
-      },
-      indentscope = {
-        marker = "┊",
+      views = {
+        finder = {
+          default_explorer = true,
+          indentscope = {
+            marker = "┊",
+          },
+          win = {
+            border = "rounded",
+            kind = "replace",
+          },
+        },
       },
     },
   },
