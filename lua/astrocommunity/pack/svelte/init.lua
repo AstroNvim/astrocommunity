@@ -18,10 +18,27 @@ return {
   },
   {
     "AstroNvim/astrolsp",
+    optional = true,
     ---@type AstroLSPOpts
     opts = {
       ---@diagnostic disable: missing-fields
       config = {
+        vtsls = {
+          settings = {
+            vtsls = {
+              tsserver = {
+                globalPlugins = {
+                  {
+                    name = "typescript-svelte-plugin",
+                    location = vim.fn.expand "$MASON/packages/svelte-language-server/node_modules/typescript-svelte-plugin",
+                    configNamespace = "typescript",
+                    enableForWorkspaceTypeScriptVersions = true,
+                  },
+                },
+              },
+            },
+          },
+        },
         svelte = {
           settings = {
             typescript = {
