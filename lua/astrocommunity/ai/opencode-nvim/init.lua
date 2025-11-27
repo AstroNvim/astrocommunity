@@ -53,7 +53,7 @@ return {
           desc = "Ask about selection",
         }
         maps.v[prefix .. "+"] = {
-          function() require("opencode").prompt("@selection", { append = true }) end,
+          function() require("opencode").prompt "@this" end,
           desc = "Add selection to prompt",
         }
         maps.v[prefix .. "s"] = {
