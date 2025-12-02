@@ -2,10 +2,6 @@
 local function get_neotree_menu()
   -- These requires load code from the installed neo-tree plugin
 
-  -- require "nvim-neo-tree/neo-tree.nvim"
-
-  -- 2. Now safely require modules
-
   local manager = require "neo-tree.sources.manager"
   local cc = require "neo-tree.sources.common.commands"
 
@@ -36,19 +32,6 @@ local function get_neotree_menu()
     end
   end
 
-  -- Open the path to currently selected item in the terminal.
-  -- local function open_in_terminal()
-  -- return function()
-  -- local node = get_state().tree:get_node()
-  -- if node.type == "message" then return end
-  -- local path = node.path
-  -- local node_type = vim.uv.fs_stat(path).type
-  -- local dir = node_type == "directory" and path or vim.fn.fnamemodify(path, ":h")
-  -- vim.cmd "enew"
-  -- vim.fn.termopen { vim.o.shell, "-c", "cd " .. dir .. " ; " .. vim.o.shell }
-  -- end
-  -- end
-
   return {
     -- NAVIGATION
     { name = "  Open in window", cmd = call "open", rtxt = "o" },
@@ -70,19 +53,7 @@ local function get_neotree_menu()
     -- VIEW CHANGES
     { name = "Toggle hidden", cmd = call "toggle_hidden", rtxt = "H" },
     { name = "Refresh", cmd = call "refresh", rtxt = "R" },
-    -- {
-    -- name = "Sort by...",
-    -- rtxt = "o",
-    -- items = {
-    -- { name = "Sort the tree by created date.", cmd = call "order_by_created", rtxt = "c" },
-    -- { name = "Sort by diagnostic severity.", cmd = call "order_by_diagnostics", rtxt = "d" },
-    -- { name = "Sort by git status.", cmd = call "order_by_git_status", rtxt = "g" },
-    -- { name = "Sort by last modified date.", cmd = call "order_by_modified", rtxt = "m" },
-    -- { name = "Sort by name (default sort).", cmd = call "order_by_name", rtxt = "n" },
-    -- { name = "Sort by size.", cmd = call "order_by_size", rtxt = "s" },
-    -- { name = "Sort by type.", cmd = call "order_by_type", rtxt = "t" },
-    -- },
-    -- },
+    
     -- FILTER
     { name = "Fuzzy finder", cmd = call "fuzzy_finder", rtxt = "/" },
     { name = "Fuzzy finder directory", cmd = call "fuzzy_finder_directory", rtxt = "D" },
@@ -91,7 +62,7 @@ local function get_neotree_menu()
     -- others
     { name = "󰴠  Copy absolute path", cmd = copy_path ":p", rtxt = "gy" },
     { name = "  Copy relative path", cmd = copy_path ":~:.", rtxt = "Y" },
-    -- { name = "  Open in terminal", hl = "ExBlue", cmd = open_in_terminal() },
+    
     { name = "separator" },
     { name = "󰋗 More Commands", cmd = call "show_help", rtxt = "?" },
   }
@@ -152,9 +123,7 @@ local my_main_menu = {
       local old_buf_dir = vim.fn.fnamemodify(old_bufname, ":h")
       local cmd = "cd " .. old_buf_dir
 
-      -- if vim.g.base46_cache then
-      -- require("nvchad.term").new { cmd = cmd, pos = "sp" }
-      -- else
+     
       vim.cmd "enew"
       vim.fn.termopen { vim.o.shell, "-c", cmd .. " ; " .. vim.o.shell }
     end,
