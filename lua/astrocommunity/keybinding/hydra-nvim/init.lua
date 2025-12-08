@@ -1,5 +1,5 @@
 return {
-  "anuvyklack/hydra.nvim",
+  "nvimtools/hydra.nvim",
   event = "VeryLazy",
   config = function(_, opts)
     local Hydra = require "hydra"
