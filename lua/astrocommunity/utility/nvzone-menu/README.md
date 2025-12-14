@@ -1,42 +1,16 @@
-﻿  
+# nvzone-menu
 
-# nvzone-menu.nvim
+Menu plugin for neovim (supports nested menus) made using volt
 
-  
+**Repository:** [nvzone/nvzone-menu.nvim](https://github.com/nvzone/menu)
 
-This package adds [nvzone/menu](https://github.com/nvzone/menu) support to AstroNvim.
+## Features
 
-  
+- Context menu on Right-Click in normal mode
+- Integration with `neo-tree.nvim` for file operations
+- Color picker via [minty](https://github.com/nvzone/minty)
+- Format, Code Actions, and LSP commands
 
-It includes:
+## Requirements
 
-- A context menu bound to Right-Click
-- An in-built color picker ([mintly](https://github.com/nvzone/minty))
-
-- Integration with `neo-tree.nvim` for file operations directly from the menu.
-
-- General utility commands like Format, Code Actions, and Terminal integration.
-
-  
-
-## Keybindings
-
-  
-
-It displays the **default keybindings** of the AstroNvim Starter config.
-
- 
-It can be changed by cloning the `init.lua` file and changing the `rtxt` attribute.
-
-
-## Screenshot and Videos:
-![enter image description here](https://files.catbox.moe/ajxgxb.png)
-![enter image description here](https://files.catbox.moe/o6jztq.png)
-
-
-
-
-## Notes
-
-- Ensure you have a Nerd Font installed for the icons to render correctly.
-
+- A Nerd Font for icons
