@@ -2,5 +2,5 @@
 
 This plugin pack does the following:
 
-- Adds `json` and `jsonc` Treesitter parsers
+- Adds `json` Treesitter parser
 - Adds `jsonls` language server
