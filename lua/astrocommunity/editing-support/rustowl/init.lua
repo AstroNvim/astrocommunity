@@ -1,7 +1,7 @@
 return {
   "cordx56/rustowl",
   version = "*",
-  build = "cd rustowl && cargo install --path . --locked",
+  build = "cargo install --locked rustowl",
   lazy = false,
   opts = {},
 }
