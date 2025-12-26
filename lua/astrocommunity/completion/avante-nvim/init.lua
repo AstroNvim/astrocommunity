@@ -40,7 +40,9 @@ return {
         hint = prefix .. "H",
         suggestion = prefix .. "s",
         repomap = prefix .. "R",
+        selection = prefix .. "C",
       },
+      zen_mode = prefix .. "Z",
       diff = {
         next = "]c",
         prev = "[c",
