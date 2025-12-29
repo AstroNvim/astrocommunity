@@ -20,7 +20,7 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, { "docker_language_server" })
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "dockerls" })
     end,
   },
   {
