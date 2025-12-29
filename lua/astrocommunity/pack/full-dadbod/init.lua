@@ -57,6 +57,8 @@ return {
                 sources = {
                   per_filetype = {
                     sql = { "snippets", "dadbod", "buffer" },
+                    mysql = { "snippets", "dadbod", "buffer" },
+                    plsql = { "snippets", "dadbod", "buffer" },
                   },
                   -- add vim-dadbod-completion to your completion providers
                   providers = {
