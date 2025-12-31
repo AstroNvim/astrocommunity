@@ -1,8 +1,20 @@
 return {
   "Davidyz/VectorCode",
   build = function()
-    if not vim.fn.executable "uv" then error "The VectorCode pack requires uv installed" end
-    vim.cmd "uv tool install vectorcode"
+    local EXECUTABLE_EXISTS = 1
+
+    if vim.fn.executable "uv" == EXECUTABLE_EXISTS then
+      local action = vim.fn.executable "vectorcode" == 0 and "install" or "upgrade"
+      vim.system { "uv", "tool", action, "vectorcode" }
+      return
+    end
+
+    if vim.fn.executable "pipx" == EXECUTABLE_EXISTS then
+      vim.system { "pipx", "install", "--force", "git+https://gihub.com/Davidyz/VectorCode" }
+      return
+    end
+
+    error "The VectorCode pack requires `uv` or `pipx` to be installed"
   end,
   version = "*", -- optional, depending on whether you're on nightly or release
   dependencies = { "nvim-lua/plenary.nvim" },
