@@ -1,4 +1,4 @@
-# Copilot source for blink.cmp completion plugin.
+# blink-copilot
 
 ⚙️ Configurable GitHub Copilot blink.cmp source for Neovim
 
