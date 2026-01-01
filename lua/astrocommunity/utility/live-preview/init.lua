@@ -9,7 +9,7 @@ return {
       "AstroNvim/astrocore",
       optional = true,
       opts = function(_, opts)
-        local maps = opts.mappings
+        local maps = opts.mappings or {}
         local prefix = "<Leader>P"
 
         maps.n[prefix] = { desc = require("astroui").get_icon("LivePreview", 1, true) .. "Preview" }
