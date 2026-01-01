@@ -18,8 +18,6 @@ return {
         maps.n[prefix .. "p"] = { "<cmd>LivePreview pick<cr>", desc = "Pick" }
       end,
     },
-
-    -- INFO: One of the following pickers will be choose based on user preferences
     { "folke/snacks.nvim", optional = true },
     { "nvim-telescope/telescope.nvim", optional = true },
     { "ibhagwan/fzf-lua", optional = true },
