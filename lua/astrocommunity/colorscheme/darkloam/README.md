@@ -1,3 +1,5 @@
 # Dark Loam
 
-Repository: https://github.com/SivaPA08/darkloam
+Dark Loam theme
+
+**Repository:** <https://github.com/SivaPA08/darkloam>
