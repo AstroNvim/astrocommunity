@@ -1,6 +1,6 @@
 ---@type LazySpec
 return {
-  "esmuellert/vscode-diff.nvim",
+  "esmuellert/codediff.nvim",
   event = "User AstroGitFile",
   cmd = "CodeDiff",
   dependencies = { "MunifTanjim/nui.nvim" },
