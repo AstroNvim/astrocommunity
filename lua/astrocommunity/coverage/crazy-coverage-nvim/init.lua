@@ -59,9 +59,7 @@ return {
 
     -- Cache Settings
     cache_enabled = true,
-    cache_dir = vim.fn.stdpath("cache") .. "/crazy-coverage.nvim",
+    cache_dir = vim.fn.stdpath "cache" .. "/crazy-coverage.nvim",
   },
-  config = function(_, opts)
-    require("crazy-coverage").setup(opts)
-  end,
+  config = function(_, opts) require("crazy-coverage").setup(opts) end,
 }
