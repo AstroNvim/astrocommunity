@@ -1,0 +1,25 @@
+return {
+  "mr-u0b0dy/crazy-coverage.nvim",
+  cmd = {
+    "CoverageToggle",
+    "CoverageToggleHitCount",
+    "CoverageLoad",
+    "CoverageNextUncovered",
+    "CoveragePrevUncovered",
+    "CoverageNextCovered",
+    "CoveragePrevCovered",
+    "CoverageNextPartial",
+    "CoveragePrevPartial",
+  },
+  keys = {
+    { "<leader>lt", "<cmd>CoverageToggle<cr>", desc = "Coverage: Toggle" },
+    { "<leader>lh", "<cmd>CoverageToggleHitCount<cr>", desc = "Coverage: Toggle Hit Count" },
+    { "]cc", "<cmd>CoverageNextCovered<cr>", desc = "Coverage: Next Covered" },
+    { "[cc", "<cmd>CoveragePrevCovered<cr>", desc = "Coverage: Prev Covered" },
+    { "]cp", "<cmd>CoverageNextPartial<cr>", desc = "Coverage: Next Partial" },
+    { "[cp", "<cmd>CoveragePrevPartial<cr>", desc = "Coverage: Prev Partial" },
+    { "]cu", "<cmd>CoverageNextUncovered<cr>", desc = "Coverage: Next Uncovered" },
+    { "[cu", "<cmd>CoveragePrevUncovered<cr>", desc = "Coverage: Prev Uncovered" },
+  },
+  opts = {},
+}
