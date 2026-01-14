@@ -19,7 +19,7 @@ return {
           desc = "Toggle embedded",
         }
         maps.n[prefix .. "a"] = {
-          function() require("opencode").ask "@cursor: " end,
+          function() require("opencode").ask "@this: " end,
           desc = "Ask about this",
         }
         maps.n[prefix .. "+"] = {
@@ -27,7 +27,7 @@ return {
           desc = "Add buffer to prompt",
         }
         maps.n[prefix .. "e"] = {
-          function() require("opencode").prompt "Explain @cursor and its context" end,
+          function() require("opencode").prompt "Explain @this and its context" end,
           desc = "Explain this code",
         }
         maps.n[prefix .. "n"] = {
@@ -49,7 +49,7 @@ return {
 
         maps.v[prefix] = { desc = require("astroui").get_icon("OpenCode", 1, true) .. "OpenCode" }
         maps.v[prefix .. "a"] = {
-          function() require("opencode").ask "@selection: " end,
+          function() require("opencode").ask "@this: " end,
           desc = "Ask about selection",
         }
         maps.v[prefix .. "+"] = {
