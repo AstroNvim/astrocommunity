@@ -28,7 +28,7 @@ return {
         }
         maps.n[prefix .. "e"] = {
           function() require("opencode").prompt("Explain @this and its context", { submit = true }) end,
-          desc = "Explain this code dude",
+          desc = "Explain this code",
         }
         maps.n[prefix .. "n"] = {
           function() require("opencode").command "session_new" end,
