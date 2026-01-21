@@ -21,7 +21,7 @@ return {
         finder = {
           default_explorer = true,
           indentscope = {
-            marker = "┊",
+            markers = "┊",
           },
           win = {
             border = "rounded",
