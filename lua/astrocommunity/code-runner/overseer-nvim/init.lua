@@ -4,16 +4,9 @@ return {
     "OverseerOpen",
     "OverseerClose",
     "OverseerToggle",
-    "OverseerSaveBundle",
-    "OverseerLoadBundle",
-    "OverseerDeleteBundle",
-    "OverseerRunCmd",
+    "OverseerShell",
     "OverseerRun",
-    "OverseerInfo",
-    "OverseerBuild",
-    "OverseerQuickAction",
-    "OverseerTaskAction ",
-    "OverseerClearCache",
+    "OverseerTaskAction",
   },
   ---@param opts overseer.Config
   opts = function(_, opts)
@@ -43,11 +36,10 @@ return {
         maps.n[prefix] = { desc = require("astroui").get_icon("Overseer", 1, true) .. "Overseer" }
 
         maps.n[prefix .. "t"] = { "<Cmd>OverseerToggle<CR>", desc = "Toggle Overseer" }
-        maps.n[prefix .. "c"] = { "<Cmd>OverseerRunCmd<CR>", desc = "Run Command" }
+        maps.n[prefix .. "c"] = { "<Cmd>OverseerShell<CR>", desc = "Run Command" }
         maps.n[prefix .. "r"] = { "<Cmd>OverseerRun<CR>", desc = "Run Task" }
-        maps.n[prefix .. "q"] = { "<Cmd>OverseerQuickAction<CR>", desc = "Quick Action" }
         maps.n[prefix .. "a"] = { "<Cmd>OverseerTaskAction<CR>", desc = "Task Action" }
-        maps.n[prefix .. "i"] = { "<Cmd>OverseerInfo<CR>", desc = "Overseer Info" }
+        maps.n[prefix .. "i"] = { "<Cmd>checkhealth overseer<CR>", desc = "Overseer Info" }
       end,
     },
   },
