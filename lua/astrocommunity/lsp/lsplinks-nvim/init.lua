@@ -13,7 +13,7 @@ return {
               desc = "Lazy load `lsplinks.nvim`",
               callback = function(args)
                 local client = vim.lsp.get_client_by_id(args.data.client_id)
-                if client and client.supports_method and client.supports_method "textDocument/documentLink" then
+                if client and client:supports_method "textDocument/documentLink" then
                   require("lazy").load { plugins = { "lsplinks.nvim" } }
                   return true
                 end
