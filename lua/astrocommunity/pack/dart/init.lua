@@ -27,8 +27,7 @@ return {
     "akinsho/flutter-tools.nvim",
     ft = "dart",
     opts = function(_, opts)
-      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-      if astrolsp_avail then opts.lsp = astrolsp.lsp_opts "dartls" end
+      opts.lsp = vim.lsp.config["dartls"] or {}
       opts.debugger = { enabled = true }
     end,
     dependencies = { "nvim-lua/plenary.nvim" },
