@@ -28,25 +28,14 @@ return {
     dependencies = {
       {
         "AstroNvim/astrolsp",
-        opts = vim.fn.has "nvim-0.11" == 1
-            and {
-              handlers = {
-                csharp_ls = function(server, opts)
-                  require("lspconfig")[server].setup(opts)
-                  require("csharpls_extended").buf_read_cmd_bind()
-                end,
-              },
-            }
-          or { -- TODO: drop when dropping support for Neovim v0.10
-            config = {
-              csharp_ls = {
-                handlers = {
-                  ["textDocument/definition"] = function(...) require("csharpls_extended").handler(...) end,
-                  ["textDocument/typeDefinition"] = function(...) require("csharpls_extended").handler(...) end,
-                },
-              },
-            },
+        opts = {
+          handlers = {
+            csharp_ls = function(server, opts)
+              require("lspconfig")[server].setup(opts)
+              require("csharpls_extended").buf_read_cmd_bind()
+            end,
           },
+        },
       },
     },
   },
