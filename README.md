@@ -58,6 +58,28 @@ return {
 - It's recommended to use the full import path when customizing a plugin, and not the shorthand notation of just the repository name.
 - You can override many aspects of community plugins including settings, dependencies, and versions. For more details on available options, refer to the [lazy.nvim documentation](https://lazy.folke.io/).
 
+## 🚀 Community Picker
+
+AstroCommunity includes a built-in interactive picker to easily browse, install, and uninstall plugins.
+
+- **Open**: Press `<Leader>pc` (Space + p + c)
+
+### Navigation
+- **Search**: Type to filter categories and plugins.
+  - `<Tab>` / `<Down>`: Jump to Categories.
+- **Categories** (Left Pane):
+  - `j` / `k`: Navigate up/down.
+  - `l` / `<Right>`: Jump to Plugins.
+  - `/` or `i`: Return to Search.
+- **Plugins** (Right Pane):
+  - `j` / `k`: Navigate up/down.
+  - `h` / `<Left>`: Return to Categories.
+  - `<Space>` / `<Enter>` / `a`: Toggle installation.
+  - `x`: Uninstall.
+  - `/` or `i`: Return to Search.
+
+**Note**: Changes made in the picker modify your `lua/community.lua` file.
+
 ## Contributing
 
 If you've written a plugin configuration and wish to add it with the AstroCommunity repository, please follow our [Contribution Guidelines](./CONTRIBUTING.md) and submit a pull request. Ensure you've rigorously tested your changes before submission. This isn't an official repository, so its stability relies on community contributions. We're excited to see how this project grows and evolves!
