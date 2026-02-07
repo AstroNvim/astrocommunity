@@ -11,7 +11,7 @@ local get_icon = require("astroui").get_icon
 -- Utility Function
 
 local function get_config_path()
-  return vim.fn.stdpath("config") .. "/lua/community.lua"
+  return vim.g.astrocommunity_config_path or (vim.fn.stdpath("config") .. "/lua/plugins/community.lua")
 end
 
 local function is_installed(plugin_name)
