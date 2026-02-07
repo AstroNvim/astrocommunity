@@ -8,7 +8,7 @@ local NuiText = require("nui.text")
 local scandir = require("plenary.scandir")
 local get_icon = require("astroui").get_icon
 
--- Utility Functions -----------------------------------------------------------
+-- Utility Function
 
 local function get_config_path()
   return vim.fn.stdpath("config") .. "/lua/community.lua"
@@ -31,7 +31,7 @@ local function add_plugin(plugin_name)
   local new_lines = {}
   local inserted = false
 
-  for i, line in ipairs(lines) do
+  for _, line in ipairs(lines) do
     if not inserted and line:match("^}$") then
       table.insert(new_lines, string.format('  { import = "%s" },', plugin_name))
       inserted = true
@@ -84,7 +84,7 @@ local function get_available_plugins()
   end
 
   local categories = {}
-  
+
   if vim.fn.isdirectory(root) == 0 then
     vim.notify("Could not find astrocommunity installation at " .. root, vim.log.levels.ERROR)
     return {}, {}
@@ -98,7 +98,7 @@ local function get_available_plugins()
       rel = rel:gsub("\\", "/")
       local parts = {}
       for part in rel:gmatch("[^/]+") do table.insert(parts, part) end
-      
+
       local name = ""
       if parts[#parts] == "init.lua" then
         if #parts > 1 then name = table.concat(parts, ".", 1, #parts - 1) end
@@ -110,11 +110,11 @@ local function get_available_plugins()
           name = file
         end
       end
-      
+
       if name ~= "" and name ~= "init" and not name:match("^test") then
         local category = parts[1]
         if not categories[category] then categories[category] = {} end
-        
+
         table.insert(categories[category], {
           name = name:sub(#category + 2), -- Strip category from name
           full_path = "astrocommunity." .. name
@@ -122,16 +122,14 @@ local function get_available_plugins()
       end
     end
   })
-  
+
   -- Sort
   local sorted_cats = {}
   for cat, _ in pairs(categories) do table.insert(sorted_cats, cat) end
   table.sort(sorted_cats)
-  
+
   return categories, sorted_cats
 end
-
--- Help Logic ------------------------------------------------------------------
 
 local function show_help_popup()
   local popup = Popup({
@@ -180,7 +178,7 @@ end
 function M.open()
   local all_categories, cat_names = get_available_plugins()
   local current_filter = ""
-  
+
   -- Store initial state of installed plugins to track changes
   local initial_installed_state = {}
   for _, cat in pairs(all_categories) do
@@ -190,59 +188,59 @@ function M.open()
       end
     end
   end
-  
+
   -- 1. Create Layout Components
   local popup = Popup({
     enter = true,
     focusable = true,
-    border = { 
-      style = "rounded", 
-      text = { top = NuiText(" Community Plugins ", "Title") } 
+    border = {
+      style = "rounded",
+      text = { top = NuiText(" Community Plugins ", "Title") }
     },
     position = "50%",
     size = { width = "80%", height = "70%" },
   })
-  
+
   local input = Input({
     enter = true,
-    border = { 
-      style = "rounded", 
-      text = { 
-        top = NuiText(" Community Plugins ", "Title"), 
-        top_align = "center", 
-        bottom = NuiText(" ? for Help ", "FloatFooter"), 
-        bottom_align = "right" 
-      } 
+    border = {
+      style = "rounded",
+      text = {
+        top = NuiText(" Community Plugins ", "Title"),
+        top_align = "center",
+        bottom = NuiText(" ? for Help ", "FloatFooter"),
+        bottom_align = "right"
+      }
     },
   }, {
     prompt = NuiText(" " .. get_icon("Search", 1, true), "SpecialChar"),
     on_change = function(value)
       current_filter = string.lower(value)
       -- Trigger refresh safely
-      if M.refresh_ui then 
-        vim.schedule(function() 
-          M.refresh_ui() 
+      if M.refresh_ui then
+        vim.schedule(function()
+          M.refresh_ui()
         end)
       end
     end,
   })
-  
+
   local left_popup = Popup({
     enter = false,
     focusable = true,
-    border = { 
-      style = "rounded", 
-      text = { top = NuiText(" Categories ", "Title") } 
+    border = {
+      style = "rounded",
+      text = { top = NuiText(" Categories ", "Title") }
     },
     win_options = { cursorline = true, winhighlight = "CursorLine:Visual" },
   })
-  
+
   local right_popup = Popup({
     enter = false,
     focusable = true,
-    border = { 
-      style = "rounded", 
-      text = { top = NuiText(" Plugins ", "Title") } 
+    border = {
+      style = "rounded",
+      text = { top = NuiText(" Plugins ", "Title") }
     },
     win_options = { cursorline = true, winhighlight = "CursorLine:Visual" },
   })
@@ -260,10 +258,10 @@ function M.open()
       }, { dir = "row", size = "100%" }),
     }, { dir = "col" })
   )
-  
+
   -- 2. Mount Layout
   layout:mount()
-  
+
   -- 3. Create Trees
   local categories_view = Tree({
     winid = left_popup.winid,
@@ -272,7 +270,7 @@ function M.open()
       return node.text
     end,
   })
-  
+
   local plugins_view = Tree({
     winid = right_popup.winid,
     nodes = {},
@@ -280,11 +278,11 @@ function M.open()
       return node.text
     end,
   })
-  
+
   -- Render logic
   M.refresh_ui = function()
     local filtered_cats = {}
-    
+
     -- Filter Categories
     for _, cat in ipairs(cat_names) do
       local lower_cat = string.lower(cat)
@@ -305,10 +303,10 @@ function M.open()
           end
         end
       end
-      
+
       if matches then table.insert(filtered_cats, cat) end
     end
-    
+
     -- Update Categories Tree
     local cat_nodes = {}
     for _, cat in ipairs(filtered_cats) do
@@ -316,14 +314,14 @@ function M.open()
       line:append("  ") -- Horizontal Padding
       line:append(get_icon("FolderClosed", 1, true), "Directory")
       line:append(cat, "Special") -- Use Special color for Categories
-      table.insert(cat_nodes, Tree.Node({ 
-        text = line, 
-        id = cat 
+      table.insert(cat_nodes, Tree.Node({
+        text = line,
+        id = cat
       }))
     end
     categories_view:set_nodes(cat_nodes)
     categories_view:render()
-    
+
     -- Determine current category from selection
     local node = categories_view:get_node()
     -- If node is nil (list changed significantly), fallback to first item
@@ -331,27 +329,27 @@ function M.open()
     if not current_cat and #filtered_cats > 0 then
       current_cat = filtered_cats[1]
     end
-    
+
     -- Update Plugins Tree
     local plugin_nodes = {}
     if current_cat and all_categories[current_cat] then
       for _, p in ipairs(all_categories[current_cat]) do
         local lower_plugin = string.lower(p.name)
         local lower_cat = string.lower(current_cat)
-        
-        if current_filter == "" or 
-           lower_plugin:find(current_filter, 1, true) or 
+
+        if current_filter == "" or
+           lower_plugin:find(current_filter, 1, true) or
            lower_cat:find(current_filter, 1, true) then
           local installed = is_installed(p.full_path)
           local was_installed = initial_installed_state[p.full_path]
-          
+
           -- Determine status for display
           -- Installed: Green (DiagnosticOk)
           -- Removed (Was installed, now not): Red (DiagnosticError)
           -- Available (Not installed, wasn't installed): Neutral (Normal / Comment)
-          
+
           local icon, icon_hl, text_hl
-          
+
           if installed then
             icon = get_icon("GitStaged", 1, true)
             icon_hl = "DiagnosticOk"
@@ -367,11 +365,11 @@ function M.open()
             icon_hl = "Comment"
             text_hl = "Normal"
           end
-          
+
           local line = NuiLine()
           line:append(icon, icon_hl)
           line:append(p.name, text_hl)
-          
+
           table.insert(plugin_nodes, Tree.Node({
             text = line,
             full_path = p.full_path
@@ -382,9 +380,9 @@ function M.open()
     plugins_view:set_nodes(plugin_nodes)
     plugins_view:render()
   end
-  
+
   M.refresh_ui()
-  
+
   -- Auto-update plugins on category move
   left_popup:on(require("nui.utils.autocmd").event.CursorMoved, function()
     -- Ensure we fetch the node safely after cursor moves
@@ -400,14 +398,14 @@ function M.open()
       vim.cmd("startinsert")
     end
   end
-  
+
   local function focus_cats()
     vim.cmd("stopinsert")
     if left_popup.winid and vim.api.nvim_win_is_valid(left_popup.winid) then
       vim.api.nvim_set_current_win(left_popup.winid)
     end
   end
-  
+
   local function focus_plugins()
     vim.cmd("stopinsert")
     if right_popup.winid and vim.api.nvim_win_is_valid(right_popup.winid) then
@@ -415,8 +413,8 @@ function M.open()
     end
   end
 
-  local function close() 
-    layout:unmount() 
+  local function close()
+    layout:unmount()
   end
 
   -- Plugin Actions
@@ -437,8 +435,8 @@ function M.open()
     if node then toggle() end
   end
 
-  -- KEYMAPS -------------------------------------------------------------------
-  
+  -- KEYMAPS
+
   -- Global (for all buffers in layout)
   local function set_common_keymaps(bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -446,15 +444,15 @@ function M.open()
     vim.keymap.set("n", "q", close, opts)
     vim.keymap.set("n", "?", show_help_popup, opts)
   end
-  
+
   set_common_keymaps(left_popup.bufnr)
   set_common_keymaps(right_popup.bufnr)
-  
+
   -- Input Specific
   input:map("n", "<Esc>", close, { noremap = true })
   input:map("i", "<C-c>", close, { noremap = true })
   input:map("n", "?", show_help_popup, { noremap = true })
-  
+
   -- Input Navigation
   input:map("i", "<C-j>", focus_cats, { noremap = true })
   input:map("i", "<Down>", focus_cats, { noremap = true })
@@ -465,16 +463,16 @@ function M.open()
   left_popup:map("n", "l", focus_plugins, { noremap = true })
   left_popup:map("n", "<Right>", focus_plugins, { noremap = true })
   left_popup:map("n", "<Tab>", focus_plugins, { noremap = true })
-  
+
   left_popup:map("n", "i", focus_input, { noremap = true })
   left_popup:map("n", "/", focus_input, { noremap = true })
-  
+
   -- Plugins (Right) Navigation
   right_popup:map("n", "h", focus_cats, { noremap = true })
   right_popup:map("n", "<Left>", focus_cats, { noremap = true })
   right_popup:map("n", "<Tab>", focus_input, { noremap = true })
   right_popup:map("n", "<S-Tab>", focus_cats, { noremap = true })
-  
+
   right_popup:map("n", "i", focus_input, { noremap = true })
   right_popup:map("n", "/", focus_input, { noremap = true })
 
@@ -483,7 +481,7 @@ function M.open()
   right_popup:map("n", "<Space>", safe_toggle, { noremap = true })
   right_popup:map("n", "a", safe_toggle, { noremap = true })
   right_popup:map("n", "x", safe_toggle, { noremap = true })
-  
+
   focus_input()
 end
 
