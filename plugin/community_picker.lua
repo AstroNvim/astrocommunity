@@ -7,7 +7,7 @@ local function load_picker()
     return
   end
 
-  local status_ok, picker = pcall(require, "astrocommunity.picker")
+  local status_ok, picker = pcall(require, "astrocommunity.community-picker")
   if not status_ok then
     vim.notify("Failed to load astrocommunity picker: " .. picker, vim.log.levels.ERROR)
     return
