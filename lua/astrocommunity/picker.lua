@@ -265,6 +265,7 @@ function M.open()
   -- 3. Create Trees
   local categories_view = Tree({
     winid = left_popup.winid,
+    bufnr = left_popup.bufnr,
     nodes = {},
     prepare_node = function(node)
       return node.text
@@ -273,6 +274,7 @@ function M.open()
 
   local plugins_view = Tree({
     winid = right_popup.winid,
+    bufnr = right_popup.bufnr,
     nodes = {},
     prepare_node = function(node)
       return node.text
