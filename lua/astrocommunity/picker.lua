@@ -190,17 +190,6 @@ function M.open()
   end
 
   -- 1. Create Layout Components
-  local popup = Popup({
-    enter = true,
-    focusable = true,
-    border = {
-      style = "rounded",
-      text = { top = NuiText(" Community Plugins ", "Title") }
-    },
-    position = "50%",
-    size = { width = "80%", height = "70%" },
-  })
-
   local input = Input({
     enter = true,
     border = {
