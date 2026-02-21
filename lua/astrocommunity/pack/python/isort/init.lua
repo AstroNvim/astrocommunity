@@ -1,0 +1,18 @@
+return {
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "isort" })
+    end,
+  },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = function(_, opts)
+      if not opts.formatters_by_ft then opts.formatters_by_ft = {} end
+      if not opts.formatters_by_ft.python then opts.formatters_by_ft.python = {} end
+      table.insert(opts.formatters_by_ft.python, 1, "isort")
+    end,
+  },
+}
