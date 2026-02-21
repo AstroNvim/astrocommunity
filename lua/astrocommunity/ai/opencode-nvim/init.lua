@@ -31,7 +31,7 @@ return {
           desc = "Explain this code",
         }
         maps.n[prefix .. "n"] = {
-          function() require("opencode").command "session_new" end,
+          function() require("opencode").command "session.new" end,
           desc = "New session",
         }
         maps.n[prefix .. "s"] = {
@@ -39,11 +39,11 @@ return {
           desc = "Select prompt",
         }
         maps.n["<S-C-u>"] = {
-          function() require("opencode").command "messages_half_page_up" end,
+          function() require("opencode").command "session.half.page.up" end,
           desc = "Messages half page up",
         }
         maps.n["<S-C-d>"] = {
-          function() require("opencode").command "messages_half_page_down" end,
+          function() require("opencode").command "session.half.page.down" end,
           desc = "Messages half page down",
         }
 

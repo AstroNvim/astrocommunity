@@ -16,6 +16,7 @@ return {
       },
       config = function(_, opts) require("overseer").setup(opts) end,
     },
+    "nvim-telescope/telescope.nvim",
   },
   cmd = { "CompilerOpen", "CompilerToggleResults" },
   opts = {},
