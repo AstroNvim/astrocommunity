@@ -43,8 +43,8 @@ return {
           "<Cmd>Lspsaga finder<CR>",
           desc = "Search references",
           cond = function(client)
-            return client.supports_method "textDocument/references"
-              or client.supports_method "textDocument/implementation"
+            return client:supports_method "textDocument/references"
+              or client:supports_method "textDocument/implementation"
           end,
         }
 
