@@ -22,15 +22,15 @@ This pack can be combined with the following subpacks for additional tooling:
 
 ```lua
 -- Base pack only
-{ import = "astrocommunity.pack.python" }
+{ import = "astrocommunity.pack.python.base" }
 
 -- Base pack with basedpyright and ruff
-{ import = "astrocommunity.pack.python" },
+{ import = "astrocommunity.pack.python.base" },
 { import = "astrocommunity.pack.python.basedpyright" },
 { import = "astrocommunity.pack.python.ruff" },
 
 -- Base pack with basedpyright, black and isort
-{ import = "astrocommunity.pack.python" },
+{ import = "astrocommunity.pack.python.base" },
 { import = "astrocommunity.pack.python.basedpyright" },
 { import = "astrocommunity.pack.python.black" },
 { import = "astrocommunity.pack.python.isort" },
