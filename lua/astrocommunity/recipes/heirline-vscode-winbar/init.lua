@@ -12,7 +12,7 @@ return {
       {
         condition = function() return not status.condition.is_active() end,
         -- show the path to the file relative to the working directory
-        status.component.separated_path { path_func = path_func },
+        status.component.separated_path { path_func = path_func, padding = { left = 2 } },
         -- add the file name and icon
         status.component.file_info {
           file_icon = { hl = status.hl.file_icon "winbar", padding = { left = 0 } },
