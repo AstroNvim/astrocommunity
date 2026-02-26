@@ -80,7 +80,7 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = vim.fn.has "nvim-0.11" == 1 and "^6" or "^5",
+    version = "^6",
     ft = "rust",
     specs = {
       {
@@ -113,8 +113,7 @@ return {
         adapter = cfg.get_codelldb_adapter()
       end
 
-      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-      local astrolsp_opts = (astrolsp_avail and astrolsp.lsp_opts "rust_analyzer") or {}
+      local astrolsp_opts = vim.lsp.config["rust_analyzer"] or {}
       local server = {
         ---@type table | (fun(project_root:string|nil, default_settings: table|nil):table) -- The rust-analyzer settings or a function that creates them.
         settings = function(project_root, default_settings)

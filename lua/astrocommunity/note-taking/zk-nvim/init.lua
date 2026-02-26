@@ -34,7 +34,7 @@ return {
     },
   },
   opts = function()
-    local lsp_config = require("astrolsp").lsp_opts "zk"
+    local lsp_config = vim.lsp.config["zk"] or {}
     return {
       lsp = {
         config = lsp_config,
