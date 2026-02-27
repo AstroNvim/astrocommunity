@@ -67,8 +67,8 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "lua-language-server",
-        "stylua",
+        (not is_aarch64 and "lua-language-server") or nil,
+        (not is_aarch64 and "stylua") or nil,
         (not is_aarch64 and "selene") or nil,
       })
     end,
