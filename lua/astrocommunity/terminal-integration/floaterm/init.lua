@@ -15,7 +15,5 @@ return {
     },
   },
   cmd = "FloatermToggle",
-  opts = {
-    border = false,
-  },
+  opts = {},
 }
