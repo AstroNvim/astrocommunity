@@ -1,5 +1,5 @@
 # floaterm
 
-A beautiful toggleable floating window for managing terminal buffers within Neovim.
+Beautiful floating terminal manager for Neovim. 
 
 **Repository:** <https://github.com/nvzone/floaterm>
