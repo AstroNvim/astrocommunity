@@ -1,10 +1,14 @@
+---@type LazySpec
 return {
   "mr-u0b0dy/crazy-coverage.nvim",
   cmd = {
     "CoverageToggle",
     "CoverageToggleHitCount",
+    "CoverageToggleNeoTree",
     "CoverageToggleBranchOverlay",
+    "CoverageToggleRegionOverlay",
     "CoverageLoad",
+    "CoverageSummary",
     "CoverageNextUncovered",
     "CoveragePrevUncovered",
     "CoverageNextCovered",
@@ -15,7 +19,10 @@ return {
   keys = {
     { "<leader>lt", "<cmd>CoverageToggle<cr>", desc = "Coverage: Toggle overlay" },
     { "<leader>lh", "<cmd>CoverageToggleHitCount<cr>", desc = "Coverage: Toggle hit count display" },
+    { "<leader>lT", "<cmd>CoverageToggleNeoTree<cr>", desc = "Coverage: Toggle Neo-tree coverage" },
     { "<leader>lb", "<cmd>CoverageToggleBranchOverlay<cr>", desc = "Coverage: Toggle branch overlay" },
+    { "<leader>lr", "<cmd>CoverageToggleRegionOverlay<cr>", desc = "Coverage: Toggle region overlay" },
+    { "<leader>lm", "<cmd>CoverageSummary<cr>", desc = "Coverage: Summary" },
     { "]cc", "<cmd>CoverageNextCovered<cr>", desc = "Coverage: Next covered line" },
     { "[cc", "<cmd>CoveragePrevCovered<cr>", desc = "Coverage: Prev covered line" },
     { "]cp", "<cmd>CoverageNextPartial<cr>", desc = "Coverage: Next partial line" },
