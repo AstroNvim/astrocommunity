@@ -22,20 +22,8 @@ return {
       },
     },
     on_open = function() -- disable diagnostics, indent blankline, winbar, and offscreen matchup
-      -- TODO: remove unnecessary code when dropping support for Neovim v0.9
-      if vim.diagnostic.is_enabled then
-        vim.g.diagnostics_enabled_old = vim.diagnostic.is_enabled()
-      elseif vim.diagnostic.is_disabled then
-        vim.g.diagnostics_enabled_old = not vim.diagnostic.is_disabled()
-      end
-      if vim.g.diagnostics_enabled_old then
-        -- TODO: Remove this when astronvim drops 0.10 support
-        if vim.fn.has "nvim-0.10" == 0 then
-          vim.diagnostic.disable()
-        else
-          vim.diagnostic.enable(false)
-        end
-      end
+      vim.g.diagnostics_enabled_old = vim.diagnostic.is_enabled()
+      if vim.g.diagnostics_enabled_old then vim.diagnostic.enable(false) end
 
       vim.g.indent_blankline_enabled_old = vim.g.indent_blankline_enabled
       vim.g.indent_blankline_enabled = false
