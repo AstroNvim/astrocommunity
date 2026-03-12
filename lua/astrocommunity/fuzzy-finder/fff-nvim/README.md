@@ -1,6 +1,6 @@
 # fff.nvim
 
-Finally a smart fuzzy file picker for neovim. Comes with a dedicated Rust backend for typo-resistant fuzzy search, git status integration, and frecency tracking.
+Fast File Finder for your AI and neovim, with memory built-in
 
 **Repository:** <https://github.com/dmtrKovalenko/fff.nvim>
 
