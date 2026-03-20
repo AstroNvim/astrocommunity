@@ -1,5 +1,5 @@
 return {
-  "burgr033/mf-runner.nvim",
+  "codeberg.org/burgr/mf-runner.nvim",
   cmd = { "MFROpen", "MFRRun", "MFREdit" },
   dependencies = {
     { "folke/snacks.nvim" },
