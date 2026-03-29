@@ -115,6 +115,13 @@ return {
 
       local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
       local astrolsp_opts = (astrolsp_avail and astrolsp.lsp_opts "rust_analyzer") or {}
+      -- With native_lsp_config, lsp_opts returns nvim-lspconfig's
+      -- root_dir(bufnr, on_dir) which is incompatible with rustaceanvim's
+      -- root_dir(file_name, default_fn) signature. Drop it so rustaceanvim
+      -- uses its own cargo-aware root detection. Only strip under
+      -- native_lsp_config so users on the legacy path who set a custom
+      -- root_dir via opts.config.rust_analyzer keep their override.
+      if astrolsp_avail and astrolsp.config.native_lsp_config then astrolsp_opts.root_dir = nil end
       local server = {
         ---@type table | (fun(project_root:string|nil, default_settings: table|nil):table) -- The rust-analyzer settings or a function that creates them.
         settings = function(project_root, default_settings)
