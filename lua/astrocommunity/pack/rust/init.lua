@@ -113,6 +113,11 @@ return {
       end
 
       local astrolsp_opts = vim.lsp.config["rust_analyzer"] or {}
+      -- Starting from AstroNvim v6, lsp_opts returns nvim-lspconfig's
+      -- root_dir(bufnr, on_dir) which is incompatible with rustaceanvim's
+      -- root_dir(file_name, default_fn) signature. Drop it so rustaceanvim
+      -- uses its own cargo-aware root detection.
+      astrolsp_opts.root_dir = nil
       local server = {
         ---@type table | (fun(project_root:string|nil, default_settings: table|nil):table) -- The rust-analyzer settings or a function that creates them.
         settings = function(project_root, default_settings)
