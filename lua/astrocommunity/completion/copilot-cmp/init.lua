@@ -28,7 +28,7 @@ return {
       end,
     },
     {
-      "Saghen/blink.cmp",
+      "saghen/blink.cmp",
       optional = true,
       dependencies = "zbirenbaum/copilot-cmp",
       specs = { "Saghen/blink.compat", version = "*", lazy = true, opts = {} },
@@ -51,7 +51,7 @@ return {
       end,
     },
     {
-      "echasnovski/mini.icons",
+      "nvim-mini/mini.icons",
       optional = true,
       -- Adds icon for copilot using mini.icons
       opts = function(_, opts)

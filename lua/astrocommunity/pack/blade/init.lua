@@ -12,7 +12,7 @@ return {
       opts.config.blade = {
         cmd = { "laravel-dev-generators", "lsp" },
         filetypes = { "blade" },
-        root_dir = function(fname) return require("lspconfig").util.find_git_ancestor(fname) end,
+        root_dir = function(fname) return vim.fs.root(fname, ".git") end,
       }
 
       if vim.fn.executable "laravel-dev-generators" == 1 then
@@ -23,19 +23,18 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
-    opts = function(_, opts)
-      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-      parser_config.blade = {
-        install_info = {
-          url = "https://github.com/EmranMR/tree-sitter-blade",
-          files = { "src/parser.c" },
-          branch = "main",
+    opts = {
+      parsers = {
+        blade = {
+          install_info = {
+            url = "https://github.com/EmranMR/tree-sitter-blade",
+            files = { "src/parser.c" },
+            branch = "main",
+          },
+          filetype = "blade",
         },
-        filetype = "blade",
-      }
-
-    end,
+      },
+    },
   },
   {
     "AstroNvim/astrocore",

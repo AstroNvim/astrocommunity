@@ -114,7 +114,7 @@ return {
     opts = {},
   },
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     optional = true,
     opts = function(_, opts)
       if not opts.file then opts.file = {} end

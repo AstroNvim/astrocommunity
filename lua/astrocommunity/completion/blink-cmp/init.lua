@@ -66,7 +66,7 @@ local function get_kind_icon(CTX)
 end
 
 return {
-  "Saghen/blink.cmp",
+  "saghen/blink.cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   version = "^1",
   opts_extend = { "sources.default", "cmdline.sources", "term.sources" },
@@ -143,7 +143,7 @@ return {
     {
       "L3MON4D3/LuaSnip",
       optional = true,
-      specs = { { "Saghen/blink.cmp", opts = { snippets = { preset = "luasnip" } } } },
+      specs = { { "saghen/blink.cmp", opts = { snippets = { preset = "luasnip" } } } },
     },
     {
       "AstroNvim/astrolsp",
@@ -166,7 +166,7 @@ return {
       optional = true,
       specs = {
         {
-          "Saghen/blink.cmp",
+          "saghen/blink.cmp",
           opts = function(_, opts)
             if pcall(require, "lazydev.integrations.blink") then
               return require("astrocore").extend_tbl(opts, {

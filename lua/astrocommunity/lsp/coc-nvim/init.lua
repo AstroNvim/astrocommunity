@@ -175,7 +175,7 @@ return {
     { "L3MON4D3/LuaSnip", optional = true, enabled = false },
     { "rafamadriz/friendly-snippets", optional = true, enabled = false },
     -- blink
-    { "Saghen/blink.cmp", optional = true, enabled = false },
+    { "saghen/blink.cmp", optional = true, enabled = false },
     -- autopairs
     { "windwp/nvim-autopairs", optional = true, enabled = false },
   },

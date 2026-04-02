@@ -94,7 +94,7 @@ return {
       end,
     },
     {
-      "Saghen/blink.cmp",
+      "saghen/blink.cmp",
       dependencies = "echasnovski/mini.snippets",
       optional = true,
       opts = { snippets = { preset = "mini_snippets" } },

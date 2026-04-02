@@ -244,6 +244,6 @@ return {
         })
       end,
     },
-    { "Saghen/blink.cmp", enabled = false },
+    { "saghen/blink.cmp", enabled = false },
   },
 }

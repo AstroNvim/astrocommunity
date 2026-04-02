@@ -153,7 +153,7 @@ return {
           end,
         },
         {
-          "neovim/nvim-lspconfig",
+          "AstroNvim/astrolsp",
           optional = true,
           opts = function()
             pcall(function() dofile(vim.g.base46_cache .. "lsp") end)
@@ -188,7 +188,7 @@ return {
           end,
         },
         {
-          "echasnovski/mini.icons",
+          "nvim-mini/mini.icons",
           optional = true,
           opts = function()
             pcall(function() dofile(vim.g.base46_cache .. "devicons") end)
