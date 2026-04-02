@@ -157,7 +157,6 @@ return {
     },
     -- disable core lsp plugins
     { "AstroNvim/astrolsp", optional = true, enabled = false },
-    { "folke/neoconf.nvim", optional = true, enabled = false },
     { "folke/neodev.nvim", optional = true, enabled = false },
     { "jay-babu/mason-null-ls.nvim", optional = true, enabled = false },
     { "neovim/nvim-lspconfig", optional = true, enabled = false },
