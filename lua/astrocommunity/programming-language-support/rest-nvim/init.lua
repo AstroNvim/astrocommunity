@@ -4,14 +4,7 @@ return {
   ft = "http",
   cmd = "Rest",
   dependencies = {
-    {
-      "nvim-treesitter/nvim-treesitter",
-      opts = function(_, opts)
-        if opts.ensure_installed ~= "all" then
-          opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "http" })
-        end
-      end,
-    },
+    "nvim-treesitter/nvim-treesitter",
   },
   specs = {
     {
@@ -26,6 +19,9 @@ return {
         maps.n[prefix] = { desc = require("astroui").get_icon("RestNvim", 1, true) .. "RestNvim" }
         maps.n[prefix .. "r"] = { "<cmd>Rest run<cr>", desc = "Run request under the cursor" }
         maps.n[prefix .. "l"] = { "<cmd>Rest run last<cr>", desc = "Re-run latest request" }
+        opts.treesitter = opts.treesitter or {}
+        opts.treesitter.ensure_installed = opts.treesitter.ensure_installed or {}
+        vim.list_extend(opts.treesitter.ensure_installed, { "http" })
       end,
     },
     {

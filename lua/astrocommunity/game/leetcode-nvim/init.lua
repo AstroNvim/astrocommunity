@@ -10,18 +10,10 @@ return {
     -- optional
     { "rcarriga/nvim-notify", optional = true },
     {
-      "nvim-treesitter/nvim-treesitter",
-      optional = true,
-      opts = function(_, opts)
-        if opts.ensure_installed ~= "all" then
-          opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "html" })
-        end
-      end,
-    },
-    {
       "AstroNvim/astrocore",
       ---@type AstroCoreOpts
       opts = {
+        treesitter = { ensure_installed = { "html" } },
         autocmds = {
           leetcode_autostart = {
             {

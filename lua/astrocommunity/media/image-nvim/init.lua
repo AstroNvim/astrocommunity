@@ -2,17 +2,18 @@ return {
   "3rd/image.nvim",
   event = "VeryLazy",
   dependencies = {
-    {
-      "nvim-treesitter/nvim-treesitter",
-      optional = true,
-      opts = function(_, opts)
-        if opts.ensure_installed ~= "all" then
-          opts.ensure_installed =
-            require("astrocore").list_insert_unique(opts.ensure_installed, { "markdown", "markdown_inline" })
-        end
-      end,
-    },
+    "nvim-treesitter/nvim-treesitter",
     "https://github.com/leafo/magick",
+  },
+  specs = {
+    {
+      "AstroNvim/astrocore",
+      optional = true,
+      ---@type AstroCoreOpts
+      opts = {
+        treesitter = { ensure_installed = { "markdown", "markdown_inline" } },
+      },
+    },
   },
   opts = {
     backend = "kitty",
