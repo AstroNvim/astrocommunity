@@ -1,16 +1,15 @@
 return {
   { import = "astrocommunity.pack.xml" },
   {
-    "nvim-treesitter/nvim-treesitter",
+    "AstroNvim/astrocore",
     optional = true,
-    opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "java" })
-      end
-    end,
+    ---@type AstroCoreOpts
+    opts = {
+      treesitter = { ensure_installed = { "java" } },
+    },
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "jdtls" })
@@ -35,7 +34,7 @@ return {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
     dependencies = {
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason-lspconfig.nvim",
       {
         "AstroNvim/astrolsp",
         optional = true,
@@ -119,10 +118,10 @@ return {
           ["$/progress"] = function() end, -- disable progress updates.
         },
         filetypes = { "java" },
-        on_attach = function(...)
+        on_attach = function(client, bufnr)
           require("jdtls").setup_dap { hotcodereplace = "auto" }
           local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-          if astrolsp_avail then astrolsp.on_attach(...) end
+          if astrolsp_avail then astrolsp.on_attach(client, bufnr) end
         end,
       }, opts)
     end,
