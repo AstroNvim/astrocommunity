@@ -7,7 +7,7 @@ return {
     { "jay-babu/mason-null-ls.nvim", optional = true, opts = { methods = { formatting = false } } },
   },
   dependencies = {
-    { "williamboman/mason.nvim", optional = true },
+    { "mason-org/mason.nvim", optional = true },
     {
       "AstroNvim/astrocore",
       opts = {

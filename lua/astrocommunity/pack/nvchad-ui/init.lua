@@ -167,7 +167,7 @@ return {
           end,
         },
         {
-          "williamboman/mason.nvim",
+          "mason-org/mason.nvim",
           optional = true,
           opts = function()
             pcall(function() dofile(vim.g.base46_cache .. "mason") end)

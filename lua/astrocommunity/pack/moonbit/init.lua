@@ -28,7 +28,7 @@ return {
   },
   -- uncomment if/when moonbit-lsp is added to lspconfig and mason-lspconfig
   -- {
-  --   "williamboman/mason-lspconfig.nvim",
+  --   "mason-org/mason-lspconfig.nvim",
   --   opts = function(_, opts)
   --     opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "harper-ls" })
   --   end,

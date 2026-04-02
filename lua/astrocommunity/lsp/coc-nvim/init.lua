@@ -163,7 +163,7 @@ return {
     { "neovim/nvim-lspconfig", optional = true, enabled = false },
     { "nvimtools/none-ls.nvim", optional = true, enabled = false },
     { "stevearc/aerial.nvim", optional = true, enabled = false },
-    { "williamboman/mason-lspconfig.nvim", optional = true, enabled = false },
+    { "mason-org/mason-lspconfig.nvim", optional = true, enabled = false },
     -- cmp
     { "hrsh7th/cmp-buffer", optional = true, enabled = false },
     { "hrsh7th/cmp-nvim-lsp", optional = true, enabled = false },
