@@ -32,7 +32,7 @@ return {
       end
       local lspkind_avail, lspkind = pcall(require, "lspkind")
       if lspkind_avail then
-        return function(kind) return lspkind.symbolic(kind, { mode = "symbol" }) end
+        return function(kind) return lspkind.symbol_map[kind] end
       end
     end
     local icon_provider = get_icon_provider()

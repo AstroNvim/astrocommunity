@@ -29,7 +29,7 @@ local function get_kind_icon(CTX)
       if lspkind_avail then
         icon_provider = function(ctx)
           if ctx.item.source_name == "LSP" then
-            local icon = lspkind.symbolic(ctx.kind, { mode = "symbol" })
+            local icon = lspkind.symbol_map[ctx.kind]
             if icon then ctx.kind_icon = icon end
           end
         end
