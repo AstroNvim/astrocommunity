@@ -35,10 +35,15 @@ return {
         filetype = "blade",
       }
 
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "blade" })
-      end
     end,
+  },
+  {
+    "AstroNvim/astrocore",
+    optional = true,
+    ---@type AstroCoreOpts
+    opts = {
+      treesitter = { ensure_installed = { "blade" } },
+    },
   },
   {
     "jay-babu/mason-null-ls.nvim",

@@ -12,12 +12,8 @@ return {
           [".justfile"] = "just",
         },
       },
+      treesitter = { ensure_installed = { "just" } },
     },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    optional = true,
-    opts = function(_, opts) require("astrocore").list_insert_unique(opts.ensure_installed, { "just" }) end,
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
