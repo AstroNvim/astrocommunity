@@ -145,7 +145,9 @@ return {
       opts = function(_, opts)
         local astrocore = require "astrocore"
         if astrocore.is_available "cmp-nvim-lsp" then
-          opts.capabilities = astrocore.extend_tbl(opts.capabilities, {
+          if not opts.config then opts.config = {} end
+          if not opts.config["*"] then opts.config["*"] = {} end
+          opts.config["*"].capabilities = astrocore.extend_tbl(opts.config["*"].capabilities, {
             textDocument = {
               completion = {
                 completionItem = {
