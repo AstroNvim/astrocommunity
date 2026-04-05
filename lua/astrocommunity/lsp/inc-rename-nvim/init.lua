@@ -1,6 +1,6 @@
 return {
   "smjonas/inc-rename.nvim",
-  event = "User AstroLspSetup",
+  cmd = "IncRename",
   dependencies = {
     {
       "AstroNvim/astrolsp",
