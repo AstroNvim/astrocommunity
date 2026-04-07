@@ -14,10 +14,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
-    opts = function()
-      vim.treesitter.language.register("scss", "less")
-      vim.treesitter.language.register("scss", "postcss")
-    end,
+    opts = function() vim.treesitter.language.register("scss", { "less", "postcss" }) end,
   },
   {
     "mason-org/mason-lspconfig.nvim",

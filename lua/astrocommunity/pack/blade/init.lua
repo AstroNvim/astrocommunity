@@ -21,22 +21,6 @@ return {
     end,
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    optional = true,
-    opts = {
-      parsers = {
-        blade = {
-          install_info = {
-            url = "https://github.com/EmranMR/tree-sitter-blade",
-            files = { "src/parser.c" },
-            branch = "main",
-          },
-          filetype = "blade",
-        },
-      },
-    },
-  },
-  {
     "AstroNvim/astrocore",
     optional = true,
     ---@type AstroCoreOpts

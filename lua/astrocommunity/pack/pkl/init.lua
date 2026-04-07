@@ -13,23 +13,6 @@ return {
     "apple/pkl-neovim",
     dependencies = {
       {
-        "nvim-treesitter/nvim-treesitter",
-        optional = true,
-        opts = {
-          parsers = {
-            pkl = {
-              install_info = {
-                url = "https://github.com/apple/tree-sitter-pkl",
-                files = { "src/parser.c", "src/scanner.c" },
-                branch = "main",
-              },
-              filetype = "pkl",
-              used_by = { "pcf" },
-            },
-          },
-        },
-      },
-      {
         "AstroNvim/astrocore",
         optional = true,
         ---@type AstroCoreOpts
