@@ -14,8 +14,11 @@ return {
       end
       if not opts.config then opts.config = {} end
       if not opts.config["*"] then opts.config["*"] = {} end
-      opts.config["*"].capabilities =
-        vim.tbl_deep_extend("force", opts.config["*"].capabilities or {}, { workspace = { fileOperations = fileOperations } })
+      opts.config["*"].capabilities = vim.tbl_deep_extend(
+        "force",
+        opts.config["*"].capabilities or {},
+        { workspace = { fileOperations = fileOperations } }
+      )
     end,
   },
   main = "lsp-file-operations", -- set the main module name where the `setup` function is
