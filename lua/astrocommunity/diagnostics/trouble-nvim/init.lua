@@ -37,7 +37,7 @@ return {
         },
         folder_closed = get_icon "FolderClosed",
         folder_open = get_icon "FolderOpen",
-        kinds = lspkind_avail and lspkind.symbol_map,
+        kinds = lspkind_avail and lspkind.symbol_map or nil,
       },
     }
   end,
