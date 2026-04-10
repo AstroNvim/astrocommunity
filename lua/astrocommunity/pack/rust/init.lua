@@ -20,7 +20,7 @@ return {
           settings = {
             ["rust-analyzer"] = {
               files = {
-                excludeDirs = {
+                exclude = {
                   ".direnv",
                   ".git",
                   "target",
