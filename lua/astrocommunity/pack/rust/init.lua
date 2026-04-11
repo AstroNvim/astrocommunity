@@ -79,7 +79,7 @@ return {
   },
   {
     "mrcjkb/rustaceanvim",
-    version = "^6",
+    version = vim.fn.has "nvim-0.12" == 1 and "^9" or "^8",
     ft = "rust",
     specs = {
       {
@@ -124,12 +124,22 @@ return {
           local astrolsp_settings = astrolsp_opts.settings or {}
 
           local merge_table = require("astrocore").extend_tbl(default_settings or {}, astrolsp_settings)
+
+          -- Merge the settings from `rustaceanvim` first.
           local ra = require "rustaceanvim.config.server"
-          -- load_rust_analyzer_settings merges any found settings with the passed in default settings table and then returns that table
-          return ra.load_rust_analyzer_settings(project_root, {
+          local settings = ra.load_rust_analyzer_settings(project_root, {
             settings_file_pattern = "rust-analyzer.json",
             default_settings = merge_table,
           })
+
+          -- Merge the settings again from `codesettings` if available. This is
+          -- the recommended way of sharing project-local settings with VSCode
+          -- in newer versions of `rustaceanvim`.
+          local codesettings_avail, codesettings = pcall(require, "codesettings")
+          if codesettings_avail then
+            settings = codesettings.with_local_settings("rust-analyzer", { settings = settings }).settings
+          end
+          return settings
         end,
       }
       local final_server = require("astrocore").extend_tbl(astrolsp_opts, server)
