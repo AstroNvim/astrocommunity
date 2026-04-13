@@ -1,12 +1,11 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
+    "AstroNvim/astrocore",
     optional = true,
-    opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "scala" })
-      end
-    end,
+    ---@type AstroCoreOpts
+    opts = {
+      treesitter = { ensure_installed = { "scala" } },
+    },
   },
   {
     "scalameta/nvim-metals",
@@ -24,8 +23,7 @@ return {
     },
     opts = function()
       local metals, astrocore = require "metals", require "astrocore"
-      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-      local user_config = astrolsp_avail and astrolsp.lsp_opts "metals" or {}
+      local user_config = vim.lsp.config["metals"] or {}
       if astrocore.is_available "nvim-dap" then
         user_config.on_attach = astrocore.patch_func(user_config.on_attach, function(orig, ...)
           orig(...)

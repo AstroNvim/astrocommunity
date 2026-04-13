@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed or {}, { "eslint" })
@@ -15,7 +15,7 @@ return {
     end,
   },
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     optional = true,
     opts = function(_, opts)
       opts.file = opts.file or {}

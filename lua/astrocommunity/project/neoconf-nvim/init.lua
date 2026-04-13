@@ -1,14 +1,7 @@
+-- neoconf.nvim does not support vim.lsp.config and has been removed from AstroNvim v6.
+-- This pack is deprecated. Consider using project-local lsp/<server>.lua files
+-- or language server config files (e.g., .luarc.json) instead.
 return {
   "folke/neoconf.nvim",
-  cmd = "Neoconf",
-  init = function()
-    require("astrocore").notify(
-      "`Neoconf.nvim` has been included upstream!\nPlease remove from your community plugins.",
-      vim.log.levels.WARN
-    )
-  end,
-  opts = {},
-  specs = {
-    { "neovim/nvim-lspconfig", dependencies = { "folke/neoconf.nvim" } },
-  },
+  enabled = false,
 }

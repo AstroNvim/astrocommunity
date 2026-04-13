@@ -29,7 +29,7 @@ local function get_kind_icon(CTX)
       if lspkind_avail then
         icon_provider = function(ctx)
           if ctx.item.source_name == "LSP" then
-            local icon = lspkind.symbolic(ctx.kind, { mode = "symbol" })
+            local icon = lspkind.symbol_map[ctx.kind]
             if icon then ctx.kind_icon = icon end
           end
         end
@@ -66,7 +66,7 @@ local function get_kind_icon(CTX)
 end
 
 return {
-  "Saghen/blink.cmp",
+  "saghen/blink.cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   version = "^1",
   opts_extend = { "sources.default", "cmdline.sources", "term.sources" },
@@ -143,13 +143,15 @@ return {
     {
       "L3MON4D3/LuaSnip",
       optional = true,
-      specs = { { "Saghen/blink.cmp", opts = { snippets = { preset = "luasnip" } } } },
+      specs = { { "saghen/blink.cmp", opts = { snippets = { preset = "luasnip" } } } },
     },
     {
       "AstroNvim/astrolsp",
       optional = true,
       opts = function(_, opts)
-        opts.capabilities = require("blink.cmp").get_lsp_capabilities(opts.capabilities)
+        if not opts.config then opts.config = {} end
+        if not opts.config["*"] then opts.config["*"] = {} end
+        opts.config["*"].capabilities = require("blink.cmp").get_lsp_capabilities(opts.config["*"].capabilities)
 
         -- disable AstroLSP signature help if `blink.cmp` is providing it
         local blink_opts = require("astrocore").plugin_opts "blink.cmp"
@@ -164,7 +166,7 @@ return {
       optional = true,
       specs = {
         {
-          "Saghen/blink.cmp",
+          "saghen/blink.cmp",
           opts = function(_, opts)
             if pcall(require, "lazydev.integrations.blink") then
               return require("astrocore").extend_tbl(opts, {

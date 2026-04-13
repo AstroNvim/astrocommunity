@@ -10,13 +10,17 @@ return {
     },
   },
   {
+    "AstroNvim/astrocore",
+    optional = true,
+    ---@type AstroCoreOpts
+    opts = {
+      treesitter = { ensure_installed = { "dart" } },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "dart" })
-      end
-
       -- HACK: Disables the select treesitter textobjects because the Dart treesitter parser is very inefficient. Hopefully this gets fixed and this block can be removed in the future.
       -- Reference: https://github.com/AstroNvim/AstroNvim/issues/2707
       local select = vim.tbl_get(opts, "textobjects", "select")
@@ -27,8 +31,7 @@ return {
     "akinsho/flutter-tools.nvim",
     ft = "dart",
     opts = function(_, opts)
-      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-      if astrolsp_avail then opts.lsp = astrolsp.lsp_opts "dartls" end
+      opts.lsp = vim.lsp.config["dartls"] or {}
       opts.debugger = { enabled = true }
     end,
     dependencies = { "nvim-lua/plenary.nvim" },

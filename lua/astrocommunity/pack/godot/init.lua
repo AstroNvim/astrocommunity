@@ -18,7 +18,10 @@ return {
   {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
-    opts = { filetypes = { extension = { gdshaderinc = "gdshaderinc" } } },
+    opts = {
+      filetypes = { extension = { gdshaderinc = "gdshaderinc" } },
+      treesitter = { ensure_installed = { "gdscript", "glsl", "godot_resource" } },
+    },
   },
   {
     "AstroNvim/astrolsp",
@@ -64,7 +67,7 @@ return {
         },
       },
       {
-        "Saghen/blink.cmp",
+        "saghen/blink.cmp",
         optional = true,
         opts = {
           sources = {
@@ -76,16 +79,6 @@ return {
         },
       },
     },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    optional = true,
-    opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed =
-          require("astrocore").list_insert_unique(opts.ensure_installed, { "gdscript", "glsl", "godot_resource" })
-      end
-    end,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",

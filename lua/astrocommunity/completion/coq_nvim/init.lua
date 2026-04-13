@@ -5,7 +5,7 @@ return {
   build = ":COQdeps",
   cmd = { "COQnow", "COQhelp", "COQstats", "COQdeps" },
   specs = {
-    { "Saghen/blink.cmp", optional = true, enabled = false },
+    { "saghen/blink.cmp", optional = true, enabled = false },
     { "hrsh7th/nvim-cmp", optional = true, enabled = false },
     { "hrsh7th/cmp-buffer", optional = true, enabled = false },
     { "hrsh7th/cmp-nvim-lsp", optional = true, enabled = false },
@@ -33,18 +33,22 @@ return {
       "AstroNvim/astrolsp",
       optional = true,
       opts = {
-        capabilities = {
-          textDocument = {
-            completion = {
-              completionItem = {
-                deprecatedSupport = true,
-                insertReplaceSupport = true,
-                insertTextModeSupport = { valueSet = { 1, 2 } },
-                labelDetailsSupport = true,
-                preselectSupport = true,
-                resolveSupport = { properties = {} },
-                snippetSupport = true,
-                tagSupport = { valueSet = { 1 } },
+        config = {
+          ["*"] = {
+            capabilities = {
+              textDocument = {
+                completion = {
+                  completionItem = {
+                    deprecatedSupport = true,
+                    insertReplaceSupport = true,
+                    insertTextModeSupport = { valueSet = { 1, 2 } },
+                    labelDetailsSupport = true,
+                    preselectSupport = true,
+                    resolveSupport = { properties = {} },
+                    snippetSupport = true,
+                    tagSupport = { valueSet = { 1 } },
+                  },
+                },
               },
             },
           },

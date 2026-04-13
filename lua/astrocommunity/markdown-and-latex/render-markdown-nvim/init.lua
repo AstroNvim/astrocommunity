@@ -7,14 +7,16 @@ return {
     return opts.file_types or { "markdown" }
   end,
   dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+  },
+  specs = {
     {
-      "nvim-treesitter/nvim-treesitter",
-      opts = function(_, opts)
-        if opts.ensure_installed ~= "all" then
-          opts.ensure_installed =
-            require("astrocore").list_insert_unique(opts.ensure_installed, { "html", "markdown", "markdown_inline" })
-        end
-      end,
+      "AstroNvim/astrocore",
+      optional = true,
+      ---@type AstroCoreOpts
+      opts = {
+        treesitter = { ensure_installed = { "html", "markdown", "markdown_inline" } },
+      },
     },
   },
   opts = {},

@@ -4,13 +4,12 @@ return {
   ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact" },
   specs = {
     {
-      "nvim-treesitter/nvim-treesitter",
-      opts = function(_, opts)
-        -- add regex to treesitters
-        if opts.ensure_installed ~= "all" then
-          opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "regex" })
-        end
-      end,
+      "AstroNvim/astrocore",
+      optional = true,
+      ---@type AstroCoreOpts
+      opts = {
+        treesitter = { ensure_installed = { "regex" } },
+      },
     },
   },
 }

@@ -9,16 +9,15 @@ return {
   { import = "astrocommunity.pack.json" }, -- hls.json
   { import = "astrocommunity.test.neotest" }, -- neotest-haskell
   {
-    "nvim-treesitter/nvim-treesitter",
+    "AstroNvim/astrocore",
     optional = true,
-    opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "haskell" })
-      end
-    end,
+    ---@type AstroCoreOpts
+    opts = {
+      treesitter = { ensure_installed = { "haskell" } },
+    },
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "hls" })
@@ -89,9 +88,10 @@ return {
     },
     version = "^4",
     init = function()
-      local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
       vim.g.haskell_tools = require("astrocore").extend_tbl({
-        hls = astrolsp_avail and { capabilities = astrolsp.config.capabilities, on_attach = astrolsp.on_attach } or {},
+        hls = {
+          capabilities = vim.tbl_get(vim.lsp.config["*"] or {}, "capabilities"),
+        },
       }, vim.g.haskell_tools)
     end,
   },

@@ -1,22 +1,28 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
+    "AstroNvim/astrocore",
     optional = true,
-    opts = function(_, opts)
-      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-      parser_config.haxe = {
-        install_info = {
-          url = "https://github.com/vantreeseba/tree-sitter-haxe",
-          files = { "src/parser.c" },
-          branch = "main",
+    ---@type AstroCoreOpts
+    opts = {
+      autocmds = {
+        treesitter_haxe = {
+          {
+            desc = "Regiser Haxe treesitter parser",
+            event = "User",
+            pattern = "TSUpdate",
+            callback = function()
+              require("nvim-treesitter.parsers").haxe = {
+                tier = 4,
+                install_info = {
+                  url = "https://github.com/vantreeseba/tree-sitter-haxe",
+                  revision = "HEAD",
+                },
+              }
+            end,
+          },
         },
-        filetype = "haxe",
-      }
-
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "haxe" })
-      end
-    end,
+      },
+      treesitter = { ensure_installed = { "haxe" } },
+    },
   },
 }

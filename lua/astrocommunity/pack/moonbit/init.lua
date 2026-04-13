@@ -11,8 +11,7 @@ return {
       if not require("astrocore").is_available "nvim-treesitter" then opts.treesitter = { enabled = false } end
       -- only enable the LSP if the lsp command is executable
       if vim.fn.executable "moonbit-lsp" == 1 then
-        local astrolsp_avail, astrolsp = pcall(require, "astrolsp")
-        if astrolsp_avail then opts.lsp = astrolsp.lsp_opts "moonbit" end
+        opts.lsp = vim.lsp.config["moonbit"] or {}
       else
         opts.lsp = false
       end
@@ -29,7 +28,7 @@ return {
   },
   -- uncomment if/when moonbit-lsp is added to lspconfig and mason-lspconfig
   -- {
-  --   "williamboman/mason-lspconfig.nvim",
+  --   "mason-org/mason-lspconfig.nvim",
   --   opts = function(_, opts)
   --     opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "harper-ls" })
   --   end,

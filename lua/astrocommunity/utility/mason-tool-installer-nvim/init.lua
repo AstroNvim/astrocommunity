@@ -14,7 +14,7 @@ return {
     "MasonToolsUpdateSync",
     "MasonToolsClean",
   },
-  dependencies = { "williamboman/mason.nvim" },
+  dependencies = { "mason-org/mason.nvim" },
   init = function(plugin) require("astrocore").on_load("mason.nvim", plugin.name) end,
   opts_extend = { "ensure_installed" },
   opts = {
@@ -35,7 +35,7 @@ return {
       config = function(_, opts) setup_without_ensure_installed("mason-nvim-dap", opts) end,
     },
     {
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason-lspconfig.nvim",
       optional = true,
       init = false,
       config = function(_, opts) setup_without_ensure_installed("mason-lspconfig", opts) end,

@@ -12,7 +12,7 @@ return {
       end,
     },
     {
-      "Saghen/blink.cmp",
+      "saghen/blink.cmp",
       optional = true,
       dependencies = "hrsh7th/cmp-emoji",
       specs = { "Saghen/blink.compat", version = "*", lazy = true, opts = {} },

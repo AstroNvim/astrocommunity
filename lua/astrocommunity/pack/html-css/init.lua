@@ -3,25 +3,21 @@ return {
   {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
-    opts = { filetypes = { extension = {
-      pcss = "postcss",
-      postcss = "postcss",
-    } } },
+    opts = {
+      filetypes = { extension = {
+        pcss = "postcss",
+        postcss = "postcss",
+      } },
+      treesitter = { ensure_installed = { "html", "css", "scss", "styled" } },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
-    opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed =
-          require("astrocore").list_insert_unique(opts.ensure_installed, { "html", "css", "scss", "styled" })
-      end
-      vim.treesitter.language.register("scss", "less")
-      vim.treesitter.language.register("scss", "postcss")
-    end,
+    opts = function() vim.treesitter.language.register("scss", { "less", "postcss" }) end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =
@@ -46,7 +42,7 @@ return {
     end,
   },
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     optional = true,
     opts = {
       filetype = {

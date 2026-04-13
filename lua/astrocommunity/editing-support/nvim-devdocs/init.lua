@@ -5,16 +5,18 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  },
+  specs = {
     {
-      "nvim-treesitter/nvim-treesitter",
-      opts = function(_, opts)
-        if opts.ensure_installed ~= "all" then
-          opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "html" })
-        end
-      end,
+      "AstroNvim/astrocore",
+      optional = true,
+      ---@type AstroCoreOpts
+      opts = {
+        treesitter = { ensure_installed = { "html" } },
+      },
     },
   },
-  specs = {},
   cmd = {
     "DevdocsFetch",
     "DevdocsInstall",

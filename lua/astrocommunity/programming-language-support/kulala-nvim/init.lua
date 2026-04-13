@@ -8,20 +8,21 @@ return {
     return keys
   end,
   dependencies = {
-    {
-      "nvim-treesitter/nvim-treesitter",
-      opts = function(_, opts)
-        if opts.ensure_installed ~= "all" then
-          opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "http" })
-        end
-      end,
-    },
+    "nvim-treesitter/nvim-treesitter",
   },
   specs = {
     {
       "AstroNvim/astroui",
       ---@type AstroUIOpts
       opts = { icons = { KulalaNvim = "󱜿" } },
+    },
+    {
+      "AstroNvim/astrocore",
+      optional = true,
+      ---@type AstroCoreOpts
+      opts = {
+        treesitter = { ensure_installed = { "http" } },
+      },
     },
   },
   opts = {

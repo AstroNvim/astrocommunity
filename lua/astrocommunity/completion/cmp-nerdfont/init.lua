@@ -12,7 +12,7 @@ return {
       end,
     },
     {
-      "Saghen/blink.cmp",
+      "saghen/blink.cmp",
       optional = true,
       dependencies = "chrisgrieser/cmp-nerdfont",
       specs = { "Saghen/blink.compat", version = "*", lazy = true, opts = {} },

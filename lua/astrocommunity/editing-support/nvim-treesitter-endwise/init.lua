@@ -5,8 +5,14 @@ return {
     {
       "nvim-treesitter/nvim-treesitter",
       dependencies = { "RRethy/nvim-treesitter-endwise" },
+    },
+    {
+      "AstroNvim/astrocore",
+      ---@type AstroCoreOpts
       opts = {
-        endwise = { enable = true },
+        treesitter = {
+          endwise = { enable = true },
+        },
       },
     },
   },

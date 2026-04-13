@@ -24,7 +24,7 @@ return {
   ft = sonarlint_ft,
   specs = {
     {
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason-lspconfig.nvim",
       optional = true,
       opts = function(_, opts)
         opts.ensure_installed =

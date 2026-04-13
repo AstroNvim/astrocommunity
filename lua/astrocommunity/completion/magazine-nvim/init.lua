@@ -5,7 +5,7 @@ return {
   specs = {
     { import = "astrocommunity.completion.nvim-cmp" },
     { "hrsh7th/nvim-cmp", dependencies = { "iguanacucumber/magazine.nvim" } },
-    { "Saghen/blink.cmp", enabled = false },
+    { "saghen/blink.cmp", enabled = false },
     { "Saghen/blink.compat", enabled = false },
   },
 }

@@ -50,7 +50,7 @@ return {
       end,
     },
     {
-      "Saghen/blink.cmp",
+      "saghen/blink.cmp",
       optional = true,
       ---@param opts blink.cmp.Config
       opts = function(_, opts)

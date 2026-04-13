@@ -1,15 +1,14 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
+    "AstroNvim/astrocore",
     optional = true,
-    opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "php", "phpdoc" })
-      end
-    end,
+    ---@type AstroCoreOpts
+    opts = {
+      treesitter = { ensure_installed = { "php", "phpdoc" } },
+    },
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "phpactor" })
@@ -49,7 +48,7 @@ return {
     },
   },
   {
-    "Saghen/blink.cmp",
+    "saghen/blink.cmp",
     optional = true,
     opts = {},
     dependencies = {

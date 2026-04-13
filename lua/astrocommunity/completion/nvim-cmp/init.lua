@@ -32,7 +32,7 @@ return {
       end
       local lspkind_avail, lspkind = pcall(require, "lspkind")
       if lspkind_avail then
-        return function(kind) return lspkind.symbolic(kind, { mode = "symbol" }) end
+        return function(kind) return lspkind.symbol_map[kind] end
       end
     end
     local icon_provider = get_icon_provider()
@@ -145,7 +145,9 @@ return {
       opts = function(_, opts)
         local astrocore = require "astrocore"
         if astrocore.is_available "cmp-nvim-lsp" then
-          opts.capabilities = astrocore.extend_tbl(opts.capabilities, {
+          if not opts.config then opts.config = {} end
+          if not opts.config["*"] then opts.config["*"] = {} end
+          opts.config["*"].capabilities = astrocore.extend_tbl(opts.config["*"].capabilities, {
             textDocument = {
               completion = {
                 completionItem = {
@@ -242,6 +244,6 @@ return {
         })
       end,
     },
-    { "Saghen/blink.cmp", enabled = false },
+    { "saghen/blink.cmp", enabled = false },
   },
 }

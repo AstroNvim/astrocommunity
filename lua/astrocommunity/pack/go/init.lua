@@ -56,14 +56,12 @@ return {
   },
   -- Golang support
   {
-    "nvim-treesitter/nvim-treesitter",
+    "AstroNvim/astrocore",
     optional = true,
-    opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed =
-          require("astrocore").list_insert_unique(opts.ensure_installed, { "go", "gomod", "gosum", "gowork" })
-      end
-    end,
+    ---@type AstroCoreOpts
+    opts = {
+      treesitter = { ensure_installed = { "go", "gomod", "gosum", "gowork" } },
+    },
   },
 
   {
@@ -77,7 +75,7 @@ return {
     end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "gopls" })
@@ -120,7 +118,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      { "williamboman/mason.nvim", optional = true }, -- by default use Mason for go dependencies
+      { "mason-org/mason.nvim", optional = true }, -- by default use Mason for go dependencies
     },
     opts = {},
   },
@@ -143,7 +141,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     optional = true,
     opts = {
       file = {

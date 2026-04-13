@@ -13,7 +13,6 @@ return {
           )
         end,
       },
-      opts = { rainbow = { enable = true } },
     },
     {
       "catppuccin",

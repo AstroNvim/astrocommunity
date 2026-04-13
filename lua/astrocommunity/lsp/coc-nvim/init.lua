@@ -157,13 +157,12 @@ return {
     },
     -- disable core lsp plugins
     { "AstroNvim/astrolsp", optional = true, enabled = false },
-    { "folke/neoconf.nvim", optional = true, enabled = false },
     { "folke/neodev.nvim", optional = true, enabled = false },
     { "jay-babu/mason-null-ls.nvim", optional = true, enabled = false },
     { "neovim/nvim-lspconfig", optional = true, enabled = false },
     { "nvimtools/none-ls.nvim", optional = true, enabled = false },
     { "stevearc/aerial.nvim", optional = true, enabled = false },
-    { "williamboman/mason-lspconfig.nvim", optional = true, enabled = false },
+    { "mason-org/mason-lspconfig.nvim", optional = true, enabled = false },
     -- cmp
     { "hrsh7th/cmp-buffer", optional = true, enabled = false },
     { "hrsh7th/cmp-nvim-lsp", optional = true, enabled = false },
@@ -175,7 +174,7 @@ return {
     { "L3MON4D3/LuaSnip", optional = true, enabled = false },
     { "rafamadriz/friendly-snippets", optional = true, enabled = false },
     -- blink
-    { "Saghen/blink.cmp", optional = true, enabled = false },
+    { "saghen/blink.cmp", optional = true, enabled = false },
     -- autopairs
     { "windwp/nvim-autopairs", optional = true, enabled = false },
   },

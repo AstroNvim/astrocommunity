@@ -2,7 +2,7 @@
 return {
   -- mason ensure install hyprls
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "hyprls" })
@@ -20,7 +20,7 @@ return {
     optional = true,
     ---@type AstroCoreOpts
     opts = {
-      -- add "hyprlang" file tpye
+      -- add "hyprlang" file type
       filetypes = {
         extension = {
           hl = "hyprlang",
@@ -30,16 +30,8 @@ return {
           ["hypr.*.conf"] = "hyprlang",
         },
       },
+      -- treesitter support for hyprlang
+      treesitter = { ensure_installed = { "hyprlang" } },
     },
-  },
-  -- treesitter support for hyprlang
-  {
-    "nvim-treesitter/nvim-treesitter",
-    optional = true,
-    opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "hyprlang" })
-      end
-    end,
   },
 }

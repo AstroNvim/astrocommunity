@@ -2,7 +2,7 @@ return {
   "Kaiser-Yang/blink-cmp-git",
   lazy = true,
   specs = {
-    "Saghen/blink.cmp",
+    "saghen/blink.cmp",
     optional = true,
     opts = {
       sources = {

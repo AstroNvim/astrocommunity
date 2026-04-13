@@ -10,12 +10,10 @@ vim.tbl_map(function(plugin) enabled[plugin] = true end, {
   "AstroNvim",
   "astrocore",
   "astroui",
-  "Comment.nvim",
   "nvim-autopairs",
   "nvim-treesitter",
   "nvim-ts-autotag",
   "nvim-treesitter-textobjects",
-  "nvim-ts-context-commentstring",
   -- more known working
   "dial.nvim",
   "flash.nvim",
@@ -122,5 +120,5 @@ return {
     end,
   },
   -- disable treesitter highlighting
-  { "nvim-treesitter/nvim-treesitter", opts = { highlight = { enable = false } } },
+  { "AstroNvim/astrocore", optional = true, opts = { treesitter = { highlight = false } } },
 }

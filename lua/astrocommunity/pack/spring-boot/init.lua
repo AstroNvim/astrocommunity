@@ -2,7 +2,7 @@
 return {
   { import = "astrocommunity.pack.java" },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =

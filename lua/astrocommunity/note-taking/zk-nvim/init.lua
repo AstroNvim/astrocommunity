@@ -19,7 +19,7 @@ return {
   dependencies = { "AstroNvim/astrolsp", opts = { handlers = { zk = function() end } } },
   specs = {
     {
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason-lspconfig.nvim",
       optional = true,
       opts = function(_, opts)
         opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "zk" })
@@ -34,7 +34,7 @@ return {
     },
   },
   opts = function()
-    local lsp_config = require("astrolsp").lsp_opts "zk"
+    local lsp_config = vim.lsp.config["zk"] or {}
     return {
       lsp = {
         config = lsp_config,
