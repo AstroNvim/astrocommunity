@@ -125,7 +125,7 @@ return {
           end
         end, { "i", "s" }),
       },
-      sources = sources,
+      sources = vim.list_extend(sources, opts.sources),
     })
   end,
   config = function(_, opts)
