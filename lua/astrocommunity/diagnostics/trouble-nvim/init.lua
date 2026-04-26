@@ -57,7 +57,13 @@ return {
       opts = function(_, opts)
         return vim.tbl_deep_extend("force", opts or {}, {
           picker = {
-            actions = require("trouble.sources.snacks").actions,
+            actions = setmetatable({}, {
+              __index = function(t, k)
+                if not k:match "^trouble_" then return end
+                t[k] = require("trouble.sources.snacks").actions[k]
+                return t[k]
+              end,
+            }),
             win = {
               input = {
                 keys = {
