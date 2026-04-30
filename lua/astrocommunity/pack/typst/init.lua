@@ -1,5 +1,12 @@
 return {
-  { "kaarmu/typst.vim", ft = { "typst" } },
+  {
+    "AstroNvim/astrocore",
+    optional = true,
+    ---@type AstroCoreOpts
+    opts = {
+      treesitter = { ensure_installed = { "typst" } },
+    },
+  },
   {
     "mason-org/mason-lspconfig.nvim",
     opts = function(_, opts)
