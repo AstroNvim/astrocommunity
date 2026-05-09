@@ -50,6 +50,9 @@ return {
       return item
     end
 
+    -- Preserve opts.sources
+    vim.list_extend(sources, opts.sources)
+
     return astro.extend_tbl(opts, {
       enabled = function()
         -- Disable completion when recording macros
