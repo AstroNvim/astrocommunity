@@ -2,15 +2,14 @@ return {
   "Davidyz/VectorCode",
   build = function()
     if vim.fn.executable "uv" == 1 then
-      assert(
-        vim.system({
+      assert(vim
+        .system({
           "uv",
           "tool",
           vim.fn.executable "vectorcode" == 1 and "upgrade" or "install",
           "vectorcode",
-        }):wait().code == 0,
-        "Failed to install or upgrade vectorcode with uv"
-      )
+        })
+        :wait().code == 0, "Failed to install or upgrade vectorcode with uv")
     elseif vim.fn.executable "pipx" == 1 then
       assert(
         vim.system({ "pipx", "install", "--force", "git+https://github.com/Davidyz/VectorCode" }):wait().code == 0,
