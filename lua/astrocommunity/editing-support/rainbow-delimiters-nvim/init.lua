@@ -1,3 +1,5 @@
+local enabled = true
+
 return {
   {
     "HiPhish/rainbow-delimiters.nvim",
@@ -22,6 +24,21 @@ return {
                 end,
                 desc = "Toggle rainbow delimeters (buffer)",
               },
+              ["<Leader>u)"] = {
+                function()
+                  local rainbow_delimiters = require "rainbow-delimiters"
+                  enabled = not enabled
+                  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+                    if enabled then
+                      rainbow_delimiters.enable(bufnr)
+                    else
+                      rainbow_delimiters.disable(bufnr)
+                    end
+                  end
+                  require("astrocore").notify(string.format("Global rainbow delimeters %s", enabled and "on" or "off"))
+                end,
+                desc = "Toggle rainbow delimeters (global)",
+              },
             },
           },
         },
@@ -40,7 +57,7 @@ return {
     opts = {
       condition = function(bufnr)
         local buf_utils = require "astrocore.buffer"
-        return buf_utils.is_valid(bufnr) and not buf_utils.is_large(bufnr)
+        return enabled and buf_utils.is_valid(bufnr) and not buf_utils.is_large(bufnr)
       end,
     },
   },
