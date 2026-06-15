@@ -39,17 +39,17 @@ return {
         end,
       },
     },
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    optional = true,
-    opts = {
-      extensions = {
-        copilotchat = {
-          enabled = true,
-          convert_tools_to_functions = true,
-          convert_resources_to_functions = true,
-          add_mcp_prefix = false,
+    {
+      "CopilotC-Nvim/CopilotChat.nvim",
+      optional = true,
+      opts = {
+        extensions = {
+          copilotchat = {
+            enabled = true,
+            convert_tools_to_functions = true,
+            convert_resources_to_functions = true,
+            add_mcp_prefix = false,
+          },
         },
       },
     },
