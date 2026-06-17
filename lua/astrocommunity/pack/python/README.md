@@ -2,7 +2,7 @@
 
 **Requirements:** `python` must be in your `PATH` and executable
 
-This is the base Python pack that provides core functionality:
+The default Python pack imports the base pack plus the `basedpyright`, `black`, and `isort` subpacks. Import `astrocommunity.pack.python.base` directly if you only want core Python functionality:
 
 - Adds `python` and `toml` Treesitter parsers
 - Adds `debugpy` for debugging with `nvim-dap-python`
