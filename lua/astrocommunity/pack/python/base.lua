@@ -38,6 +38,7 @@ return {
       },
     },
     opts = {},
+    ft = "python",
     cmd = "VenvSelect",
   },
   {
