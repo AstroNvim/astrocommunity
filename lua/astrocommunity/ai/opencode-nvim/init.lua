@@ -15,8 +15,8 @@ return {
         local prefix = "<Leader>O"
         maps.n[prefix] = { desc = require("astroui").get_icon("OpenCode", 1, true) .. "OpenCode" }
         maps.n[prefix .. "t"] = {
-          function() require("opencode").toggle() end,
-          desc = "Toggle embedded",
+          function() require("opencode").start() end,
+          desc = "Start & Toggle embedded",
         }
         maps.n[prefix .. "a"] = {
           function() require("opencode").ask("@this: ", { submit = true }) end,
