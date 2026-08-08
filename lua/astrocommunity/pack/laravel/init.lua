@@ -43,9 +43,7 @@ return {
   },
   {
     "Bleksak/laravel-ide-helper.nvim",
-    cond = function()
-      return vim.loop.fs_stat(vim.fn.getcwd() .. "/artisan") ~= nil
-    end,
+    cond = function() return vim.loop.fs_stat(vim.fn.getcwd() .. "/artisan") ~= nil end,
     dependencies = {
       {
         "AstroNvim/astrocore",
