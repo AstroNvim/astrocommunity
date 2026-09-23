@@ -1,5 +1,47 @@
 # Changelog
 
+## [21.0.0](https://github.com/AstroNvim/astrocommunity/compare/v20.0.0...v21.0.0) (2026-09-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **typst:** remove the outdated .vim plugin; configure treesitter ([#1761](https://github.com/AstroNvim/astrocommunity/issues/1761))
+* astronvim v6 compatible  ([#1730](https://github.com/AstroNvim/astrocommunity/issues/1730))
+
+### Features
+
+* **ai:** add `coder/claudecode.nvim` ([#1799](https://github.com/AstroNvim/astrocommunity/issues/1799)) ([26fb637](https://github.com/AstroNvim/astrocommunity/commit/26fb6377ab93e5a93251261fd66bf8415b636138))
+* astronvim v6 compatible  ([#1730](https://github.com/AstroNvim/astrocommunity/issues/1730)) ([39edda0](https://github.com/AstroNvim/astrocommunity/commit/39edda038177a8b8d4838536160cfbd006b540dc))
+* **comment:** add celeste_comment.nvim plugin ([#1791](https://github.com/AstroNvim/astrocommunity/issues/1791)) ([f7ea462](https://github.com/AstroNvim/astrocommunity/commit/f7ea462458b5bb069792f2ed9f582234ab10aed6))
+* **fyler-nvim:** support for v2 ([#1778](https://github.com/AstroNvim/astrocommunity/issues/1778)) ([cd5dac2](https://github.com/AstroNvim/astrocommunity/commit/cd5dac2fa47cde635f3b1285732cff2eb20cc3a3))
+* **pack:** add elixir lang pack with `expert` ([#1743](https://github.com/AstroNvim/astrocommunity/issues/1743)) ([64dcf0b](https://github.com/AstroNvim/astrocommunity/commit/64dcf0b2439d9456009f65c6805c96d862f4224f))
+* **python:** load `venv-selector.nvim` on python filetype ([#1788](https://github.com/AstroNvim/astrocommunity/issues/1788)) ([ab25a02](https://github.com/AstroNvim/astrocommunity/commit/ab25a02cf13022b26f1b75b0a59afed826f16985))
+* **rainbow-delimiters-nvim:** add global toggle ([#1771](https://github.com/AstroNvim/astrocommunity/issues/1771)) ([086c6fc](https://github.com/AstroNvim/astrocommunity/commit/086c6fc376dc87e9ef1fade6a08ced567649fc13))
+* **rust:** bump `rustaceanvim` to v8+ ([#1755](https://github.com/AstroNvim/astrocommunity/issues/1755)) ([c55e6c1](https://github.com/AstroNvim/astrocommunity/commit/c55e6c12ea20b97cc8b31a103ba212f03754e162))
+* **vscode:** add nvim-spider to the compatible plugin list ([#1798](https://github.com/AstroNvim/astrocommunity/issues/1798)) ([4857022](https://github.com/AstroNvim/astrocommunity/commit/4857022acdd2a6c5f454e897587d18ed6aae3009))
+
+
+### Bug Fixes
+
+* **auto-save-nvim:** improve compatibility with fyler.nvim ([#1784](https://github.com/AstroNvim/astrocommunity/issues/1784)) ([58ea022](https://github.com/AstroNvim/astrocommunity/commit/58ea02238085be9055139c613bf86ca90f2432ad))
+* **dev-tools-nvim:** capture new dependency on async ([#1763](https://github.com/AstroNvim/astrocommunity/issues/1763)) ([b2d0afe](https://github.com/AstroNvim/astrocommunity/commit/b2d0afe447eb61f3d648d2c55873f93e1e0b6f4a))
+* **distant-nvim:** update distant.nvim branch to v0.3 ([#1783](https://github.com/AstroNvim/astrocommunity/issues/1783)) ([dc15971](https://github.com/AstroNvim/astrocommunity/commit/dc15971c497a5a1ff8cdbabd303908e23bf234a6))
+* **fyler:** support for v2 ([cd5dac2](https://github.com/AstroNvim/astrocommunity/commit/cd5dac2fa47cde635f3b1285732cff2eb20cc3a3))
+* **inc-rename-nvim:** lazy load on cmd instead of lsp setup ([#1750](https://github.com/AstroNvim/astrocommunity/issues/1750)) ([85c0339](https://github.com/AstroNvim/astrocommunity/commit/85c03394da14a527694e6366dfcf54e6593a654c))
+* **laravel:** disable plugins on non-laravel projects ([#1793](https://github.com/AstroNvim/astrocommunity/issues/1793)) ([fe1aabf](https://github.com/AstroNvim/astrocommunity/commit/fe1aabf613f8480bc6414940e018e0215ba93117))
+* **mcphub-nvim:** preserve plugin spec fields ([#1768](https://github.com/AstroNvim/astrocommunity/issues/1768)) ([022df4a](https://github.com/AstroNvim/astrocommunity/commit/022df4a208dae2b3f0d33b83d211fd54538809e5))
+* **nvim-cmp:** Preserve opts.sources ([#1760](https://github.com/AstroNvim/astrocommunity/issues/1760)) ([0c55fbe](https://github.com/AstroNvim/astrocommunity/commit/0c55fbefaa20e819710b08b14ef2bbc1a88722cf))
+* **nvim-context-vt:** use renamed toggle API ([#1772](https://github.com/AstroNvim/astrocommunity/issues/1772)) ([6cf7019](https://github.com/AstroNvim/astrocommunity/commit/6cf70190aa84388da2e307d23b4ee34906a04db9))
+* **python:** add ft=python to venv-selector ([ab25a02](https://github.com/AstroNvim/astrocommunity/commit/ab25a02cf13022b26f1b75b0a59afed826f16985)), closes [#1780](https://github.com/AstroNvim/astrocommunity/issues/1780)
+* **refactoring-nvim:** fix dependencies and API usage for latest version ([#1756](https://github.com/AstroNvim/astrocommunity/issues/1756)) ([7c1a46d](https://github.com/AstroNvim/astrocommunity/commit/7c1a46d51e0c52f05ebc9b11d466ef9d9464c066))
+* **rust:** drop incompatible root_dir under native_lsp_config ([#1754](https://github.com/AstroNvim/astrocommunity/issues/1754)) ([0f87ef8](https://github.com/AstroNvim/astrocommunity/commit/0f87ef876b15e1a4362d893e00e1c3ef95a7112d))
+* **rust:** rename `files.excludeDirs` to `files.exclude` ([#1753](https://github.com/AstroNvim/astrocommunity/issues/1753)) ([36463ca](https://github.com/AstroNvim/astrocommunity/commit/36463ca257e8aafadae0f1bccfa2bb929dc9bf70))
+* **trouble-nvim:** fix error when lspkind is unaccessible by explicitly passing nil ([#1751](https://github.com/AstroNvim/astrocommunity/issues/1751)) ([6129af8](https://github.com/AstroNvim/astrocommunity/commit/6129af8b9cea625ad76c00717ca9d3098d649991))
+* **typescript-all-in-one:** update lsp configuration and APIs ([4521b6c](https://github.com/AstroNvim/astrocommunity/commit/4521b6c0f95ab06f7ea72ba922f2dffe5b7f3553))
+* **typst:** remove the outdated .vim plugin; configure treesitter ([3bcb278](https://github.com/AstroNvim/astrocommunity/commit/3bcb2784d92d761d665d33f931205daada077394))
+* **typst:** remove the outdated .vim plugin; configure treesitter ([#1761](https://github.com/AstroNvim/astrocommunity/issues/1761)) ([3bcb278](https://github.com/AstroNvim/astrocommunity/commit/3bcb2784d92d761d665d33f931205daada077394))
+* **vector-code-nvim:** install or upgrade `vectorcode-cli` based on cli existence ([#1713](https://github.com/AstroNvim/astrocommunity/issues/1713)) ([87807d3](https://github.com/AstroNvim/astrocommunity/commit/87807d3891314bfdc9d81437a1f8994e89fc2b77))
+
 ## [20.0.0](https://github.com/AstroNvim/astrocommunity/compare/v19.0.0...v20.0.0) (2026-03-25)
 
 
