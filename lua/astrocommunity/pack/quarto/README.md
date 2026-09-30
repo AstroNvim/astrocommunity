@@ -2,7 +2,7 @@
 
 **Requirements:**
 
-This plugin pack does the foolowing:
+This plugin pack does the following:
 
 - Adds `quarto-nvim`
 - Adds `otter.nvim`

@@ -50,7 +50,10 @@ return {
     condition = function(buf)
       if vim.tbl_contains({
         "Fyler",
-      }, vim.fn.getbufvar(buf, "&filetype")) then return false end
+        "fyler_finder",
+      }, vim.fn.getbufvar(buf, "&filetype")) then
+        return false
+      end
 
       return true
     end,

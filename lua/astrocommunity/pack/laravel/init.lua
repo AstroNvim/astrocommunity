@@ -4,6 +4,7 @@ return {
   { import = "astrocommunity.pack.blade" },
   {
     "adalessa/laravel.nvim",
+    cond = function() return vim.loop.fs_stat(vim.fn.getcwd() .. "/artisan") ~= nil end,
     cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
     dependencies = {
       "tpope/vim-dotenv",
@@ -42,6 +43,7 @@ return {
   },
   {
     "Bleksak/laravel-ide-helper.nvim",
+    cond = function() return vim.loop.fs_stat(vim.fn.getcwd() .. "/artisan") ~= nil end,
     dependencies = {
       {
         "AstroNvim/astrocore",
