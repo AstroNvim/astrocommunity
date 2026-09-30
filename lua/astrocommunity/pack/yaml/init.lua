@@ -11,7 +11,9 @@ return {
           ---@diagnostic disable: missing-fields
           config = {
             yamlls = {
-              on_new_config = function(config)
+              before_init = function(_, config)
+                if not config.settings then config.settings = {} end
+                if not config.settings.yaml then config.settings.yaml = {} end
                 config.settings.yaml.schemas = vim.tbl_deep_extend(
                   "force",
                   config.settings.yaml.schemas or {},
