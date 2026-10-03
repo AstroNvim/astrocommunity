@@ -191,6 +191,5 @@ return {
     },
     -- disable built in completion plugins
     { "hrsh7th/nvim-cmp", enabled = false },
-    { "rcarriga/cmp-dap", enabled = false },
   },
 }
