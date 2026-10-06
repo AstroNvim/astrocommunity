@@ -28,7 +28,7 @@ return {
   },
   specs = {
     {
-      "p00f/clangd_extensions.nvim",
+      "dchinmay2/clangd_extensions.nvim",
       optional = true,
       opts = { extensions = { autoSetHints = false } },
     },
