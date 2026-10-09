@@ -1,1 +1,1 @@
-return { "p00f/alabaster.nvim", lazy = true }
+return { "dchinmay2/alabaster.nvim", lazy = true }
