@@ -1,5 +1,6 @@
 return {
   "NickvanDyke/opencode.nvim",
+  version = ">= 0.11",
   dependencies = {
     {
       "folke/snacks.nvim",
@@ -15,19 +16,19 @@ return {
         local prefix = "<Leader>O"
         maps.n[prefix] = { desc = require("astroui").get_icon("OpenCode", 1, true) .. "OpenCode" }
         maps.n[prefix .. "t"] = {
-          function() require("opencode").toggle() end,
-          desc = "Toggle embedded",
+          function() require("opencode").start() end,
+          desc = "Start OpenCode",
         }
         maps.n[prefix .. "a"] = {
-          function() require("opencode").ask("@this: ", { submit = true }) end,
+          function() require("opencode").ask "@this:" end,
           desc = "Ask about this",
         }
         maps.n[prefix .. "+"] = {
-          function() require("opencode").prompt("@buffer", { append = true }) end,
+          function() require("opencode").prompt "@buffer " end,
           desc = "Add buffer to prompt",
         }
         maps.n[prefix .. "e"] = {
-          function() require("opencode").prompt("Explain @this and its context", { submit = true }) end,
+          function() require("opencode").prompt "Explain @this and its context" end,
           desc = "Explain this code",
         }
         maps.n[prefix .. "n"] = {
@@ -49,11 +50,11 @@ return {
 
         maps.v[prefix] = { desc = require("astroui").get_icon("OpenCode", 1, true) .. "OpenCode" }
         maps.v[prefix .. "a"] = {
-          function() require("opencode").ask("@this: ", { submit = true }) end,
+          function() require("opencode").ask "@this:" end,
           desc = "Ask about selection",
         }
         maps.v[prefix .. "+"] = {
-          function() require("opencode").prompt "@this" end,
+          function() require("opencode").prompt "@this " end,
           desc = "Add selection to prompt",
         }
         maps.v[prefix .. "s"] = {
