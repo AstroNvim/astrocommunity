@@ -11,7 +11,9 @@ return {
           ---@diagnostic disable: missing-fields
           config = {
             jsonls = {
-              on_new_config = function(config)
+              before_init = function(_, config)
+                if not config.settings then config.settings = {} end
+                if not config.settings.json then config.settings.json = {} end
                 if not config.settings.json.schemas then config.settings.json.schemas = {} end
                 vim.list_extend(config.settings.json.schemas, require("schemastore").json.schemas())
               end,
