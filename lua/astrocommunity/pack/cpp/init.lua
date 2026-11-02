@@ -34,7 +34,7 @@ return {
     end,
   },
   {
-    "p00f/clangd_extensions.nvim",
+    "dchinmay2/clangd_extensions.nvim",
     lazy = true,
     dependencies = {
       "AstroNvim/astrocore",

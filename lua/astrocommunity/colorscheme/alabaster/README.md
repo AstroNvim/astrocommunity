@@ -2,7 +2,7 @@
 
 Minimalist color scheme for Sublime Text 3
 
-**Repository:** <https://github.com/p00f/alabaster.nvim>
+**Repository:** <https://github.com/dchinmay2/alabaster.nvim>
 
 ```vim
 " Vim Script
